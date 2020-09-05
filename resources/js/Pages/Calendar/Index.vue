@@ -21,12 +21,17 @@
                 </full-calendar>
             </div>
         </div>
+        <notifications group="foo" position="bottom right" />
+        <calendar-modal name="calendar_modal">
+            Calendar Modal
+        </calendar-modal>
     </layout>
 
 </template>
 
 
 <script>
+    import Vue from 'vue'
     import {mapGetters, mapActions} from "vuex"
     import Layout from "~/Shared/Layout"
     import CalendarSidebar from "../../components/CalendarSidebar";
@@ -38,6 +43,18 @@
     import timeGridPlugin from "@fullcalendar/timegrid"
     import scrollGridPlugin from "@fullcalendar/scrollgrid"
     import i18n from '~/i18n'
+    import Notifications from 'vue-notification'
+    import VModal from 'vue-js-modal'
+
+    Vue.use(Notifications);
+    Vue.use(VModal, {
+        componentName: 'CalendarModal',
+        dynamicDefaults: {
+            draggable: true,
+            resizable: false,
+            height: 'auto'
+        }
+    });
 
     // let myBreadcrumbs = [
     //     {title : 'Home', link : '/home'},
@@ -74,7 +91,7 @@
             },
             configOptions () {
                 return {
-                    locale: i18n.locale,
+                    locale: i18n.locale === 'ae' ? 'ar' : i18n.locale,
                     editable: true,
                     selectable: true,
                     selectMirror: true,
@@ -87,8 +104,12 @@
                         print: {
                             text: i18n.t('general.print'),
                             click: function() {
-                                // Printing currently works for a single provider.
-                                alert("Print Calendar");
+                                // TODO Printing currently works for a single provider.
+                                Vue.notify({
+                                    group: 'foo',
+                                    title: 'Print',
+                                    text: 'About to print the calendar'
+                                });
                             }
                         },
                         search: {
@@ -164,6 +185,12 @@
             },
             toggleWeekends: function() {
                 this.calendarOptions.weekends = !this.calendarOptions.weekends
+            },
+            showCalendarModal: function () {
+                this.$modal.show('calendar_modal');
+            },
+            hideCalendarModal: function () {
+                this.$modal.hide('calendar_modal');
             }
         },
         components: {
@@ -171,6 +198,6 @@
             Layout,
             CalendarSidebar,
             Breadcrumb,
-        }
+        },
     }
 </script>

@@ -426,7 +426,8 @@
             <p class="h-2"></p>
             <div class="flex flex-wrap items-center text-base md:ml-2">
                 <p class="text-sm ...">Patient:
-                    <span class="font-bold">Test Patient</span>
+                    <span v-if="$page.ehr_patient.patient === null" class="font-bold">None</span>
+                    <span v-else class="font-bold">{{ $page.ehr_patient.patient.id }}</span>
                 </p>
             </div>
         </div>
@@ -441,9 +442,11 @@
         props: {
             url: String,
         },
-        data: () => ({
-            open: false,
-        }),
+        data() {
+            return {
+                open: false,
+            }
+        },
         components: {
             Icon,
             LanguageSwitcher,

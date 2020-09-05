@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Validation\ValidationException;
 use Modules\User\Events\Frontend\UserLoggedOut;
 use Modules\User\Helpers\AuthHelper;
@@ -89,6 +90,8 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         auth()->logout();
+        // forget the patient cookie if any
+        Cookie::queue(Cookie::forget('ehr_patient'));
         return redirectWithoutInertia(route('index'));
     }
 }

@@ -1,20 +1,6 @@
 <template>
     <layout>
-        <ul class="flex text-gray-500 text-xl font-semibold mb-3">
-            <li class="inline-flex items-center">
-                <a href="/">{{ $t('menu.patient_client')}}</a>
-                <svg class="h-5 w-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
-                    ></path>
-                </svg>
-            </li>
-            <li class="inline-flex items-center">
-                <a href="#" class="text-teal-400">Patients</a>
-            </li>
-        </ul>
+        <Breadcrumb :active-link="activeLink"/>
         <div class="container">
             <vue-good-table
                 :columns="columns"
@@ -48,9 +34,8 @@
                             </div>
                         </div>
                     </div>
-
-                    <span v-else-if="props.column.field === 'last_name'">
-                        {{props.row.last_name}}
+                    <span v-else-if="props.column.field === 'phone'">
+                        {{props.row.phone}} (001) 234-324-324
                     </span>
                     <span v-else-if="props.column.field === 'sex'">
                         {{props.row.sex}}
@@ -59,14 +44,14 @@
                         {{props.row.date_of_birth}}
                     </span>
                     <span v-else>
-                        <a :href="`/patients/${props.row.id}`"
+                        <inertia-link :href="route('patients.show', props.row.id)"
                         class="mr-3 text-sm bg-gray-800 hover:bg-gray-900 text-white py-1 px-2 rounded
                         focus:outline-none focus:shadow-outline">
                             <span class="badge badge-danger">View</span>
-                        </a>
-                        <a :href="`/patients/${props.row.id}/edit`">
+                        </inertia-link>
+                        <inertia-link :href="route('patients.edit', props.row.id)">
                             <span class="badge badge-danger">Edit</span>
-                        </a>
+                        </inertia-link>
                      </span>
                 </template>
             </vue-good-table>
@@ -76,15 +61,17 @@
 
 <script>
     import Layout from "~/Shared/Layout"
+    import Breadcrumb from "../../components/Breadcrumb"
     import 'vue-good-table/dist/vue-good-table.css'
     import { VueGoodTable } from 'vue-good-table'
     import i18n from '~/i18n'
 
     export default {
-        metaInfo: { title: i18n.t('menu.fees') },
+        metaInfo: { title: i18n.t('menu.patient_client') },
         name: "patient.index",
         props: ['patients'],
         data: () => ({
+            activeLink: i18n.t('menu.patient_client'),
             columns: [
                 {
                     label: 'Patient ID',
@@ -93,6 +80,10 @@
                 {
                     label: 'Patient',
                     field: 'patient_details'
+                },
+                {
+                    label: 'Phone',
+                    field: 'phone'
                 },
                 {
                     label: 'Date of Birth',
@@ -114,10 +105,12 @@
         components: {
             Layout,
             VueGoodTable,
+            Breadcrumb,
         },
         methods: {
             onRowClick(params) {
-                alert(params.pageIndex);
+                let patientRoute = route('patients.show', params.row.id);
+                this.$inertia.visit(patientRoute);
                 // params.row - row object
                 // params.pageIndex - index of this row on the current page.
                 // params.selected - if selection is enabled this argument
@@ -131,6 +124,7 @@
                 console.log(data);
             },
             getPatientImage(id, gender) {
+                // TODO get image property
                 return gender === "male" ? '/images/avatars/male.png' : '/images/avatars/female.png';
             }
         }
