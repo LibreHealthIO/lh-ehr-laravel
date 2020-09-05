@@ -83,17 +83,8 @@
                 loadLocaleMessagesAsync(locale).then(() => {
                     setDocumentLang(locale);
                     setDocumentDirectionPerLocale(locale);
-                    console.log(locale);
                 });
-                // this.$inertia.hardVisit(e, t);
-                this.$inertia.reload({
-                    method: 'get',
-                    data: {
-                        lang: locale
-                    },
-                    preserveState: false,
-                    preserveScroll: true,
-                });
+                this.$inertia.hardVisit(true,'/lang/'+locale)
                 this.hideDropdown()
             }
         }
