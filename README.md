@@ -135,6 +135,12 @@ To view LibreaHealth's EHR Platform, go to:
 http://localhost:8000/
 ```
 
+## Login Credentials
+
+`username` admin
+
+`password` admin123
+
 ## Change log  
   
 Please see the [changelog](changelog.md) for more information on what has changed recently.  
