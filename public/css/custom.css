@@ -1,0 +1,16 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+#languageWrapper::-webkit-scrollbar {
+    width: 3px;
+}
+
+#languageWrapper::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(40, 55, 71, 0.7);
+}
+
+#languageWrapper::-webkit-scrollbar-thumb {
+    background-color: #f59031;
+    outline: 1px solid #283747;
+}

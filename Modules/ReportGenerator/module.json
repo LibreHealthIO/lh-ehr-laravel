@@ -1,0 +1,13 @@
+{
+    "name": "ReportGenerator",
+    "alias": "reportgenerator",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\ReportGenerator\\Providers\\ReportGeneratorServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

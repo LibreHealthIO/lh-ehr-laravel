@@ -1,0 +1,16 @@
+export default {
+    en: "English",
+    fr: "French",
+    es: "Spanish",
+    de: "Dutch",
+    ru: "Russian",
+    pt: "Portuguese",
+    it: "Italian",
+    ae: "عربي (Arabic)",
+    il: "Hebrew",
+    ro: "Romanian",
+    ua: "Ukrainian",
+    tr: "Turkish",
+    jp: "Japanese",
+    cn: "Chinese",
+}

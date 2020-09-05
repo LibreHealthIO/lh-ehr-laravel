@@ -1,0 +1,21 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | General Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used generally through out the
+    | application.
+    */
+
+    'welcome' => 'Welcome',
+    'print' => 'Print',
+    'search' => 'Search',
+    'add' => 'Add',
+    'all_rights_reserved' => 'All Rights Reserved.',
+    'acknowledgement_licensing_and_cert' => 'Acknowledgments, Licensing and Certification',
+
+];
