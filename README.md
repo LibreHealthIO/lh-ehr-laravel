@@ -77,7 +77,7 @@ cp .env.example .env
 
 Run this command to install dependencies
 ```bash
-composer insatall --prefer-dist
+composer install --prefer-dist
 ```
 This command will install all dependencies needed by the Akivas platform to run successfully!
 
