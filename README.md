@@ -15,6 +15,11 @@ We are current and former contributors to OpenEMR and thank that community for y
 We are collaborating closely with the [LibreHealth Project](http://librehealth.io), an umbrella organization for health IT projects with similar goals.
 
 
+<p align="center">
+    <img src="screenshots/homepage.png" height="460"/>
+</p>
+
+
 ## Table of Contents
 
 1. [Requirements](#requirements)
@@ -118,15 +123,18 @@ Run the default laravel server
 php artisan serve
 ```
 
-If you want to serve to another port for example (3000), Run the following
-```bash
-php artisan serve --host=<your_ip_address> --port=8000
-```
-
 To view LibreaHealth's EHR Platform, go to:
 ```php
 http://localhost:8000/
 ```
+
+
+If you want to serve to another port for example (3000), Run the following
+```bash
+php artisan serve --host=<your_ip_address> --port=3000 
+```
+Then view it on the browser by typing `http://<your_ip_address>:3000`
+
 
 #### Login Credentials
 By default, two(02) accounts are created with default roles - **super_admin** and **admin** which are all active.
@@ -193,10 +201,11 @@ It is however advised to install this globally so as to manage a variety of proj
 `composer require global squizlabs/php_codesniffer`
 
 **NB:** 
-- Ensure to point the git hooks to the `.githooks` by running `git config core.hooksPath .githooks`
 - When you have modified or made changes to a file, ensure to run `./vendor/bin/phpcs` to ensure all files are valid or
 fix them using `./vendor/bin/phpcbf`.
 
+Also you can use pre-commit hooks to point the git hooks to the `.githooks` by running `git config core.hooksPath .githooks`
+for validating upon committing.
 
 ## Troubleshooting
 
