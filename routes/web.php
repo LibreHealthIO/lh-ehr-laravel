@@ -70,6 +70,10 @@ Route::group(
 
         // ======== Patient related routes ========
         Route::resource('/patients', 'Admin\Patient\PatientController');
+        Route::get('/patients/select/{id}', 'Admin\Patient\PatientController@selectPatient')
+            ->name('patients.select');
+        Route::get('/patients/clear/{id}', 'Admin\Patient\PatientController@clearPatient')
+            ->name('patients.clear');
 
         Route::get('/flow-board', 'Admin\FlowBoardController@index')
             ->name('dashboard.flow_board');

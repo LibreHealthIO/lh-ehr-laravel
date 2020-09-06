@@ -2,15 +2,18 @@
     display: block;
 }
 
-#languageWrapper::-webkit-scrollbar {
+#languageWrapper::-webkit-scrollbar,
+#calendarUserWrapper::-webkit-scrollbar {
     width: 3px;
 }
 
-#languageWrapper::-webkit-scrollbar-track {
+#languageWrapper::-webkit-scrollbar-track,
+#calendarUserWrapper::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(40, 55, 71, 0.7);
 }
 
-#languageWrapper::-webkit-scrollbar-thumb {
+#languageWrapper::-webkit-scrollbar-thumb,
+#calendarUserWrapper::-webkit-scrollbar-thumb {
     background-color: #f59031;
     outline: 1px solid #283747;
 }

@@ -9,7 +9,7 @@ module.exports = {
         extend: {},
         theme: {
             colors: {
-                orange: '#f59031'
+                orange: '#27a54d'
             },
             container: {
                 padding: '10rem',
@@ -34,6 +34,7 @@ module.exports = {
         require('@tailwindcss/ui'),
         require('autoprefixer'),
         require('tailwindcss-dir')(),
+        require('@tailwindcss/typography'),
         plugin(function ({ addComponents }) {
             const buttons = {
                 '.btn': {

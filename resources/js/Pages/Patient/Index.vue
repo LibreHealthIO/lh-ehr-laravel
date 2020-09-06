@@ -44,7 +44,7 @@
                         {{props.row.date_of_birth}}
                     </span>
                     <span v-else>
-                        <inertia-link :href="route('patients.show', props.row.id)"
+                        <inertia-link :href="route('patients.select', props.row.id)"
                         class="mr-3 text-sm bg-gray-800 hover:bg-gray-900 text-white py-1 px-2 rounded
                         focus:outline-none focus:shadow-outline">
                             <span class="badge badge-danger">View</span>
@@ -109,7 +109,7 @@
         },
         methods: {
             onRowClick(params) {
-                let patientRoute = route('patients.show', params.row.id);
+                let patientRoute = route('patients.select', params.row.id);
                 this.$inertia.visit(patientRoute);
                 // params.row - row object
                 // params.pageIndex - index of this row on the current page.

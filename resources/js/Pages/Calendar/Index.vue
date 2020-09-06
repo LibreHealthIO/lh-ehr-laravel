@@ -2,15 +2,13 @@
     <layout>
         <Breadcrumb :active-link="activeLink"/>
         <div class="flex flex-row">
-<!--            <div class="h-screen sticky-top w-2/6 bg-gray-200">-->
-<!--                <calendar-sidebar-->
-<!--                    :events="myEvents"-->
-<!--                    :weekends-visible="isWeekendVisible"-->
-<!--                    @set-weekends-visible="setweekendsVisible">-->
-<!--                </calendar-sidebar>-->
-<!--            </div>-->
-<!--            <div class="w-screen w-4/6">-->
-            <div class="w-screen ">
+            <div class="h-screen sticky-top w-2/12 bg-gray-100 mr-2 ml-2 p-2">
+                <calendar-sidebar
+                    :facilities="facilities"
+                    :calendar_users="calendar_users">
+                </calendar-sidebar>
+            </div>
+            <div class="w-screen w-10/12">
                 <full-calendar
                     class="full-calendar"
                     :options="config">
@@ -74,6 +72,10 @@
     export default {
         name: 'calendar',
         metaInfo: { title: i18n.t('menu.calendar') },
+        props: [
+            'facilities',
+            'calendar_users'
+        ],
         data: () => {
             return {
                 isWeekendVisible: weekendsVisible,

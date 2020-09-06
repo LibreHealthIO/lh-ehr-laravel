@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin\Patient;
 
 use App\Http\Controllers\Controller;
+use App\Models\Facility;
 use App\Models\Patients\Patient;
 use App\Models\Patients\PatientFaceSheet;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -55,7 +58,17 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Patient/Create');
+        return Inertia::render('Patient/Create', [
+            'facilities' => Facility::all()
+                ->transform(function ($facility) {
+                    return [
+                        'id' => $facility->id,
+                        'name' => $facility->name,
+                        'created_at' => $facility->created_at,
+                        'updated_at' => $facility->updated_at,
+                    ];
+                }),
+        ]);
     }
 
     /**
@@ -70,44 +83,80 @@ class PatientController extends Controller
     }
 
     /**
+     * Selects patient and stores in cookie the redirect to patient details
+     *
+     * @param $id
+     * @return RedirectResponse|void
+     */
+    public function selectPatient($id)
+    {
+        $patient = Patient::find($id);
+        if (!$patient) {
+            return Redirect::back()->with('error', 'No such Patient');
+        } else {
+            // we set the patient as cookie and redirect to patient details
+            Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
+            return Redirect::route('patients.show', $patient->id);
+        }
+    }
+
+    /**
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
+     * @return RedirectResponse|Response
      */
     public function show($id)
     {
         $patient = Patient::find($id);
-
         if (!$patient) {
-            redirect()->back()->with('error', 'No such Patient');
+            return Redirect::back()->with('error', 'No such Patient');
+        } else {
+            if (!Cookie::get('ehr_patient')) {
+                return Redirect::route('patients.select', $patient->id);
+            } else {
+                return Inertia::render('Patient/Profile', [
+                    'patient' => [
+                        'id' => $patient->id,
+                        'title' => $patient->title,
+                        'occupation' => $patient->occupation,
+                        'industry' => $patient->industry,
+
+                        // patient face sheets
+                        'first_name' => $patient->faceSheet->first_name,
+                        'last_name' => $patient->faceSheet->last_name,
+                        'middle_name' => $patient->faceSheet->middle_name,
+                        'date_of_birth' => $patient->faceSheet->dob,
+                        'marital_status' => $patient->faceSheet->marital_status,
+                        'license_id' => $patient->faceSheet->license_id,
+                        'email' => $patient->faceSheet->email,
+                        'sex' => $patient->faceSheet->sex,
+                        'billing_note' => $patient->faceSheet->billing_note,
+
+                        'created_at' => $patient->deleted_at,
+                        'updated_at' => $patient->created_at,
+                    ],
+                ]);
+            }
         }
+    }
 
-        // we set the patient as cookie
-        Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
-
-        return Inertia::render('Patient/Profile', [
-            'patient' => [
-                'id' => $patient->id,
-                'title' => $patient->title,
-                'occupation' => $patient->occupation,
-                'industry' => $patient->industry,
-
-                // patient face sheets
-                'first_name' => $patient->faceSheet->first_name,
-                'last_name' => $patient->faceSheet->last_name,
-                'middle_name' => $patient->faceSheet->middle_name,
-                'date_of_birth' => $patient->faceSheet->dob,
-                'marital_status' => $patient->faceSheet->marital_status,
-                'license_id' => $patient->faceSheet->license_id,
-                'email' => $patient->faceSheet->email,
-                'sex' => $patient->faceSheet->sex,
-                'billing_note' => $patient->faceSheet->billing_note,
-
-                'created_at' => $patient->deleted_at,
-                'updated_at' => $patient->created_at,
-            ],
-        ]);
+    /**
+     * Selects patient and stores in cookie the redirect to patient details
+     *
+     * @param $id
+     * @return RedirectResponse|void
+     */
+    public function clearPatient($id)
+    {
+        $patient = Patient::find($id);
+        if (!$patient) {
+            return Redirect::back()->with('error', 'No such Patient');
+        } else {
+            Cookie::queue(Cookie::forget('ehr_patient'));
+            // TODO if you are on the patient profile and clear it should take you to the patients page
+            return Redirect::back();
+        }
     }
 
     /**

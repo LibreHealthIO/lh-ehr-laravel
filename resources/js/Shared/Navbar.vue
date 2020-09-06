@@ -424,11 +424,40 @@
                 </div>
             </nav>
             <p class="h-2"></p>
-            <div class="flex flex-wrap items-center text-base md:ml-2">
-                <p class="text-sm ...">Patient:
-                    <span v-if="$page.ehr_patient.patient === null" class="font-bold">None</span>
-                    <span v-else class="font-bold">{{ $page.ehr_patient.patient.id }}</span>
-                </p>
+            <div class="flex flex-wrap items-center text-base -mt-3 md:ml-2 mb-2">
+                <div class="text-sm uppercase" style="font-size: 11px">
+                    <div v-if="$page.ehr_patient.patient === null">
+                        <span>{{ $t('menu.patient_client') }}:</span> <span class="font-bold">None</span>
+                    </div>
+                    <div v-else>
+                        <span>{{ $t('menu.patient_client') }}:</span>
+                        <span class="font-bold">{{ $page.ehr_patient.patient.id }}</span>
+                        <inertia-link :href="route('patients.clear', $page.ehr_patient.patient.id)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
+                        font-small text-gray-300 hover:text-white inline-flex items-center bg-gray-700 font-bold
+                        hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 uppercase pointer">
+                            Clear
+                        </inertia-link><br>
+                        <span>{{ $t('forms.date_of_birth') }}:</span>
+                        <span class="font-bold">1990-04-05</span> &nbsp;
+                        <span>{{ $t('forms.age') }}:</span>
+                        <span class="font-bold">22</span>
+                    </div>
+                </div>
+                <div class="flex flex-grow lg:flex-row mr-40 justify-end">
+                    <div class="relative mt-2 w-64">
+                        <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
+                        rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500">
+                            <option>Encounter 1</option>
+                            <option>Encounter 2</option>
+                            <option>Encounter 3</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 -mt-3 text-gray-700">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>

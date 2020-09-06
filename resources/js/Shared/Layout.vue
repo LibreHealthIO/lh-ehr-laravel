@@ -1,7 +1,7 @@
 <template>
     <main>
         <navbar :url="url()"/>
-        <div class="container flex-wrap mx-auto p-8 mt-24 md:mt-16 pt-10">
+        <div class="flex-wrap mx-auto p-8 mt-24 md:mt-16 pt-10">
             <FlashMessages/>
             <slot />
         </div>

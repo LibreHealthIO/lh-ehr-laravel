@@ -20,7 +20,6 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @notifyCss()
-    @stack('css')
     @routes
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none flex flex-col ">
@@ -28,11 +27,10 @@
         @inertia
 
         @include('partials.footer')
-
-        @include('notify::messages')
-
+        <script type="text/javascript">
+            window.default_locale = "{{ config('app.locale') }}";
+            window.fallback_locale = "{{ config('app.fallback_locale') }}";
+        </script>
         <script src="{{ mix('js/app.js') }}"></script>
-        @notifyJs()
-        @stack('js_scripts')
 </body>
 </html>
