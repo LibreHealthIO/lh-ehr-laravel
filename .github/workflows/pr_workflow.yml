@@ -29,6 +29,3 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) using PHPUnit
         run: vendor/bin/phpunit --verbose
-
-      - name: Execute tests (Unit and Feature tests) using JEST
-        run: node_modules/.bin/jest
