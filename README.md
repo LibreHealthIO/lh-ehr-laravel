@@ -16,7 +16,7 @@ We are collaborating closely with the [LibreHealth Project](http://librehealth.i
 
 
 <p align="center">
-    <img src="screenshots/homepage.png" height="500"/>
+    <img src="screenshots/homepage.png" height="460"/>
 </p>
 
 
@@ -133,7 +133,7 @@ If you want to serve to another port for example (3000), Run the following
 ```bash
 php artisan serve --host=<your_ip_address> --port=3000 
 ```
-Then view it on the browser by typing `http://<your_ip_address>:3000/`
+Then view it on the browser by typing `http://<your_ip_address>:3000`
 
 
 #### Login Credentials
