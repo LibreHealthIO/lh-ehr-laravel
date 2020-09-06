@@ -201,10 +201,11 @@ It is however advised to install this globally so as to manage a variety of proj
 `composer require global squizlabs/php_codesniffer`
 
 **NB:** 
-- Ensure to point the git hooks to the `.githooks` by running `git config core.hooksPath .githooks`
 - When you have modified or made changes to a file, ensure to run `./vendor/bin/phpcs` to ensure all files are valid or
 fix them using `./vendor/bin/phpcbf`.
 
+Also you can use pre-commit hooks to point the git hooks to the `.githooks` by running `git config core.hooksPath .githooks`
+for validating upon committing.
 
 ## Troubleshooting
 
