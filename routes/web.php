@@ -50,7 +50,7 @@ Route::group(
     ],
     function () {
         Route::get('', 'Admin\DashboardController@index')
-            ->name('dashboard.index');
+            ->name('dashboard');
 
         // User Profiles/Settings and globals
         Route::get('/settings', 'Admin\DashboardController@settings')
@@ -90,7 +90,7 @@ Route::group(
     function () {
         Route::get('', 'Installer\InstallerController@index')
             ->name('ehr_installer.index');
-        Route::get('/requirements', 'Installer\InstallerController@index')
+            Route::get('/requirements', 'Installer\RequirementsController@index')
             ->name('ehr_installer.requirements');
     }
 );

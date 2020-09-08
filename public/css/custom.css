@@ -1,19 +1,30 @@
+/**
+ * This file contains custom styles for the EHR software. Colors carefully chosen as per the general theme for
+ * LibreEHR. ANY modifications to this file should seek the libreEHR community before  for approval!
+ *
+ * @package LibreHealth EHR
+ * @author Mua N. Laurent <muarachmann@gmail.com>
+ *
+ * Please help the overall project by sending changes you make to the author and to the LibreEHR community.
+ */
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-#languageWrapper::-webkit-scrollbar,
-#calendarUserWrapper::-webkit-scrollbar {
-    width: 3px;
+/*=====================
+ overflow scroll style
+===================== */
+
+.overflow-scroll-container::-webkit-scrollbar {
+    width: 4px;
 }
 
-#languageWrapper::-webkit-scrollbar-track,
-#calendarUserWrapper::-webkit-scrollbar-track {
+.overflow-scroll-container::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(40, 55, 71, 0.7);
 }
 
-#languageWrapper::-webkit-scrollbar-thumb,
-#calendarUserWrapper::-webkit-scrollbar-thumb {
+.overflow-scroll-container::-webkit-scrollbar-thumb {
     background-color: #f59031;
     outline: 1px solid #283747;
 }
