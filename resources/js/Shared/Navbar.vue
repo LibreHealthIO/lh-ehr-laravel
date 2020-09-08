@@ -2,6 +2,11 @@
     <header class="h-24 text-gray-100 bg-gray-900 body-font shadow w-full fixed pin-t z-50">
         <div class="p-2 flex-col items-center pt-20">
             <nav class="flex flex-wrap items-center text-base md:ml-0">
+                <inertia-link :href="route('dashboard')" class="p-1 border-transparent text-gray-400 rounded-full hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+                    <svg class="h-5 w-5" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                </inertia-link>
                 <inertia-link :href="route('dashboard.calendar')"
                 :class="isActiveClass('dashboard.calendar')">{{ $t('menu.calendar') }}</inertia-link>
                 <inertia-link :href="route('dashboard.flow_board')"
@@ -290,9 +295,7 @@
                     </div>
                 </div>
                 <div class="dropdown inline-block relative">
-                    <div class="mr-2 px-2 py-2 rounded-md text-xs font-small text-gray-300 hover:text-white
-                       bg-gray-700 hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 inline-flex items-center
-                       transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100">
+                    <div :class="isActiveClass('dashboard.calendar')">
                         <span class="mr-0.5">{{ $t('menu.qa_measures') }}</span>
                         <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                     </div>
@@ -353,8 +356,8 @@
                     <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                         <div class="relative bg-white">
                             <inertia-link
-                                :href="route('patients.index')"
-                                :class="isSubMenuActive('patients.index')">About
+                                :href="route('about')"
+                                :class="isSubMenuActive('about')">About
                             </inertia-link>
                             <inertia-link
                                 :href="route('patients.create')"
@@ -365,8 +368,8 @@
                                 :class="isSubMenuActive('dashboard.settings')">Chat
                             </inertia-link>
                             <inertia-link
-                                :href="route('dashboard.settings')"
-                                :class="isSubMenuActive('dashboard.settings')">Contact
+                                :href="route('contact')"
+                                :class="isSubMenuActive('contact')">Contact
                             </inertia-link>
                         </div>
                     </div>
@@ -396,7 +399,7 @@
                                 enter-to-class="opacity-100 scale-100"
                                 leave-class="opacity-100 scale-100"
                                 leave-to-class="opacity-0 scale-70">
-                                <div v-if="open" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
+                                <div v-if="open" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50">
                                     <div class="py-1 rounded-md bg-white shadow-xs">
                                         <inertia-link
                                             :href="route('dashboard.profile')"
@@ -446,7 +449,7 @@
                 <div class="flex flex-grow lg:flex-row mr-40 justify-end">
                     <div class="relative mt-2 w-64">
                         <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
-                        rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-transparent focus:border-gray-500">
+                        rounded py-1 px-4 mb-3 leading-tight text-xs focus:outline-none focus:bg-transparent focus:border-gray-500">
                             <option>Encounter 1</option>
                             <option>Encounter 2</option>
                             <option>Encounter 3</option>
@@ -490,11 +493,11 @@
             },
             isActiveClass: function(url) {
                 return this.isUrl(url) ?
-                    'mr-1.5 ml-1.5 px-2 py-2 rounded-md text-xs font-small text-gray-300 hover:text-white ' +
+                    'mr-1 ml-1 px-2 py-2 rounded-md text-xs font-small text-gray-300 hover:text-white ' +
                     'inline-flex items-center bg-gray-700 hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 ' +
                     'transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100':
 
-                    'mr-1.5 ml-1.5 px-2 py-2 rounded-md text-xs font-small text-gray-300 hover:text-white ' +
+                    'mr-1 ml-1 px-2 py-2 rounded-md text-xs font-small text-gray-300 hover:text-white ' +
                     'inline-flex items-center hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 ' +
                     'transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100'
             },

@@ -15,6 +15,8 @@ return [
     'email' => 'E-mail',
     'password' => 'Password',
     'continue' => 'Continue',
+    'next' => 'Next',
+    'previous' => 'Previous',
     'date_of_birth' => 'Date of birth',
     'age' => 'Age',
 ];

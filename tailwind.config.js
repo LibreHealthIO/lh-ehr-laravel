@@ -6,14 +6,23 @@ module.exports = {
         './resources/css/**/*.css',
     ],
     theme: {
-        extend: {},
-        theme: {
+        extend: {
             colors: {
-                orange: '#27a54d'
+                'orange': { // TODO find the appropriate percentages
+                    '100': '#f59031',
+                    '200': '#f59031',
+                    '300': '#f59031',
+                    '400': '#f59031',
+                    '500': '#f59031',
+                    '600': '#f59031',
+                    '700': '#f59031',
+                    '800': '#f59031',
+                    '900': '#f59031',
+                },
             },
-            container: {
-                padding: '10rem',
-            },
+        },
+        container: {
+            padding: '10rem',
         },
     },
     variants: {
@@ -29,6 +38,7 @@ module.exports = {
         float: ['responsive', 'direction'],
         margin: ['responsive', 'direction'],
         padding: ['responsive', 'direction'],
+        tableLayout: ['responsive', 'hover', 'focus'],
     },
     plugins: [
         require('@tailwindcss/ui'),

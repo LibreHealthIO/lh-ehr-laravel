@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PagesController extends Controller
@@ -15,10 +16,13 @@ class PagesController extends Controller
         return view('auth.login');
     }
 
-    public function about()
+    public function about(Request $request)
     {
-        smilify('success', 'About Page');
-        return Inertia::render('About');
+        if ($request->header('X-Inertia') || auth()->check()) {
+            return Inertia::render('About');
+        } else {
+            return view('about');
+        }
     }
 
 

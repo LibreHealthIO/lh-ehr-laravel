@@ -1,6 +1,7 @@
 <template>
     <layout>
         <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink"/>
+        <h1  class="text-xl font-light mb-3">Add New Patient</h1>
         <div class="container">
             <form @submit.prevent="submit" class="w-full mt-2">
                 <div class="flex mb-4">

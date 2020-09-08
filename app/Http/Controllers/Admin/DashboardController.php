@@ -10,12 +10,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Calendar/Index');
-    }
-
-    public function logout()
-    {
-        auth()->logout();
-        return redirect()->route('index');
+        return Inertia::render('Dashboard');
     }
 }

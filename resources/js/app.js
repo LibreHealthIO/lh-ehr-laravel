@@ -21,7 +21,7 @@ new Vue({
     store,
     i18n,
     metaInfo: {
-        titleTemplate: (title) => title ? `${title} - ${process.env.MIX_APP_NAME}` : process.env.MIX_APP_NAME
+        titleTemplate: (title) => title ? `${title} - ${process.env.APP_NAME}` : process.env.APP_NAME
     },
     render: h => h(InertiaApp, {
         props: {

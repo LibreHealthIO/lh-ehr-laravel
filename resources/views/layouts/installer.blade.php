@@ -28,6 +28,35 @@
 
         @notifyJs()
         @include('notify::messages')
+        <script type="text/javascript" src="{{ asset('js/lib/jquery/jquery-3.5.1.min.js') }}"></script>
+        <script type="text/javascript">
+            $(function() {
+                'use strict';
+                $(document).ready(function () {
+
+                    $(document).on("click", function(event) {
+                        let $trigger = $(".dropdown");
+                        if($trigger !== event.target && !$trigger.has(event.target).length) {
+                            $(".dropdown-menu").addClass("hidden").slideUp("fast");
+                        }
+                    });
+
+                    $("#languageSelector").click(function (event) {
+                        $("#languageWrapper").toggleClass("hidden");
+                    });
+
+                    $(".ehr_next_button, .ehr_prev_button").click(function (event) {
+                        event.preventDefault();
+                        let link = $(this).attr("href");
+                        $(this).find("svg.ehr_btn_icon").toggleClass("hidden");
+                        $(this).find("svg.ehr_btn_loader").toggleClass("hidden");
+                        setTimeout(function() {
+                            window.location = link;
+                        }, 1000);
+                    });
+                });
+            });
+        </script>
         @yield('js_scripts')
     </body>
 </html>
