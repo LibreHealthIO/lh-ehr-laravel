@@ -9,9 +9,9 @@
     <title>@yield('title') | {{ config('app.name', 'LibreHealth EHR') }}</title>
 
     <link rel="shortcut icon" type="image/x-icon"
-          href="{{config('app.shortcut_icon') ?: asset('/images/icon/favicon.ico')}}">
-    <meta name="description" content="{{config('app.description')}}">
-    <meta name="keywords" content="{{config('app.keywords')}}">
+          href="{{ config('app.shortcut_icon') ?: asset('images/favicon.ico') }}">
+    <meta name="description" content="{{ config('app.description') }}">
+    <meta name="keywords" content="{{ config('app.keywords') }}">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
     @notifyCss()
     @routes
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none flex flex-col ">
+<body class="bg-gray-100 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
 
         @inertia
 

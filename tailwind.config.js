@@ -28,6 +28,7 @@ module.exports = {
     variants: {
         backgroundColor: ['responsive', 'hover', 'focus', 'group-hover', 'focus-within', 'disabled'],
         textColor: ['responsive', 'hover', 'focus', 'group-hover', 'focus-within'],
+        fontSize: ['responsive', 'hover', 'focus'],
         fontFamily: ['responsive', 'hover', 'focus'],
         zIndex: ['responsive', 'focus'],
         gradients: ['responsive', 'hover'],
