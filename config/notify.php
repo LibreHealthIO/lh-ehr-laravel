@@ -27,6 +27,8 @@ return [
 
     'demo' => false,
 
+    'position' => 'bottom-right',
+
     /*
     |--------------------------------------------------------------------------
     | Preset Messages

@@ -1,7 +1,7 @@
 <template>
     <layout>
         <Breadcrumb :active-link="activeLink"/>
-        <div class="container">
+        <div class="flex flex-row">
             <vue-good-table
                 :columns="columns"
                 :rows="patients"

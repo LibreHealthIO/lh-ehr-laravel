@@ -90,11 +90,12 @@ Route::group(
     function () {
         Route::get('', 'Installer\InstallerController@index')
             ->name('ehr_installer.index');
-            Route::get('/requirements', 'Installer\RequirementsController@index')
+        Route::get('/requirements', 'Installer\RequirementsController@index')
             ->name('ehr_installer.requirements');
+        Route::get('/file-permissions', 'Installer\FilePermissionController@index')
+            ->name('ehr_installer.file_permissions');
     }
 );
-
 
 Auth::routes();
 

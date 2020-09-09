@@ -9,19 +9,19 @@
             <div class="mt-2 text-xs">
                 @switch($i)
                     @case(0)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
+                    <a href="{{ route('ehr_installer.index') }}" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
                      hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
                         <span class="no-underline"> {{ __('installer.introduction') }}</span>
                     </a>
                     @break
                     @case(1)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
+                    <a href="{{ route('ehr_installer.requirements') }}" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
                      hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
                         <span class="no-underline">{{ __('installer.server_requirements') }}</span>
                     </a>
                     @break
                     @case(2)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
+                    <a href="{{ route('ehr_installer.file_permissions') }}" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
                      hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
                         <span class="no-underline">{{ __('installer.file_permissions') }}</span>
                     </a>

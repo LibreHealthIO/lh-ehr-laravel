@@ -7,7 +7,6 @@
         </div>
     </main>
 </template>
-
 <script>
 
     import Navbar from '~/Shared/Navbar'
