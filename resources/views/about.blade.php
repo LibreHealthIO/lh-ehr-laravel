@@ -1,4 +1,4 @@
-@extends('layouts.installer')
+@extends('layouts.master')
 
 @section('title', __('general.about'))
 

@@ -94,6 +94,8 @@ Route::group(
             ->name('ehr_installer.requirements');
         Route::get('/file-permissions', 'Installer\FilePermissionController@index')
             ->name('ehr_installer.file_permissions');
+        Route::get('/database', 'Installer\DatabaseController@index')
+            ->name('ehr_installer.database');
     }
 );
 
