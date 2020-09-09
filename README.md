@@ -16,7 +16,7 @@ We are collaborating closely with the [LibreHealth Project](http://librehealth.i
 
 
 <p align="center">
-    <img src="screenshots/homepage.png" height="460"/>
+    <img src="screenshots/homepage.png" height="450"/>
 </p>
 
 

@@ -98,7 +98,7 @@
                             </a>
                         </div>
                         <div class="justify-end">
-                            <a href="{{ route('ehr_installer.file_permissions') }}" class="ehr_next_button flex text-base text-white items-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
+                            <a href="{{ route('ehr_installer.database') }}" class="ehr_next_button flex text-base text-white items-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
                                 {{ __('forms.continue') }}
                                 <svg class="ehr_btn_loader hidden animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
