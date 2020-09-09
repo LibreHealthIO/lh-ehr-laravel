@@ -132,20 +132,5 @@
 
 @section('js_scripts')
     <script type="text/javascript">
-        $(function() {
-            'use strict';
-            $(document).ready(function () {
-                $('#phpInfo').readmore({
-                    speed: 75,
-                    collapsedHeight: 50,
-                    heightMargin: 16,
-                    moreLink:'<a href="#">Read More</a>',
-                    lessLink:'<a href="#">Close</a>',
-                    embedCSS:true,
-                    startOpen:false,
-                });
-
-            });
-        });
     </script>
 @endsection
