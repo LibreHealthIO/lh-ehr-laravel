@@ -4,7 +4,7 @@ import { InertiaApp } from '@inertiajs/inertia-vue'
 import * as Sentry from '@sentry/browser'
 import VueTailwindPicker from 'vue-tailwind-picker'
 import PortalVue from 'portal-vue'
-import store from "./store/index";
+import store from "~/store/index";
 import i18n from "~/i18n";
 
 Vue.config.productionTip = false;

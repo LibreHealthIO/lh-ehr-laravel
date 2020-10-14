@@ -1,7 +1,7 @@
 <template>
     <layout>
         <Breadcrumb :active-link="activeLink"/>
-        <div class="flex flex-grow">
+        <div class="flex-row flex-grow">
             <vue-good-table
                 :columns="columns"
                 :rows="patients"
@@ -17,7 +17,7 @@
                 </template>
                 <template slot="table-row" slot-scope="props">
                     <span v-if="props.column.field === 'patient_id'">
-                        <span class="inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
+                        <span class="hidden inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
                     </span>
                     <div v-else-if="props.column.field === 'patient_details'" class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="ml-4">
                             <div class="text-sm leading-5 font-medium text-gray-900">
-                                {{props.row.first_name}} {{props.row.last_name}}
+                                {{props.row.first_name}} {{props.row.last_name}} <span class="inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
                             </div>
                             <div class="text-xs leading-5 text-gray-500">
                                 {{props.row.email}}
@@ -73,10 +73,6 @@
         data: () => ({
             activeLink: i18n.t('menu.patient_client'),
             columns: [
-                {
-                    label: 'Patient ID',
-                    field: 'patient_id',
-                },
                 {
                     label: 'Patient',
                     field: 'patient_details'

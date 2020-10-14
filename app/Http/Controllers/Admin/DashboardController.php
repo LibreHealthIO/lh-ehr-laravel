@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Encounter;
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
 use App\Models\User;
 use Inertia\Inertia;
