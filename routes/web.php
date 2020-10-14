@@ -22,9 +22,10 @@ Route::get('/manual/installation-guide', 'PagesController@getInstallationManual'
             Application Routes
        ================================= */
 
-
+Auth::routes();
 
 Route::get('/', 'PagesController@index')->name('index');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/version', 'PagesController@showVersion')->name('ehr.version');
@@ -36,7 +37,6 @@ Route::get('/acknowledge-license-cert', 'PagesController@acknowledgeLicenseCert'
          Multi Language Routes
         =================================*/
 Route::get('/lang/{lang}', 'LocaleController@setLocale')->name('locale.set');
-
 
 
         /* =================================
@@ -75,8 +75,12 @@ Route::group(
         Route::get('/patients/clear/{id}', 'Admin\Patient\PatientController@clearPatient')
             ->name('patients.clear');
 
-        Route::get('/flow-board', 'Admin\FlowBoardController@index')
-            ->name('dashboard.flow_board');
+        // ======== Users related routes ========
+        Route::resource('/users', 'Admin\Patient\PatientController');
+
+
+        // ======== Facility related routes ========
+        Route::resource('/facilities', 'Admin\Facility\FacilityController');
     }
 );
 
@@ -99,6 +103,3 @@ Route::group(
     }
 );
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

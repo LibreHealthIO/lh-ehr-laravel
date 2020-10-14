@@ -2,11 +2,11 @@
     <layout>
         <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink"/>
         <h1  class="text-xl font-light mb-3">Add New Patient</h1>
-        <div class="container">
+        <div class="flex-row flex-grow">
             <form @submit.prevent="submit" class="w-full mt-2">
                 <div class="flex mb-4">
                     <div class="flex flex-wrap w-1/2">
-                        <div class="md:w-full px-3 mb-6 md:mb-0">
+                        <div class="md:w-full px-3 mb-6 md:mb-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Facility
                             </label>
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 First Name
                             </label>
@@ -33,7 +33,7 @@
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
                         </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                        <div class="md:w-1/3 px-3 mb-6 md:mb-5">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Middle Name
                             </label>
@@ -41,7 +41,7 @@
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
                         </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Last Name
                             </label>
@@ -55,9 +55,17 @@
                             </label>
                             <VuePhoneNumberInput v-model="initialPhone" />
                         </div>
+                        <div class="md:w-full px-3 mb-6 md:mb-2">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                Contact Email
+                            </label>
+                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                   value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
+                        </div>
                     </div>
                     <div class="flex flex-wrap w-1/2">
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
+                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Sex
                             </label>
