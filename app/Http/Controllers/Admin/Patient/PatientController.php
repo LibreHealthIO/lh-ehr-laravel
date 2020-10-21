@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Patient;
 
 use App\Http\Controllers\Controller;
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
-use App\Models\Patients\PatientFaceSheet;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;

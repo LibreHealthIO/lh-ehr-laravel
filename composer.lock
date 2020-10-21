@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16a18d9d8772977ad1da764bc0f371c2",
+    "content-hash": "b02738a6bd93f59d8081752f7552b675",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1095,20 +1095,20 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v0.2.7",
+            "version": "v0.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "3452e37170f78481c3ab04e50bdca66143c27c08"
+                "reference": "3db77cb928a2b8373ebb863fbdc6345883f13b61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/3452e37170f78481c3ab04e50bdca66143c27c08",
-                "reference": "3452e37170f78481c3ab04e50bdca66143c27c08",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/3db77cb928a2b8373ebb863fbdc6345883f13b61",
+                "reference": "3db77cb928a2b8373ebb863fbdc6345883f13b61",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.4|^6.0|^7.0"
+                "laravel/framework": "^5.4|^6.0|^7.0|^8.0"
             },
             "require-dev": {
                 "orchestra/testbench": "~3.0"
@@ -1151,7 +1151,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-21T17:49:34+00:00"
+            "time": "2020-10-02T12:53:20+00:00"
         },
         {
             "name": "intervention/image",
@@ -6415,12 +6415,12 @@
             "version": "0.9.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/tightenco/ziggy.git",
+                "url": "https://github.com/tighten/ziggy.git",
                 "reference": "82ea6ec6cb6ab3545b0245310b2a424316fe48d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/ziggy/zipball/82ea6ec6cb6ab3545b0245310b2a424316fe48d8",
+                "url": "https://api.github.com/repos/tighten/ziggy/zipball/82ea6ec6cb6ab3545b0245310b2a424316fe48d8",
                 "reference": "82ea6ec6cb6ab3545b0245310b2a424316fe48d8",
                 "shasum": ""
             },
@@ -9085,6 +9085,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
+        "ext-json": "*",
         "php": "^7.2.5"
     },
     "platform-dev": [],
