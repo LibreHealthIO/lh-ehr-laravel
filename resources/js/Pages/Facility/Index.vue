@@ -17,9 +17,8 @@
                 </template>
                 <template slot="table-row" slot-scope="props">
                     <div v-if="props.column.field === 'facility_details'" class="flex items-center">
-                        <div class="flex-shrink-0 h-10 w-10">
-                            <img class="h-10 w-10 rounded-full"
-                                 :src="getPatientImage(props.row.id)"
+                        <div class="p-1 h-10 w-10">
+                            <img :src="getFacilityImage(props.row.id)"
                                  :alt="props.row.id">
                         </div>
                         <div class="ml-4">
@@ -103,9 +102,9 @@
             columnFilterFn(data, filterString) {
                 console.log(data);
             },
-            getPatientImage(id, gender) {
+            getFacilityImage(id) {
                 // TODO get image property
-                return '/images/avatars/male.png';
+                return '/images/svg/hospital.svg';
             }
         }
     }

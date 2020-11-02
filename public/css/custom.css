@@ -12,6 +12,18 @@
     display: block;
 }
 
+#patient-menu li {
+    margin: .25em 0;
+    padding: 0 1em;
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+
+#patient-menu li:last-child::after {
+    display: none;
+}
+
+
 /*=====================
  overflow scroll style
 ===================== */
@@ -28,3 +40,5 @@
     background-color: #f59031;
     outline: 1px solid #283747;
 }
+
+

@@ -83,9 +83,9 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         return
-            $request->hasHeader('X-Inertia') ?
+            ($request->hasHeader('X-Inertia') ?
                 redirectWithoutInertia(route('index')) :
-            $request->expectsJson() ?
+                ($request->expectsJson())) ?
                 response()->json(['message' => 'Unauthenticated.'], 401) :
                 redirect()->guest(route('auth.login'));
     }
