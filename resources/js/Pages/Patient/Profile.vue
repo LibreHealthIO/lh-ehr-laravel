@@ -11,28 +11,28 @@
             <ul id="patient-menu" class="flex text-gray-400 text-xs uppercase font-semibold mt-2 mb-3 space-x-3">
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.history', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         History
                     </inertia-link>
                 </li>
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.reports', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         Report
                     </inertia-link>
                 </li>
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.documents', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         Documents
                     </inertia-link>
                 </li>
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.transactions', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         Transactions
                     </inertia-link>
@@ -46,14 +46,14 @@
                 </li>
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.ledger', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         Ledger
                     </inertia-link>
                 </li>
                 <li class="inline-block">
                     <inertia-link
-                        :href="route('dashboard')"
+                        :href="route('patients.appointments', patient.id)"
                         class="py-1 hover:text-teal-600" style="font-size: 12px;">
                         Track Appointments
                     </inertia-link>

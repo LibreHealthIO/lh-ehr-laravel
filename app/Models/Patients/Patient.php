@@ -28,4 +28,14 @@ class Patient extends Model
     {
         return $this->hasOne(PatientFaceSheet::class, 'patient_id');
     }
+
+    /**
+     * Return patient's history data
+     *
+     * @return HasOne
+     */
+    public function history()
+    {
+        return $this->hasOne(PatientHistory::class, 'patient_id');
+    }
 }

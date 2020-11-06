@@ -15,6 +15,6 @@ class PatientFaceSheet extends Model
      */
     public function patient()
     {
-        return $this->belongsTo('App\Models\Patients\Patient', 'patient_id');
+        return $this->belongsTo(Patient::class, 'patient_id');
     }
 }

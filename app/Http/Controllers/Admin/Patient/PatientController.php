@@ -51,7 +51,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new patient.
      *
      * @return Response
      */
@@ -109,7 +109,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
         if (!$patient) {
-            return Redirect::back()->with('error', 'No such Patient');
+            return redirect()->back()->with('error', __('general.no_such_patient'));
         } else {
             if (!Cookie::get('ehr_patient')) {
                 return Redirect::route('patients.select', $patient->id);

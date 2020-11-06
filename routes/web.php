@@ -70,10 +70,36 @@ Route::group(
 
         // ======== Patient related routes ========
         Route::resource('/patients', 'Admin\Patient\PatientController');
-        Route::get('/patients/select/{id}', 'Admin\Patient\PatientController@selectPatient')
-            ->name('patients.select');
-        Route::get('/patients/clear/{id}', 'Admin\Patient\PatientController@clearPatient')
-            ->name('patients.clear');
+        Route::group(
+            [
+                'prefix' => 'patients',
+            //                'middleware' => 'select.patient',  TODO (add a middleware for selected patients)
+                'namespace' => 'Admin\Patient'
+            ],
+            function () {
+                Route::get('/select/{id}', 'PatientController@selectPatient')
+                    ->name('patients.select');
+                Route::get('/clear/{id}', 'PatientController@clearPatient')
+                    ->name('patients.clear');
+
+                // Patient History
+                Route::get('/{id}/history', 'PatientHistoryController@index')
+                    ->name('patients.history');
+                Route::get('/{id}/history/edit', 'PatientHistoryController@edit')
+                    ->name('patients.history.edit');
+
+                Route::get('/{id}/documents', 'PatientController@patientDocuments')
+                    ->name('patients.documents');
+                Route::get('/{id}/reports', 'PatientController@patientReports')
+                    ->name('patients.reports');
+                Route::get('/{id}/appointments', 'PatientController@patientAppointments')
+                    ->name('patients.appointments');
+                Route::get('/{id}/transactions', 'PatientController@patientTransactions')
+                    ->name('patients.transactions');
+                Route::get('/{id}/ledger', 'PatientController@patientLedger')
+                    ->name('patients.ledger');
+            }
+        );
 
         // ======== Users related routes ========
         Route::resource('/users', 'Admin\Patient\PatientController');
@@ -102,4 +128,3 @@ Route::group(
             ->name('ehr_installer.database');
     }
 );
-
