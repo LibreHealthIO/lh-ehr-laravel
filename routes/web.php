@@ -92,7 +92,7 @@ Route::group(
                     ->name('patients.documents');
                 Route::get('/{id}/reports', 'PatientController@patientReports')
                     ->name('patients.reports');
-                Route::get('/{id}/appointments', 'PatientController@patientAppointments')
+                Route::get('/{id}/appointments', 'PatientAppointmentController@index')
                     ->name('patients.appointments');
                 Route::get('/{id}/transactions', 'PatientController@patientTransactions')
                     ->name('patients.transactions');

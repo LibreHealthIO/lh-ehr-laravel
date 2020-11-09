@@ -62,38 +62,101 @@
 
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <div class="w-full md:w-3/5 mx-auto">
-                        <div class="shadow-md">
-                            <div class="tab w-full overflow-hidden border-t">
-                                <input class="absolute opacity-0 " id="billing" type="checkbox" name="tabs">
-                                <label class="block py-2 px-5 leading-normal uppercase font-semibold cursor-pointer" for="billing">Billing</label>
-                                <div class="tab-content overflow-hidden leading-normal">
-                                    <p class="p-5">
-                                        <span>Patient ID: {{ patient.id }}</span><br>
-                                        <span>First Name: {{ patient.first_name }}</span><br>
-                                        <span>Middle Name: {{ patient.middle_name }}</span><br>
-                                        <span>Last Name: {{ patient.last_name }}</span><br>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.billing')" :active=true>
+                            <p class="p-5">
+                                <span>Patient Balance Due: <span class="font-bold">$0.00</span></span><br>
+                                <span>Insurance Balance Due: <span class="font-bold">$0.00</span></span><br>
+                                <span>Total Balance Due: <span class="font-bold">$0.00</span></span><br>
+                            </p>
+                        </Accordion>
                     </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.demographics')" :active=false>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.notes')" :active=false>
+                            <p class="p-5">
+                                <span>Patient Balance Due: <span class="font-bold">$0.00</span></span><br>
+                                <span>Insurance Balance Due: <span class="font-bold">$0.00</span></span><br>
+                                <span>Total Balance Due: <span class="font-bold">$0.00</span></span><br>
+                            </p>
+                        </Accordion>
+                    </div>
+
                 </div>
                 <div>
-                    <div class="w-full md:w-3/5 mx-auto">
-                        <div class="shadow-md">
-                            <div class="tab w-full overflow-hidden border-t">
-                                <input class="absolute opacity-0 " id="appts" type="checkbox" name="tabs">
-                                <label class="block py-2 px-5 leading-normal uppercase font-semibold cursor-pointer" for="appts">Future Apointments</label>
-                                <div class="tab-content overflow-hidden leading-normal">
-                                    <p class="p-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
-                                        architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
-                                        illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
-                                        illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
-                                    </p>
-                                </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.future_appointments')" :active=true>
+                            <div class="p-2">
+                                <table class="table-fixed">
+                                    <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2">Intro to JavaScript</td>
+                                        <td class="px-4 py-2">Chris</td>
+                                        <td class="px-4 py-2">1,280</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.medical_problems')" :active=true>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.allergies')" :active=false>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.medications')" :active=false>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.immunizations')" :active=false>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
+                    </div>
+                    <div class="w-full md:w-3/5 mx-auto mb-3">
+                        <Accordion :title="$t('general.prescriptions')" :active=false>
+                            <p class="p-5">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur,
+                                architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur
+                                illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.
+                                illo obcaecati soluta molestias iure facere dolorum adipisci itaque.
+                            </p>
+                        </Accordion>
                     </div>
                 </div>
             </div>
@@ -104,6 +167,7 @@
 <script>
     import Layout from "~/Shared/Layout"
     import Breadcrumb from "../../components/Breadcrumb"
+    import Accordion from "../../components/Accordion"
     import i18n from '~/i18n'
 
     let myBreadcrumbs = [
@@ -127,6 +191,7 @@
         components: {
             Layout,
             Breadcrumb,
+            Accordion
         },
     }
 
