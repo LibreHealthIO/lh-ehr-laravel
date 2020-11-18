@@ -31,8 +31,8 @@
                                 :href="route('dashboard.settings')"
                                 :class="isSubMenuActive('dashboard.settings')">Recycle Bin
                             </inertia-link>
-                            <inertia-link
-                                :href="route('dashboard.settings')"
+                            <inertia-link v-if="$page.ehr_patient.patient != null"
+                                :href="route('patients.select', $page.ehr_patient.patient.id)"
                                 :class="isSubMenuActive('dashboard.settings')">Summary
                             </inertia-link>
                             <inertia-link
@@ -426,23 +426,27 @@
                     </div>
                 </div>
             </nav>
-            <div class="flex flex-wrap items-center text-base -mt-2 md:ml-2 mb-2">
+            <div class="flex flex-wrap items-center text-base -mt-1 md:ml-2 mb-2">
                 <div class="text-sm uppercase" style="font-size: 11px">
                     <div v-if="$page.ehr_patient.patient === null">
                         <span>{{ $t('menu.patient_client') }}:</span> <span class="font-bold">None</span>
                     </div>
                     <div v-else>
                         <span>{{ $t('menu.patient_client') }}:</span>
-                        <span class="font-bold">{{ $page.ehr_patient.patient.id }}</span>
+                        <span class="font-bold">
+                            {{ $page.ehr_patient.patient.first_name }}
+                            {{ $page.ehr_patient.patient.last_name }}
+                            ({{ $page.ehr_patient.patient.id }})
+                        </span>
                         <inertia-link :href="route('patients.clear', $page.ehr_patient.patient.id)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
                         font-small text-gray-300 hover:text-white inline-flex items-center bg-gray-700 font-bold
                         hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 uppercase pointer">
                             Clear
                         </inertia-link><br>
                         <span>{{ $t('forms.date_of_birth') }}:</span>
-                        <span class="font-bold">1990-04-05</span> &nbsp;
+                        <span class="font-bold">{{ $page.ehr_patient.patient.date_of_birth }}</span> &nbsp;
                         <span>{{ $t('forms.age') }}:</span>
-                        <span class="font-bold">22</span>
+                        <span class="font-bold">{{ $page.ehr_patient.patient.age }}</span>
                     </div>
                 </div>
                 <div class="flex flex-grow lg:flex-row mr-40 justify-end">

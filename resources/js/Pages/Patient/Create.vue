@@ -1,7 +1,6 @@
 <template>
     <layout>
         <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink"/>
-        <h1  class="text-xl font-light mb-3">Add New Patient</h1>
         <div class="flex-row flex-grow">
             <form @submit.prevent="submit" class="w-full mt-2">
                 <div class="flex mb-4">
@@ -12,7 +11,7 @@
                             </label>
                             <div class="relative mt-2">
                                 <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                 py-1 px-4 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option>Unassigned</option>
                                     <option v-for="facility in facilities" :value="facility.id">
                                         {{ facility.name }}
@@ -29,7 +28,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 First Name
                             </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
                         </div>
@@ -45,7 +44,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Last Name
                             </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
                         </div>
@@ -59,7 +58,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Contact Email
                             </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
                         </div>
@@ -71,7 +70,7 @@
                             </label>
                             <div class="relative mt-2">
                                 <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option>Unassigned</option>
                                     <option value="male">Male</option>
                                     <option value="male">Female</option>
@@ -94,7 +93,7 @@
                             </label>
                             <div class="relative mt-2">
                                 <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                     <option>Unassigned</option>
                                     <option value="male">Married</option>
                                     <option value="male">Single</option>
@@ -114,7 +113,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                                 Address
                             </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
                     py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                    value="" name="address" minlength="3" maxlength="25" type="text" placeholder="Address" required>
                         </div>
@@ -123,7 +122,7 @@
                                 Billing Note
                             </label>
                             <textarea placeholder="Billing note" class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500bg-transparent" name="billing_note"></textarea>
+                    rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500bg-transparent" name="billing_note"></textarea>
                         </div>
                     </div>
                 </div>

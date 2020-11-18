@@ -30,6 +30,7 @@
 
 .overflow-scroll-container::-webkit-scrollbar {
     width: 4px;
+    height: 4px;
 }
 
 .overflow-scroll-container::-webkit-scrollbar-track {

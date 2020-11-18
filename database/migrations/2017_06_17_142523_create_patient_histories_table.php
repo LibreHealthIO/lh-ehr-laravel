@@ -18,24 +18,25 @@ class CreatePatientHistoriesTable extends Migration
     {
         Schema::create('patient_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('patient_id')
-                ->comment('Foreign key to patients table.');
+            $table->foreignId('patient_id')->comment('Foreign key to patients table.')
+                ->constrained('patients');
 
-	        $table->boolean('mail_mode')->default(0)
-                ->comment('Allow through email. Initially set to be 0. Previously hippa_mail.');
-	        $table->boolean('voice_mode')->default(0)
-                ->comment('Allow voice message. Initially set to be 0. Previously hippa_voice.');
-	        $table->boolean('message_mode')->default(0)
-                ->comment('Allow text sms. Initially set to be 0. Previously hippa_allow_sms.');
+	        $table->dateTime('cataract_surgery')->nullable()->comment('Cataract Surgery Date');
+	        $table->dateTime('tonsillectomy')->nullable()->comment('Tonsillectomy Date');
+	        $table->dateTime('cholecystestomy')->nullable()->comment('cholecystestomy Surgery Date');
+	        $table->dateTime('heart_surgery')->nullable()->comment('Heart Surgery Date');
+	        $table->dateTime('hysterectomy')->nullable()->comment('Hysterectomy Date');
+	        $table->dateTime('hernia_repair')->nullable()->comment('Hernia Repair Date');
+	        $table->dateTime('hip_replacement')->nullable()->comment('Hip Replacement Date');
+	        $table->dateTime('knee_replacement')->nullable()->comment('Heart Surgery Date');
+	        $table->dateTime('appendectomy')->nullable()->comment('Appendectomy Date');
 
-            $table->text('message')
-                ->comment('What message to be sent. Previously hippa_message.');
+	        $table->json('exams')->comment('Exams performed on patient');
+	        $table->json('risk_factors')->comment('Risk Factors patient has');
+	        $table->json('extra_fields')->comment('Extra Fields');
+	        $table->longText('additional_history')->comment('Additional History');
 
-            $table->foreign('patient_id')->references('id')
-                ->on('patients')->onDelete('cascade');
-            $table->foreign('contact_id')->references('id')
-                ->on('patient_contacts')->onDelete('cascade');
-
+	        // created_at column, will keep track of the history dates
 	        $table->timestamps();
         });
     }

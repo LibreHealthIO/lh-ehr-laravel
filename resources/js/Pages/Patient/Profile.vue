@@ -2,10 +2,12 @@
     <layout>
         <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink"/>
         <div class="flex-row flex-grow">
-            <div class="float-left prose">
-                <h2 class="text-bold">
+            <div class="flex flex-row float-left">
+                <img :src="getPatientImage(patient.id, patient.sex)" class="w-12 h-12 bg-red border border-teal-400 rounded-full text-left"/>
+                <h2 class="font-bold text-2xl px-2 py-2">
                     {{ patient.first_name }} {{ patient.middle_name }} {{ patient.last_name }}
                 </h2>
+                <span class="fa fa-trash-o"></span>
             </div>
             <p class="clearfix"></p>
             <ul id="patient-menu" class="flex text-gray-400 text-xs uppercase font-semibold mt-2 mb-3 space-x-3">
@@ -185,7 +187,7 @@
         data() {
             return {
                 pagesRoutes: myBreadcrumbs,
-                activeLink: this.patient.first_name + " " + this.patient.last_name + "(" + this.patient.id + ")",
+                activeLink: this.patient.first_name + " " + this.patient.last_name + " (" + this.patient.id + ")",
             }
         },
         components: {
@@ -193,6 +195,12 @@
             Breadcrumb,
             Accordion
         },
+        methods: {
+            getPatientImage(id, gender) {
+                // TODO get image property
+                return gender === "male" ? '/images/avatars/male.png' : '/images/avatars/female.png';
+            }
+        }
     }
 
 </script>

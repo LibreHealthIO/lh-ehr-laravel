@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Patients\Patient;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
@@ -69,9 +70,25 @@ class AppServiceProvider extends ServiceProvider
                 ];
             },
             'ehr_patient' => function () {
+                // get patient details
+                $id = Cookie::get('ehr_patient');
+                if (!$id) {
+                    return [ 'patient' => null ];
+                }
+                $patient = Patient::find(decrypt($id));
                 return [
-                'patient' => Cookie::get('ehr_patient') ? [
-                    'id' => decrypt(Cookie::get('ehr_patient')),
+                    'patient' => $patient ? [
+                        'id' => $patient->id,
+                        'title' => $patient->title,
+
+                        // patient face sheets
+                        'first_name' => $patient->faceSheet->first_name,
+                        'last_name' => $patient->faceSheet->last_name,
+                        'middle_name' => $patient->faceSheet->middle_name,
+                        'date_of_birth' => $patient->faceSheet->dob,
+                        'age' => $patient->faceSheet->age,
+                        'sex' => $patient->faceSheet->sex,
+                        'created_at' => $patient->deleted_at,
                     ] : null,
                 ];
             },

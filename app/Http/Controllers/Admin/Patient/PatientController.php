@@ -143,17 +143,21 @@ class PatientController extends Controller
     /**
      * Selects patient and stores in cookie the redirect to patient details
      *
+     * @param Request $request
      * @param $id
-     * @return RedirectResponse|void
+     * @return RedirectResponse|string|void
      */
-    public function clearPatient($id)
+    public function clearPatient(Request $request, $id)
     {
         $patient = Patient::find($id);
         if (!$patient) {
             return Redirect::back()->with('error', 'No such Patient');
         } else {
             Cookie::queue(Cookie::forget('ehr_patient'));
-            // TODO if you are on the patient profile and clear it should take you to the patients page
+            // case when you are on the patients screen -> takes you to select other patients
+            if (back()->getTargetUrl() == route('patients.show', $id)) {
+                return redirect()->route('patients.index');
+            }
             return Redirect::back();
         }
     }

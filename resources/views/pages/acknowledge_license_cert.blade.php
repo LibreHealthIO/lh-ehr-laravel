@@ -8,6 +8,18 @@
         <div class="bg-white flex flex-col justify-center w-3/12 items-center max-h-full overflow-scroll-container overflow-auto overflow-x-hidden">
             <img class="w-full mt-10 mb-2 px-5" src="{{ asset('images/logos/ehr_logo.png') }}" alt="LibreHealth Logo">
             <h2 class="leading-5">The Power of medical health data</h2>
+
+            @if(auth()->check())
+                <div class="m-5">
+                    <a id="auth_btn" href="{{ route('dashboard') }}" class="flex text-base text-white justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
+                        <svg class="ehr_btn_loader hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        {{ __('general.ehr_dashboard') }}
+                    </a>
+                </div>
+            @endif
         </div>
         <div class="bg-white flex flex-col w-9/12 items-center max-h-full overflow-scroll-container overflow-auto shadow-lg border-solid border-t-4 border-orange-600">
             @include('includes.language_switcher')
@@ -155,8 +167,20 @@
             @include('partials.footer')
         </div>
     </div>
+@endsection
 
-
-
-
-    @endsection
+@section('js_scripts')
+    <script type="text/javascript">
+        $(function() {
+            'use strict';
+            $(document).ready(function () {
+                let authBtn = $("#auth_btn");
+                authBtn.click(function (event) {
+                    event.preventDefault();
+                    $(".ehr_btn_loader").removeClass("hidden");
+                    setTimeout(function() { location.href = authBtn.attr("href");}, 1000);
+                });
+            });
+        });
+    </script>
+@endsection

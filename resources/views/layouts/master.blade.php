@@ -22,7 +22,7 @@
     @notifyCss()
     @yield('css')
 </head>
-    <body class="bg-gray-100 h-screen antialiased leading-none flex flex-col ">
+    <body class="bg-gray-100 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
 
         @yield('content')
 

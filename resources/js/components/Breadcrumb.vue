@@ -3,7 +3,7 @@
         <li v-if="pageRoutes != null" v-for="pageRoute in pageRoutes" class="inline-flex items-center">
             <inertia-link
                 :href="pageRoute.link"
-                class="mr-0.5 ml-0.5 py-1 underline" style="font-size: 12px;">
+                class="mr-0.5 ml-0.5 py-1 underline" style="font-size: 15px;">
                 {{ pageRoute.title }}
             </inertia-link>
             <svg
@@ -18,7 +18,7 @@
             </svg>
         </li>
         <li v-if="activeLink != null" class="inline-flex items-center">
-            <span class="text-teal-400 mr-0.5 ml-0.5 py-1 underline" style="font-size: 12px;">
+            <span class="text-teal-400 mr-0.5 ml-0.5 py-1 underline" style="font-size: 15px;">
                 {{ activeLink }}
             </span>
         </li>
