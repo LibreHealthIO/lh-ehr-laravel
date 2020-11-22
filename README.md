@@ -104,6 +104,15 @@ php artisan migrate --seed
 
 If an error of permission denied occurs in MySQL, try creating a non-root user with a password and update the .env file as required. Also make sure that the database name provided in the .env file, actually exists in the MySQL databases. You can find detailed solution [here](https://stackoverflow.com/questions/46680785/laravel-artisan-access-denied-for-rootlocalhost-on-console-only/47116614#47116614)
 
+After configuration, the .env file should look somewhat similar like this
+```DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
 Or if for any reason, you wish to reset the database later, you can run
 ```bash
 php artisan migrate:fresh --seed
