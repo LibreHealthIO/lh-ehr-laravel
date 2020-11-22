@@ -25,7 +25,7 @@ We are collaborating closely with the [LibreHealth Project](http://librehealth.i
 7. [Testing](#testing)
 8. [Contributing](#contributing)
 9. [Security](#security)
-10. [Credits](#credits) 
+10. [Credits](#credits)
 11. [License](#license)
 
 
@@ -37,9 +37,9 @@ Make sure your server meets the following requirements.
 -   Composer installed 1.9+
 -   PHP Version 7.2.x+
 
-### PHP extensions 
+### PHP extensions
 
-Make sure you have the following php extensions enabled 
+Make sure you have the following php extensions enabled
 ```
 bz2, curl, date, dom, exif, gd, gettext, grpc,
 imagick, intl, json, libxml, mbstring, mysqli, mysqlnd, openssl, PDO,
@@ -51,12 +51,12 @@ xsl, zip, zlib
 ## Code Quality/Tools
 Make sure your server meets the following requirements.
 
--   [Php CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) 
+-   [Php CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 
 ## Installation
 
-Install composer with the help of the instructions given [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos) 
+Install composer with the help of the instructions given [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 ``` bash  
 $ wget https://getcomposer.org/composer.phar
 $ chmod +x composer.phar
@@ -69,7 +69,7 @@ Linux/Unix `yum install npm` OR using MacOs `brew install node`
 
 Fork and/or clone this project by running the following command
 ``` bash  
-$ git clone https://github.com/LibreHealthIO/lh-ehr-laravel.git 
+$ git clone https://github.com/LibreHealthIO/lh-ehr-laravel.git
 ```
 
 Navigate into the project's directory
@@ -95,7 +95,7 @@ Generate application key
 
 Install npm/yarn dependencies  (Preference is using **Yarn**)
 ```bash
-npm install or yarn install 
+npm install or yarn install
 ```
 
 
@@ -103,6 +103,8 @@ This command will help migrate the database and populate the database!
 ```bash
 php artisan migrate --seed
 ```
+
+If an error of permission denied occurs in MySQL, try creating a non-root user with a password and update the .env file as required. Also make sure that the database name provided in the .env file, actually exists in the MySQL databases. You can find detailed solution [here](https://stackoverflow.com/questions/46680785/laravel-artisan-access-denied-for-rootlocalhost-on-console-only/47116614#47116614)
 
 Or if for any reason, you wish to reset the database later, you can run
 ```bash
@@ -114,11 +116,11 @@ php artisan migrate:fresh --seed
 
 Run yarn/npm in dev mode
 `npm run dev` OR `yarn run dev`
- 
+
 For live building of components while developing, you can run
 
 `npm run watch` OR `npm run watch-poll`
- 
+
 
 Run the default laravel server
 ```bash
@@ -136,9 +138,9 @@ http://localhost:8000/
 ```
 
 ## Change log  
-  
+
 Please see the [changelog](changelog.md) for more information on what has changed recently.  
-  
+
 ## Testing  
 
 Testing is very essential as this helps us to avoid bad practices and breaking code.
@@ -152,20 +154,20 @@ TEST_DB_USERNAME=root
 TEST_DB_PASSWORD=
 ```
 
-Create a database for testing. Here, we will be using mysql for our db test since it supports column dropping etc, 
+Create a database for testing. Here, we will be using mysql for our db test since it supports column dropping etc,
 You can use **pgsql**, if you like by changing the default connection `lh_ehr_testing` driver pgsql in the `config/database.php`.
 
-By default, the test connection is added to the `phpunit.xml` file. Feel free to edit this if needed to suit your custom 
-database connection by changing the `<env name="DB_CONNECTION" value="lh_ehr_testing"/>` to 
+By default, the test connection is added to the `phpunit.xml` file. Feel free to edit this if needed to suit your custom
+database connection by changing the `<env name="DB_CONNECTION" value="lh_ehr_testing"/>` to
 `<env name="DB_CONNECTION" value="custom_connection"/>`
 
 Create the test database **(lh_ehr_test)** and re-migrate your data and seed using the following command
 ` php artisan migrate --database=lh_ehr_testing  `
 ` php artisan db:seed --database=lh_ehr_testing  `
-    
+
 Or fresh install `php artisan migrate:fresh --database=lh_ehr_test --seed`
 
-  
+
 Run the tests using:
 ``` bash  
 $ composer test  
@@ -178,26 +180,26 @@ Official documentation is available [Here](https://docs.librehealth.io/projects/
 ## Troubleshooting
 
 Before opening an issue, please refer to the [troubleshoot guide](troubleshooting.md)
-  
+
 ## Contributing  
-  
+
 Please see [contributing.md](contributing.md) for details and a todolist.  
 
 ## Security  
-  
-If you discover any security related issues, please email infra@libreahealth.io 
+
+If you discover any security related issues, please email infra@libreahealth.io
 instead of using the issue tracker.  
-  
+
 ## Credits  
-  
+
 - [Priyanshu Sinha](https://github.com/pri2si17-1997)
 - [Mua Rachmann](https://github.com/muarachmann)
 
-  
+
 ## License  
-  
-LibreHealth EHR is primarily licensed under Mozilla Public License Version 2. 
-The code inherited from OpenEMR is licensed under GPL 2 or higher. This project is a part of the 
+
+LibreHealth EHR is primarily licensed under Mozilla Public License Version 2.
+The code inherited from OpenEMR is licensed under GPL 2 or higher. This project is a part of the
 [Software Freedom Conservancy](http://sfconservancy.org/) family.
 
 Thank you for your support!
