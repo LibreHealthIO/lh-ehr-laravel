@@ -1,32 +1,29 @@
 <template>
     <div class="calendar-sidebar">
-        <section class="instructions">
-            <ErhDatepicker></ErhDatepicker>
-            <h2>Instructions</h2>
+        <ErhDatepicker></ErhDatepicker>
+        <div class="relative mt-2">
+            <select @change="getFacilityEncounters" class="appearance-none block w-full bg-white text-gray-700 border
+             border-gray-500 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                <option value="0">All Facilities</option>
+                <option v-for="facility in facilities" :value="facility.id">
+                    {{ facility.name }}
+                </option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                </svg>
+            </div>
+        </div>
+        <select @change="getUsersEncounters" id="calendarUserWrapper" size="15" multiple
+                class="appearance-none block w-full h-full bg-white text-gray-700 border
+            border-gray-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white
+            focus:border-gray-500">
+            <option v-for="user in calendar_users" :value="user.id">
+                {{ user.name }}
+            </option>
+        </select>
 
-            <ul>
-                <li>Select dates and you will be prompted to create a new event</li>
-                <li>Drag, drop, and resize events</li>
-                <li>Click an event to delete it</li>
-            </ul>
-        </section>
-
-        <section class="quick-toggles">
-            <label>
-                <input type="checkbox" v-model="weekendsVisibleCheckbox">
-                Toggle weekends
-            </label>
-        </section>
-
-        <section class="events-list">
-            <h2>All Events ({{ events.length }})</h2>
-            <ul>
-                <li v-for="event in events" :key="event.id">
-                    <b>{{ event.start }}</b>
-                    <i>{{ event.title }}</i>
-                </li>
-            </ul>
-        </section>
     </div>
 </template>
 
@@ -35,38 +32,29 @@
     export default {
         name: "CalendarSidebar",
         props: {
-            events: {
+            facilities: {
                 type: Array,
                 required: true
             },
-            weekendsVisible: {
-                type: Boolean,
+            calendar_users: {
+                type: Array,
                 required: true
-            }
+            },
         },
         components: {
             ErhDatepicker,
         },
         computed: {
-            weekendsVisibleCheckbox: {
-                get () {
-                    return this.weekendsVisible
-                },
-                set (value) {
-                    return this.$emit('set-weekends-visible', value)
-                }
-            }
+
         },
         methods: {
-            isAllDay (event) {
-                return (event.allDay !== undefined) ? event.allDay : false
+            getFacilityEncounters (event) {
+                // TODO, reflect changes in the calendar
+                console.log(event.target.value);
             },
-            getFormattedDate (event) {
-                const date = event.date || event.start;
-                if (date === undefined) {
-                    return ''
-                }
-                return format(date, 'MMM d, yyyy')
+            getUsersEncounters (event) {
+                // TODO, reflect changes in the calendar
+                console.log(event.target.value);
             }
         }
     }

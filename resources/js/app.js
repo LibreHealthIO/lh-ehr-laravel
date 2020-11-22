@@ -4,7 +4,7 @@ import { InertiaApp } from '@inertiajs/inertia-vue'
 import * as Sentry from '@sentry/browser'
 import VueTailwindPicker from 'vue-tailwind-picker'
 import PortalVue from 'portal-vue'
-import store from "./store/index";
+import store from "~/store/index";
 import i18n from "~/i18n";
 
 Vue.config.productionTip = false;
@@ -21,7 +21,7 @@ new Vue({
     store,
     i18n,
     metaInfo: {
-        titleTemplate: (title) => title ? `${title} - ${process.env.MIX_APP_NAME}` : process.env.MIX_APP_NAME
+        titleTemplate: (title) => title ? `${title} - ${process.env.APP_NAME}` : process.env.APP_NAME
     },
     render: h => h(InertiaApp, {
         props: {

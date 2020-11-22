@@ -15,6 +15,11 @@ We are current and former contributors to OpenEMR and thank that community for y
 We are collaborating closely with the [LibreHealth Project](http://librehealth.io), an umbrella organization for health IT projects with similar goals.
 
 
+<p align="center">
+    <img src="screenshots/homepage.png" height="450"/>
+</p>
+
+
 ## Table of Contents
 
 1. [Requirements](#requirements)
@@ -47,13 +52,6 @@ pdo_mysql, posix, protobuf, soap, sqlite3, xml, xmlreader, xmlrpc, xmlwriter
 xsl, zip, zlib
 ```
 
-
-## Code Quality/Tools
-Make sure your server meets the following requirements.
-
--   [Php CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-
-
 ## Installation
 
 Install composer with the help of the instructions given [here](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
@@ -84,7 +82,7 @@ cp .env.example .env
 
 Run this command to install dependencies
 ```bash
-composer insatall --prefer-dist
+composer install --prefer-dist
 ```
 This command will install all dependencies needed by the Akivas platform to run successfully!
 
@@ -127,15 +125,31 @@ Run the default laravel server
 php artisan serve
 ```
 
-If you want to serve to another port for example (3000), Run the following
-```bash
-php artisan serve --host=<your_ip_address> --port=8000
-```
-
 To view LibreaHealth's EHR Platform, go to:
 ```php
 http://localhost:8000/
 ```
+
+
+If you want to serve to another port for example (3000), Run the following
+```bash
+php artisan serve --host=<your_ip_address> --port=3000
+```
+Then view it on the browser by typing `http://<your_ip_address>:3000`
+
+
+#### Login Credentials
+By default, two(02) accounts are created with default roles - **super_admin** and **admin** which are all active.
+
+- Super Admin Account:
+    - *Username*: `s_admin`
+    - *Email*: `s_admin@librehealthehr.com`
+    - *Password*: `s_admin123`
+
+- Admin Account **(recommended)**:
+    - *Username*: `admin`
+    - *Email*: `admin@librehealthehr.com`
+    - *Password*: `admin123`
 
 ## Change log  
 
@@ -165,7 +179,7 @@ Create the test database **(lh_ehr_test)** and re-migrate your data and seed usi
 ` php artisan migrate --database=lh_ehr_testing  `
 ` php artisan db:seed --database=lh_ehr_testing  `
 
-Or fresh install `php artisan migrate:fresh --database=lh_ehr_test --seed`
+Or fresh install `php artisan migrate:fresh --database=lh_ehr_testing --seed`
 
 
 Run the tests using:
@@ -176,6 +190,24 @@ $ composer test
 ## Documentation
 Official documentation is available [Here](https://docs.librehealth.io/projects/ehr/index.html).
 
+
+
+## Code Quality/Tools
+
+We use [Php CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) to ensure
+code quality and we all are using the same standards. This is enabled by default for this
+project and incorporated in the hooks when committing `.git/hooks`.
+
+It is however advised to install this globally so as to manage a variety of projects
+
+`composer require global squizlabs/php_codesniffer`
+
+**NB:**
+- When you have modified or made changes to a file, ensure to run `./vendor/bin/phpcs` to ensure all files are valid or
+fix them using `./vendor/bin/phpcbf`.
+
+Also you can use pre-commit hooks to point the git hooks to the `.githooks` by running `git config core.hooksPath .githooks`
+for validating upon committing.
 
 ## Troubleshooting
 

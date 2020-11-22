@@ -65,11 +65,11 @@ class Handler extends ExceptionHandler
 
         if (!(app()->environment('production'))
             && $request->header('X-Inertia')
-            && in_array($response->status(), [500, 503, 404, 403])
+            && in_array($response->getStatusCode(), [500, 503, 404, 403])
         ) {
-            return Inertia::render('Error/Index', ['status' => $response->status()])
+            return Inertia::render('Error/Index', ['status' => $response->getStatusCode()])
                 ->toResponse($request)
-                ->setStatusCode($response->status());
+                ->setStatusCode(404);
         }
         return $response;
     }

@@ -1,9 +1,9 @@
 <template>
     <ul class="flex text-gray-500 text-xs uppercase font-semibold mb-3">
-        <li v-if="pageRoutes != null" v-for="pageRoute in pageRoutes" :key="pageRoute.link" class="inline-flex items-center">
+        <li v-if="pageRoutes != null" v-for="pageRoute in pageRoutes" class="inline-flex items-center">
             <inertia-link
                 :href="pageRoute.link"
-                class="mr-0.5 ml-0.5 py-1 underline" style="font-size: 10px;">
+                class="mr-0.5 ml-0.5 py-1 underline" style="font-size: 12px;">
                 {{ pageRoute.title }}
             </inertia-link>
             <svg
@@ -18,7 +18,7 @@
             </svg>
         </li>
         <li v-if="activeLink != null" class="inline-flex items-center">
-            <span class="text-teal-400 mr-0.5 ml-0.5 py-1 underline" style="font-size: 10px;">
+            <span class="text-teal-400 mr-0.5 ml-0.5 py-1 underline" style="font-size: 12px;">
                 {{ activeLink }}
             </span>
         </li>

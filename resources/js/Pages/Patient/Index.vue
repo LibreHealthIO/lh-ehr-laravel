@@ -1,21 +1,7 @@
 <template>
     <layout>
-        <ul class="flex text-gray-500 text-xl font-semibold mb-3">
-            <li class="inline-flex items-center">
-                <a href="/">{{ $t('menu.patient_client')}}</a>
-                <svg class="h-5 w-auto text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
-                    ></path>
-                </svg>
-            </li>
-            <li class="inline-flex items-center">
-                <a href="#" class="text-teal-400">Patients</a>
-            </li>
-        </ul>
-        <div class="container">
+        <Breadcrumb :active-link="activeLink"/>
+        <div class="flex-row flex-grow">
             <vue-good-table
                 :columns="columns"
                 :rows="patients"
@@ -31,7 +17,7 @@
                 </template>
                 <template slot="table-row" slot-scope="props">
                     <span v-if="props.column.field === 'patient_id'">
-                        <span class="inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
+                        <span class="hidden inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
                     </span>
                     <div v-else-if="props.column.field === 'patient_details'" class="flex items-center">
                         <div class="flex-shrink-0 h-10 w-10">
@@ -41,16 +27,15 @@
                         </div>
                         <div class="ml-4">
                             <div class="text-sm leading-5 font-medium text-gray-900">
-                                {{props.row.first_name}} {{props.row.last_name}}
+                                {{props.row.first_name}} {{props.row.last_name}} <span class="inline-block bg-gray-200 rounded px-1 py-1 text-xs font-bold text-gray-800 ml-2">{{props.row.id}}</span>
                             </div>
                             <div class="text-xs leading-5 text-gray-500">
                                 {{props.row.email}}
                             </div>
                         </div>
                     </div>
-
-                    <span v-else-if="props.column.field === 'last_name'">
-                        {{props.row.last_name}}
+                    <span v-else-if="props.column.field === 'phone'">
+                        {{props.row.phone}} (001) 234-324-324
                     </span>
                     <span v-else-if="props.column.field === 'sex'">
                         {{props.row.sex}}
@@ -59,14 +44,14 @@
                         {{props.row.date_of_birth}}
                     </span>
                     <span v-else>
-                        <a :href="`/patients/${props.row.id}`"
+                        <inertia-link :href="route('patients.select', props.row.id)"
                         class="mr-3 text-sm bg-gray-800 hover:bg-gray-900 text-white py-1 px-2 rounded
                         focus:outline-none focus:shadow-outline">
                             <span class="badge badge-danger">View</span>
-                        </a>
-                        <a :href="`/patients/${props.row.id}/edit`">
+                        </inertia-link>
+                        <inertia-link :href="route('patients.edit', props.row.id)">
                             <span class="badge badge-danger">Edit</span>
-                        </a>
+                        </inertia-link>
                      </span>
                 </template>
             </vue-good-table>
@@ -76,23 +61,25 @@
 
 <script>
     import Layout from "~/Shared/Layout"
+    import Breadcrumb from "../../components/Breadcrumb"
     import 'vue-good-table/dist/vue-good-table.css'
     import { VueGoodTable } from 'vue-good-table'
     import i18n from '~/i18n'
 
     export default {
-        metaInfo: { title: i18n.t('menu.fees') },
+        metaInfo: { title: i18n.t('menu.patient_client') },
         name: "patient.index",
         props: ['patients'],
         data: () => ({
+            activeLink: i18n.t('menu.patient_client'),
             columns: [
-                {
-                    label: 'Patient ID',
-                    field: 'patient_id',
-                },
                 {
                     label: 'Patient',
                     field: 'patient_details'
+                },
+                {
+                    label: 'Phone',
+                    field: 'phone'
                 },
                 {
                     label: 'Date of Birth',
@@ -114,10 +101,12 @@
         components: {
             Layout,
             VueGoodTable,
+            Breadcrumb,
         },
         methods: {
             onRowClick(params) {
-                alert(params.pageIndex);
+                let patientRoute = route('patients.select', params.row.id);
+                this.$inertia.visit(patientRoute);
                 // params.row - row object
                 // params.pageIndex - index of this row on the current page.
                 // params.selected - if selection is enabled this argument
@@ -131,6 +120,7 @@
                 console.log(data);
             },
             getPatientImage(id, gender) {
+                // TODO get image property
                 return gender === "male" ? '/images/avatars/male.png' : '/images/avatars/female.png';
             }
         }

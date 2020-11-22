@@ -13,13 +13,15 @@ import Locales from '~/locales/translations';
 
 Vue.use(VueI18n);
 function getStartingLocale() {
-    const browserLocale = getBrowserLocale({ countryCodeOnly: true });
-
-    if (supportedLocalesInclude(browserLocale)) {
-        return browserLocale
-    } else {
-        return window.default_locale || "en"
-    }
+    return window.default_locale || "en"
+    // TODO decide on whether to use browser locale or not
+    // const browserLocale = getBrowserLocale({ countryCodeOnly: true });
+    //
+    // if (supportedLocalesInclude(browserLocale)) {
+    //     return browserLocale
+    // } else {
+    //     return window.default_locale || "en"
+    // }
 }
 
 setDefaultChoiceIndexGet(VueI18n.prototype.getChoiceIndex);

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Khsing\World\Models\Country;
@@ -14,6 +15,7 @@ class User extends Authenticatable
 {
     use LaratrustUserTrait;
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +23,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username'
+        'username', 'password', 'first_name', 'middle_name', 'last_name', 'federal_tax_id',
+        'federal_drug_id', 'see_auth', 'npi', 'suffix', 'taxonomy', 'calendar_ui', 'info',
+        'new_crop_user_role', 'access_control', 'in_calendar',
     ];
 
     /**

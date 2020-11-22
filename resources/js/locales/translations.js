@@ -306,7 +306,9 @@ export default {
             "username": "اسم المستخدم",
             "email": "البريد الإلكتروني",
             "password": "كلمه السر",
-            "continue": "استمر"
+            "continue": "استمر",
+            "date_of_birth": "تاريخ الولادة",
+            "age": "عمر"
         }
     },
     "ar": {
@@ -3136,7 +3138,9 @@ export default {
             "username": "Benutzername",
             "email": "E-mail",
             "password": "Kennwort",
-            "continue": "Weiter"
+            "continue": "Weiter",
+            "date_of_birth": "Geburtsdatum",
+            "age": "Alter"
         }
     },
     "de_CH": {
@@ -3961,7 +3965,9 @@ export default {
             "username": "Username",
             "email": "E-mail",
             "password": "Password",
-            "continue": "Continue"
+            "continue": "Continue",
+            "date_of_birth": "Date of birth",
+            "age": "Age"
         }
     },
     "es": {
@@ -4280,7 +4286,9 @@ export default {
             "username": "Nombre de usuario",
             "email": "Correo electrónico",
             "password": "Contraseña",
-            "continue": "Continúa"
+            "continue": "Continúa",
+            "date_of_birth": "Fecha de nacimiento",
+            "age": "Edad"
         }
     },
     "et": {
@@ -5894,7 +5902,9 @@ export default {
             "username": "Nom d'utilisateur",
             "email": "E-mail",
             "password": "Mot de passe",
-            "continue": "Continuer"
+            "continue": "Continuer",
+            "date_of_birth": "Date de naissance",
+            "age": "Âge"
         }
     },
     "gl": {
@@ -8195,7 +8205,9 @@ export default {
             "username": "Nome utente",
             "email": "E-mail",
             "password": "Password",
-            "continue": "Continua"
+            "continue": "Continua",
+            "date_of_birth": "Data di nascita",
+            "age": "Età"
         }
     },
     "jp": {
@@ -8478,7 +8490,9 @@ export default {
             "username": "ユーザー名",
             "email": "電子メール",
             "password": "パスワード",
-            "continue": "続ける"
+            "continue": "続ける",
+            "date_of_birth": "生年月日",
+            "age": "年齢"
         }
     },
     "ka": {
@@ -14033,7 +14047,9 @@ export default {
             "username": "Имя пользователя",
             "email": "Электронный",
             "password": "Пароль",
-            "continue": "Войти"
+            "continue": "Войти",
+            "date_of_birth": "Дата рождения",
+            "age": "Возраст"
         }
     },
     "sc": {

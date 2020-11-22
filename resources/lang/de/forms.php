@@ -15,4 +15,6 @@ return [
     'email' => 'E-mail',
     'password' => 'Kennwort',
     'continue' => 'Weiter',
+    'date_of_birth' => 'Geburtsdatum',
+    'age' => 'Alter',
 ];

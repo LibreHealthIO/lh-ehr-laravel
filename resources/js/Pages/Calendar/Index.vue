@@ -2,15 +2,13 @@
     <layout>
         <Breadcrumb :active-link="activeLink"/>
         <div class="flex flex-row">
-<!--            <div class="h-screen sticky-top w-2/6 bg-gray-200">-->
-<!--                <calendar-sidebar-->
-<!--                    :events="myEvents"-->
-<!--                    :weekends-visible="isWeekendVisible"-->
-<!--                    @set-weekends-visible="setweekendsVisible">-->
-<!--                </calendar-sidebar>-->
-<!--            </div>-->
-<!--            <div class="w-screen w-4/6">-->
-            <div class="w-screen ">
+            <div class="h-screen sticky-top w-2/12 bg-gray-100 mr-2 ml-2 p-2">
+                <calendar-sidebar
+                    :facilities="facilities"
+                    :calendar_users="calendar_users">
+                </calendar-sidebar>
+            </div>
+            <div class="w-screen w-10/12">
                 <full-calendar
                     class="full-calendar"
                     :options="config">
@@ -21,12 +19,17 @@
                 </full-calendar>
             </div>
         </div>
+        <notifications group="foo" position="bottom right" />
+        <calendar-modal name="calendar_modal">
+            Calendar Modal
+        </calendar-modal>
     </layout>
 
 </template>
 
 
 <script>
+    import Vue from 'vue'
     import {mapGetters, mapActions} from "vuex"
     import Layout from "~/Shared/Layout"
     import CalendarSidebar from "../../components/CalendarSidebar";
@@ -38,6 +41,18 @@
     import timeGridPlugin from "@fullcalendar/timegrid"
     import scrollGridPlugin from "@fullcalendar/scrollgrid"
     import i18n from '~/i18n'
+    import Notifications from 'vue-notification'
+    import VModal from 'vue-js-modal'
+
+    Vue.use(Notifications);
+    Vue.use(VModal, {
+        componentName: 'CalendarModal',
+        dynamicDefaults: {
+            draggable: true,
+            resizable: false,
+            height: 'auto'
+        }
+    });
 
     // let myBreadcrumbs = [
     //     {title : 'Home', link : '/home'},
@@ -57,6 +72,10 @@
     export default {
         name: 'calendar',
         metaInfo: { title: i18n.t('menu.calendar') },
+        props: [
+            'facilities',
+            'calendar_users'
+        ],
         data: () => {
             return {
                 isWeekendVisible: weekendsVisible,
@@ -74,7 +93,7 @@
             },
             configOptions () {
                 return {
-                    locale: i18n.locale,
+                    locale: i18n.locale === 'ae' ? 'ar' : i18n.locale,
                     editable: true,
                     selectable: true,
                     selectMirror: true,
@@ -87,8 +106,12 @@
                         print: {
                             text: i18n.t('general.print'),
                             click: function() {
-                                // Printing currently works for a single provider.
-                                alert("Print Calendar");
+                                // TODO Printing currently works for a single provider.
+                                Vue.notify({
+                                    group: 'foo',
+                                    title: 'Print',
+                                    text: 'About to print the calendar'
+                                });
                             }
                         },
                         search: {
@@ -164,6 +187,12 @@
             },
             toggleWeekends: function() {
                 this.calendarOptions.weekends = !this.calendarOptions.weekends
+            },
+            showCalendarModal: function () {
+                this.$modal.show('calendar_modal');
+            },
+            hideCalendarModal: function () {
+                this.$modal.hide('calendar_modal');
             }
         },
         components: {
@@ -171,6 +200,6 @@
             Layout,
             CalendarSidebar,
             Breadcrumb,
-        }
+        },
     }
 </script>

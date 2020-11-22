@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use Inertia\Inertia;
@@ -64,6 +65,13 @@ class AppServiceProvider extends ServiceProvider
                             'emoji' => Auth::user()->country->emoji,
                             'currency_code' => Auth::user()->country->currency_code,
                         ],
+                    ] : null,
+                ];
+            },
+            'ehr_patient' => function () {
+                return [
+                'patient' => Cookie::get('ehr_patient') ? [
+                    'id' => decrypt(Cookie::get('ehr_patient')),
                     ] : null,
                 ];
             },
