@@ -27,7 +27,6 @@ class FilePermissionController extends Controller
     public function index()
     {
         $permissions = $this->permissions->check(config('ehr_installer.permissions'));
-        emotify('success', 'Permissions checked Success fully');
         return view('installer.files_permission', compact('permissions'));
     }
 }

@@ -101,9 +101,9 @@
                                 <table class="table-fixed">
                                     <tbody>
                                     <tr>
-                                        <td class="px-4 py-2">Intro to JavaScript</td>
-                                        <td class="px-4 py-2">Chris</td>
-                                        <td class="px-4 py-2">1,280</td>
+                                        <td class="px-4 py-2">Patient Appointment One</td>
+                                        <td class="px-4 py-2">New Patient</td>
+                                        <td class="px-4 py-2">02/1/2020</td>
                                     </tr>
                                     </tbody>
                                 </table>

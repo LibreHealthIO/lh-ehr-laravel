@@ -450,17 +450,25 @@
                     </div>
                 </div>
                 <div class="flex flex-grow lg:flex-row mr-40 justify-end">
-                    <div class="relative mt-2 w-64">
-                        <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
-                        rounded py-1 px-4 mb-3 leading-tight text-xs focus:outline-none focus:bg-transparent focus:border-gray-500">
-                            <option>Encounter 1</option>
-                            <option>Encounter 2</option>
-                            <option>Encounter 3</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 -mt-3 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
+                    <div class="relative mt-1 text-sm uppercase w-64" style="font-size: 11px">
+                        <div v-if="$page.ehr_patient.patient === null" class="mb-1">
+                            <span>{{ $t('general.selected_encounter') }}:</span> <span class="font-bold">None</span>
+                        </div>
+                        <div v-else class="mb-1">
+                            <span>{{ $t('general.selected_encounter') }}:</span> <span class="font-bold text-teal-300">2020-11-18</span>
+                            <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
+                        rounded mt-1.5 py-1 px-4 mb-3 leading-tight text-xs focus:outline-none focus:bg-transparent focus:border-gray-500">
+                                <option>Choose Encounter</option>
+                                <option>New Encounter</option>
+                                <option>Past Encounter List (3)</option>
+                                <option>2020-11-02 / New Patient ----> Review</option>
+                                <option>2020-11-04 / Preventive Care Services ----> Review</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>

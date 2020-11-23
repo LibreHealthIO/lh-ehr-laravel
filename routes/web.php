@@ -25,7 +25,6 @@ Route::get('/manual/installation-guide', 'PagesController@getInstallationManual'
 Auth::routes();
 
 Route::get('/', 'PagesController@index')->name('index');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contact', 'PagesController@contact')->name('contact');
 Route::get('/version', 'PagesController@showVersion')->name('ehr.version');

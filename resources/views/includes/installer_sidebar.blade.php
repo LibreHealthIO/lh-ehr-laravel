@@ -1,5 +1,5 @@
 <div class="text-uppercase -ml-5">
-    @for($i = 0; $i <= 6; $i++)
+    @for($i = 0; $i < 3; $i++)
         <div class="flex py-4 items-start">
             <div class="flex-shrink-0">
                     <span class="@isset($step) @if($step > $i) bg-green-500 @elseif($step == $i) bg-orange-500 @else bg-gray-900 @endif @endisset
@@ -24,24 +24,6 @@
                     <a href="{{ route('ehr_installer.file_permissions') }}" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
                      hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
                         <span class="no-underline">{{ __('installer.file_permissions') }}</span>
-                    </a>
-                    @break
-                    @case(3)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
-                     hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
-                        <span class="no-underline">{{ __('installer.Introduction') }}</span>
-                    </a>
-                    @break
-                    @case(4)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
-                     hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
-                        <span class="no-underline">{{ __('installer.Introduction') }}</span>
-                    </a>
-                    @break
-                    @case(5)
-                    <a href="#" class="px-1 -mx-1 py-1 transition duration-200 ease-in-out relative block hover:translate-x-2px
-                     hover:text-gray-900 text-gray-600 ml-2 uppercase font-semibold text-xs">
-                        <span class="no-underline">{{ __('installer.Introduction') }}</span>
                     </a>
                     @break
                     @default

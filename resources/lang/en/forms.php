@@ -17,6 +17,7 @@ return [
     'continue' => 'Continue',
     'next' => 'Next',
     'previous' => 'Previous',
+    'finish' => 'Finish',
     'date_of_birth' => 'Date of birth',
     'age' => 'Age',
 ];

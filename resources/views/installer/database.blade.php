@@ -49,7 +49,7 @@
                         </div>
                     @endif
                     <div class="pr-32 pl-32 pb-16 w-full">
-                        sadasdsada
+                        Lorem Ipsum
                     </div>
 
                     <div class="flex flex-row justify-between">
