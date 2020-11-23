@@ -19,6 +19,11 @@ class EHRInstaller
         'install*',
     ];
 
+    /**
+     *
+     */
+    private $installerFilePath = 'app/public/ehr_installer.json';
+
 
     /**
      * Handle an incoming request. Checks if application has been Installed already
@@ -46,7 +51,7 @@ class EHRInstaller
     public function isEHRInstalled()
     {
         // TODO check installation values of each json
-        return File::exists(storage_path('ehr_installer.json'));
+        return File::exists(storage_path($this->installerFilePath));
     }
 
 

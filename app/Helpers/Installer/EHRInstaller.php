@@ -15,7 +15,7 @@ class EHRInstaller
 
     public function __construct()
     {
-        $this->installerFile = storage_path('ehr_installer.json');
+        $this->installerFile = storage_path('app/public/ehr_installer.json');
     }
 
     /**

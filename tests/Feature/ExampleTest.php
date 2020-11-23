@@ -19,16 +19,19 @@ class ExampleTest extends TestCase
     public function setUp() : void
     {
         parent::setUp();
+        Storage::fake('public');
         // get the installer file and copy temporarily to storage
         $installerFile = new File(resource_path('files/'.$this->installerFileName));
-        Storage::putFileAs('/', $installerFile, $this->installerFileName);
+        Storage::putFileAs('public/', $installerFile, $this->installerFileName);
+        Storage::assertExists('public/'.$this->installerFileName);
     }
 
-    protected function tearDown() : void
+    public function tearDown() : void
     {
-        parent::tearDown();
         // check whether installer file exists in path and delete after test
-        // Storage::delete('/'.$this->installerFileName);
+        Storage::delete('public/'.$this->installerFileName);
+        Storage::assertMissing('public/'.$this->installerFileName);
+        parent::tearDown();
     }
 
     /**
@@ -38,8 +41,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        Storage::assertExists($this->installerFileName);
         $response = $this->get('/');
         $response->assertStatus(200);
     }
+
 }
