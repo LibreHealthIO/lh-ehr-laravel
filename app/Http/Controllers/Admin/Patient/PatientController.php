@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin\Patient;
 
 use App\Http\Controllers\Controller;
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
-use App\Models\Patients\PatientFaceSheet;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -52,7 +51,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new patient.
      *
      * @return Response
      */
@@ -110,7 +109,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
         if (!$patient) {
-            return Redirect::back()->with('error', 'No such Patient');
+            return redirect()->back()->with('error', __('general.no_such_patient'));
         } else {
             if (!Cookie::get('ehr_patient')) {
                 return Redirect::route('patients.select', $patient->id);
@@ -144,17 +143,21 @@ class PatientController extends Controller
     /**
      * Selects patient and stores in cookie the redirect to patient details
      *
+     * @param Request $request
      * @param $id
-     * @return RedirectResponse|void
+     * @return RedirectResponse|string|void
      */
-    public function clearPatient($id)
+    public function clearPatient(Request $request, $id)
     {
         $patient = Patient::find($id);
         if (!$patient) {
             return Redirect::back()->with('error', 'No such Patient');
         } else {
             Cookie::queue(Cookie::forget('ehr_patient'));
-            // TODO if you are on the patient profile and clear it should take you to the patients page
+            // case when you are on the patients screen -> takes you to select other patients
+            if (back()->getTargetUrl() == route('patients.show', $id)) {
+                return redirect()->route('patients.index');
+            }
             return Redirect::back();
         }
     }

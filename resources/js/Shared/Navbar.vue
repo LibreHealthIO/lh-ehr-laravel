@@ -31,8 +31,8 @@
                                 :href="route('dashboard.settings')"
                                 :class="isSubMenuActive('dashboard.settings')">Recycle Bin
                             </inertia-link>
-                            <inertia-link
-                                :href="route('dashboard.settings')"
+                            <inertia-link v-if="$page.ehr_patient.patient != null"
+                                :href="route('patients.select', $page.ehr_patient.patient.id)"
                                 :class="isSubMenuActive('dashboard.settings')">Summary
                             </inertia-link>
                             <inertia-link
@@ -378,8 +378,8 @@
                     <div class="flex items-center md:ml-4">
                         <LanguageSwitcher/>
                         <button class="p-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700">
-                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                             </svg>
                         </button>
                         <div class="ml-1 relative">
@@ -426,38 +426,49 @@
                     </div>
                 </div>
             </nav>
-            <p class="h-2"></p>
-            <div class="flex flex-wrap items-center text-base -mt-3 md:ml-2 mb-2">
+            <div class="flex flex-wrap items-center text-base -mt-1 md:ml-2 mb-2">
                 <div class="text-sm uppercase" style="font-size: 11px">
                     <div v-if="$page.ehr_patient.patient === null">
                         <span>{{ $t('menu.patient_client') }}:</span> <span class="font-bold">None</span>
                     </div>
                     <div v-else>
                         <span>{{ $t('menu.patient_client') }}:</span>
-                        <span class="font-bold">{{ $page.ehr_patient.patient.id }}</span>
+                        <span class="font-bold">
+                            {{ $page.ehr_patient.patient.first_name }}
+                            {{ $page.ehr_patient.patient.last_name }}
+                            ({{ $page.ehr_patient.patient.id }})
+                        </span>
                         <inertia-link :href="route('patients.clear', $page.ehr_patient.patient.id)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
                         font-small text-gray-300 hover:text-white inline-flex items-center bg-gray-700 font-bold
                         hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 uppercase pointer">
                             Clear
                         </inertia-link><br>
                         <span>{{ $t('forms.date_of_birth') }}:</span>
-                        <span class="font-bold">1990-04-05</span> &nbsp;
+                        <span class="font-bold">{{ $page.ehr_patient.patient.date_of_birth }}</span> &nbsp;
                         <span>{{ $t('forms.age') }}:</span>
-                        <span class="font-bold">22</span>
+                        <span class="font-bold">{{ $page.ehr_patient.patient.age }}</span>
                     </div>
                 </div>
                 <div class="flex flex-grow lg:flex-row mr-40 justify-end">
-                    <div class="relative mt-2 w-64">
-                        <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
-                        rounded py-1 px-4 mb-3 leading-tight text-xs focus:outline-none focus:bg-transparent focus:border-gray-500">
-                            <option>Encounter 1</option>
-                            <option>Encounter 2</option>
-                            <option>Encounter 3</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 -mt-3 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                            </svg>
+                    <div class="relative mt-1 text-sm uppercase w-64" style="font-size: 11px">
+                        <div v-if="$page.ehr_patient.patient === null" class="mb-1">
+                            <span>{{ $t('general.selected_encounter') }}:</span> <span class="font-bold">None</span>
+                        </div>
+                        <div v-else class="mb-1">
+                            <span>{{ $t('general.selected_encounter') }}:</span> <span class="font-bold text-teal-300">2020-11-18</span>
+                            <select class="appearance-none block w-full bg-transparent text-gray-400 border border-gray-500
+                        rounded mt-1.5 py-1 px-4 mb-3 leading-tight text-xs focus:outline-none focus:bg-transparent focus:border-gray-500">
+                                <option>Choose Encounter</option>
+                                <option>New Encounter</option>
+                                <option>Past Encounter List (3)</option>
+                                <option>2020-11-02 / New Patient ----> Review</option>
+                                <option>2020-11-04 / Preventive Care Services ----> Review</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>

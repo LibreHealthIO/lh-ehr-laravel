@@ -1,4 +1,4 @@
-<div class="flex fixed top-5 right-10 z-30 justify-center">
+<div class="flex fixed top-4 right-6 z-30 mb-1 justify-center">
     <button type="button" id="languageSelector"
             class="dropdown flex items-center outline-none bg-white">
         <img src="/flags/{{ app()->getLocale() }}.svg" alt="flag" class="fill-current h-4 w-4">

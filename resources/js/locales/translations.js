@@ -3842,6 +3842,14 @@ export default {
             "qa_measures": "QA Measures",
             "help": "Help"
         },
+        "installer": {
+            "installation_steps": "Installation Steps",
+            "introduction": "Introduction",
+            "server_requirements": "Server Requirements",
+            "file_permissions": "File Permissions",
+            "database_configuration": "Database Configuration",
+            "ehr_settings": "ERH Configuration"
+        },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
             "active_url": "The {attribute} is not a valid URL.",
@@ -3959,13 +3967,16 @@ export default {
             "search": "Search",
             "add": "Add",
             "all_rights_reserved": "All Rights Reserved.",
-            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification"
+            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
+            "no_such_patient": "No such Patient"
         },
         "forms": {
             "username": "Username",
             "email": "E-mail",
             "password": "Password",
             "continue": "Continue",
+            "next": "Next",
+            "previous": "Previous",
             "date_of_birth": "Date of birth",
             "age": "Age"
         }

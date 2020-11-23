@@ -39,6 +39,7 @@ module.exports = {
         float: ['responsive', 'direction'],
         margin: ['responsive', 'direction'],
         padding: ['responsive', 'direction'],
+        borderCollapse: ['responsive', 'hover', 'focus'],
         tableLayout: ['responsive', 'hover', 'focus'],
     },
     plugins: [

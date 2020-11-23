@@ -31,11 +31,7 @@ class EHRInstaller
     {
         if (!$this->inExemptedRoutes($request)) {
             if (!$this->isEHRInstalled()) {
-                emotify('error', __('installer.application_not_installed'));
-                return redirect()->route('ehr_installer.index')
-                    ->withErrors([
-                        'not_installed' => __('installer.application_not_installed'),
-                    ]);
+                return redirect()->route('ehr_installer.index');
             }
         }
         return $next($request);
@@ -49,6 +45,7 @@ class EHRInstaller
      */
     public function isEHRInstalled()
     {
+        // TODO check installation values of each json
         return File::exists(storage_path('ehr_installer.json'));
     }
 

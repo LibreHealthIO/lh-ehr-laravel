@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Installer;
 
 use App\Helpers\Installer\EHRInstaller;
-use App\Helpers\Installer\RequirementsChecker;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class DatabaseController extends Controller
 {
@@ -27,16 +26,17 @@ class DatabaseController extends Controller
         // create a default site
         $siteDetails = [
             'site_id' => 'default',
-            'owner' => 'Tendong fack',
-            'status' => false,
-            'created_at' => '2020-03-09 12:32 PM',
-            'verified_at'  => '2020-03-09 14:22 PM'
+            'owner' => 'LH Admin',
+            'status' => true,
+            'created_at' => Carbon::now(),
+            'verified_at'  => Carbon::now()
         ];
         if (!$this->installer->checkIfSiteExists("default")) {
             $this->installer->createInstallerLogFile($siteDetails);
         }
         $sites = $this->installer->readInstallerLogFile();
-        dd($sites);
+        return redirect()->route('index');
+        // TODO continue with the installation steps if further
         return view('installer.database', compact('sites'));
     }
 }

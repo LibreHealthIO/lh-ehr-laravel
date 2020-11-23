@@ -201,7 +201,7 @@
             <p class="h-2"></p>
             <div class="flex flex-wrap items-center text-base md:ml-2">
                 <p class="text-sm ...">Patient:
-                    <span class="font-bold">Mua Ndzo Laurent</span>
+                    <span class="font-bold">Mua Laurent</span>
                 </p>
             </div>
         </div>
