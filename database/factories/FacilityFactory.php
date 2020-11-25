@@ -11,7 +11,7 @@
 */
 
 use App\Models\Address;
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;

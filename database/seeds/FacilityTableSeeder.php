@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use Illuminate\Database\Seeder;
 
 class FacilityTableSeeder extends Seeder

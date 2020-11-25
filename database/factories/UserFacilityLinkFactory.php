@@ -13,8 +13,8 @@
 
 /** @var Factory $factory */
 
-use App\Models\Facility;
-use App\Models\FacilityUser;
+use App\Models\Facilities\Facility;
+use App\Models\Facilities\FacilityUser;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factory;
 

@@ -433,11 +433,14 @@
                     </div>
                     <div v-else>
                         <span>{{ $t('menu.patient_client') }}:</span>
-                        <span class="font-bold">
-                            {{ $page.ehr_patient.patient.first_name }}
-                            {{ $page.ehr_patient.patient.last_name }}
-                            ({{ $page.ehr_patient.patient.id }})
-                        </span>
+                        <inertia-link :href="route('patients.select', $page.ehr_patient.patient.id)"
+                        class="hover:text-teal-500 hover:underline">
+                            <span class="font-bold">
+                                {{ $page.ehr_patient.patient.first_name }}
+                                {{ $page.ehr_patient.patient.last_name }}
+                                ({{ $page.ehr_patient.patient.id }})
+                            </span>
+                        </inertia-link>
                         <inertia-link :href="route('patients.clear', $page.ehr_patient.patient.id)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
                         font-small text-gray-300 hover:text-white inline-flex items-center bg-gray-700 font-bold
                         hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 uppercase pointer">
