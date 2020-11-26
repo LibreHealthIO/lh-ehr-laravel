@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\FacilityUser;
+use App\Models\Facilities\FacilityUser;
 use Illuminate\Database\Seeder;
 
 class UserFacilityLinkTableSeeder extends Seeder
