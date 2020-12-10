@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Facility;
+use App\Models\Facilities\Facility;
 use Illuminate\Database\Seeder;
 
 class FacilityTableSeeder extends Seeder
@@ -13,6 +13,6 @@ class FacilityTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Facility::class, 25)->create();
+        factory(Facilty::class, 25)->create();
     }
 }
