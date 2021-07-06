@@ -13,6 +13,6 @@ class FacilityTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Facilty::class, 25)->create();
+        factory(Facility::class, 25)->create();
     }
 }
