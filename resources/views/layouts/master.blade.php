@@ -19,15 +19,12 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    @notifyCss()
     @yield('css')
 </head>
     <body class="bg-gray-100 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
 
         @yield('content')
 
-        @notifyJs()
-        @include('notify::messages')
         <script type="text/javascript" src="{{ asset('js/lib/jquery/jquery-3.5.1.min.js') }}"></script>
         <script type="text/javascript">
             $(function() {

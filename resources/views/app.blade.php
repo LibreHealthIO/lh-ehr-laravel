@@ -17,10 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Styles -->
-    <link href="{{ asset('vendor/fontawesome/css/all.min.css') }}" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    @notifyCss()
     @routes
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
@@ -29,6 +27,8 @@
 
         @include('partials.footer')
         <script type="text/javascript">
+            window.app_name = "{{ app_name() }}";
+            window.app_version = "{{ app_version() }}";
             window.default_locale = "{{ config('app.locale') }}";
             window.fallback_locale = "{{ config('app.fallback_locale') }}";
         </script>

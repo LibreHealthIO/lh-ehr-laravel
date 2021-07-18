@@ -10,23 +10,38 @@
 | @author Mua N. Laurent <muarachmann@gmail.com>
 */
 
+namespace Database\Factories;
+
 use App\Models\User;
 use App\Models\UserCommunication;
 use Faker\Factory as Faker;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(
-    UserCommunication::class,
-    function ($faker) {
+class UserCommunicationFactory extends Factory {
 
-    $user_ids = User::all()->pluck('id')->toArray();
-    $type = array(0, 1, 2, 3, 4);
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = UserCommunication::class;
 
-    $faker_phone = Faker::create('pt_BR');
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition(): array
+    {
+        $user_ids = User::all()->pluck('id')->toArray();
+        $type = array(0, 1, 2, 3, 4);
 
-    return [
-	    'user_id' => $faker->randomElement($user_ids),
-	    'contact_number' => $faker_phone->cellphone,
-	    'type' => $type[array_rand($type, 1)],
-    ];
-});
+        $faker= Faker::create();
+
+        return [
+            'user_id' => $this->faker->randomElement($user_ids),
+            'contact_number' => $faker->phoneNumber,
+            'type' => $type[array_rand($type, 1)],
+        ];
+    }
+}

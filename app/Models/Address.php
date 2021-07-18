@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Khsing\World\Models\City;
@@ -11,6 +12,7 @@ use Khsing\World\Models\Country;
 
 class Address extends Model
 {
+    use HasFactory;
 
     protected $with = ['city', 'country'];
 

@@ -11,22 +11,36 @@
 |
 */
 
-/** @var Factory $factory */
+namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\UserSetting;
-use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-$factory->define(
-    UserSetting::class,
-    function (Faker\Generator $faker) {
 
-    $user_ids = User::all()->pluck('id')->toArray();
+class UserSettingFactory extends Factory {
 
-    return [
-        'user_id' => $faker->randomElement($user_ids),
-	    'setting_label' => Str::random(10),
-	    'setting_value' => $faker->randomNumber($nbDigits = 2, $strict = false),
-    ];
-});
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = UserSetting::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition(): array
+    {
+        $user_ids = User::all()->pluck('id')->toArray();
+
+        return [
+            'user_id' => $this->faker->randomElement($user_ids),
+            'setting_label' => Str::random(10),
+            'setting_value' => $this->faker->randomNumber($nbDigits = 2, $strict = false),
+        ];
+    }
+}

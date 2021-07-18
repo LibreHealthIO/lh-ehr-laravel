@@ -12,11 +12,11 @@ class SelectedPatient
     /**
      * Handle an incoming request.
      *
-     * @param  Request  $request
+     * @param Request $request
      * @param  Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         // checks if a patient is selected and actually exists
 

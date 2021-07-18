@@ -63,22 +63,23 @@ class Handler extends ExceptionHandler
     {
         $response = parent::render($request, $exception);
 
-        if (!(app()->environment('production'))
-            && $request->header('X-Inertia')
-            && in_array($response->getStatusCode(), [500, 503, 404, 403])
-        ) {
-            return Inertia::render('Error/Index', ['status' => $response->getStatusCode()])
+        if (!app()->environment('local') && in_array($response->status(), [500, 503, 404, 403])) {
+            return Inertia::render('Error', ['status' => $response->status()])
                 ->toResponse($request)
-                ->setStatusCode(404);
+                ->setStatusCode($response->status());
+        } else if ($response->status() === 419) {
+            return back()->with([
+                'message' => 'The page expired, please try again.',
+            ]);
         }
+
         return $response;
     }
 
     /**
      * @param  Request $request
      * @param  AuthenticationException  $exception
-     *
-     * @return JsonResponse|RedirectResponse|string
+     * @return JsonResponse|RedirectResponse
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {

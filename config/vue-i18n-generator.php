@@ -55,8 +55,8 @@ return [
     | Note: the path will be prepended to point to the App directory.
     |
     */
-    'jsPath' => '/resources/js/langs/',
-    'jsFile' => '/resources/js/locales/translations.js',
+    'jsPath' => '/resources/langs/',
+    'jsFile' => '/resources/app/locales/translations.js',
 
     /*
     |--------------------------------------------------------------------------

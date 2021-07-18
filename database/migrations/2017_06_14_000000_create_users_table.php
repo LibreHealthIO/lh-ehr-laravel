@@ -41,7 +41,7 @@ class CreateUsersTable extends Migration
                 ->comment('See Authorization. 0 -> None | 1 -> All | 2 -> Only Mine');
             $table->string('calendar_ui')
                 ->comment('Calendar Preference. viz Outlook, Original and Fancy');
-	        $table->integer('npi')->comment('National Provider Identifier.');
+	        $table->bigInteger('npi')->comment('National Provider Identifier.');
 	        $table->longText('info')->nullable()->comment('About/Biography/Job Description');
 
 	        // TODO Move to ACL (laratrust)
@@ -90,6 +90,9 @@ class CreateUsersTable extends Migration
                 ->comment('User\'s Timezone');
             $table->string('currency')->default(config('platform_settings.default_currency'))
                 ->comment('User\'s Currency');
+
+            // Device tokens
+            $table->string('device_id')->nullable();
 
             // remember tokens and timestamps
             $table->softDeletes();

@@ -37,7 +37,6 @@ return [
             'openssl',
             'pdo',
             'openssl',
-            'protobuf',
             'posix',
             'posix',
             'sqlite3',
