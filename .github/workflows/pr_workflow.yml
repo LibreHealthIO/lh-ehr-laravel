@@ -40,13 +40,6 @@ jobs:
       - name: Install NPM Dependencies
         run: npm install && npm run prod
 
-      - name: Run sample Migrations
-        run: |
-          php artisan migrate:fresh --seed
-        env:
-          DB_PORT: ${{ job.services.mysql.ports[3306] }}
-          DB_USERNAME: root
-
       - name: Execute tests (Unit and Feature tests) using Php Pest
         run: vendor/bin/pest --verbose
         env:

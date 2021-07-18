@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->command->info('Seeding LH EHR Tables 🌱');
         $continents = World::Continents();
-        if(count($continents) < 1) {
+        if (count($continents) < 1) {
             Artisan::call('world:init');
         }
         $this->call(CurrencySeeder::class);
