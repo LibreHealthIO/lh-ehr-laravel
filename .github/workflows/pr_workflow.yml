@@ -8,8 +8,18 @@ on:
     types: [opened, reopened, synchronize]
 
 jobs:
-   build:
+  build:
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: test_db
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - uses: actions/checkout@v1
@@ -19,13 +29,26 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-      - name: Copy .env && Generate App Keys
+      - name: Copy .env && Generate keys
         run: |
           cp .env.ci .env
           php artisan key:generate
 
       - name: Install NPM Dependencies
-        run: npm install
+        run: npm install && npm run prod
 
-      - name: Execute tests (Unit and Feature tests) using PHPUnit
-        run: vendor/bin/phpunit --verbose
+      - name: Run sample Migrations
+        run: |
+          php artisan migrate --seed --force
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_USERNAME: root
+
+      - name: Execute tests (Unit and Feature tests) using Php Pest
+        run: vendor/bin/pest --verbose
+        env:
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_USERNAME: root
+
+      - name: Execute tests (Unit and Feature tests) using JEST
+        run: node_modules/.bin/jest

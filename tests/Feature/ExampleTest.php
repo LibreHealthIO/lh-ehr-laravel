@@ -2,19 +2,21 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
 
     /**
      * The installer file name.
      *
      * @var string
      */
-    private $installerFileName = 'ehr_installer.json';
+    private string $installerFileName = 'ehr_installer.json';
 
     public function setUp() : void
     {

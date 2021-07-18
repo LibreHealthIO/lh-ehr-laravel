@@ -1,0 +1,17 @@
+html {
+    @apply border-t-2 border-theme-2;
+    &.dark {
+        @apply bg-dark-1 text-gray-100;
+        body {
+            @apply text-white;
+            *, ::before, ::after {
+                @apply border-transparent;
+            }
+        }
+    }
+    body {
+        -webkit-font-smoothing: antialiased;
+        @apply overflow-x-hidden font-nunito text-sm text-gray-800 dark:text-white;
+    }
+}
+

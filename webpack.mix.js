@@ -1,9 +1,6 @@
-const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
-const path = require("path");
-const purgeCss = require('@fullhuman/postcss-purgecss');
-const WebpackShellPlugin = require('webpack-shell-plugin');
-
+const mix = require("laravel-mix")
+const tailwindcss = require("tailwindcss")
+const path = require("path")
 
 /*
  |--------------------------------------------------------------------------
@@ -16,19 +13,17 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+mix.js("resources/app/app.js", "public/js/app.js")
+    .vue({ version: 2 })
+    .sass("resources/app/assets/sass/app.scss", "public/css/app.css")
     .options({
         processCssUrls: false,
         postCss: [
-            tailwindcss('./tailwind.config.js')
+            tailwindcss('tailwind.config.js')
         ],
-        plugins: [
-            new WebpackShellPlugin({
-                onBuildStart:['php artisan vue-i18n:generate'],
-                onBuildEnd:[]
-            })
-        ]
+    })
+    .autoload({
+        "cash-dom": ["cash"]
     })
     .webpackConfig({
         output: {
@@ -38,11 +33,15 @@ mix.js('resources/js/app.js', 'public/js')
             extensions: ['.js', '.vue', '.json'],
             alias: {
                 'vue$': 'vue/dist/vue.runtime.esm.js',
-                '~': path.resolve('resources/js'),
+                '~': path.resolve('resources/app'),
             },
         },
     })
     .babelConfig({
         plugins: ['@babel/plugin-syntax-dynamic-import']
     })
-    .version();
+    .browserSync({
+        proxy: "lh-ehr.test",
+        files: ["resources/**/*.*"]
+    })
+    .version()
