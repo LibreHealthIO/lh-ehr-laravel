@@ -10,20 +10,36 @@
 | @author Mua N. Laurent <muarachmann@gmail.com>
 */
 
-/** @var Factory $factory */
+namespace Database\Factories;
 
 use App\Models\Address;
 use App\Models\User;
 use App\Models\UserResidentialLink;
-use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(UserResidentialLink::class, function (Faker\Generator $faker) {
+class UserResidentialLinkFactory extends Factory {
 
-    $user_ids = User::all()->pluck('id')->toArray();
-    $addr_type = array(0, 1);
-    return [
-        'address_id' => factory(Address::class)->create()->id,
-	    'user_id' => $faker->randomElement($user_ids),
-	    'type' => $addr_type[array_rand($addr_type, 1)],
-    ];
-});
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = UserResidentialLink::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition(): array
+    {
+        $user_ids = User::all()->pluck('id')->toArray();
+        $addr_type = array(0, 1);
+
+        return [
+            'address_id' => Address::factory()->create()->id,
+            'user_id' => $this->faker->randomElement($user_ids),
+            'type' => $addr_type[array_rand($addr_type, 1)],
+        ];
+    }
+}

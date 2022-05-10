@@ -1,0 +1,87 @@
+.table {
+    @apply w-full;
+    th {
+        @apply font-medium px-5 py-3;
+    }
+    td {
+        @apply px-5 py-3 bg-gray-200;
+    }
+    &.table--sm {
+        th {
+            @apply px-4 py-2 dark:bg-dark-1;
+        }
+        td {
+            @apply px-4 py-2 my-1;
+        }
+    }
+}
+
+tbody {
+    @apply bg-white dark:bg-dark-3;
+}
+
+thead {
+    @apply bg-white dark:bg-dark-5 dark:border-theme-1;
+}
+
+table.laravel-vue-datatable {
+    @apply w-full;
+}
+
+.laravel-vue-datatable-tbody  {
+    @apply bg-white dark:bg-dark-4 border-r border-l border-b;
+}
+
+.laravel-vue-datatable-tbody-tr {
+    @apply bg-white dark:bg-dark-2 even:bg-gray-100;
+}
+
+.laravel-vue-datatable-td {
+    @apply border-gray-200 dark:border-dark-2;
+}
+
+.dark {
+    .laravel-vue-datatable-thead {
+        @apply text-white bg-dark-4 border-theme-1;
+    }
+    .laravel-vue-datatable-thead-tr {
+        @apply text-white bg-dark-4;
+    }
+    .laravel-vue-datatable-th {
+        @apply text-white bg-dark-4;
+    }
+    .laravel-vue-datatable-tbody-tr {
+        @apply text-white bg-dark-4;
+    }
+}
+
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+        color-adjust: exact !important;  /*Firefox*/
+    }
+
+    .receipt-background {
+        visibility: visible !important;
+        background-size: contain !important;
+        position: fixed !important;
+        background-image:url('/images/logo.png') !important;
+        background-repeat: repeat-y !important;
+        background-position: top center !important;
+        width: 80%;
+        height: 40%;
+    }
+
+    table.erhPrint {page-break-inside: auto !important; overflow-x: visible !important; }
+    table.erhPrint {
+        @apply px-4 py-8 text-xs;
+        tr { page-break-inside:avoid !important;; page-break-after:auto !important;}
+        td { page-break-inside:avoid !important;; page-break-after:auto !important;}
+    }
+    table.erhPrint thead { display:table-row-group !important;}
+
+    .pagebreak {
+        clear: both !important;
+        page-break-after: always !important;
+    }
+}

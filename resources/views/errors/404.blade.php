@@ -58,39 +58,54 @@
                             </a>
                         </div>
                     </div>
-                    <form id="loginForm" action="{{ route('login') }}" method="post" class="px-5 pb-2 flex flex-col justify-center">
-                        {{ @csrf_field() }}
-                        <img class="h-10 mb-10 justify-center px-20" src="{{ asset('images/logos/ehr_logo.png') }}" alt="LibreHealth Logo">
-                        <div class="-mx-3 mb-2">
-                            <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="login">
-                                    Email/Username *
-                                </label>
-                                <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                       id="login" value="@if(old("login") != null) {{ old("login") }} @endif"
-                                       name="login" type="text" minlength="3" maxlength="50" required placeholder="Email/Username">
-                            </div>
-                        </div>
-                        <div class="-mx-3 mb-2">
-                            <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
-                                    Password *
-                                </label>
-                                <input id="password" class="appearance-none block w-full bg-white text-gray-700 border
-                                 border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
-                                  focus:border-gray-500" autocomplete="true" name="password" type="password" minlength="3" maxlength="50"
-                                       required placeholder="Password">
-                            </div>
-                        </div>
-                        <button type="submit" class="flex text-base text-white justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
+                    @if(auth()->check())
+                        <p>
+                            We noticed that you are logged in as {{ request()->user()->first_name }}. Please click below to
+                            continue your current session.
+                        </p>
+                        <a href="{{ route('dashboard') }}" class="flex text-base text-white justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
                             <svg class="ehr_btn_loader hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
                             Continue with EHR
-                        </button>
-                    </form>
+                        </a>
+                    @else
+                        <form id="loginForm" action="{{ route('login') }}" method="post" class="px-5 pb-2 flex flex-col justify-center">
+                            {{ @csrf_field() }}
+                            <img class="h-10 mb-10 justify-center px-20" src="{{ asset('images/logos/ehr_logo.png') }}" alt="LibreHealth Logo">
+                            <div class="-mx-3 mb-2">
+                                <div class="w-full px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="login">
+                                        Email/Username *
+                                    </label>
+                                    <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
+                                 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                           id="login" value="@if(old("login") != null) {{ old("login") }} @endif"
+                                           name="login" type="text" minlength="3" maxlength="50" required placeholder="Email/Username">
+                                </div>
+                            </div>
+                            <div class="-mx-3 mb-2">
+                                <div class="w-full px-3">
+                                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="password">
+                                        Password *
+                                    </label>
+                                    <input id="password" class="appearance-none block w-full bg-white text-gray-700 border
+                                 border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white
+                                  focus:border-gray-500" autocomplete="true" name="password" type="password" minlength="3" maxlength="50"
+                                           required placeholder="Password">
+                                </div>
+                            </div>
+                            <button type="submit" class="flex text-base text-white justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
+                                <svg class="ehr_btn_loader hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Continue with EHR
+                            </button>
+                        </form>
+                    @endif
+
                 </div>
             </div>
 
