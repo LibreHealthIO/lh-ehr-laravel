@@ -11,6 +11,7 @@ return [
     | application.
     */
 
+    'dashboard' => ' Tableau de bord',
     'welcome' => 'Bienvenue',
     'print' => 'Imprimer',
     'search' => 'Recherchez',

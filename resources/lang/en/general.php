@@ -11,6 +11,7 @@ return [
     | application.
     */
 
+    'dashboard' => 'Dashboard',
     'welcome' => 'Welcome',
     'print' => 'Print',
     'search' => 'Search',

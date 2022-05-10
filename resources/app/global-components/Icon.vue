@@ -53,6 +53,9 @@
             </g>
         </g>
     </svg>
+    <svg v-else-if="name === 'check'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </svg>
     <svg v-else-if="name === 'badge-check'" class="rounded-full text-white bg-theme-1 ml-1" fill="none"
          stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path

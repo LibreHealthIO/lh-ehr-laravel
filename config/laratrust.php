@@ -194,7 +194,7 @@ return [
              * If the message content is empty it won't be added to the redirection.
              */
             'redirect' => [
-                'url' => 'login',
+                'url' => '/',
                 'message' => [
                     'key' => 'error',
                     'content' => 'no_access_rights'
@@ -269,7 +269,7 @@ return [
         | will be accessible from.
         |
         */
-        'path' => '/console/dashboard/administration/manage/roles-permissions',
+        'path' => '/dashboard/administration/manage/roles-permissions',
 
         /*
         |--------------------------------------------------------------------------
@@ -279,7 +279,7 @@ return [
         | The route where the go back link should point
         |
         */
-        'go_back_route' => '/console/dashboard',
+        'go_back_route' => '/dashboard',
 
         /*
         |--------------------------------------------------------------------------

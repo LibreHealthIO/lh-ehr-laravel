@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
@@ -59,7 +60,7 @@ class Handler extends ExceptionHandler
      *
      * @throws Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $exception): Response
     {
         $response = parent::render($request, $exception);
 
@@ -76,18 +77,20 @@ class Handler extends ExceptionHandler
         return $response;
     }
 
+
     /**
      * @param  Request $request
      * @param  AuthenticationException  $exception
+     *
      * @return JsonResponse|RedirectResponse
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
-        return
-            ($request->hasHeader('X-Inertia') ?
-                redirectWithoutInertia(route('index')) :
-                ($request->expectsJson())) ?
-                response()->json(['message' => 'Unauthenticated.'], 401) :
-                redirect()->guest(route('auth.login'));
+        if ($request->hasHeader('X-Inertia')) {
+            return Redirect::route('login');
+        }
+        return ($request->expectsJson() || $request->wantsJson()) ?
+            response()->json(['message' => 'Unauthenticated.'], 401) :
+            redirect()->guest(route('login'));
     }
 }

@@ -21,7 +21,7 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @routes
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
+<body class="bg-gray-50 h-screen antialiased leading-none flex flex-col overflow-scroll-container">
 
         @inertia
 
@@ -33,5 +33,7 @@
             window.fallback_locale = "{{ config('app.fallback_locale') }}";
         </script>
         <script src="{{ mix('js/app.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('js/vendor.js') }}"></script>
+        <script type="text/javascript" src="{{ mix('js/manifest.js') }}"></script>
 </body>
 </html>

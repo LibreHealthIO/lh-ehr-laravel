@@ -19,11 +19,6 @@
             "name": "Mua Rachmann",
             "email": "muarachmann@gmail.com",
             "role": "Maintainer"
-        },
-        {
-            "name": "Priyanshu Sinha",
-            "email": "pksinha217@gmail.com",
-            "role": "Maintainer"
         }
     ],
     "repositories": [

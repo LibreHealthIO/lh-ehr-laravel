@@ -1,9 +1,9 @@
 <template>
-    <div class="calendar-sidebar">
+    <div class="shadow-lg rounded p-2 bg-gray-50">
         <DatePicker/>
         <div class="relative mt-2">
             <select @change="getFacilityEncounters" class="appearance-none block w-full bg-white text-gray-700 border
-             border-gray-500 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+             border-gray-200 rounded py-2 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                 <option value="0">All Facilities</option>
                 <option v-for="facility in facilities" :value="facility.id">
                     {{ facility.name }}
@@ -15,10 +15,11 @@
                 </svg>
             </div>
         </div>
+        <h2 class="uppercase font-bold text-sm m-2 underline">Providers</h2>
         <select @change="getUsersEncounters" id="calendarUserWrapper" size="15" multiple
-                class="appearance-none block w-full h-full bg-white text-gray-700 border
-            border-gray-500 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white
-            focus:border-gray-500">
+                class="appearance-none block w-full h-full text-gray-700 border
+            border-gray-200 rounded py-1 px-2 mb-2 leading-tight focus:outline-none focus:bg-white
+            focus:border-gray-300">
             <option v-for="user in calendar_users" :value="user.id">
                 {{ user.name }}
             </option>

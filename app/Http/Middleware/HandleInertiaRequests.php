@@ -99,7 +99,7 @@ class HandleInertiaRequests extends Middleware
                     return [ 'patient' => null ];
                 }
                 $patient = Patient::find(decrypt($id));
-                return [
+                return  [
                     'patient' => $patient ? [
                         'id' => $patient->id,
                         'title' => $patient->title,

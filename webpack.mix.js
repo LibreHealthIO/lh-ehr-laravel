@@ -44,4 +44,5 @@ mix.js("resources/app/app.js", "public/js/app.js")
         proxy: "lh-ehr.test",
         files: ["resources/**/*.*"]
     })
+    .extract()
     .version()

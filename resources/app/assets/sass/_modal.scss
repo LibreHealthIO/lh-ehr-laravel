@@ -39,7 +39,18 @@
 }
 
 .dark {
+    .modal {
+        background: #181f2980;
+        &.modal__overlap {
+            background: #181f2980;
+        }
+    }
     .modal__content {
         @apply bg-dark-3;
+        @apply text-white bg-dark-5;
     }
+}
+
+.swal2-container {
+    @apply px-4;
 }

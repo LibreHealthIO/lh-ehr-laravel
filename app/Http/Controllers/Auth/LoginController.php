@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Validation\ValidationException;
-use Modules\User\Events\Frontend\UserLoggedOut;
-use Modules\User\Helpers\AuthHelper;
+use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
@@ -34,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/console/dashboard';
+    protected string $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -47,18 +44,22 @@ class LoginController extends Controller
     }
 
 
-    public function showLoginForm()
+    /**
+     * Shows login form
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm(): \Illuminate\Http\Response
     {
-        return redirect()->route('index');
+        return Inertia::location(route('index'));
     }
 
     /**
      * Create a new controller instance.
-     * @param $request
+     * @param Request $request
      * @return Response
      * @throws ValidationException
      */
-    public function login(Request $request)
+    public function login(Request $request): Response
     {
         $this->validate($request, [
             'login'    => 'required',
@@ -87,11 +88,17 @@ class LoginController extends Controller
      *
      * @return string
      */
-    public function logout(Request $request)
+    public function logout(Request $request): string
     {
-        auth()->logout();
         // forget the patient cookie if any
         Cookie::queue(Cookie::forget('ehr_patient'));
-        return redirectWithoutInertia(route('index'));
+        $this->guard()->logout();
+        $request->session()->invalidate();
+        return Inertia::location(route('index'));
+    }
+
+    public function redirectTo(): string
+    {
+        return route('index');
     }
 }

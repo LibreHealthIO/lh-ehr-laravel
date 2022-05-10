@@ -1,5 +1,4 @@
 html {
-    @apply border-t-2 border-theme-2;
     &.dark {
         @apply bg-dark-1 text-gray-100;
         body {
@@ -11,7 +10,27 @@ html {
     }
     body {
         -webkit-font-smoothing: antialiased;
-        @apply overflow-x-hidden font-nunito text-sm text-gray-800 dark:text-white;
+        @apply overflow-x-hidden text-sm bg-gray-100 text-gray-800;
     }
 }
 
+*, :after, :before {
+    box-sizing: border-box;
+    border: 0 solid #e2e8f0;
+}
+
+.form-error {
+    @apply text-red-600 p-1;
+}
+
+.box {
+    box-shadow: 0 3px 20px rgb(0 0 0 / 4%);
+    position: relative;
+    border-radius: .375rem;
+    border-color: transparent;
+    background-color: rgba(255,255,255, var(--tw-bg-opacity));
+}
+
+.v-tour__target--highlighted {
+    box-shadow: 0 0 0 99999px rgba(0,0,0,.6) !important;
+}

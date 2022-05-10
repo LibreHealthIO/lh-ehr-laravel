@@ -3962,6 +3962,7 @@ export default {
             "attributes": []
         },
         "general": {
+            "dashboard": "Dashboard",
             "welcome": "Welcome",
             "print": "Print",
             "search": "Search",
@@ -5903,6 +5904,7 @@ export default {
             }
         },
         "general": {
+            "dashboard": " Tableau de bord",
             "welcome": "Bienvenue",
             "print": "Imprimer",
             "search": "Recherchez",

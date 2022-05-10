@@ -1,14 +1,11 @@
-const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-    purge: [
-        './resources/**/*.blade.php',
-        './resources/css/**/*.css',
-        './resources/**/*.js',
-        './resources/**/*.vue',
+    content: [
+        './resources/**/*.{html,js,vue,php}',
     ],
-    darkMode: 'media',
+    darkMode: 'class',
     theme: {
         zIndex: {
             '5': 5,
@@ -24,36 +21,19 @@ module.exports = {
             '75': 75,
             '100': 100,
             '200': 200,
-            '500': 500,
             '999': 999,
+            '1000': 1000,
+            '9999': 9999,
             'auto': 'auto',
-        },
-        listStyleType: {
-            none: 'none',
-            disc: 'disc',
-            decimal: 'decimal',
-            square: 'square',
-            roman: 'upper-roman',
         },
         extend: {
             keyframes: {
-                'fade-in-down': {
-                    '0%': {
-                        opacity: '0',
-                        transform: 'translateY(-10px)'
-                    },
-                    '100%': {
-                        opacity: '1',
-                        transform: 'translateY(0)'
-                    },
-                },
                 'wiggle': {
-                    '0%, 100%': { transform: 'rotate(-4deg)' },
-                    '50%': { transform: 'rotate(4deg)' },
+                    '0%, 100%': {transform: 'rotate(-4deg)'},
+                    '50%': {transform: 'rotate(4deg)'},
                 }
             },
             animation: {
-                'spin-slow': 'spin 3s linear infinite',
                 'fade-in-down': 'fade-in-down 0.5s ease-out',
                 'wiggle': 'wiggle 0.4s ease-in-out infinite',
             },
@@ -63,41 +43,7 @@ module.exports = {
                 teal: colors.teal,
                 orange: colors.orange,
                 lime: colors.lime,
-                lightBlue: colors.lightBlue,
                 cyan: colors.cyan,
-                "brown": "#795548",
-                "brown-50": "#efebe9",
-                "brown-100": "#d7ccc8",
-                "brown-200": "#bcaaa4",
-                "brown-300": "#a1887f",
-                "brown-400": "#8d6e63",
-                "brown-500": "#795548",
-                "brown-600": "#6d4c41",
-                "brown-700": "#5d4037",
-                "brown-800": "#4e342e",
-                "brown-900": "#3e2723",
-                "deep-purple": "#673ab7",
-                "deep-purple-50": "#ede7f6",
-                "deep-purple-100": "#d1c4e9",
-                "deep-purple-200": "#b39ddb",
-                "deep-purple-300": "#9575cd",
-                "deep-purple-400": "#7e57c2",
-                "deep-purple-500": "#673ab7",
-                "deep-purple-600": "#5e35b1",
-                "deep-purple-700": "#512da8",
-                "deep-purple-800": "#4527a0",
-                "deep-purple-900": "#311b92",
-                'orange': { // TODO find the appropriate percentages
-                    '100': '#f59031',
-                    '200': '#f59031',
-                    '300': '#f59031',
-                    '400': '#f59031',
-                    '500': '#f59031',
-                    '600': '#f59031',
-                    '700': '#f59031',
-                    '800': '#f59031',
-                    '900': '#f59031',
-                },
                 brand: {
                     primary: "#1266F1",
                     facebook: "#435F9B",
@@ -131,88 +77,69 @@ module.exports = {
                     5: "#3f4865",
                     6: "#2b3348",
                     7: "#181f29"
+                },
+                fontFamily: {
+                    'nunito': ['Nunito', 'sans-serif']
+                },
+                container: {
+                    center: true
+                },
+                maxWidth: {
+                    "1/4": "25%",
+                    "1/2": "50%",
+                    "3/4": "75%"
+                },
+                maxHeight: {
+                    '0': '0',
+                    '98': '32rem',
+                    '1/4': '25%',
+                    '1/2': '50%',
+                    '3/4': '75%',
+                    'full': '100%',
+                },
+                strokeWidth: {
+                    "0.5": 0.5,
+                    "1.5": 1.5,
+                    "2.5": 2.5
+                },
+                margin: {
+                    '78': '19.5rem',
                 }
             },
-            fontFamily: {
-                'nunito': ['Nunito', 'sans-serif']
+            boxShadow: {
+                sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+                DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+                md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+                inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+                none: 'none',
             },
-            container: {
-                center: true
-            },
-            maxWidth: {
-                "1/4": "25%",
-                "1/2": "50%",
-                "3/4": "75%"
-            },
-            screens: {
-                sm: "640px",
-                md: "768px",
-                lg: "1024px",
-                xl: "1280px",
-                xxl: "1600px"
-            },
-            strokeWidth: {
-                "0.5": 0.5,
-                "1.5": 1.5,
-                "2.5": 2.5
-            },
-            margin: {
-                '78': '19.5rem',
-            }
+            backgroundImage: theme => ({
+                'ehr-template__bg': "url('/images/logo.png') !important",
+            })
         },
-    },
-    variants: {
-        backgroundColor: [
-            'last', 'first', 'odd', 'even', 'responsive', 'hover', 'dark',
-            'dark-hover', 'focus', 'group-hover',
-            'focus-within', 'disabled'
-        ],
-        textColor: [
-            'last', 'first', 'even', 'odd', 'responsive',
-            'hover', 'dark', 'dark-hover', 'focus', 'group-hover',
-            'focus-within'
-        ],
-        fontSize: ['responsive', 'hover', 'focus'],
-        fontFamily: ['responsive', 'hover', 'focus'],
-        zIndex: ['responsive', 'focus', 'hover', 'active'],
-        gradients: ['responsive', 'hover'],
-        spinner: ['responsive'],
-        animation: ['responsive', 'motion-safe', 'motion-reduce'],
-        transitionProperty: ['responsive', 'motion-safe', 'motion-reduce'],
-        transform: ['hover', 'focus'],
-        outline: ['responsive', 'focus', 'hover', 'active'],
-        float: ['responsive', 'direction'],
-        margin: ['responsive', 'last', 'direction'],
-        padding: ['responsive', 'last', 'direction'],
-        borderCollapse: ['responsive', 'hover', 'focus'],
-        tableLayout: ['responsive', 'hover', 'focus'],
-        position: ['responsive', 'hover'],
-        borderWidth: ['responsive', 'last', 'hover', 'focus'],
-        borderColor: ['last', 'first', 'even', 'odd', 'responsive', 'hover', 'dark', 'dark-hover'],
-        backgroundAttachment: ['hover', 'focus'],
-        opacity: ['disabled'],
-        textOverflow: ['hover', 'focus'],
-        listStyleType: ['hover', 'focus'],
-        justifyContent: ['hover', 'focus', 'direction'],
-        justifyItems: ['hover', 'focus', 'direction'],
-        divideColor: ['hover', 'focus'],
-        divideStyle: ['hover', 'focus'],
-    },
-    plugins: [
-        require('tailwindcss-dir')(),
-        plugin(function({ addVariant, e }) {
-            addVariant("dark", ({ modifySelectors, separator }) => {
-                modifySelectors(({ className }) => {
-                    return `.dark .${e(`dark${separator}${className}`)}`;
+        variants: {
+            gradients: ['responsive', 'hover'],
+        },
+        plugins: [
+            plugin(function ({addVariant, e}) {
+                addVariant("dark", ({modifySelectors, separator}) => {
+                    modifySelectors(({className}) => {
+                        return `.dark .${e(`dark${separator}${className}`)}`;
+                    });
                 });
-            });
-            addVariant("dark-hover", ({ modifySelectors, separator }) => {
-                modifySelectors(({ className }) => {
-                    return `.dark .${e(
-                        `dark${separator}hover${separator}${className}`
-                    )}:hover`;
+                addVariant("dark-hover", ({modifySelectors, separator}) => {
+                    modifySelectors(({className}) => {
+                        return `.dark .${e(
+                            `dark${separator}hover${separator}${className}`
+                        )}:hover`;
+                    });
                 });
-            });
-        }),
-    ],
+            }),
+        ],
+    }
 }
+

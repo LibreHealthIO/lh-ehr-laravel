@@ -1,9 +1,13 @@
 <template>
     <div>
         <Breadcrumb :active-link="activeLink"/>
-        <h1 class="text-2xl font-light mb-3">Welcome
-            <span class="text-teal-400">{{ $page.props.auth.user.first_name }} {{ $page.props.auth.user.last_name }}</span></h1>
         <div class="min-w-screen flex flex-col items-center px-5 py-5">
+            <h1 class="text-2xl font-bold text-center mb-3">
+                Welcome back,
+                <span class="text-teal-400">
+                    {{ $page.props.auth.user.first_name }} {{ $page.props.auth.user.last_name }}
+                </span>
+            </h1>
             <div class="w-full max-w-3xl">
                 <div class="-mx-2 md:flex">
                     <div class="w-full md:w-1/3 px-2">

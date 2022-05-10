@@ -1,155 +1,399 @@
 <template>
     <div>
         <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink"/>
-        <div class="flex-row flex-grow">
-            <form @submit.prevent="submit" class="w-full mt-2">
-                <div class="flex mb-4">
-                    <div class="flex flex-wrap w-1/2">
-                        <div class="md:w-full px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Facility
-                            </label>
-                            <div class="relative mt-2">
-                                <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 py-1 px-4 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <option>Unassigned</option>
-                                    <option v-for="facility in facilities" :value="facility.id">
-                                        {{ facility.name }}
-                                    </option>
-                                </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
-                                </div>
+        <div class="flex flex-row justify-end -mt-2">
+            <button class="bg-gray-900 hover:bg-theme-1 text-white rounded px-6 py-3 text-center">
+                Create  Patient
+            </button>
+        </div>
+        <div class="w-full mx-auto bg-gray-100 bg-opacity-60 mt-2 p-5">
+            <form @submit.prevent="submit" class="space-y-6">
+                <section class="w-full flex flex-col" id="face_sheet">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Patient Section' class="flex justify-center bg-green-500 items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform border border-green-700 text-white bg-transparent hover:bg-green-600 hover:scale-110">
+                            <icon name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Face Sheet</h3>
+                    </div>
+                    <h1>Patient Details</h1>
+                </section>
+                <section class="w-full flex flex-col" id="contacts">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-on:click="togglePatientSection('contacts')" v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Contacts Section'
+                             :class="selected_sections.includes('contacts') ? 'bg-green-500 border-green-700' : 'border-gray-500'"
+                             class="flex justify-center border items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform text-white hover:scale-110">
+                            <icon v-if="selected_sections.includes('contacts')" name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Contacts</h3>
+                    </div>
+                    <div v-if="selected_sections.includes('contacts')" class="container mx-10 my-5">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
                             </div>
-                        </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                First Name
-                            </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                   value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
-                        </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-5">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Middle Name
-                            </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                   value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
-                        </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Last Name
-                            </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                   value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
-                        </div>
-                        <div class="md:w-full px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Mobile Phone
-                            </label>
-                            <VuePhoneNumberInput v-model="initialPhone" />
-                        </div>
-                        <div class="md:w-full px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Contact Email
-                            </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                   value="" name="fname" minlength="3" maxlength="25" type="text" placeholder="Jane" required>
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex flex-wrap w-1/2">
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-2">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Sex
-                            </label>
-                            <div class="relative mt-2">
-                                <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <option>Unassigned</option>
-                                    <option value="male">Male</option>
-                                    <option value="male">Female</option>
-                                </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
-                                </div>
+                </section>
+                <section class="w-full flex flex-col" id="privacy">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-on:click="togglePatientSection('privacy')" v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Privacy Section'
+                             :class="selected_sections.includes('privacy') ? 'bg-green-500 border-green-700' : 'border-gray-500'"
+                             class="flex justify-center border items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform text-white hover:scale-110">
+                            <icon v-if="selected_sections.includes('privacy')" name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Privacy</h3>
+                    </div>
+                    <div v-if="selected_sections.includes('privacy')" class="container mx-10 my-5">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
                             </div>
-                        </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                            <custom-date-picker
-                                :name="$t('forms.date_of_birth')"
-                                :placeholder="$t('forms.date_of_birth')"/>
-                        </div>
-                        <div class="md:w-1/3 px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Marital Status
-                            </label>
-                            <div class="relative mt-2">
-                                <select class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                                 rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                    <option>Unassigned</option>
-                                    <option value="male">Married</option>
-                                    <option value="male">Single</option>
-                                    <option value="male">Divorced</option>
-                                    <option value="male">Widowed</option>
-                                    <option value="male">Separated</option>
-                                    <option value="male">Domestic Partner</option>
-                                </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-                                    </svg>
-                                </div>
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
                             </div>
-                        </div>
-                        <div class="md:w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Address
-                            </label>
-                            <input class="appearance-none block w-full bg-white text-gray-700 border border-gray-500 rounded
-                    py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                   value="" name="address" minlength="3" maxlength="25" type="text" placeholder="Address" required>
-                        </div>
-                        <div class="md:w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                                Billing Note
-                            </label>
-                            <textarea placeholder="Billing note" class="appearance-none block w-full bg-white text-gray-700 border border-gray-500
-                    rounded py-1 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500bg-transparent" name="billing_note"></textarea>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <button type="submit" class="flex text-base text-white justify-center px-10 py-3 rounded-md bg-gray-900 mb-3">
-                    <svg class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    {{ $t('forms.continue') }}
-                </button>
+                </section>
+                <section class="w-full flex flex-col" id="employer">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-on:click="togglePatientSection('employer')" v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Employer Section'
+                             :class="selected_sections.includes('employer') ? 'bg-green-500 border-green-700' : 'border-gray-500'"
+                             class="flex justify-center border items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform text-white hover:scale-110">
+                            <icon v-if="selected_sections.includes('employer')" name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Employer</h3>
+                    </div>
+                    <div v-if="selected_sections.includes('employer')" class="container mx-10 my-5">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="w-full flex flex-col" id="social_stats">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-on:click="togglePatientSection('social_stats')" v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Social Statistics Section'
+                             :class="selected_sections.includes('social_stats') ? 'bg-green-500 border-green-700' : 'border-gray-500'"
+                             class="flex justify-center border items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform text-white hover:scale-110">
+                            <icon v-if="selected_sections.includes('social_stats')" name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Social Statistics</h3>
+                    </div>
+                    <div v-if="selected_sections.includes('social_stats')" class="container mx-10 my-5">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="w-full flex flex-col" id="insurance">
+                    <div class="flex flex-row items-center content-center text-center">
+                        <div v-on:click="togglePatientSection('insurance')" v-tippy="{ arrow : true,  animation : 'perspective'}"
+                             content='Toggle Insurance Section'
+                             :class="selected_sections.includes('insurance') ? 'bg-green-500 border-green-700' : 'border-gray-500'"
+                             class="flex justify-center border items-center text-center w-5 h-5 cursor-pointer rounded-full mr-2 transform text-white hover:scale-110">
+                            <icon v-if="selected_sections.includes('insurance')" name="check" class="cursor-pointer w-6 h-6 p-0.5" />
+                        </div>
+                        <h3 class="text-lg font-bold text-green-500">Insurance</h3>
+                    </div>
+                    <div v-if="selected_sections.includes('insurance')" class="container mx-10 my-5">
+                        <div class="grid grid-cols-6 gap-6">
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-4 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Full Name(s)"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.name"
+                                    :error="patientForm.errors.name"
+                                    id="name"
+                                    required/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-3">
+                                <ehr-input
+                                    label="Email"
+                                    :class="'text-theme-3 font-medium'"
+                                    v-model="patientForm.email"
+                                    :error="patientForm.errors.email"
+                                    id="email"
+                                    required/>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </form>
         </div>
     </div>
 </template>
 
 <script>
-    import CustomDatePicker from "../../components/datepickers/CustomDatePicker";
-    import i18n from "../../i18n";
+    import CustomDatePicker from "../../components/datepickers/CustomDatePicker"
+    import i18n from "../../i18n"
+    import DashboardLayout from "../../layouts/DashboardLayout"
+    import { maxLength, required } from "vuelidate/lib/validators"
+    import Multiselect from "vue-multiselect"
 
     export default {
         metaInfo: { title: i18n.t('menu.patient_client') },
-        name: "patient.create",
+        name: "CreatePatient",
+        layout: DashboardLayout,
         props: {
+            patient: {
+                type: Object,
+                default: null
+            },
             facilities: Array
         },
-        data: () => {
+        components: {
+            CustomDatePicker,
+            Multiselect,
+        },
+        data() {
             return {
+                selected_sections: ['face_sheet'],
+                current_step: 1,
                 sending: false,
                 pagesRoutes: [
                     {
@@ -159,16 +403,121 @@
                 ],
                 activeLink: 'Add Patients/Clients',
                 initialPhone: '+237670518086',
+                patientForm: this.$inertia.form({
+                    name: null
+                }),
+                step1: {
+                    title: null,
+                    facility: null,
+                    description: null,
+                },
+                step2: {
+                    price: null,
+                },
+                step3: {
+                    images: [],
+                },
+                errors: {},
             };
         },
-        components: {
-            CustomDatePicker,
+        validations() {
+            let self = this;
+            return {
+                step1: {
+                    title: {
+                        required,
+                        maxLength: maxLength(230)
+                    },
+                    facility: {
+                        required,
+                    },
+                    description: {
+                        required,
+                    },
+                },
+                step2: {
+                    price: {
+                        required,
+                    }
+                },
+                step3: {
+                    images: {
+                        required,
+                    }
+                },
+                validationGroup: ['step1', 'step2', 'step3']
+            }
         },
         methods: {
-            submit() {
-                //
+            togglePatientSection(section) {
+                let sectionIndex = this.selected_sections.indexOf(section)
+                if (sectionIndex === -1) {
+                    this.selected_sections.push(section)
+                } else {
+                    this.selected_sections.splice(sectionIndex, 1)
+                }
             },
-        }
+            submit() {
+                this.$v.$touch()
+                if (this.$v.$invalid) {
+                    this.submitStatus = false
+                    this.$nextTick(() => {
+                        let objetRect = document.querySelector('.form-error').getBoundingClientRect();
+                        window.scrollTo(
+                            objetRect.left + document.documentElement.scrollLeft,
+                            objetRect.top + document.documentElement.scrollTop
+                        )
+                    })
+                } else {
+                    this.submitStatus = true
+                    console.log("Submitting form")
+                }
+            },
+            gotoNextStep() {
+                let next_step = this.current_step + 1
+                if (next_step === 2) {
+                    this.$v.validationGroup.step1.$touch()
+                    if (!this.$v.validationGroup.step1.$invalid) {
+                        this.current_step ++
+                    }
+                } else if (next_step === 3) {
+                    this.$v.validationGroup.step2.$touch()
+                    if (!this.$v.validationGroup.step2.$invalid) {
+                        this.current_step ++
+                    }
+                } else if (next_step === 4) {
+                    this.$v.validationGroup.step3.$touch()
+                    if (!this.$v.validationGroup.step3.$invalid) {
+                        this.current_step ++
+                    }
+                }
+            },
+            gotoPreviousStep() {
+                this.current_step --
+            },
+        },
     }
 </script>
 
+<style scoped lang="scss">
+.sub-label {
+    @apply text-gray-700 font-medium italic;
+}
+.help {
+    @apply block text-xs mt-1 italic mx-0;
+}
+.step {
+    content: "";
+    width: 30%;
+    display: inline-block;
+    &{
+        @apply h-1 rounded-lg;
+    }
+    &:not(.active){
+        @apply bg-gray-100;
+    }
+    &.active{
+        @apply bg-green-200;
+    }
+}
+</style>

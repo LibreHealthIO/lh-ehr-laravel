@@ -2,7 +2,7 @@
     <main>
         <FlashMessages/>
         <Header/>
-        <div class="flex-wrap mx-auto p-8 mt-24 md:mt-16 pt-10">
+        <div class="flex-wrap p-5 mt-24 md:mt-20 pt-10">
             <slot />
         </div>
     </main>

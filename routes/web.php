@@ -77,7 +77,7 @@ Route::get('lang/{lang}', [LocaleController::class, 'setLocale'])->name('locale.
 
 Route::group(
     [
-        'prefix' => 'console/dashboard',
+        'prefix' => 'dashboard',
         'middleware' => ['role:super_admin|admin|user'],
         'namespace' => '\\',
     ],
@@ -105,6 +105,8 @@ Route::group(
             'update' => 'users.update',
             'destroy' => 'users.destroy',
         ]);
+        Route::get('users/load/data', [UserController::class, 'getUserData'])
+            ->name('users.load.data');
 
         // ======== Facility related routes ========
         Route::resource('facilities', FacilityController::class)->names([
@@ -127,8 +129,11 @@ Route::group(
             'update' => 'patients.update',
             'destroy' => 'patients.destroy',
         ]);
+        Route::get('patients/load/data', [PatientController::class, 'getPatientData'])
+            ->name('patients.load.data');
 
-        Route::group([
+        Route::group(
+            [
             'prefix' => 'patients',
             'namespace' => '\\',
             // TODO (add a middleware for selected patients)

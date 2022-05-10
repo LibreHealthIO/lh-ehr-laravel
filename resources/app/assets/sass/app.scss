@@ -1,8 +1,6 @@
 /**
  * app.scss
- *
  * LibreHealth EHR stylesheet using Tailwind css combine with Sass
- *
  * @author Mua N. Laurent <muarachmann@gmail.com>
  * @version 3.0.0
  * @since August 2020
@@ -18,17 +16,14 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 // 3rd Parties
-@import "vue-multiselect/dist/vue-multiselect.min.css";
-@import "vue-tel-input/dist/vue-tel-input.css";
-@import "tippy.js/themes/light.css";
-@import "tippy.js/themes/light-border.css";
-@import "tippy.js/themes/google.css";
-@import "tippy.js/themes/translucent.css";
-
+@import "~vue-multiselect/dist/vue-multiselect.min.css";
+@import "~vue-tel-input/dist/vue-tel-input.css";
+@import '~sweetalert2/dist/sweetalert2.min.css';
 
 
 // Components
 @import "global";
+@import "table";
 @import "input";
 @import "notification";
 @import "checkbox";

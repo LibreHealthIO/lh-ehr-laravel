@@ -2,13 +2,13 @@
     <div>
         <Breadcrumb :active-link="activeLink"/>
         <div class="flex flex-row">
-            <div class="h-screen sticky-top w-2/12 bg-gray-100 mr-2 ml-2 p-2">
+            <div class="h-screen sticky-top w-1/4 bg-gray-100 mx-2 p-2">
                 <calendar-sidebar
                     :facilities="facilities"
                     :calendar_users="calendar_users">
                 </calendar-sidebar>
             </div>
-            <div class="w-screen w-10/12">
+            <div class="w-screen w-3/4">
                 <full-calendar
                     class="full-calendar"
                     :options="config">

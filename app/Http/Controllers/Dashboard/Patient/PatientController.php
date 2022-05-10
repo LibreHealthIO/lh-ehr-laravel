@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Patient;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PatientResource;
 use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
 use Illuminate\Http\RedirectResponse;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 
 class PatientController extends Controller
 {
@@ -85,18 +87,14 @@ class PatientController extends Controller
      * Selects patient and stores in cookie the redirect to patient details
      *
      * @param $id
-     * @return RedirectResponse|void
+     * @return RedirectResponse
      */
-    public function selectPatient($id)
+    public function selectPatient($id): RedirectResponse
     {
-        $patient = Patient::find($id);
-        if (!$patient) {
-            return Redirect::back()->with('error', 'No such Patient');
-        } else {
-            // we set the patient as cookie and redirect to patient details
-            Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
-            return Redirect::route('patients.show', $patient->id);
-        }
+        $patient = Patient::findOrFail($id);
+        // we set the patient as cookie and redirect to patient details
+        Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
+        return Redirect::route('patients.show', $patient->id);
     }
 
     /**
@@ -105,7 +103,7 @@ class PatientController extends Controller
      * @param int $id
      * @return RedirectResponse|Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         $patient = Patient::find($id);
         if (!$patient) {
@@ -114,6 +112,7 @@ class PatientController extends Controller
             if (!Cookie::get('ehr_patient')) {
                 return Redirect::route('patients.select', $patient->id);
             } else {
+                Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
                 return Inertia::render('Patient/Profile', [
                     'patient' => [
                         'id' => $patient->id,
@@ -194,5 +193,29 @@ class PatientController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Gets all patients data
+     * @param Request $request
+     * @return DataTableCollectionResource
+     */
+    public function getPatientData(Request $request): DataTableCollectionResource
+    {
+        $length = $request->input('length');
+        $sortBy = $request->input('column');
+        $orderBy = $request->input('dir');
+        $searchValue = $request->input('search');
+        $sex = $request->input('sex');
+        $query = Patient::latest()->when($sex, function ($query) use ($sex) {
+            $query->whereHas('faceSheet', function ($query) use ($sex) {
+                $query->where('sex', $sex);
+            });
+        })->eloquentQuery($sortBy, $orderBy, $searchValue);
+
+        $data = $query->paginate($length)->through(function ($user) {
+            return new PatientResource($user);
+        });
+        return new DataTableCollectionResource($data);
     }
 }
