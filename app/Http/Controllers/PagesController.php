@@ -2,38 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class PagesController extends Controller
 {
-    public function index()
+    /**
+     * Shows the labs homepage
+     * @return RedirectResponse
+     */
+    public function index(): RedirectResponse
     {
-        if (auth()->check()) {
-            return redirect()->route('dashboard');
-        }
-        return view('auth.login');
+        return Redirect::route('login');
     }
 
-    public function about(Request $request)
+    /**
+     * Gets the about page
+     * @return Response
+     */
+    public function about(): Response
     {
-        if ($request->header('X-Inertia') || auth()->check()) {
-            return Inertia::render('About');
-        } else {
-            return view('about');
-        }
+        return Inertia::render('About');
     }
 
 
-    public function contact()
+    /**
+     * Gets the contact page
+     * @return Response
+     */
+    public function contact(): Response
     {
-        smilify('success', 'Contact Page!');
         return Inertia::render('Contact');
     }
 
-    public function acknowledgeLicenseCert()
+    /**
+     * Gets the Acknowledgement & License page
+     * @return Response
+     */
+    public function acknowledgeLicenseCert(): Response
     {
-        return view('pages.acknowledge_license_cert');
+        return Inertia::render('Acknowledgement_License');
     }
 }

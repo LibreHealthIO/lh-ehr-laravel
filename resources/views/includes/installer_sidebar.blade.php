@@ -1,4 +1,4 @@
-<div class="text-uppercase -ml-5">
+<div class="text-uppercase -ml-2">
     @for($i = 0; $i < 3; $i++)
         <div class="flex py-4 items-start">
             <div class="flex-shrink-0">

@@ -7,10 +7,12 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PatientFaceSheet extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $appends = ['age'];
 
@@ -30,22 +32,22 @@ class PatientFaceSheet extends Model
         $unit = 'seconds';
         if ($this->dob != null) {
             $age = Carbon::now()->diffInYears($this->dob);
-            $unit = __('forms.years');
+            $unit = trans_choice('forms.year', $age);
             if ($age == 0) {
                 $age = Carbon::now()->diffInMonths($this->dob);
-                $unit = __('forms.months');
+                $unit = trans_choice('forms.month', $age);
                 if ($age == 0) {
                     $age = Carbon::now()->diffInDays($this->dob);
-                    $unit = __('forms.days');
+                    $unit = trans_choice('forms.day', $age);
                     if ($age == 0) {
                         $age = Carbon::now()->diffInHours($this->dob);
-                        $unit = __('forms.hours');
+                        $unit = trans_choice('forms.hour', $age);
                         if ($age == 0) {
                             $age = Carbon::now()->diffInMinutes($this->dob);
-                            $unit = __('forms.minutes');
+                            $unit = trans_choice('forms.minute', $age);
                             if ($age == 0) {
                                 $age = Carbon::now()->diffInSeconds($this->dob);
-                                $unit = __('forms.seconds');
+                                $unit = trans_choice('forms.second', $age);
                             }
                         }
                     }

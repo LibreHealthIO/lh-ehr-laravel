@@ -13,7 +13,7 @@ return [
     */
 
     'core' => [
-        'minPhpVersion' => '7.2.5', // As per the laravel documentation
+        'minPhpVersion' => '8.1.0', // As per the laravel documentation
     ],
 
     'requirements' => [
@@ -42,7 +42,6 @@ return [
             'sqlite3',
             'soap',
             'xml',
-            'xmlrpc',
             'xmlreader',
             'xmlwriter',
             'xsl',

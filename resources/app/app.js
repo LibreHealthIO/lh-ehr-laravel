@@ -10,7 +10,7 @@ import * as Sentry from "@sentry/browser"
 import VCalendar from 'v-calendar'
 import VueTour from "vue-tour"
 import VueTelInput from "vue-tel-input"
-import Notifications from "vt-notifications"
+import Notifications from 'vue-notification'
 import VueSweetalert2 from "vue-sweetalert2"
 import Vuelidate from "vuelidate"
 import store from "./store"
@@ -42,7 +42,7 @@ Sentry.init({ dsn: process.env.MIX_SENTRY_LARAVEL_DSN });
 InertiaProgress.init({ delay: 250, color: "#f59031" });
 
 createInertiaApp({
-    resolve: async name => await import(`./pages/${name}`).then((res) =>res.default),
+    resolve: async name => await import(`./pages/${name}`).then((res) => res.default),
     setup({ el, app, props, plugin}) {
         Vue.use(plugin)
         new Vue({

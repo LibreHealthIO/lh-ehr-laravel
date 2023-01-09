@@ -60,6 +60,7 @@ class HandleInertiaRequests extends Middleware
         return [
             'app_name' => app_name(),
             'app_version' => app_version(),
+            'copyrights_text' => copyrights_text(),
             'auth' => function () use ($request) {
                 return [
                     'user' => $request->user() ? [
@@ -92,16 +93,15 @@ class HandleInertiaRequests extends Middleware
             'user_roles' => $request->user() ? $request->user()->user_roles->pluck('name') : null,
             'device_type' => Agent::isTablet() ? 1 : (Agent::isMobile() ? 3 : 0),
             'user_permissions' =>  $request->user() ? $request->user()->user_permissions->pluck('name') : null,
-            'selected_patient' => function () {
+            'ehr_patient' => function () {
                 // get patient details
-                $id = Cookie::get('ehr_patient');
-                if (!$id) {
-                    return [ 'patient' => null ];
-                }
-                $patient = Patient::find(decrypt($id));
+                $pid = Cookie::get('ehr_patient');
+                if (!$pid) {return [ 'patient' => null ]; }
+                $patient = Patient::where('pid', decrypt($pid))->first();
                 return  [
                     'patient' => $patient ? [
                         'id' => $patient->id,
+                        'pid' => $patient->pid,
                         'title' => $patient->title,
                         'first_name' => $patient->faceSheet->first_name,
                         'last_name' => $patient->faceSheet->last_name,

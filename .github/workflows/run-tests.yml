@@ -1,0 +1,78 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    services:
+      mysql:
+        image: mysql:8.0.25
+        env:
+          MYSQL_ROOT_PASSWORD: passw0rd
+          MYSQL_DATABASE: lh_ehr
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        php: [8.1]
+        dependency-version: [prefer-stable]
+
+    name: P${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+          coverage: none
+
+      - name: Install dependencies
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Compile assets
+        run: npm run production
+
+      - name: Copy .env && Generate keys (Application and Passport)
+        run: |
+          cp .env.ci .env
+          composer clear-all
+          php artisan key:generate
+        env:
+          DB_CONNECTION: mysql
+          DB_DATABASE: lh_ehr
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_USER: root
+          DB_PASSWORD: passw0rd
+
+      - name: Run sample Migrations
+        run: |
+          php artisan migrate --force
+          yes | php artisan db:seed
+        env:
+          DB_CONNECTION: mysql
+          DB_DATABASE: lh_ehr
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_USER: root
+          DB_PASSWORD: passw0rd
+
+      - name: Execute & Run tests
+        run: vendor/bin/phpunit
+        env:
+          DB_CONNECTION: mysql
+          DB_DATABASE: lh_ehr
+          DB_PORT: ${{ job.services.mysql.ports[3306] }}
+          DB_USER: root
+          DB_PASSWORD: passw0rd

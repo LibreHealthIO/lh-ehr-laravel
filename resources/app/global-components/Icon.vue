@@ -666,6 +666,10 @@
         <line x1="15" x2="9" y1="9" y2="15"></line>
         <line x1="9" x2="15" y1="9" y2="15"></line>
     </svg>
+    <svg v-else-if="name === 'x'" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </svg>
     <svg v-else-if="name === 'chevron-double-right'" class="h-6 w-6" fill="none" stroke="currentColor"
          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M13 5l7 7-7 7M5 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>

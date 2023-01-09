@@ -17,6 +17,7 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('pid')->unique('pid');
             $table->string('title')->comment('Title Mr., Ms., Mrs., etc.');
             $table->string('occupation')->comment('Patient occupation');
             $table->string('industry')->comment('Industry in which patient works.');
@@ -26,6 +27,7 @@ class CreatePatientsTable extends Migration
             $table->foreign('address_id')->references('id')
                 ->on('addresses')->onDelete('cascade');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

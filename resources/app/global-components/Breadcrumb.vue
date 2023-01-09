@@ -2,9 +2,9 @@
     <div class="flex flex-inline p-3 mx-auto capitalize text-small">
         <template v-if="pageRoutes != null" v-for="pageRoute in pageRoutes">
             <div class="rounded px-3 py-1.5 bg-gray-400 bg-opacity-30 hover:bg-gray-700">
-                <inertiaLink :href="pageRoute.link" class="text-gray-700 hover:text-white">
+                <inertia-link :href="pageRoute.link" class="text-gray-700 hover:text-white">
                     {{ pageRoute.title }}
-                </inertiaLink>
+                </inertia-link>
             </div>
             <Icon name="arrow-narrow-right" class="flex w-6 h-4 align-middle items-center mt-1 text-theme-1"/>
         </template>

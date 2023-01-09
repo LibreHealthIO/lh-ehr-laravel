@@ -17,7 +17,7 @@
         </button>
         <transition name="dropdown-fade" class="z-999">
             <ul v-on-clickaway="hideDropdown" v-if="isVisible" ref="dropdown"
-                class="absolute z-500 font-normal xs:left-0 lg:right-0 text-gray-800
+                class="absolute z-500 font-normal rtl:left-0 ltr:right-0 text-gray-800
                 bg-white dark:bg-dark-2 shadow overflow-hidden rounded w-48 border mt-2 py-1 lg:z-100">
                 <li v-for="locale in locales" :key="locale.code">
                     <a href="#"
@@ -91,11 +91,12 @@ export default {
             this.$refs.dropdown.children[this.focusedIndex].children[0].focus()
         },
         setLocale(locale) {
-            this.$inertia.visit(this.route('locale.set', locale));
+            this.$inertia.visit(this.route('locale.set', locale), {
+                preserveState: false
+            });
             loadLocaleMessagesAsync(locale).then(() => {
-                setDocumentLang(locale)
-                setDocumentDirectionPerLocale(locale)
-                setDocumentTitle(locale)
+                setDocumentLang(locale);
+                setDocumentDirectionPerLocale(locale);
             });
             this.hideDropdown()
         }

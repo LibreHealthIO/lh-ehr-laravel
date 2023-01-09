@@ -1,9 +1,9 @@
 <template>
-    <header class="h-28 text-gray-100 bg-gray-900 border-t border-t-2 border-r border-theme-2 body-font shadow w-full fixed pin-t z-50">
+    <nav class="sticky top-0 h-32 flex flex-col w-full text-gray-100 bg-gray-900 border-t border-t-2 border-r border-theme-2 body-font shadow z-50">
         <div class="w-full items-center">
             <div class="transition duration-500 ease-in-out transform">
                 <div class="flex flex-col flex-wrap p-2 md:items-center md:flex-row">
-                    <inertia-link :href="route('dashboard')" class="p-1 mx-2 border-transparent text-gray-400 rounded-full hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
+                    <inertia-link :href="route('dashboard.index')" class="p-1 mx-2 border-transparent text-gray-400 rounded-full hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">
                         <svg class="h-5 w-5" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
@@ -21,19 +21,19 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
-                                        :class="isSubMenuActive('patients.index')">Finder
+                                        :href="route('dashboard.patients.index')"
+                                        :class="isSubMenuActive('dashboard.patients.index')">Finder
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
-                                        :class="isSubMenuActive('patients.create')">Add New/Search
+                                        :href="route('dashboard.patients.create')"
+                                        :class="isSubMenuActive('dashboard.patients.create')">Add New/Search
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
                                         :class="isSubMenuActive('dashboard.settings')">Recycle Bin
                                     </inertia-link>
                                     <inertia-link v-if="$page.props.ehr_patient.patient != null"
-                                                  :href="route('patients.select', $page.props.ehr_patient.patient.id)"
+                                                  :href="route('dashboard.patients.select', $page.props.ehr_patient.patient.id)"
                                                   :class="isSubMenuActive('dashboard.settings')">Summary
                                     </inertia-link>
                                     <inertia-link
@@ -67,11 +67,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Fee Sheet
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Payment
                                     </inertia-link>
                                     <inertia-link
@@ -109,11 +109,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Management
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Destroyed
                                     </inertia-link>
                                 </div>
@@ -127,11 +127,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Providers
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Configuration
                                     </inertia-link>
                                     <inertia-link
@@ -169,11 +169,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Clients
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Visits
                                     </inertia-link>
                                     <inertia-link
@@ -211,11 +211,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Patient Education
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Patient Portal
                                     </inertia-link>
                                     <inertia-link
@@ -261,11 +261,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">Issues
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Appts
                                     </inertia-link>
                                     <inertia-link
@@ -303,11 +303,11 @@
                             <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
                                 <div class="relative bg-white">
                                     <inertia-link
-                                        :href="route('patients.index')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.index')">View Reports
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Create MIPS Report
                                     </inertia-link>
                                     <inertia-link
@@ -361,7 +361,7 @@
                                         :class="isSubMenuActive('about')">About
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('patients.create')"
+                                        :href="'#'"
                                         :class="isSubMenuActive('patients.create')">Forums
                                     </inertia-link>
                                     <inertia-link
@@ -401,8 +401,8 @@
                                         enter-to-class="opacity-100 scale-100"
                                         leave-class="opacity-100 scale-100"
                                         leave-to-class="opacity-0 scale-70">
-                                        <div v-if="open" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50">
-                                            <div class="py-1 rounded-md bg-white shadow-xs">
+                                        <div v-if="open" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg z-9999">
+                                            <div class="py-1 rounded-md bg-white shadow-xs z-9999">
                                                 <inertia-link
                                                     :href="route('dashboard.profile')"
                                                     :class="isSubMenuActive('dashboard.profile')">
@@ -431,35 +431,43 @@
                 </div>
             </div>
         </div>
-
-        <div class="flex flex-wrap items-center text-base py-2 px-3 -mt-4 mb-2">
-            <div class="text-sm uppercase" style="font-size: 11px">
+        <div class="flex flex-row justify-between text-base py-2 px-4 mb-2">
+            <div class="text-sm uppercase" style="font-size: 12px">
                 <div v-if="$page.props.ehr_patient.patient === null">
                     <span>{{ $t('menu.patient_client') }}:</span> <span class="font-bold">None</span>
                 </div>
-                <div v-else>
-                    <span>{{ $t('menu.patient_client') }}:</span>
-                    <inertia-link :href="route('patients.select', $page.props.ehr_patient.patient.id)"
-                                  class="hover:text-teal-500 hover:underline">
-                            <span class="font-bold">
-                                {{ $page.props.ehr_patient.patient.first_name }}
-                                {{ $page.props.ehr_patient.patient.last_name }}
-                                ({{ $page.props.ehr_patient.patient.id }})
-                            </span>
-                    </inertia-link>
-                    <inertia-link :href="route('patients.clear', $page.props.ehr_patient.patient.id)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
+                <div v-else class="flex flex-row items-center space-x-2">
+                    <div class="flex-shrink-0">
+                        <img class="w-10 h-10 rounded-full border border-gray-100" src="/images/logo.png" alt="Logo">
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="flex flex-row">
+                            <span>{{ $t('menu.patient_client') }}:</span>
+                            <inertia-link :href="route('dashboard.patients.select', $page.props.ehr_patient.patient.pid)"
+                                          class="hover:text-teal-500 hover:underline">
+                                <span class="font-bold">
+                                    {{ $page.props.ehr_patient.patient.first_name }}
+                                    {{ $page.props.ehr_patient.patient.last_name }}
+                                    ({{ $page.props.ehr_patient.patient.pid }})
+                                </span>
+                            </inertia-link>
+                        </div>
+                        <div class="flex flex-row">
+                            <span>{{ $t('forms.date_of_birth') }}:&nbsp;</span>
+                            <span class="font-bold">{{ $page.props.ehr_patient.patient.date_of_birth }}</span> &nbsp;&nbsp;
+                            <span>{{ $t('forms.age') }}:&nbsp;</span>
+                            <span class="font-bold">{{ $page.props.ehr_patient.patient.age }}</span>
+                        </div>
+                    </div>
+                    <inertia-link :href="route('dashboard.patients.clear', $page.props.ehr_patient.patient.pid)" class="mr-1.5 mb-1 ml-1.5 px-2 py-1 rounded-md text-xs
                         font-small text-gray-300 hover:text-white inline-flex items-center bg-gray-700 font-bold
                         hover:bg-gray-800 focus:outline-none focus:text-white focus:bg-gray-700 uppercase pointer">
                         Clear
-                    </inertia-link><br>
-                    <span>{{ $t('forms.date_of_birth') }}:</span>
-                    <span class="font-bold">{{ $page.props.ehr_patient.patient.date_of_birth }}</span> &nbsp;
-                    <span>{{ $t('forms.age') }}:</span>
-                    <span class="font-bold">{{ $page.props.ehr_patient.patient.age }}</span>
+                    </inertia-link>
                 </div>
             </div>
-            <div class="flex flex-grow lg:flex-row mr-40 justify-end">
-                <div class="relative mt-1 text-sm uppercase w-64" style="font-size: 11px">
+            <div class="flex flex-row mr-5 justify-end">
+                <div class="relative text-sm uppercase w-64" style="font-size: 12px">
                     <div v-if="$page.props.ehr_patient.patient === null" class="mb-1">
                         <span>{{ $t('general.selected_encounter') }}:</span> <span class="font-bold">None</span>
                     </div>
@@ -473,8 +481,8 @@
                             <option>2020-11-02 / New Patient ----> Review</option>
                             <option>2020-11-04 / Preventive Care Services ----> Review</option>
                         </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center mt-3 px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                             </svg>
                         </div>
@@ -482,8 +490,7 @@
                 </div>
             </div>
         </div>
-
-    </header>
+    </nav>
 </template>
 
 <script>

@@ -36,8 +36,8 @@ Make sure your server meets the following requirements.
 
 -   Apache 2.2+ or nginx
 -   MySQL Server 5.7.8+ , Mariadb 10.3.2+ or PostgreSQL
--   Composer installed 1.9+
--   PHP Version 7.2.x+
+-   Composer installed 2.0+
+-   PHP Version 8.0.x+
 
 ### PHP extensions
 
@@ -46,7 +46,7 @@ Make sure you have the following php extensions enabled
 ```
 bz2, curl, date, dom, exif, gd, gettext, grpc,
 imagick, intl, json, libxml, mbstring, mysqli, mysqlnd, openssl, PDO,
-pdo_mysql, posix, protobuf, soap, sqlite3, xml, xmlreader, xmlrpc, xmlwriter
+pdo_mysql, posix, protobuf, soap, sqlite3, xml, xmlreader, xmlwriter
 xsl, zip, zlib
 ```
 
@@ -231,7 +231,6 @@ instead of using the issue tracker.
 
 ## Credits
 
--   [Priyanshu Sinha](https://github.com/pri2si17-1997)
 -   [Mua Rachmann](https://github.com/muarachmann)
 
 ## License

@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers\Installer;
 
-use App\Helpers\Installer\EHRInstaller;
+use App\Support\Installer\EHRInstaller;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class InstallerDatabaseController extends Controller
 {
     /**
      * @var EHRInstaller
      */
-    protected $installer;
+    protected EHRInstaller $installer;
 
     /**
      * @param EHRInstaller $EHRInstaller
@@ -21,7 +24,12 @@ class InstallerDatabaseController extends Controller
         $this->installer = $EHRInstaller;
     }
 
-    public function index()
+    /**
+     * Returns database configurations/setup and seeder if possible
+     * @return Response
+     * @throws FileNotFoundException
+     */
+    public function index(): Response
     {
         // create a default site
         $siteDetails = [
@@ -35,8 +43,10 @@ class InstallerDatabaseController extends Controller
             $this->installer->createInstallerLogFile($siteDetails);
         }
         $sites = $this->installer->readInstallerLogFile();
-        return redirect()->route('index');
-        // TODO continue with the installation steps if further
-        return view('installer.database', compact('sites'));
+        return Inertia::render('Installer/Database', [
+            'prev_url' => route('installer.file_permissions'),
+            'next_url' => route('installer.complete'),
+            'sites' => $sites
+        ]);
     }
 }

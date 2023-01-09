@@ -32,6 +32,7 @@ class CreatePatientFaceSheetsTable extends Migration
             $table->foreign('patient_id')->references('id')->on('patients')
                 ->onDelete('cascade');
 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

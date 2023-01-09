@@ -15,14 +15,14 @@ class EHRInstaller
      *
      * @var array
      */
-    protected $except = [
+    protected array $except = [
         'install*',
     ];
 
     /**
      *
      */
-    private $installerFilePath = 'app/public/ehr_installer.json';
+    private string $installerFilePath = 'app/public/ehr_installer.json';
 
 
     /**
@@ -32,11 +32,11 @@ class EHRInstaller
      * @param  Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         if (!$this->inExemptedRoutes($request)) {
             if (!$this->isEHRInstalled()) {
-                return redirect()->route('ehr_installer.index');
+                return redirect()->route('installer.index');
             }
         }
         return $next($request);
@@ -48,7 +48,7 @@ class EHRInstaller
      *
      * @return bool
      */
-    public function isEHRInstalled()
+    public function isEHRInstalled(): bool
     {
         // TODO check installation values of each json
         return File::exists(storage_path($this->installerFilePath));
@@ -61,7 +61,7 @@ class EHRInstaller
      * @param Request $request
      * @return bool
      */
-    protected function inExemptedRoutes($request)
+    protected function inExemptedRoutes($request): bool
     {
         foreach ($this->except as $except) {
             if ($except !== '/') {

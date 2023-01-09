@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 
 class Patient extends Model
 {
     use HasFactory;
     use LaravelVueDatatableTrait;
+    use SoftDeletes;
 
     protected array $dataTableColumns = [
         'id' => ['searchable' => false],
+        'pid' => ['searchable' => true],
         'occupation' => ['searchable' => true],
         'industry' => ['searchable' => true],
         'created_at' => ['searchable' => true],

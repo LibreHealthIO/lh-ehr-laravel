@@ -29,6 +29,7 @@ class PatientController extends Controller
                     return [
                         // main info
                         'id' => $patient->id,
+                        'pid' => $patient->pid,
                         'title' => $patient->title,
                         'occupation' => $patient->occupation,
                         'industry' => $patient->industry,
@@ -86,15 +87,15 @@ class PatientController extends Controller
     /**
      * Selects patient and stores in cookie the redirect to patient details
      *
-     * @param $id
+     * @param $pid
      * @return RedirectResponse
      */
-    public function selectPatient($id): RedirectResponse
+    public function selectPatient($pid): RedirectResponse
     {
-        $patient = Patient::findOrFail($id);
+        $patient = Patient::where('pid', $pid)->firstOrFail();
         // we set the patient as cookie and redirect to patient details
-        Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
-        return Redirect::route('patients.show', $patient->id);
+        Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
+        return Redirect::route('dashboard.patients.show', $patient->pid);
     }
 
     /**
@@ -103,19 +104,20 @@ class PatientController extends Controller
      * @param int $id
      * @return RedirectResponse|Response
      */
-    public function show(int $id)
+    public function show(int $pid)
     {
-        $patient = Patient::find($id);
+        $patient = Patient::where('pid', $pid)->first();
         if (!$patient) {
             return redirect()->back()->with('error', __('general.no_such_patient'));
         } else {
             if (!Cookie::get('ehr_patient')) {
-                return Redirect::route('patients.select', $patient->id);
+                return Redirect::route('dashboard.patients.select', $patient->pid);
             } else {
-                Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->id), 60));
+                Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
                 return Inertia::render('Patient/Profile', [
                     'patient' => [
                         'id' => $patient->id,
+                        'pid' => $patient->pid,
                         'title' => $patient->title,
                         'occupation' => $patient->occupation,
                         'industry' => $patient->industry,
@@ -143,19 +145,19 @@ class PatientController extends Controller
      * Selects patient and stores in cookie the redirect to patient details
      *
      * @param Request $request
-     * @param $id
+     * @param $pid
      * @return RedirectResponse|string|void
      */
-    public function clearPatient(Request $request, $id)
+    public function clearPatient(Request $request, $pid)
     {
-        $patient = Patient::find($id);
+        $patient = Patient::where('pid', $pid)->first();
         if (!$patient) {
             return Redirect::back()->with('error', 'No such Patient');
         } else {
             Cookie::queue(Cookie::forget('ehr_patient'));
             // case when you are on the patients screen -> takes you to select other patients
-            if (back()->getTargetUrl() == route('patients.show', $id)) {
-                return redirect()->route('patients.index');
+            if (back()->getTargetUrl() == route('dashboard.patients.show', $pid)) {
+                return redirect()->route('dashboard.patients.index');
             }
             return Redirect::back();
         }

@@ -78,5 +78,5 @@ fabric.properties
 # .idea/misc.xml
 # *.ipr
 
-storage
-#public/js/*.js.map
+.php-cs-fixer.php
+.php-cs-fixer.cache

@@ -1,21 +1,21 @@
 <template>
-    <main>
+    <main class="w-full h-screen">
         <FlashMessages/>
         <Header/>
-        <div class="flex-wrap p-5 mt-24 md:mt-20 pt-10">
+        <div class="w-full h-[calc(100%-5rem)] flex overflow-scroll-container flex-col px-5 pt-4 pb-10">
             <slot />
         </div>
     </main>
 </template>
 <script>
-    import FlashMessages from "../shared/includes/FlashMessages"
+import FlashMessages from "../shared/includes/FlashMessages"
 
-    export default {
-        name: "DashboardLayout",
-        components: {
-            FlashMessages
-        },
-    }
+export default {
+    name: "DashboardLayout",
+    components: {
+        FlashMessages
+    },
+}
 </script>
 
 <style scoped>

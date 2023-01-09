@@ -22,7 +22,6 @@
                         <li class=""><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-no-wrap" href="#">Records</a></li>
                         <li class=""><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-no-wrap" href="#">Visit Forms</a></li>
                         <li class=""><a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 whitespace-no-wrap" href="#">Import</a></li>
-
                     </ul>
                 </div>
                 <div class="dropdown inline-block relative">

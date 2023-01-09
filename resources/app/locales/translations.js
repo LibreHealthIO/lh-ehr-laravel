@@ -3694,9 +3694,14 @@ export default {
             "user": "We can't find a user with that e-mail address."
         },
         "auth": {
-            "failed": "These credentials do not match our records.",
+            "failed": "Invalid login. Please try again.",
+            "password": "The provided password is incorrect.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds.",
-            "no_access_rights": "User does not have any of the necessary access rights."
+            "not_enough_permissions": "You don't have enough permissions to perform this action. Please contact an admin.",
+            "verification_link_sent": "A password reset email has been sent to <strong>{email}</strong>. Please click on the link in the email to reset your password",
+            "expired_page": "Your session has expired. Please refresh the page to continue.",
+            "enter_password": "Please provide a password",
+            "login": "Login"
         },
         "languages": {
             "english": "English",
@@ -3967,9 +3972,19 @@ export default {
             "print": "Print",
             "search": "Search",
             "add": "Add",
+            "error": "Error",
+            "success": "Success",
+            "warning": "Warning",
+            "info": "Info",
             "all_rights_reserved": "All Rights Reserved.",
             "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
-            "no_such_patient": "No such Patient"
+            "no_such_patient": "No such Patient",
+            "selected_encounter": "Select Encounter",
+            "forgot_your_password": "Forgot your password?",
+            "forgot_password": "Forgot Password",
+            "reset_password": "Reset Password",
+            "verify_account": "Verify Account",
+            "click_here": "Click here"
         },
         "forms": {
             "username": "Username",
@@ -3980,7 +3995,13 @@ export default {
             "previous": "Previous",
             "finish": "Finish",
             "date_of_birth": "Date of birth",
-            "age": "Age"
+            "age": "Age",
+            "year": "Year|Years",
+            "month": "Month|Months",
+            "day": "Day|Days",
+            "hour": "Hour|Hours",
+            "minute": "Minute|Minutes",
+            "second": "Second|Seconds"
         }
     },
     "es": {
@@ -5582,9 +5603,14 @@ export default {
             "user": "Aucun utilisateur n'a été trouvé avec cette adresse email."
         },
         "auth": {
-            "failed": "Ces identifiants ne correspondent pas à nos enregistrements",
+            "failed": "Identifiants invalide. Veuillez réessayer encore",
             "throttle": "Tentatives de connexion trop nombreuses. Veuillez essayer de nouveau dans {seconds} secondes.",
-            "no_access_rights": "L'utilisateur ne dispose d'aucun des droits d'accès nécessaires."
+            "no_access_rights": "L'utilisateur ne dispose d'aucun des droits d'accès nécessaires.",
+            "not_enough_permissions": "Vous n'avez pas assez de permissions pour effectuer cette action. Veuillez contacter un administrateur.",
+            "verification_link_sent": "Un e-mail de réinitialisation du mot de passe a été envoyé à <strong>{email}</strong>. Veuillez cliquer sur le lien contenu dans l'e-mail pour réinitialiser votre mot de passe.",
+            "expired_page": "Votre session a expiré. Veuillez rafraîchir la page pour continuer.",
+            "enter_password": "Veuillez saisir votre mot de passe",
+            "login": "Connexion"
         },
         "languages": {
             "english": "Anglais",
@@ -5909,8 +5935,20 @@ export default {
             "print": "Imprimer",
             "search": "Recherchez",
             "add": "Ajouter",
+            "error": "Erreur",
+            "success": "Succès",
+            "warning": "Alerte",
+            "info": "Info",
             "all_rights_reserved": "Tous droits réservés.",
-            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications"
+            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications",
+            "no_such_patient": "Aucun patient existant",
+            "selected_encounter": "Choisir une rencontre",
+            "forgot_password": "Mot de passe oublié",
+            "reset_password": "Réinitialiser le mot de passe",
+            "verify_account": "Vérifier le compte",
+            "forgot_your_password": "Vous avez oublié votre mot de passe ?",
+            "click": "Cliquez",
+            "click_here": "Cliquez Ici"
         },
         "forms": {
             "username": "Nom d'utilisateur",
@@ -5918,7 +5956,13 @@ export default {
             "password": "Mot de passe",
             "continue": "Continuer",
             "date_of_birth": "Date de naissance",
-            "age": "Âge"
+            "age": "Âge",
+            "year": "An|Ans",
+            "month": "Mois|Mois",
+            "day": "Jour|Jours",
+            "hour": "Heure|Heures",
+            "minute": "Minute|Minutes",
+            "second": "Seconde|Secondes"
         }
     },
     "gl": {

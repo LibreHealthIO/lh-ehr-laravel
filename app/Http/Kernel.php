@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\EHRInstaller;
+use App\Http\Middleware\ForceJsonResponse;
 use App\Http\Middleware\Localization;
 use App\Http\Middleware\SelectedPatient;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -19,7 +20,7 @@ class Kernel extends HttpKernel
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
-        \Fruitcake\Cors\HandleCors::class,
+        \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -37,17 +38,15 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\Localization::class,
-            EHRInstaller::class,
+            \Torann\Currency\Middleware\CurrencyMiddleware::class,
             \App\Http\Middleware\HandleInertiaRequests::class,
         ],
-
         'api' => [
-            'throttle:60,1',
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
             'localization',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
@@ -71,7 +70,10 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'json.response' => ForceJsonResponse::class,
         'localization' => Localization::class,
+        'forbid-banned-user' => \Cog\Laravel\Ban\Http\Middleware\ForbidBannedUser::class,
+        'ehr.install' => EHRInstaller::class,
         'select.patient' => SelectedPatient::class
     ];
 }

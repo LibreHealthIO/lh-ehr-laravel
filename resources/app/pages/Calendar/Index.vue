@@ -90,11 +90,9 @@
                             click: function() {
                                 // TODO Printing currently works for a single provider.
                                 vm.$notify({
-                                    group: "foo",
-                                    type: "warning",
-                                    title: "Warning",
-                                    text: "Printing the Calendar",
-                                }, 4080)
+                                    'title': 'Printing the Calendar',
+                                    'text': 'About to print contents of the calendar'
+                                })
                             }
                         },
                         search: {

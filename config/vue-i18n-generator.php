@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'langPath' => '/resources/lang',
+    'langPath' => '/lang',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     | Note: the path will be prepended to point to the App directory.
     |
     */
-    'jsPath' => '/resources/langs/',
+    'jsPath' => '/resources/app/',
     'jsFile' => '/resources/app/locales/translations.js',
 
     /*
@@ -79,7 +79,7 @@ return [
     | after generating json files.
     |
     */
-    'showOutputMessages' => false,
+    'showOutputMessages' => true,
 
     /*
    |--------------------------------------------------------------------------

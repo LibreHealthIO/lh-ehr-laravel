@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/3 px-2">
-                        <inertia-link :href="route('patients.index')" class="cursor-pointer">
+                        <inertia-link :href="route('dashboard.patients.index')" class="cursor-pointer">
                             <div class="rounded-lg shadow-sm mb-4">
                             <div class="rounded-lg bg-white shadow-lg md:shadow-xl relative overflow-hidden">
                                 <div class="px-3 pt-8 pb-10 text-center relative z-10">
@@ -64,7 +64,7 @@
             <div class="w-full max-w-3xl">
                 <div class="-mx-2 md:flex">
                     <div class="w-full md:w-1/3 px-2">
-                        <inertia-link :href="route('users.index')" class="cursor-pointer">
+                        <inertia-link :href="route('dashboard.users.index')" class="cursor-pointer">
                             <div class="rounded-lg shadow-sm mb-4">
                             <div class="rounded-lg bg-white shadow-lg md:shadow-xl relative overflow-hidden">
                                 <div class="px-3 pt-8 pb-10 text-center relative z-10">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/3 px-2">
-                        <inertia-link :href="route('facilities.index')" class="cursor-pointer">
+                        <inertia-link :href="route('dashboard.facilities.index')" class="cursor-pointer">
                             <div class="rounded-lg shadow-sm mb-4">
                             <div class="rounded-lg bg-white shadow-lg md:shadow-xl relative overflow-hidden">
                                 <div class="px-3 pt-8 pb-10 text-center relative z-10">

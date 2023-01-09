@@ -2,13 +2,10 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;
@@ -18,7 +15,7 @@ class Handler extends ExceptionHandler
     /**
      * A list of the exception types that are not reported.
      *
-     * @var array
+     * @var array<int, class-string<Throwable>>
      */
     protected $dontReport = [
         //
@@ -27,70 +24,83 @@ class Handler extends ExceptionHandler
     /**
      * A list of the inputs that are never flashed for validation exceptions.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $dontFlash = [
+        'current_password',
         'password',
         'password_confirmation',
     ];
 
     /**
-     * Report or log an exception.
+     * Register the exception handling callbacks for the application.
      *
-     * @param  Throwable  $exception
      * @return void
-     *
-     * @throws \Exception
      */
-    public function report(Throwable $exception)
+    public function register()
     {
-        if (app()->bound('sentry') && $this->shouldReport($exception)) {
-            app('sentry')->captureException($exception);
-        }
-
-        parent::report($exception);
+        $this->reportable(function (Throwable $e) {
+            //
+        });
     }
 
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  Request  $request
-     * @param  Throwable  $exception
-     * @return Response
-     *
+     * @param Request $request
+     * @param Throwable $exception
+     * @return JsonResponse|RedirectResponse|\Illuminate\Http\Response|object|Response
      * @throws Throwable
      */
-    public function render($request, Throwable $exception): Response
+    public function render($request, Throwable $exception)
     {
         $response = parent::render($request, $exception);
-
-        if (!app()->environment('local') && in_array($response->status(), [500, 503, 404, 403])) {
-            return Inertia::render('Error', ['status' => $response->status()])
-                ->toResponse($request)
-                ->setStatusCode($response->status());
-        } else if ($response->status() === 419) {
-            return back()->with([
-                'message' => 'The page expired, please try again.',
-            ]);
+        if ($request->is("api/v*")) {
+            if ($request->wantsJson()) {
+                return response()->json([
+                    'message' => $this->getApiMessage($response),
+                    'code' => $response->getStatusCode(),
+                    'dev_message' => !app()->environment(['production']) ? $exception->getMessage() : null,
+                    'stack_trace' => !app()->environment(['production']) ? $exception->getTrace() : null,
+                ], $response->getStatusCode());
+            }
+        } else {
+            $response = parent::render($request, $exception);
+            if (!app()->environment(['local', 'testing']) &&
+                in_array($response->getStatusCode(), [500, 503, 404, 403, 401])) {
+                return Inertia::render('Errors/Index', ['status' => $response->getStatusCode()]);
+            } else if ($response->getStatusCode() === 419) {
+                return $this->redirectExpiredPage();
+            } else if ($response->getStatusCode() === 429) {
+                return back()->with([
+                    'error' => __('auth.many_request'),
+                ]);
+            }
         }
-
-        return $response;
+        return !app()->environment(['production']) ? $response :
+            Inertia::render('Errors/Index', ['status' => 404]);
     }
 
 
     /**
-     * @param  Request $request
-     * @param  AuthenticationException  $exception
-     *
-     * @return JsonResponse|RedirectResponse
+     * Redirect to appropriate auth page when page is expired
+     * @return Response
      */
-    protected function unauthenticated($request, AuthenticationException $exception)
+    private function redirectExpiredPage(): Response
     {
-        if ($request->hasHeader('X-Inertia')) {
-            return Redirect::route('login');
-        }
-        return ($request->expectsJson() || $request->wantsJson()) ?
-            response()->json(['message' => 'Unauthenticated.'], 401) :
-            redirect()->guest(route('login'));
+        return Inertia::location(route('guest.index'));
+    }
+
+    private function getApiMessage(Response $response): string
+    {
+        return match ($response->getStatusCode()) {
+            Response::HTTP_UNAUTHORIZED => 'Unauthorized',
+            Response::HTTP_FORBIDDEN => 'Forbidden',
+            Response::HTTP_NOT_FOUND => 'Not Found',
+            Response::HTTP_INTERNAL_SERVER_ERROR => 'Internal Server Error',
+            Response::HTTP_BAD_REQUEST => 'Bad Request',
+            Response::HTTP_SERVICE_UNAVAILABLE => 'Service Unavailable',
+            default => 'Unknown Error',
+        };
     }
 }

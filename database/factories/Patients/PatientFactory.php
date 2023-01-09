@@ -45,6 +45,7 @@ class PatientFactory extends Factory
         return [
             'title' => $this->faker->title($gender),
             'occupation' => $occupation[array_rand($occupation, 1)],
+            'pid' => generatePID(),
             'industry' => $industry[array_rand($industry, 1)],
             'address_id' => Address::factory(),
         ];

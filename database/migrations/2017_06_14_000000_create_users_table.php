@@ -94,6 +94,11 @@ class CreateUsersTable extends Migration
             // Device tokens
             $table->string('device_id')->nullable();
 
+            // Ban users
+            $table->timestamp('banned_at')->nullable();
+            $table->datetime('last_login_at')->nullable();
+            $table->ipAddress('last_login_ip')->nullable();
+
             // remember tokens and timestamps
             $table->softDeletes();
             $table->rememberToken()->comment('Remember me token');

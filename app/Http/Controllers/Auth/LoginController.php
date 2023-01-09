@@ -3,12 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
@@ -43,14 +49,14 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
     /**
-     * Shows login form
-     * @return \Illuminate\Http\Response
+     * Shows the insurance login form
+     * @param Request $request
+     * @return \Inertia\Response
      */
-    public function showLoginForm(): \Illuminate\Http\Response
+    public function showLoginForm(Request $request): \Inertia\Response
     {
-        return Inertia::location(route('index'));
+        return Inertia::render('Auth/Login');
     }
 
     /**
@@ -61,44 +67,61 @@ class LoginController extends Controller
      */
     public function login(Request $request): Response
     {
-        $this->validate($request, [
-            'login'    => 'required',
-            'password' => 'required',
-        ]);
+        $this->validate($request, ['account'    => 'required', 'password' => 'required']);
 
-        $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL)
+        $login_type = filter_var($request->input('account'), FILTER_VALIDATE_EMAIL)
             ? 'email'
             : 'username';
 
-        $request->merge([
-            $login_type => $request->input('login')
-        ]);
+        $request->merge([$login_type => $request->input('account')]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            return redirect()->intended($this->redirectPath());
+            return Inertia::location($this->redirectPath());
+        } else {
+            return Redirect::back()->with(['error' => __('auth.failed')]);
         }
-
-        return $this->sendFailedLoginResponse($request);
     }
 
     /**
      * Log the user out of the application.
-     *
-     * @param  Request $request
-     *
-     * @return string
+     * @param Request $request
+     * @return Response
      */
-    public function logout(Request $request): string
+    public function logout(Request $request): Response
     {
-        // forget the patient cookie if any
         Cookie::queue(Cookie::forget('ehr_patient'));
         $this->guard()->logout();
+        session()->flush();
         $request->session()->invalidate();
         return Inertia::location(route('index'));
     }
 
+    /**
+     * Check if user is authenticated
+     * @param Request $request
+     * @return RedirectResponse
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    protected function authenticated(Request $request): RedirectResponse
+    {
+        $request->user()->update([
+            'last_login_at' => Carbon::now()->toDateTimeString(),
+            'last_login_ip' => $request->getClientIp()
+        ]);
+        if ($intendetUrl = session()->get('url.intended')) {
+            return redirect($intendetUrl);
+        }
+
+        return redirect(RouteServiceProvider::HOME);
+    }
+
+
     public function redirectTo(): string
     {
-        return route('index');
+        if (session()->has('url.intended')) {
+            return session()->get('url.intended');
+        }
+        return route('dashboard.index');
     }
 }

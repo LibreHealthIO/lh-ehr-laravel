@@ -14,13 +14,26 @@ html {
     }
 }
 
-*, :after, :before {
-    box-sizing: border-box;
-    border: 0 solid #e2e8f0;
+.overflow-scroll-container::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.overflow-scroll-container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(177, 207, 225, 0.7);
+}
+
+.overflow-scroll-container::-webkit-scrollbar-thumb {
+    @apply bg-theme-1;
+    outline: 1px solid #f59031;
 }
 
 .form-error {
-    @apply text-red-600 p-1;
+    @apply flex text-xs mt-1 text-red-400 dark:text-red-400;
+}
+
+.required {
+    @apply text-red-600 dark:text-red-400 text-xs;
 }
 
 .box {
@@ -31,6 +44,3 @@ html {
     background-color: rgba(255,255,255, var(--tw-bg-opacity));
 }
 
-.v-tour__target--highlighted {
-    box-shadow: 0 0 0 99999px rgba(0,0,0,.6) !important;
-}

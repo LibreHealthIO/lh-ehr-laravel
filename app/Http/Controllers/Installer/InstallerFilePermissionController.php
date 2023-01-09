@@ -3,8 +3,10 @@
 
 namespace App\Http\Controllers\Installer;
 
-use App\Helpers\Installer\FilePermissionChecker;
+use App\Support\Installer\FilePermissionChecker;
 use App\Http\Controllers\Controller;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class InstallerFilePermissionController extends Controller
 {
@@ -12,7 +14,7 @@ class InstallerFilePermissionController extends Controller
     /**
      * @var FilePermissionChecker
      */
-    protected $permissions;
+    protected FilePermissionChecker $permissions;
 
 
     /**
@@ -24,9 +26,17 @@ class InstallerFilePermissionController extends Controller
     }
 
 
-    public function index()
+    /**
+     * Files/Folders requirement checks
+     * @return Response
+     */
+    public function index(): Response
     {
         $permissions = $this->permissions->check(config('ehr_installer.permissions'));
-        return view('installer.files_permission', compact('permissions'));
+        return Inertia::render('Installer/FilesPermission', [
+            'prev_url' => route('installer.requirements'),
+            'next_url' => route('installer.database'),
+            'file_permissions' => $permissions
+        ]);
     }
 }

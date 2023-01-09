@@ -9,7 +9,7 @@
                 framework="tailwind"
                 theme="dark"
                 :perPage="[40, 60, 80]"
-                :url="route('patients.load.data')"
+                :url="route('dashboard.patients.load.data')"
                 @loading="isLoading = true"
                 @finishedLoading="isLoading = false"
             >
