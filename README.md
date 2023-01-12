@@ -5,7 +5,10 @@
   <h1 align="center">LibreHealth EHR</h1>
   <br />
 </p>
-  LibreHealth EHR is a free and open-source electronic health records and medical practice management application.
+
+[![Run Tests](https://github.com/LibreHealthIO/lh-ehr-laravel/actions/workflows/run-tests.yml/badge.svg?branch=develop)](https://github.com/LibreHealthIO/lh-ehr-laravel/actions/workflows/run-tests.yml)
+
+LibreHealth EHR is a free and open-source electronic health records and medical practice management application.
 
 The mission of LibreHealth is to help provide high quality medical care to all people, regardless of race, socioeconomic status, or geographic location, by providing medical practices and clinics across the globe access to free of charge medical software. That same software is designed to save clinics both time and money, which gives practitioners more time to spend with individual patients, thereby supplying patients with higher quality care.
 
