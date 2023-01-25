@@ -4,9 +4,9 @@
             <img class="w-full mx-5 my-5 items-center" :src="'/images/logos/ehr_logo.png'" alt="LibreHealth Logo">
             <h2 class="text-lg uppercase font-bold items-center text-center">The Power of medical health data</h2>
             <div v-if="$page.props.auth.user" class="flex m-5 items-center">
-                <inertia-link :href="route('dashboard')" class="inline-flex text-base text-white items-center justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
+                <inertia-link :href="route('dashboard.index')" class="inline-flex text-base text-white items-center justify-center ml-10 mr-10 px-10 py-3 rounded-md bg-gray-900 mb-3">
                     <icon name="dashboard" class="mx-2 h-5 w-5 text-white"/>
-                    {{ $t('general.ehr_dashboard') }}
+                    {{ $t('menu.dashboard') }}
                 </inertia-link>
             </div>
             <div v-else class="flex m-5 items-center">

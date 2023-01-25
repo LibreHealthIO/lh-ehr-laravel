@@ -9,372 +9,320 @@
                         </svg>
                     </inertia-link>
                     <nav class="flex flex-wrap items-center text-base md:ml-0 space-x-1">
-                        <inertia-link :href="route('dashboard.calendar')"
-                                      :class="isActiveClass('dashboard.calendar')">{{ $t('menu.calendar') }}</inertia-link>
-                        <inertia-link :href="route('dashboard.flow_board')"
-                                      :class="isActiveClass('dashboard.flow_board')">{{ $t('menu.flow_board') }}</inertia-link>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.patient_client') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                        <inertia-link :href="route('dashboard.calendar')" :class="isActiveClass('dashboard.calendar')">
+                            {{ $t('menu.calendar') }}
+                        </inertia-link>
+                        <inertia-link :href="route('dashboard.flow_board')" :class="isActiveClass('dashboard.flow_board')">
+                            {{ $t('menu.flow_board') }}
+                        </inertia-link>
+                        <ehr-header-menu :label="$t('menu.patient_client')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="route('dashboard.patients.index')"
+                                    :class="isSubMenuActive('dashboard.patients.index')">Finder
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.patients.create')"
+                                    :class="isSubMenuActive('dashboard.patients.create')">Add New/Search
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Recycle Bin
+                                </inertia-link>
+                                <inertia-link v-if="$page.props.ehr_patient.patient != null"
+                                              :href="route('dashboard.patients.select', $page.props.ehr_patient.patient.id)"
+                                              :class="isSubMenuActive('dashboard.settings')">Summary
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Track Appointments
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Visits
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Records
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Visit Forms
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Imports
+                                </inertia-link>
                             </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="route('dashboard.patients.index')"
-                                        :class="isSubMenuActive('dashboard.patients.index')">Finder
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.patients.create')"
-                                        :class="isSubMenuActive('dashboard.patients.create')">Add New/Search
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Recycle Bin
-                                    </inertia-link>
-                                    <inertia-link v-if="$page.props.ehr_patient.patient != null"
-                                                  :href="route('dashboard.patients.select', $page.props.ehr_patient.patient.id)"
-                                                  :class="isSubMenuActive('dashboard.settings')">Summary
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Track Appointments
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Visits
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Records
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Visit Forms
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Imports
-                                    </inertia-link>
-                                </div>
+                        </ehr-header-menu>
+                        <ehr-header-menu :label="$t('menu.fees')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Fee Sheet
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Payment
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Checkout
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Billing
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Posting
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Batch Payments
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Verify Patient Data
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">EDI History
+                                </inertia-link>
                             </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.fees') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                        </ehr-header-menu>
+                        <ehr-header-menu :label="$t('menu.inventory')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Management
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Destroyed
+                                </inertia-link>
                             </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Fee Sheet
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Payment
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Checkout
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Billing
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Posting
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Batch Payments
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Verify Patient Data
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">EDI History
-                                    </inertia-link>
-                                </div>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.procedures')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Providers
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Configuration
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Load Compendium
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Pending Review
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Patient Results
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Lab Results
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Electronic Reports
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Lab Documents
+                                </inertia-link>
                             </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.inventory') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.reports')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Clients
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Visits
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Financial
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Inventory
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Procedures
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Insurance
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Blank Forms
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Services
+                                </inertia-link>
                             </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Management
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Destroyed
-                                    </inertia-link>
-                                </div>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.miscellaneous')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Patient Education
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Patient Portal
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Authorizations
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Address Book
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Order Catalog
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">BatchCom
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Preferences
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">New Documents
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Utilities
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Document Templates
+                                </inertia-link>
                             </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.procedures') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.popups')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Issues
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Appts
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Superbill
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Payment
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Letter
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Chart Label
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Barcode Label
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Address Label
+                                </inertia-link>
                             </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Providers
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Configuration
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Load Compendium
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Pending Review
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Patient Results
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Lab Results
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Electronic Reports
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Lab Documents
-                                    </inertia-link>
-                                </div>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.qa_measures')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">View Reports
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Create MIPS Report
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Select Measures
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Upload Claim Files
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Instance Counts
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Remove Provider Assignments
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Provider Encounter Counts
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Database Imports
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Database Inserts
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">MIPS Module Installer
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Alert Logs
+                                </inertia-link>
                             </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.reports') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                        </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.help')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="route('about')"
+                                    :class="isSubMenuActive('about')">About
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Forums
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Chat
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('contact')"
+                                    :class="isSubMenuActive('contact')">Contact
+                                </inertia-link>
                             </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Clients
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Visits
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Financial
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Inventory
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Procedures
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Insurance
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Blank Forms
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Services
-                                    </inertia-link>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.miscellaneous') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
-                            </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Patient Education
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Patient Portal
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Authorizations
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Address Book
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Order Catalog
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">BatchCom
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Preferences
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">New Documents
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Utilities
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Document Templates
-                                    </inertia-link>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.popups') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
-                            </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">Issues
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Appts
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Superbill
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Payment
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Letter
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Chart Label
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Barcode Label
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Address Label
-                                    </inertia-link>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.qa_measures') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
-                            </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.index')">View Reports
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Create MIPS Report
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Select Measures
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Upload Claim Files
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Instance Counts
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Remove Provider Assignments
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Provider Encounter Counts
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Database Imports
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Database Inserts
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">MIPS Module Installer
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Alert Logs
-                                    </inertia-link>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown inline-block relative">
-                            <div :class="isActiveClass('dashboard.calendar')">
-                                <span class="mr-0.5">{{ $t('menu.help') }}</span>
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
-                            </div>
-                            <div class="dropdown-menu absolute hidden py-1 w-48 bg-white rounded-md shadow-lg z-50">
-                                <div class="relative bg-white">
-                                    <inertia-link
-                                        :href="route('about')"
-                                        :class="isSubMenuActive('about')">About
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="'#'"
-                                        :class="isSubMenuActive('patients.create')">Forums
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('dashboard.settings')"
-                                        :class="isSubMenuActive('dashboard.settings')">Chat
-                                    </inertia-link>
-                                    <inertia-link
-                                        :href="route('contact')"
-                                        :class="isSubMenuActive('contact')">Contact
-                                    </inertia-link>
-                                </div>
-                            </div>
-                        </div>
+                        </ehr-header-menu >
                     </nav>
                     <div class="flex flex-wrap ltr:justify-end rtl:justify-end ml-auto xl:flex-nowrap md:flex-nowrap lg:flex-wrap">
                         <div class="md:block ml-2">

@@ -91,7 +91,7 @@ Run this command to install dependencies
 composer install --prefer-dist
 ```
 
-This command will install all dependencies needed by the Akivas platform to run successfully!
+This command will install all dependencies needed by the LibreHealth EHR platform to run successfully!
 
 Generate application key
 
