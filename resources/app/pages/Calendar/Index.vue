@@ -18,6 +18,7 @@
                     </template>
                 </full-calendar>
             </div>
+            <appointment-modal ref="appointmentBooking" />
         </div>
     </div>
 
@@ -35,6 +36,7 @@
     import timeGridPlugin from "@fullcalendar/timegrid"
     import scrollGridPlugin from "@fullcalendar/scrollgrid"
     import i18n from "../../i18n";
+    import AppointmentModal from "../../components/modals/AppointmentModal.vue";
 
     let calendarPlugins = [dayGridPlugin, interactionPlugin, momentPlugin, timeGridPlugin, scrollGridPlugin]
     let weekendsVisible = true
@@ -135,20 +137,8 @@
                 'setweekendsVisible'
             ]),
             onDateClick (payload) {
-                const title = prompt('Please enter a new title for your event');
-                if (!title) {
-                    return
-                }
-                const id = (this.events.length + 1) * 10;
-                const { start, end, date, allDay } = payload;
-                return this.createEvent({
-                    id,
-                    title,
-                    date,
-                    start,
-                    end,
-                    allDay
-                })
+                this.$refs.appointmentBooking.openModal();
+                console.log(payload);
             },
             onDateSelect (payload) {
                 return this.onDateClick(payload)
@@ -171,6 +161,7 @@
             },
         },
         components: {
+            AppointmentModal,
             FullCalendar,
             CalendarSidebar,
         },

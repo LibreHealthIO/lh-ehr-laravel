@@ -18,6 +18,7 @@ return [
     'fees' => 'Fees',
     'patient_client' => 'Patient/Client',
     'procedures' => 'Procedures',
+    'administration' => 'Administration',
     'reports' => 'Reports',
     'miscellaneous' => 'Miscellaneous',
     'popups' => 'Popups',

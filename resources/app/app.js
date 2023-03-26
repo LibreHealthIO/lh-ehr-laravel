@@ -9,6 +9,7 @@ import { InertiaProgress } from "@inertiajs/progress"
 import * as Sentry from "@sentry/browser"
 import VCalendar from 'v-calendar'
 import VueTour from "vue-tour"
+import VueModal from 'vue-js-modal'
 import VueTelInput from "vue-tel-input"
 import Notifications from 'vue-notification'
 import VueSweetalert2 from "vue-sweetalert2"
@@ -33,6 +34,7 @@ Vue.use(Vuelidate)
 Vue.use(VueTelInput)
 Vue.mixin({ methods: { route: window.route } })
 Vue.use(PortalVue)
+Vue.use(VueModal, { dialog: true })
 Vue.use(VueMeta)
 Vue.mixin(RolesPermissions)
 Vue.component("inertia-link", Link)

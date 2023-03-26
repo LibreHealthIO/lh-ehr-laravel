@@ -102,17 +102,17 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param int $id
+     * @param int $pid
      * @return RedirectResponse|Response
      */
-    public function show(int $pid)
+    public function show(int $pid): Response|RedirectResponse
     {
         $patient = Patient::where('pid', $pid)->first();
         if (!$patient) {
             return redirect()->back()->with('error', __('general.no_such_patient'));
         } else {
             Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
-            Inertia::share('ehr_patient', function() use ($patient) {
+            Inertia::share('ehr_patient', function () use ($patient) {
                 return [
                     'patient' => $patient ? [
                         'id' => $patient->id,

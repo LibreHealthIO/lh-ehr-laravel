@@ -6,7 +6,7 @@
                     <div :class="getFlashClass(item.type)" class="relative w-auto flex flex-row items-center p-4 font-semibold tracking-tighter mr-4 shadow-md">
                         <div class="absolute top-1" :class="$i18n.locale === 'he' ? 'left-2' : 'right-2'">
                             <button @click="close" aria-label="Close Notification"
-                                    class="h-5 w-5 p-1 flex items-center justify-center rounded-full border border-white outline-none focus:outline-none">
+                                    class="h-5 w-5 p-1 flex items-center justify-center outline-none focus:outline-none">
                                 <Icon name="x" class="h-4 w-4"/>
                             </button>
                         </div>
@@ -27,7 +27,7 @@
                     <div :class="getFlashClass(item.type)" class="relative w-auto flex flex-row items-center p-4 font-semibold tracking-tighter mr-4 shadow-md">
                         <div class="absolute top-1" :class="$i18n.locale === 'he' ? 'left-2' : 'right-2'">
                             <button @click="close" aria-label="Close Notification"
-                                    class="h-5 w-5 p-1 flex items-center justify-center rounded-full border border-white outline-none focus:outline-none">
+                                    class="h-5 w-5 p-1 flex items-center justify-center outline-none focus:outline-none">
                                 <Icon name="x" class="h-4 w-4"/>
                             </button>
                         </div>
@@ -48,7 +48,7 @@
                     <div :class="getFlashClass(item.type)" class="relative w-auto flex flex-row items-center p-4 font-semibold tracking-tighter mr-4 shadow-md">
                         <div class="absolute top-1" :class="$i18n.locale === 'he' ? 'left-2' : 'right-2'">
                             <button @click="close" aria-label="Close Notification"
-                                    class="h-5 w-5 p-1 flex items-center justify-center rounded-full border border-white outline-none focus:outline-none">
+                                    class="h-5 w-5 p-1 flex items-center justify-center outline-none focus:outline-none">
                                 <Icon name="x" class="h-4 w-4"/>
                             </button>
                         </div>
@@ -89,8 +89,9 @@
                 <div class="w-full mr-2 my-1 right-2">
                     <div :class="getFlashClass(item.type)" class="relative w-auto flex flex-row items-center p-4 font-semibold tracking-tighter mr-4 shadow-md">
                         <div class="absolute top-1" :class="$i18n.locale === 'he' ? 'left-2' : 'right-2'">
-                            <button @click="close" aria-label="Close Notification"
-                                    class="h-5 w-5 p-1 flex items-center justify-center rounded-full border border-white outline-none focus:outline-none">
+                            <button
+                                @click="close" aria-label="Close Notification"
+                                class="h-5 w-5 p-1 flex items-center justify-center outline-none focus:outline-none">
                                 <Icon name="x" class="h-4 w-4"/>
                             </button>
                         </div>

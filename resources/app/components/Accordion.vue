@@ -53,14 +53,14 @@
             active: false,
         },
         async created() {
-            axios.get(route('dashboard.patients.appointments', 4)).then(res => {
-                if (res.status === 200) {
-                    // this.users = res.data;
-                    console.log(res.data);
-                }
-            }).catch(err => {
-                console.log(err);
-            });
+            // axios.get(route('dashboard.patients.appointments', 4)).then(res => {
+            //     if (res.status === 200) {
+            //         // this.users = res.data;
+            //         console.log(res.data);
+            //     }
+            // }).catch(err => {
+            //     console.log(err);
+            // });
         },
         methods: {
             isActiveClass: function() {

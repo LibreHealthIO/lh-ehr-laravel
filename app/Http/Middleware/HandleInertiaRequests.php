@@ -96,7 +96,9 @@ class HandleInertiaRequests extends Middleware
             'ehr_patient' => function () {
                 // get patient details
                 $pid = Cookie::get('ehr_patient');
-                if (!$pid) {return [ 'patient' => null ]; }
+                if (!$pid) {
+                    return [ 'patient' => null ];
+                }
                 $patient = Patient::where('pid', decrypt($pid))->first();
                 return  [
                     'patient' => $patient ? [
@@ -118,6 +120,7 @@ class HandleInertiaRequests extends Middleware
             'flash' => function () use ($request) {
                 return [
                     'error' => $request->session()->get('error'),
+                    'message' => $request->session()->get('message'),
                     'success' => $request->session()->get('success'),
                     'info' => $request->session()->get('info'),
                     'warning' => $request->session()->get('warning')

@@ -16,12 +16,12 @@ class SelectedPatient
      * @param  Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         // checks if a patient is selected and actually exists
 
         if (!Cookie::get('ehr_patient')) {
-            return redirect()->back()->with('error', __('general.no_such_patient'));
+            return redirect()->back()->with('error', __('general.please_select_a_patient'));
         } else {
             $pid = $request->route()->parameter('pid');
             $patientId = decrypt(Cookie::get('ehr_patient'));
@@ -29,7 +29,7 @@ class SelectedPatient
             // validate incoming request with patient session
             $patient = Patient::where('pid', $pid)->first();
             if (!$patient || ($patientId != $pid)) {
-                return redirect()->back()->with('error', __('general.no_such_patient'));
+                return redirect()->back()->with('error', __('general.please_select_a_correct_patient'));
             }
         }
         return $next($request);

@@ -153,7 +153,7 @@ Route::group([
                     'prefix' => 'patients',
                     'namespace' => '\\',
                     // TODO (add a middleware for selected patients)
-                    // 'middleware' => 'select.patient',
+                     'middleware' => 'select.patient',
                 ],
                 function () {
                     Route::get('select/{pid}', [PatientController::class, 'selectPatient'])
@@ -186,6 +186,9 @@ Route::group([
                     // Patient Ledger
                     Route::get('{pid}/ledger', [PatientController::class, 'patientLedger'])
                         ->name('ledger');
+
+                    Route::get('{pid?}/chart-label', [PatientController::class, 'chartLabel'])
+                        ->name('chart_label');
                 }
             );
         }
@@ -210,6 +213,4 @@ Route::group([
             Route::get('', [AdminController::class, 'index'])->name('index');
         });
     });
-
-
 });

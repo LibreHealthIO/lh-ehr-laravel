@@ -23,6 +23,8 @@ return [
     'all_rights_reserved' => 'All Rights Reserved.',
     'acknowledgement_licensing_and_cert' => 'Acknowledgments, Licensing and Certification',
     'no_such_patient' => 'No such Patient',
+    'please_select_a_patient' => 'You must first select or add a patient',
+    'please_select_a_correct_patient' => 'The selected patient seems not to be correct please try again',
     'selected_encounter' => 'Select Encounter',
 
     'forgot_your_password' => 'Forgot your password?',

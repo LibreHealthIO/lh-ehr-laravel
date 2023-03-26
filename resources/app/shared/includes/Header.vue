@@ -139,6 +139,42 @@
                                 </inertia-link>
                             </div>
                         </ehr-header-menu >
+                        <ehr-header-menu :label="$t('menu.administration')">
+                            <div class="flex flex-col">
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.index')">Providers
+                                </inertia-link>
+                                <inertia-link
+                                    :href="'#'"
+                                    :class="isSubMenuActive('patients.create')">Configuration
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Load Compendium
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Pending Review
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Patient Results
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Lab Results
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Electronic Reports
+                                </inertia-link>
+                                <inertia-link
+                                    :href="route('dashboard.settings')"
+                                    :class="isSubMenuActive('dashboard.settings')">Lab Documents
+                                </inertia-link>
+                            </div>
+                        </ehr-header-menu >
                         <ehr-header-menu :label="$t('menu.reports')">
                             <div class="flex flex-col">
                                 <inertia-link
@@ -242,8 +278,8 @@
                                     :class="isSubMenuActive('dashboard.settings')">Letter
                                 </inertia-link>
                                 <inertia-link
-                                    :href="route('dashboard.settings')"
-                                    :class="isSubMenuActive('dashboard.settings')">Chart Label
+                                    :href="route('dashboard.patients.chart_label', patient_id)"
+                                    :class="isSubMenuActive('dashboard.patients.chart_label')">Chart Label
                                 </inertia-link>
                                 <inertia-link
                                     :href="route('dashboard.settings')"
@@ -446,8 +482,22 @@
 
     export default {
         name: "Header",
+        watch: {
+            "$page.props.ehr_patient": {
+                handler() {
+                    if (this.$page.props.ehr_patient.patient) {
+                        this.patient_id = this.$page.props.ehr_patient.patient.pid
+                    } else {
+                        this.patient_id = "#"
+                    }
+                },
+                deep: true
+            },
+        },
         data() {
             return {
+                patient_id: this.$page.props.ehr_patient.patient ?
+                    this.$page.props.ehr_patient.patient.pid : "#",
                 open: false,
             }
         },
