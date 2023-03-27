@@ -163,7 +163,7 @@ By default, two(02) accounts are created with default roles - **super_admin** an
 
 ## Change log
 
-Please see the [changelog](changelog.md) for more information on what has changed recently.
+Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
@@ -225,7 +225,7 @@ Before opening an issue, please refer to the [troubleshoot guide](troubleshootin
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
 
 ## Security
 
