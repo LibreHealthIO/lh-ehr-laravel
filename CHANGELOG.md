@@ -1,0 +1,58 @@
+# Changelog
+
+- ### 🔊 Added CHANGELOG.md by chaitak-gorai, 2023-03-27T14:20:52+05:30
+- ### [Create CONTRIBUTING.md](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/51c72c7) by Chaitak Gorai, 2023-03-27T14:17:02+05:30
+- ### [Create CODE_OF_CONDUCT.md](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/57c21fe) by Chaitak Gorai, 2023-03-27T14:16:21+05:30
+- ### [more fixes on patient module and components](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/1275d0d) by Mua Laurent, 2023-03-26T02:14:51+01:00
+- ### [fixed menu and other pages](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/23b1498) by Mua Laurent, 2023-01-25T16:34:13+01:00
+- ### [minor fix](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/7e6d69a) by Mua Rachmann, 2023-01-12T03:40:08+01:00
+- ### [fixed test](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/e029870) by Mua Rachmann, 2023-01-09T07:26:02+01:00
+- ### [migrated to laravel 9](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/cf874bb) by Mua Rachmann, 2023-01-09T07:17:38+01:00
+- ### [Fix security reporting email](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/dcb1281) by Robert O'Connor, 2022-05-10T01:53:14-04:00
+- ### [Merge pull request #21 from muarachmann/develop](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/6ee5ead) by Mua Rachmann, 2022-05-10T06:11:55+01:00
+- ### [Merge remote-tracking branch 'upstream/develop' into develop](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/cf9b499) by Mua Rachmann, 2022-05-10T06:06:45+01:00
+- ### [updated composer and few mix](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/1e04116) by Mua Rachmann, 2022-05-10T05:46:39+01:00
+- ### [Updated framework to laravel 8 - Updated tailwind version - Fixed calendar issues - Fixed layout issues](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/9ffec59) by Mua Rachmann, 2022-05-10T05:40:59+01:00
+- ### [Merge pull request #22 from LibreHealthIO/dependabot/composer/facade/ignition-2.4.2](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/693597e) by Robby O'Connor, 2022-05-10T00:25:16-04:00
+- ### [fixed failing job](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/a9f2800) by Mua Rachmann, 2021-07-18T03:04:24+01:00
+- ### [fixed failing job](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/1a5b5d6) by Mua Rachmann, 2021-07-18T02:58:47+01:00
+- ### [fixed failing job](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/791ca6d) by Mua Rachmann, 2021-07-18T02:53:31+01:00
+- ### [Fixed seeders and factories Fixed routes syntax and minor other fixes Upgraded dependecies](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/c3e3985) by Mua Rachmann, 2021-07-18T02:45:18+01:00
+- ### [:arrow_up: Bump facade/ignition from 2.3.5 to 2.4.2](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/e06827f) by dependabot[bot], 2021-03-29T23:33:57+00:00
+- ### [Merge pull request #20 from LibreHealthIO/fix-model](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/7b3dfd3) by Mua Rachmann, 2021-01-14T23:05:01+01:00
+- ### [fixed model](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/bd0abdd) by Mua N. Laurent, 2020-12-10T09:54:25+01:00
+- ### [Merge pull request #19 from muarachmann/upgrade-inertiajs](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/641a407) by Mua Rachmann, 2020-11-26T11:53:13+01:00
+- ### [fixed db seed](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/d08f02c) by Mua N. Laurent, 2020-11-25T16:56:38+01:00
+- ### [Merge pull request #18 from muarachmann/upgrade-inertiajs](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/5ae0247) by Mua Rachmann, 2020-11-23T17:01:53+01:00
+- ### [:green_heart: Fix CI Build](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/b78e4a8) by Mua N. Laurent, 2020-11-23T17:00:12+01:00
+- ### [Merge pull request #13 from muarachmann/upgrade-inertiajs](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/008c6b7) by Mua Rachmann, 2020-11-23T15:26:01+01:00
+- ### [Fixed unit test example for CI build Implemented accordions for patient info Minor changes, revamped installation - todo once information is available](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/6ac1c95) by Mua N. Laurent, 2020-11-23T15:21:34+01:00
+- ### [Fixed patient info Minor bug fixes and database schema patient info tabs](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/44c16bd) by Mua N. Laurent, 2020-11-19T00:12:10+01:00
+- ### [more on patients data](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/115213a) by Mua N. Laurent, 2020-11-09T17:29:36+01:00
+- ### [began patient history](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/0cd09e2) by Mua N. Laurent, 2020-11-07T00:25:41+01:00
+- ### [:lipstick: More updates on patients view](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/5790d21) by Mua N. Laurent, 2020-11-02T18:07:50+01:00
+- ### [:arrow_up: Upgraded deps](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/20a470d) by Mua N. Laurent, 2020-10-21T13:23:00+01:00
+- ### [Merge pull request #12 from muarachmann/develop](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/1d09a0c) by Mua Rachmann, 2020-10-15T00:37:11+01:00
+- ### [:sparkles: Added Facilities](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/7d839ec) by Mua N. Laurent, 2020-10-15T00:33:03+01:00
+- ### [Merge pull request #11 from muarachmann/more-fixes](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/bc5a0c3) by Mua Rachmann, 2020-09-09T23:03:27+01:00
+- ### [:sparkles: More on Installer](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/277f9a8) by Mua N. Laurent, 2020-09-09T22:59:32+01:00
+- ### [Merge pull request #10 from muarachmann/more-fixes](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/d267de4) by Mua Rachmann, 2020-09-09T07:38:21+01:00
+- ### [:ambulance: Fix broken route](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/075ccca) by Mua N. Laurent, 2020-09-09T07:36:43+01:00
+- ### [Merge pull request #9 from muarachmann/more-fixes](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/98d341f) by Mua Rachmann, 2020-09-09T03:21:58+01:00
+- ### [:recycle: Refactor code](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/bcced8c) by Mua N. Laurent, 2020-09-09T03:20:00+01:00
+- ### [:sparkles: More features on Installer](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/057f608) by Mua N. Laurent, 2020-09-09T03:12:50+01:00
+- ### [Merge pull request #8 from muarachmann/more-fixes](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/93b343e) by Mua Rachmann, 2020-09-08T11:54:23+01:00
+- ### [:art: Installer](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/ba4e45f) by Mua N. Laurent, 2020-09-08T11:48:47+01:00
+- ### [Merge pull request #7 from muarachmann/develop](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/6fb62d0) by Mua Rachmann, 2020-09-06T23:52:58+01:00
+- ### [:pencil: Updated docs](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/cddc35e) by Mua N. Laurent, 2020-09-06T23:50:07+01:00
+- ### [removed unused test](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/71127d7) by Mua N. Laurent, 2020-09-06T23:37:15+01:00
+- ### [updated CI file](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/9319173) by Mua N. Laurent, 2020-09-06T23:33:16+01:00
+- ### [Modified readme Signed-off-by Mua N. Laurent <muarachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/3253e7c) by Mua N. Laurent, 2020-09-06T23:07:44+01:00
+- ### [Updated Readme file Signed-off-by: Mua N. Laurent <muarachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/d887e3e) by Mua N. Laurent, 2020-09-06T23:05:14+01:00
+- ### [More changes Added calendar sidebar to show data, fixed patients selection and clear Began creation of patient, minor translation fixes etc Signed-off-by: Mua N. Laurent <muarachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/340c669) by Mua N. Laurent, 2020-09-06T22:54:49+01:00
+- ### [Merge remote-tracking branch 'upstream/develop' into develop](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/346d3d5) by Mua N. Laurent, 2020-09-05T17:58:55+01:00
+- ### [More info on Patients Minor fixes, select patient and store as cookie, added modal and notification to project Signed-off-by: Mua N. Laurent <muaraachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/7669626) by Mua N. Laurent, 2020-09-05T17:56:07+01:00
+- ### [Merge pull request #5 from prondubuisi/fix-installation-typo](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/02c0981) by Mua Rachmann, 2020-09-05T12:34:44+01:00
+- ### [Minor fixes Modified readme, added commit instructions and also fixed language switcher on server side, fixed broken github action Signed-off-by: Mua N. Laurent <muarachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/f3762ae) by Mua N. Laurent, 2020-09-05T12:23:27+01:00
+- ### [fix composer install typo fixes #1](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/891220e) by Ndubuisi Onyemenam, 2020-09-05T11:07:42+01:00
+- ### [Initialized project Included basecode/boilerplate for porting EHR to laravel 7, included ACL, Localization and minimal configurations. Signed-off-by: Mua N. Laurent <muarachmann@gmail.com>](https://github.com/LibreHealthIO/lh-ehr-laravel/commit/c4bbed6) by Mua N. Laurent, 2020-09-05T08:53:27+01:00

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+python ./generate_changelog.py
+
+git add CHANGELOG.md
+
+git commit --amend --no-edit
+
+
