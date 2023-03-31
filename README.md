@@ -26,12 +26,11 @@ We are collaborating closely with the [LibreHealth Project](http://librehealth.i
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Documentation](#documentation)
-5. [Change log](#change-log)
-6. [Testing](#testing)
-7. [Contributing](#contributing)
-8. [Security](#security)
-9. [Credits](#credits)
-10. [License](#license)
+5. [Testing](#testing)
+6. [Contributing](#contributing)
+7. [Security](#security)
+8. [Credits](#credits)
+9. [License](#license)
 
 ## Requirements
 
@@ -161,9 +160,6 @@ By default, two(02) accounts are created with default roles - **super_admin** an
     -   _Email_: `admin@librehealthehr.com`
     -   _Password_: `admin123`
 
-## Change log
-
-Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
 
 ## Testing
 
