@@ -54,6 +54,7 @@ Make sure your server meets the following requirements.
 -   MySQL Server 5.7.8+ , Mariadb 10.3.2+ or PostgreSQL
 -   Composer installed 2.0+
 -   PHP Version 8.0.x+
+-   Redis 3.0+
 
 
 ### PHP extensions
@@ -62,10 +63,11 @@ Make sure you have the following php extensions enabled
 
 ```
 bz2, curl, date, dom, exif, gd, gettext, grpc,
-imagick, intl, json, libxml, mbstring, mysqli, mysqlnd, openssl, PDO,
-pdo_mysql, posix, protobuf, soap, sqlite3, xml, xmlreader, xmlwriter
+imagick, intl, json, libxml, mbstring, mysqli, mysqlnd, openssl, pcntl, PDO,
+pdo_mysql, posix, protobuf, redis, soap, sqlite3, xml, xmlreader, xmlwriter
 xsl, zip, zlib
 ```
+If you face issues while enabaling these extension, visit [here](https://www.php.net/manual/en/install.pecl.windows.php)
 
 ## Installation
 
