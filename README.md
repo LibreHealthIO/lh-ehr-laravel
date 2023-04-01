@@ -22,17 +22,30 @@ We are collaborating closely with the [LibreHealth Project](http://librehealth.i
 
 ## Table of Contents
 
-1. [Requirements](#requirements)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Documentation](#documentation)
-5. [Change log](#change-log)
+1. [Tech-Stack](#tech-stack)
+2. [Requirements](#requirements)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Documentation](#documentation)
 6. [Testing](#testing)
 7. [Contributing](#contributing)
 8. [Security](#security)
 9. [Credits](#credits)
 10. [License](#license)
 
+## Tech-Stack
+- Frontend:
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - [Vue.js](https://vuejs.org/)
+  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  - [Tailwind CSS](https://tailwindcss.com/)
+
+- Backend:
+  - [PHP](https://www.php.net/)
+  - [Laravel](https://laravel.com/)
+  - [Inertia.js](https://inertiajs.com/)
+  
 ## Requirements
 
 Make sure your server meets the following requirements.
@@ -41,6 +54,7 @@ Make sure your server meets the following requirements.
 -   MySQL Server 5.7.8+ , Mariadb 10.3.2+ or PostgreSQL
 -   Composer installed 2.0+
 -   PHP Version 8.0.x+
+
 
 ### PHP extensions
 
@@ -161,9 +175,6 @@ By default, two(02) accounts are created with default roles - **super_admin** an
     -   _Email_: `admin@librehealthehr.com`
     -   _Password_: `admin123`
 
-## Change log
-
-Please see the [changelog](changelog.md) for more information on what has changed recently.
 
 ## Testing
 
@@ -225,7 +236,7 @@ Before opening an issue, please refer to the [troubleshoot guide](troubleshootin
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+Please see [contributing.md](CONTRIBUTING.md) for details and a todolist.
 
 ## Security
 
