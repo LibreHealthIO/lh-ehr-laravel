@@ -11,20 +11,7 @@
                         :href="route('dashboard.index')"
                         class="p-1 mx-2 border-transparent text-gray-400 rounded-full hover:text-white bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
                     >
-                        <svg
-                            class="h-5 w-5"
-                            stroke="currentColor"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                            />
-                        </svg>
+                     <icon name="home-icon" class="w-6 h-6" />
                     </inertia-link>
 
                     <nav
@@ -35,32 +22,7 @@
                             class="block lg:hidden text-white hover:text-gray-200 focus:text-gray-200 focus:outline-none"
                         >
                             <span class="inline-block align-middle">
-                                <svg
-                                    class="h-6 w-6 fill-current"
-                                    viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        v-if="isMenuOpen"
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M19.293 16.707a1 1 0 0 1-1.414 1.414l-6.293-6.293-6.293 6.293a1 1 0 1 1-1.414-1.414l6.293-6.293-6.293-6.293a1 1 0 1 1 1.414-1.414l6.293 6.293 6.293-6.293a1 1 0 1 1 1.414 1.414l-6.293 6.293 6.293 6.293z"
-                                        style="
-                                            transition: transform 0.3s
-                                                ease-in-out;
-                                        "
-                                    ></path>
-                                    <path
-                                        v-if="!isMenuOpen"
-                                        fill-rule="evenodd"
-                                        clip-rule="evenodd"
-                                        d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z"
-                                        style="
-                                            transition: transform 0.3s
-                                                ease-in-out;
-                                        "
-                                    ></path>
-                                </svg>
+                                <icon name="hamburger" class="w-6 h-6" :isMenuOpen="isMenuOpen"/>
                             </span>
                         </button>
                         <div
@@ -793,20 +755,7 @@
                                 <button
                                     class="p-2 border-transparent text-gray-400 rounded-full hover:text-white focus:outline-none focus:text-white focus:bg-gray-700"
                                 >
-                                    <svg
-                                        class="h-6 w-6"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="{2}"
-                                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                                        />
-                                    </svg>
+                                   <icon name="chat-bubble" />
                                 </button>
                                 <div class="ml-1 relative">
                                     <div>
@@ -1022,15 +971,7 @@
                             <div
                                 class="pointer-events-none absolute inset-y-0 right-0 flex items-center mt-3 px-2 text-gray-700"
                             >
-                                <svg
-                                    class="fill-current h-4 w-4 text-white"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20"
-                                >
-                                    <path
-                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-                                    />
-                                </svg>
+                               <icon name="chevron-down" class="w-4 h-4" />
                             </div>
                         </div>
                     </div>
