@@ -1,42 +1,44 @@
-const colors = require('tailwindcss/colors');
-const plugin = require('tailwindcss/plugin');
+const colors = require("tailwindcss/colors");
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
-    mode: 'jit',
+    mode: "jit",
     content: [
-        './resources/**/*.{html,js,vue,php}',
+        "./resources/**/*.{html,js,vue,php}",
+
+        "./node_modules/flowbite/**/*.js",
     ],
-    darkMode: 'class',
+    darkMode: "class",
     theme: {
         zIndex: {
-            '5': 5,
-            '10': 10,
-            '15': 15,
-            '20': 20,
-            '25': 25,
-            '30': 30,
-            '35': 35,
-            '40': 40,
-            '45': 45,
-            '50': 50,
-            '75': 75,
-            '100': 100,
-            '200': 200,
-            '999': 999,
-            '1000': 1000,
-            '9999': 9999,
-            'auto': 'auto',
+            5: 5,
+            10: 10,
+            15: 15,
+            20: 20,
+            25: 25,
+            30: 30,
+            35: 35,
+            40: 40,
+            45: 45,
+            50: 50,
+            75: 75,
+            100: 100,
+            200: 200,
+            999: 999,
+            1000: 1000,
+            9999: 9999,
+            auto: "auto",
         },
         extend: {
             keyframes: {
-                'wiggle': {
-                    '0%, 100%': {transform: 'rotate(-4deg)'},
-                    '50%': {transform: 'rotate(4deg)'},
-                }
+                wiggle: {
+                    "0%, 100%": { transform: "rotate(-4deg)" },
+                    "50%": { transform: "rotate(4deg)" },
+                },
             },
             animation: {
-                'fade-in-down': 'fade-in-down 0.5s ease-out',
-                'wiggle': 'wiggle 0.4s ease-in-out infinite',
+                "fade-in-down": "fade-in-down 0.5s ease-out",
+                wiggle: "wiggle 0.4s ease-in-out infinite",
             },
             colors: {
                 yellow: colors.amber,
@@ -52,11 +54,11 @@ module.exports = {
                     linkedin: "#007BB5",
                     github: "#333",
                     feedback: "#c0916f",
-                    'success': "#00B74A",
-                    'danger': "#F93154",
-                    'warning': "#FFA900",
-                    'info': "#39C0ED",
-                    'light': "#98AFF5",
+                    success: "#00B74A",
+                    danger: "#F93154",
+                    warning: "#FFA900",
+                    info: "#39C0ED",
+                    light: "#98AFF5",
                 },
                 theme: {
                     1: "#f59031",
@@ -77,70 +79,72 @@ module.exports = {
                     4: "#1e2533",
                     5: "#3f4865",
                     6: "#2b3348",
-                    7: "#181f29"
+                    7: "#181f29",
                 },
                 fontFamily: {
-                    'nunito': ['Nunito', 'sans-serif']
+                    nunito: ["Nunito", "sans-serif"],
                 },
                 container: {
-                    center: true
+                    center: true,
                 },
                 maxWidth: {
                     "1/4": "25%",
                     "1/2": "50%",
-                    "3/4": "75%"
+                    "3/4": "75%",
                 },
                 maxHeight: {
-                    '0': '0',
-                    '98': '32rem',
-                    '1/4': '25%',
-                    '1/2': '50%',
-                    '3/4': '75%',
-                    'full': '100%',
+                    0: "0",
+                    98: "32rem",
+                    "1/4": "25%",
+                    "1/2": "50%",
+                    "3/4": "75%",
+                    full: "100%",
                 },
                 strokeWidth: {
-                    "0.5": 0.5,
-                    "1.5": 1.5,
-                    "2.5": 2.5
+                    0.5: 0.5,
+                    1.5: 1.5,
+                    2.5: 2.5,
                 },
                 margin: {
-                    '78': '19.5rem',
-                }
+                    78: "19.5rem",
+                },
             },
             boxShadow: {
-                sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-                DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-                md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-                lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-                xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-                '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-                inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-                none: 'none',
+                sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+                DEFAULT:
+                    "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+                md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+                "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
+                inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+                none: "none",
             },
-            backgroundImage: theme => ({
-                'ehr-template__bg': "url('/images/logo.png') !important",
-            })
+            backgroundImage: (theme) => ({
+                "ehr-template__bg": "url('/images/logo.png') !important",
+            }),
         },
         variants: {
-            gradients: ['responsive', 'hover'],
+            gradients: ["responsive", "hover"],
         },
         plugins: [
-            plugin(function ({addVariant, e}) {
-                addVariant("dark", ({modifySelectors, separator}) => {
-                    modifySelectors(({className}) => {
+            plugin(function ({ addVariant, e }) {
+                addVariant("dark", ({ modifySelectors, separator }) => {
+                    modifySelectors(({ className }) => {
                         return `.dark .${e(`dark${separator}${className}`)}`;
                     });
                 });
-                addVariant("dark-hover", ({modifySelectors, separator}) => {
-                    modifySelectors(({className}) => {
+                addVariant("dark-hover", ({ modifySelectors, separator }) => {
+                    modifySelectors(({ className }) => {
                         return `.dark .${e(
                             `dark${separator}hover${separator}${className}`
                         )}:hover`;
                     });
                 });
             }),
-        ],
-    }
-}
 
+            require("flowbite/plugin"),
+        ],
+    },
+};
