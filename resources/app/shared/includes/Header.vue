@@ -18,12 +18,12 @@
                         class=" dark flex flex-wrap items-center text-base md:ml-0 space-x-1"
                     >
                     <button
-                            @click="isMenuOpen = !isMenuOpen"
+
                             class="block lg:hidden text-white hover:text-gray-200 focus:text-gray-200 focus:outline-none"
                             type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation"
                         >
                             <span class="inline-block align-middle">
-                                <icon name="hamburger" class="w-6 h-6" :isMenuOpen="isMenuOpen"/>
+                                <icon name="hamburger" class="w-6 h-6"/>
                             </span>
                         </button>
 
@@ -39,7 +39,7 @@
 <!-- drawer component -->
 <div id="drawer-navigation" class="dark fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-navigation-label">
     <h5 id="drawer-navigation-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
-    <button  @click="isMenuOpen = !isMenuOpen" type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
+    <button type="button" data-drawer-hide="drawer-navigation" aria-controls="drawer-navigation" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" >
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         <span class="sr-only">Close menu</span>
     </button>
@@ -75,7 +75,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-patient" data-collapse-toggle="dropdown-patient">
                  <icon name="users" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.patient_client") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-patient" class="hidden py-2 space-y-2 ml-2">
                   <li>
@@ -200,7 +200,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-fees" data-collapse-toggle="dropdown-fees">
                  <icon name="money" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.fees") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-fees" class="hidden py-2 space-y-2 ml-2">
 
@@ -282,7 +282,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-inventory" data-collapse-toggle="dropdown-inventory">
                  <icon name="inventory" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.inventory") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-inventory" class="hidden py-2 space-y-2 ml-2">
 
@@ -310,7 +310,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-procedures" data-collapse-toggle="dropdown-procedures">
                  <icon name="procedures" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.procedures") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-procedures" class="hidden py-2 space-y-2 ml-2">
 
@@ -386,7 +386,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-admin" data-collapse-toggle="dropdown-admin">
                  <icon name="admin" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.administration") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-admin" class="hidden py-2 space-y-2 ml-2">
 
@@ -494,7 +494,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-reports" data-collapse-toggle="dropdown-reports">
                  <icon name="procedures" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.reports") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-reports" class="hidden py-2 space-y-2 ml-2">
 
@@ -579,7 +579,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-misc" data-collapse-toggle="dropdown-misc">
                  <icon name="misc" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.miscellaneous") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-misc" class="hidden py-2 space-y-2 ml-2">
 
@@ -712,7 +712,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-popups" data-collapse-toggle="dropdown-popups">
                  <icon name="pop-ups" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.popups") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-popups" class="hidden py-2 space-y-2 ml-2">
 
@@ -820,7 +820,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-qa" data-collapse-toggle="dropdown-qa">
                  <icon name="QnA" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.qa_measures") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-qa" class="hidden py-2 space-y-2 ml-2">
 
@@ -954,7 +954,7 @@
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-help" data-collapse-toggle="dropdown-help">
                  <icon name="help" class="w-6 h-6" />
                   <span class="flex-1 ml-3 text-left whitespace-nowrap">{{ $t("menu.help") }}</span>
-                  <icon name="chevron-down" class="w-6 h-6 text-white bg-white" />
+                  <icon name="chevron-down" class="w-6 h-6 fill-current" />
             </button>
             <ul id="dropdown-help" class="hidden py-2 space-y-2 ml-2">
 
