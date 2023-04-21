@@ -2020,12 +2020,15 @@ export default {
 };
 </script>
 <script setup>
-import { onMounted } from 'vue'
-import { initFlowbite } from 'flowbite'
 
-// initialize components based on data attribute selectors
+import { onMounted } from 'vue'
+import { Drawer } from 'flowbite'
+
 onMounted(() => {
-    initFlowbite();
+    const $targetEl = document.getElementById('drawer-navigation');
+
+    const drawer = new Drawer($targetEl);
+    drawer.init();
 });
 
 </script>
