@@ -54,6 +54,7 @@
         "axios": "^0.25.0",
         "cash-dom": "^8.1.0",
         "dayjs": "^1.10.7",
+        "flowbite": "^1.6.5",
         "laravel-echo": "^1.11.3",
         "laravel-mix": "^6.0.41",
         "laravel-vue-datatable": "^0.6.0",
