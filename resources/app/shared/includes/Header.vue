@@ -71,6 +71,19 @@
                             </inertia-link>
    </div>
 </li>
+<li>
+   <div class="flex items-center p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
+      <span class="inline-block align-middle mr-3">
+         <icon name="procedures" class="w-6 h-6" />
+      </span>
+      <inertia-link
+                                :href="'#'"
+                                :class="isActiveClass('dashboard.flow_board')? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-400'"
+                            >
+                              Messages  <!-- {{ $t("menu.messages") }} -->
+                            </inertia-link>
+   </div>
+</li>
          <li>
             <button type="button" class="flex p-2 items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-patient" data-collapse-toggle="dropdown-patient">
                  <icon name="users" class="w-6 h-6" />
@@ -360,7 +373,7 @@
       :href="route('dashboard.settings')"
       :class="isSubMenuActive('dashboard.settings') ? 'text-gray-900 dark:text-white' : 'text-gray-400 dark:text-gray-400'"
     >
-      Lab Results
+      Lab Overview
     </inertia-link>
   </li>
   <li>
@@ -400,7 +413,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Providers
+    Globals
     </inertia-link>
   </li>
   <li>
@@ -412,7 +425,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Configuration
+    Edit Menu
     </inertia-link>
   </li>
   <li>
@@ -424,7 +437,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Load Compendium
+    Facilities
     </inertia-link>
   </li>
   <li>
@@ -436,7 +449,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Pending Review
+    Users
     </inertia-link>
   </li>
   <li>
@@ -448,7 +461,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Patient Results
+    Addr Book
     </inertia-link>
   </li>
   <li>
@@ -460,7 +473,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Lab Results
+    Practice
     </inertia-link>
   </li>
   <li>
@@ -472,7 +485,7 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Electronic Reports
+    Codes
     </inertia-link>
   </li>
   <li>
@@ -484,7 +497,103 @@
         : 'text-gray-400 dark:text-gray-400'
       "
     >
-      Lab Documents
+    Layouts
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Lists
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    ACL
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Files
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Backup
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Rules
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Alerts
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Patient Reminder
+    </inertia-link>
+  </li>
+  <li>
+    <inertia-link
+      :href="route('dashboard.settings')"
+      :class="
+        isSubMenuActive('dashboard.settings')
+        ? 'text-gray-900 dark:text-white'
+        : 'text-gray-400 dark:text-gray-400'
+      "
+    >
+    Other
     </inertia-link>
   </li>
 </ul>
@@ -665,6 +774,18 @@
                     : 'text-gray-400 dark:text-gray-400'
             "
         >
+            Pass Phrase
+        </inertia-link>
+    </li>
+    <li>
+        <inertia-link
+            :href="route('dashboard.settings')"
+            :class="
+                isSubMenuActive('dashboard.settings')
+                    ? 'text-gray-900 dark:text-white'
+                    : 'text-gray-400 dark:text-gray-400'
+            "
+        >
             Preferences
         </inertia-link>
     </li>
@@ -727,6 +848,32 @@
         "
     >
         Issues
+    </inertia-link>
+</li>
+
+<li>
+    <inertia-link
+        :href="'#'"
+        :class="
+            isSubMenuActive('patients.index')
+                ? 'text-gray-900 dark:text-white'
+                : 'text-gray-400 dark:text-gray-400'
+        "
+    >
+        Export
+    </inertia-link>
+</li>
+
+<li>
+    <inertia-link
+        :href="'#'"
+        :class="
+            isSubMenuActive('patients.index')
+                ? 'text-gray-900 dark:text-white'
+                : 'text-gray-400 dark:text-gray-400'
+        "
+    >
+        Import
     </inertia-link>
 </li>
 <li>
@@ -944,6 +1091,18 @@
                                             )? 'text-gray-900 dark:text-white'
                                             : 'text-gray-400 dark:text-gray-400'
                                         "
+                                        >XML Editor
+                                    </inertia-link>
+    </li>
+    <li>
+        <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )? 'text-gray-900 dark:text-white'
+                                            : 'text-gray-400 dark:text-gray-400'
+                                        "
                                         >Alert Logs
                                     </inertia-link>
     </li>
@@ -1018,6 +1177,12 @@
                                 :class="isActiveClass('dashboard.flow_board')"
                             >
                                 {{ $t("menu.flow_board") }}
+                            </inertia-link>
+                            <inertia-link
+                                :href="'#'"
+                                :class="isActiveClass('dashboard.flow_board')"
+                            >
+                              Messages  <!-- {{ $t("menu.flow_board") }} -->
                             </inertia-link>
                             <ehr-header-menu :label="$t('menu.patient_client')">
                                 <div class="flex flex-col">
@@ -1258,7 +1423,16 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Lab Results
+                                        >Lab Overview
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Batch Results
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1287,14 +1461,14 @@
                                         :class="
                                             isSubMenuActive('patients.index')
                                         "
-                                        >Providers
+                                        >Globals
                                     </inertia-link>
                                     <inertia-link
                                         :href="'#'"
                                         :class="
                                             isSubMenuActive('patients.create')
                                         "
-                                        >Configuration
+                                        >Edit Menu
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1303,7 +1477,7 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Load Compendium
+                                        >Facilities
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1312,7 +1486,7 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Pending Review
+                                        >Users
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1321,7 +1495,7 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Patient Results
+                                        >Addr Book
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1330,7 +1504,7 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Lab Results
+                                        >Practice
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1339,7 +1513,7 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Electronic Reports
+                                        >Codes
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
@@ -1348,7 +1522,79 @@
                                                 'dashboard.settings'
                                             )
                                         "
-                                        >Lab Documents
+                                        >Layouts
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Lists
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >ACL
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Files
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Backup
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Rules
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Alerts
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Patient Reminders
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Other
                                     </inertia-link>
                                 </div>
                             </ehr-header-menu>
@@ -1483,6 +1729,15 @@
                                                 'dashboard.settings'
                                             )
                                         "
+                                        >Pass Phrase
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
                                         >Preferences
                                     </inertia-link>
                                     <inertia-link
@@ -1522,6 +1777,20 @@
                                             isSubMenuActive('patients.index')
                                         "
                                         >Issues
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="'#'"
+                                        :class="
+                                            isSubMenuActive('patients.index')
+                                        "
+                                        >Export
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="'#'"
+                                        :class="
+                                            isSubMenuActive('patients.index')
+                                        "
+                                        >Import
                                     </inertia-link>
                                     <inertia-link
                                         :href="'#'"
@@ -1678,6 +1947,15 @@
                                             )
                                         "
                                         >MIPS Module Installer
+                                    </inertia-link>
+                                    <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >XML Editor
                                     </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
