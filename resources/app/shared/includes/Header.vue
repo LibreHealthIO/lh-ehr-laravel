@@ -276,72 +276,542 @@
                                                 </inertia-link>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Visits
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-visits"
+                                                    data-collapse-toggle="dropdown-visits"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Visits</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-visits"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Create Visit
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Current
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Visit History
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Records
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-records"
+                                                    data-collapse-toggle="dropdown-records"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Record</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-records"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Patient Record
+                                                            Request
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-visit_form"
+                                                    data-collapse-toggle="dropdown-visit_form"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Visit Form</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-visit_form"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Aftercare Plan
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Ankle Evaluation
+                                                            Form
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Annotatable Diagrams
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Bronchitis Form
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Care Plan
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Clinical
+                                                            Instructions
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Functional and
+                                                            Cognitive Status
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Misc Billing Options
+                                                            HCFA
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Observation
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Physical Exam
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Procedure Order
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Review Of Systems
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Review of Systems
+                                                            Checks
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            SOAP
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Speech Dictation
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Transfer Summary
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Treatment Plan
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Vitals
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Visit Forms
-                                                </inertia-link>
-                                            </li>
-                                            <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Imports
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-import"
+                                                    data-collapse-toggle="dropdown-import"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Import</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-import"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Upload
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Pending Approval
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Visit History
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
@@ -1020,22 +1490,208 @@
                                                 </inertia-link>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-other"
+                                                    data-collapse-toggle="dropdown-other"
                                                 >
-                                                    Other
-                                                </inertia-link>
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Other</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-other"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Language
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Forms
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Calendar
+                                                            Administration
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Logs
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Users Activity
+                                                            Report
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Certificates
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Native Data Loads
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            External Data Loads
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Merge Encounters
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Merge Patients
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
@@ -1065,132 +1721,971 @@
                                             class="hidden py-2 space-y-2 ml-2"
                                         >
                                             <li>
-                                                <inertia-link
-                                                    :href="'#'"
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'patients.index'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Clients
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-clients"
+                                                    data-collapse-toggle="dropdown-clients"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Clients</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-clients"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient List
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Clinical Statistics:
+                                                            Demographics vs.
+                                                            Diagnosis
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Clinical Statistics:
+                                                            Demographics vs. Lab
+                                                            Results
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient List By
+                                                            Referrer
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Prescriptions and
+                                                            Dispensations
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient List
+                                                            Creation
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Clinical
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Immunization
+                                                            Registry
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="'#'"
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'patients.create'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Visits
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-visits2"
+                                                    data-collapse-toggle="dropdown-visits2"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Visits</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-visits2"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Appointments
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient Flow Board
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Encounters
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient Billing
+                                                            Encounter by Carrier
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Appointments and
+                                                            Encounters
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Superbill
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Eligibility
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Eligibility Response
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Claim Status Request
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Chart Location
+                                                            Activity
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Charts Checked Out
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Chart Tracker
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Services by Category
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Syndromic
+                                                            Surveillance
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Financial
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-financial"
+                                                    data-collapse-toggle="dropdown-financial"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Financial</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-financial"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Sales by Item
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Cash Receipts by
+                                                            Provider
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Front Office
+                                                            Receipts
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Receipts Summary
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Collections
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient Ledger by
+                                                            Date
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Adjustments
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Financial Summary by
+                                                            Service Code
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Inventory
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-inventory"
+                                                    data-collapse-toggle="dropdown-inventory"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Inventory</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-inventory"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            List
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Activity
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Transactions
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Procedures
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-procedures2"
+                                                    data-collapse-toggle="dropdown-procedures2"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Procedures</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-procedures2"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Pending Orders
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Procedure Statistics
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Insurance
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-insurance"
+                                                    data-collapse-toggle="dropdown-insurance"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Insurance</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-insurance"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Patient Insurance
+                                                            Distribution
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Indigent Patients
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Unique Seen Patients
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Blank Forms
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-blankForms"
+                                                    data-collapse-toggle="dropdown-blankForms"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Blank Forms</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-blankForms"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Demographics
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Superbill/Fee Sheet
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Referral
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
-                                                    >Services
-                                                </inertia-link>
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-services"
+                                                    data-collapse-toggle="dropdown-services"
+                                                >
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Services</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-services"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Background Services
+                                                        </inertia-link>
+                                                    </li>
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                        >
+                                                            Direct Message Log
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
@@ -1373,22 +2868,44 @@
                                                 </inertia-link>
                                             </li>
                                             <li>
-                                                <inertia-link
-                                                    :href="
-                                                        route(
-                                                            'dashboard.settings'
-                                                        )
-                                                    "
-                                                    :class="
-                                                        isSubMenuActive(
-                                                            'dashboard.settings'
-                                                        )
-                                                            ? 'text-gray-900 dark:text-white'
-                                                            : 'text-gray-400 dark:text-gray-400'
-                                                    "
+                                                <button
+                                                    type="button"
+                                                    class="flex items-center w-full text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                    aria-controls="dropdown-utilities"
+                                                    data-collapse-toggle="dropdown-utilities"
                                                 >
-                                                    Utilities
-                                                </inertia-link>
+                                                    <span
+                                                        class="flex-1 text-left whitespace-nowrap"
+                                                        >Utilities</span
+                                                    >
+                                                    <icon
+                                                        name="chevron-down"
+                                                        class="w-6 h-6 fill-current"
+                                                    />
+                                                </button>
+                                                <ul
+                                                    id="dropdown-utilities"
+                                                    class="hidden py-2 space-y-2 ml-2"
+                                                >
+                                                    <li>
+                                                        <inertia-link
+                                                            :href="
+                                                                route(
+                                                                    'dashboard.settings'
+                                                                )
+                                                            "
+                                                            :class="
+                                                                isSubMenuActive(
+                                                                    'dashboard.settings'
+                                                                )
+                                                                    ? 'text-gray-900 dark:text-white'
+                                                                    : 'text-gray-400 dark:text-gray-400'
+                                                            "
+                                                            >Validate Attached
+                                                            Documents
+                                                        </inertia-link>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
                                                 <inertia-link
