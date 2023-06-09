@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Calendar\CalendarController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\Facility\FacilityController;
 use App\Http\Controllers\Dashboard\FlowBoardController;
 use App\Http\Controllers\Dashboard\Patient\PatientAppointmentController;
@@ -109,7 +110,9 @@ Route::group([
 
             // ======== Calendar routes ========
             Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
-
+            Route::get('/roles', [RolesController::class, 'index']);
+            Route::post('/roles', [RolesController::class, 'store']);
+            Route::get('/allRoles', [RolesController::class, 'getRoles']);
             // ======== Users related routes ========
             Route::resource('users', UserController::class)->names([
                 'index' => 'users.index',
@@ -214,3 +217,5 @@ Route::group([
         });
     });
 });
+
+
