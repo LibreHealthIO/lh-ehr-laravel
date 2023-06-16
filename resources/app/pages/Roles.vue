@@ -130,13 +130,13 @@ export default {
     },
     methods: {
         getRoles() {
-            axios.get("/dashboard/allRoles").then((response) => {
+            axios.get(this.route("dashboard.roles.all")).then((response) => {
                 this.roles = response.data;
             });
         },
         addRole() {
             axios
-                .post("/dashboard/roles", {
+                .post(this.route("dashboard.roles.store"), {
                     name: this.name,
                     display_name: this.display_name,
                     description: this.description,

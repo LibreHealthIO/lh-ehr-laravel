@@ -7,6 +7,7 @@ use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateRoleRequest;
 use Inertia\Inertia;
 use Inertia\Response;
 class RolesController extends Controller
@@ -24,18 +25,8 @@ class RolesController extends Controller
             ]
         );
     }
-    public function store(Request $request)
+    public function store(CreateRoleRequest $request)
     {
-        // Validate the request input
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string',
-            'display_name' => 'required|string',
-            'description' => 'required|string',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
 
         // Create a new Role object and save it to the database
         $role = new Role();

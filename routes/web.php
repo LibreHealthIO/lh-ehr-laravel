@@ -110,9 +110,9 @@ Route::group([
 
             // ======== Calendar routes ========
             Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
-            Route::get('/roles', [RolesController::class, 'index']);
-            Route::post('/roles', [RolesController::class, 'store']);
-            Route::get('/allRoles', [RolesController::class, 'getRoles']);
+            Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
+            Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
+            Route::get('/all-roles', [RolesController::class, 'getRoles'])->name('roles.all');
             // ======== Users related routes ========
             Route::resource('users', UserController::class)->names([
                 'index' => 'users.index',
