@@ -40,7 +40,7 @@ return [
             'qa-measures' => 'c,r,u,d',
             'help' => 'r',
         ],
-        'lh-user' => [
+        'users' => [
             'calendar' => 'r',
             'patient' => 'r',
             'fees' => 'r',
