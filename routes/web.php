@@ -12,6 +12,7 @@ use App\Http\Controllers\Dashboard\FlowBoardController;
 use App\Http\Controllers\Dashboard\Patient\PatientAppointmentController;
 use App\Http\Controllers\Dashboard\Patient\PatientController;
 use App\Http\Controllers\Dashboard\Patient\PatientHistoryController;
+use App\Http\Controllers\Dashboard\PermissionController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Installer\InstallerController;
 use App\Http\Controllers\Installer\InstallerDatabaseController;
@@ -113,6 +114,8 @@ Route::group([
             Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
             Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
             Route::get('/all-roles', [RolesController::class, 'getRoles'])->name('roles.all');
+            Route::get('/all-permissions', [PermissionController::class, 'getPermissions'])->name('permissions.all');
+
             // ======== Users related routes ========
             Route::resource('users', UserController::class)->names([
                 'index' => 'users.index',
