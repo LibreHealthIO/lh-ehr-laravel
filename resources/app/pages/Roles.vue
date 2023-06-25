@@ -40,6 +40,19 @@
                         >Permissions</label
                     >
                     <div class="relative">
+                        <div
+                            v-if="selectedPermissions.length > 0"
+                            class="flex flex-wrap items-center mb-2"
+                        >
+                            <span
+                                v-for="permission in selectedPermissions"
+                                :key="permission.id"
+                                class="bg-orange-500 text-white rounded-full px-2 py-1 mr-2 mb-2"
+                            >
+                                {{ permission.display_name }}
+                            </span>
+                        </div>
+
                         <button
                             id="permissions-dropdown"
                             class="w-full px-4 py-2 rounded ring-2 ring-orange-500 focus:ring-orange-500"
@@ -49,13 +62,22 @@
                             {{
                                 selectedPermissions[0]
                                     ? selectedPermissions[0].display_name
-                                    : "Permissions"
+                                    : "Select Permissions"
                             }}
+                            <span
+                                :class="{
+                                    'transform rotate-180':
+                                        permission_dropdown === true,
+                                }"
+                                class="inline-block transition-transform duration-300"
+                            >
+                                &#9662;
+                            </span>
                         </button>
 
                         <ul
                             v-if="permission_dropdown === true"
-                            class="absolute mt-2 py-2 bg-white rounded-md shadow-lg z-10"
+                            class="absolute mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-72 overflow-y-auto"
                         >
                             <li
                                 v-for="permission in permissions"
@@ -79,7 +101,9 @@
             </form>
         </div>
 
-        <div class="w-2/3 mx-auto bg-white rounded shadow-md p-6">
+        <div
+            class="w-2/3 mx-auto bg-white rounded shadow-md p-6 pb-60 overflow-auto"
+        >
             <h2 class="text-2xl font-bold mb-4">Existing Roles</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div
@@ -114,7 +138,7 @@
                             </button>
                             <ul
                                 v-if="openDropdown === role.id"
-                                class="absolute right-0 mt-2 py-2 bg-white rounded-md shadow-lg z-10"
+                                class="absolute right-0 mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-56 overflow-y-scroll"
                             >
                                 <li
                                     v-for="permission in role.permissions"
@@ -184,7 +208,11 @@ export default {
                     console.log(error);
                 });
         },
-
+        selectPermission(permission) {
+            if (!this.selectedPermissions.includes(permission)) {
+                this.selectedPermissions.push(permission);
+            }
+        },
         toggleDropdown(roleId) {
             this.openDropdown = this.openDropdown === roleId ? null : roleId;
         },
