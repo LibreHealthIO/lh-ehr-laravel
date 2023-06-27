@@ -12,7 +12,7 @@ return [
     'truncate_tables' => true,
 
     'roles_structure' => [
-        'superadministrator' => [
+        'super_admin' => [
             'calendar' => 'c,r,u,d',
             'flow-board' => 'c,r,u,d',
             'patient' => 'c,r,u,d',
@@ -26,7 +26,7 @@ return [
             'qa-measures' => 'c,r,u,d',
             'help' => 'c,r,u,d',
         ],
-        'administrators' => [
+        'admin' => [
             'calendar' => 'c,r,u,d',
             'flow-board' => 'c,r,u,d',
             'patient' => 'c,r,u,d',

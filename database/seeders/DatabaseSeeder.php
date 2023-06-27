@@ -61,8 +61,8 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->call(CurrencySeeder::class);
-        $this->call(UserTableSeeder::class);
         $this->call(LaratrustSeeder::class);
+        $this->call(UserTableSeeder::class);
         $this->call(AddressTableSeeder::class);
         $this->call(ContactTableSeeder::class);
         $this->call(FacilityTableSeeder::class);
