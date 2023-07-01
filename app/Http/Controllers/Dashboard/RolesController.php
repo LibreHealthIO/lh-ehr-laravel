@@ -41,9 +41,21 @@ class RolesController extends Controller
     }
     public function getRoles()
     {
-
+    $result=[];
     $roles = Role::with('permissions')->get();
+    foreach ($roles as $role) {
+        $users = $role->users()->get();
+        $temp = [
+            'id' => $role->id,
+            'name' => $role->name,
+            'display_name' => $role->display_name,
+            'description' => $role->description,
+            'permissions' => $role->permissions,
+            'users' => $users,
+        ];
+        array_push($result, $temp);
+    }
 
-     return response()->json($roles);
+     return response()->json($result, 200);
     }
 }

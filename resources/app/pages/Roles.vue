@@ -55,11 +55,8 @@
                             type="button"
                             @click="togglePermissionList()"
                         >
-                            {{
-                                selectedPermissions[0]
-                                    ? selectedPermissions[0].display_name
-                                    : "Select Permissions"
-                            }}
+                            Select Permissions
+
                             <span
                                 :class="{
                                     'transform rotate-180':
@@ -73,7 +70,7 @@
 
                         <ul
                             v-if="permission_dropdown === true"
-                            class="absolute mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-72 overflow-y-auto"
+                            class="absolute mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-72 overflow-y-auto no-scrollbar"
                         >
                             <li
                                 v-for="permission in permissions"
@@ -98,53 +95,74 @@
         </div>
 
         <div
-            class="w-2/3 mx-auto bg-white rounded shadow-md p-6 pb-60 overflow-auto"
+            class="w-2/3 mx-auto bg-white rounded shadow-md p-6 pb-60 overflow-auto no-scrollbar"
         >
             <h2 class="text-2xl font-bold mb-4">Existing Roles</h2>
             <div class="grid grid-cols-2 gap-4">
                 <div
                     v-for="role in roles"
                     :key="role.id"
-                    class="bg-white rounded-md p-4 shadow-lg"
+                    class="bg-white rounded-md p-4 shadow-lg grid grid-cols-2 gap-4"
                 >
-                    <h3 class="text-lg font-bold">{{ role.display_name }}</h3>
-                    <p class="text-gray-500">@{{ role.name }}</p>
-                    <p class="text-gray-500">{{ role.description }}</p>
-                    <div class="mt-2">
-                        <div class="relative inline-block">
-                            <button
-                                @click="toggleDropdown(role.id)"
-                                class="inline-block px-1 py-1 mb-2 font-bold text-orange-400 mr-2"
-                            >
-                                <span class="mr-1"
-                                    >{{
-                                        role.permissions.length
-                                    }}
-                                    Permissions</span
+                    <div>
+                        <h3 class="text-lg font-bold">
+                            {{ role.display_name }}
+                        </h3>
+                        <p class="text-gray-500">@{{ role.name }}</p>
+                        <p class="text-gray-500">
+                            Desc: {{ role.description }}
+                        </p>
+                        <div class="mt-2">
+                            <div class="relative inline-block">
+                                <button
+                                    @click="toggleDropdown(role.id)"
+                                    class="inline-block px-1 py-1 mb-2 font-bold text-orange-400 mr-2"
                                 >
-                                <span
-                                    :class="{
-                                        'transform rotate-180':
-                                            openDropdown === role.id,
-                                    }"
-                                    class="inline-block transition-transform duration-300"
+                                    <span class="mr-1"
+                                        >{{
+                                            role.permissions.length
+                                        }}
+                                        Permissions</span
+                                    >
+                                    <span
+                                        :class="{
+                                            'transform rotate-180':
+                                                openDropdown === role.id,
+                                        }"
+                                        class="inline-block transition-transform duration-300"
+                                    >
+                                        &#9662;
+                                    </span>
+                                </button>
+                                <ul
+                                    v-if="openDropdown === role.id"
+                                    class="absolute right-0 mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-56 overflow-y-scroll no-scrollbar"
                                 >
-                                    &#9662;
-                                </span>
-                            </button>
-                            <ul
-                                v-if="openDropdown === role.id"
-                                class="absolute right-0 mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-56 overflow-y-scroll"
-                            >
-                                <li
-                                    v-for="permission in role.permissions"
-                                    :key="permission.id"
-                                    class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                                >
-                                    {{ permission.name }}
-                                </li>
-                            </ul>
+                                    <li
+                                        v-for="permission in role.permissions"
+                                        :key="permission.id"
+                                        class="px-4 py-2 hover:bg-gray-100 cursor-pointer w-auto"
+                                    >
+                                        {{ permission.name }}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-500">
+                            {{ role.users.length }} Users
+                        </h4>
+
+                        <ul>
+                            <li
+                                v-for="user in role.users.slice(0, 5)"
+                                :key="user.id"
+                                class="text-gray-500 font-bold"
+                            >
+                                {{ user.first_name }} {{ user.last_name }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -162,6 +180,7 @@ export default {
     data() {
         return {
             openDropdown: null,
+            userDropdown: null,
             permission_dropdown: null,
             name: "",
             display_name: "",
@@ -203,7 +222,6 @@ export default {
                     permissions: this.selectedPermissions,
                 })
                 .then((response) => {
-                    console.log(response);
                     this.roles.push(response.data);
                     this.name = "";
                     this.description = "";
@@ -220,6 +238,9 @@ export default {
         },
         toggleDropdown(roleId) {
             this.openDropdown = this.openDropdown === roleId ? null : roleId;
+        },
+        toggleUserDropdown(roleId) {
+            this.userDropdown = this.userDropdown === roleId ? null : roleId;
         },
         togglePermissionList() {
             this.permission_dropdown = !this.permission_dropdown;
