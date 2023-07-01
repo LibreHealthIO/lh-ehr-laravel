@@ -163,6 +163,20 @@
                                 {{ user.first_name }} {{ user.last_name }}
                             </li>
                         </ul>
+
+                        <div class="flex items-end bottom-0 right-0">
+                            <a
+                                :href="
+                                    route('dashboard.roles.details', role.id)
+                                "
+                            >
+                                <button
+                                    class="inline-block px-1 py-1 mb-2 font-bold text-blue-400"
+                                >
+                                    More Details >>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

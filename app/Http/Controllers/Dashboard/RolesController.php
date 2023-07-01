@@ -25,6 +25,30 @@ class RolesController extends Controller
             ]
         );
     }
+    public function details($roleId): Response
+    {
+         /**
+     * Shows the role page
+     * @return Response
+     */
+        //get role with id = $roleId
+        $role = Role::with('permissions')->where('id', $roleId)->first();
+        $users = $role->users()->get();
+        $temp = [
+            'id' => $role->id,
+            'name' => $role->name,
+            'display_name' => $role->display_name,
+            'description' => $role->description,
+            'permissions' => $role->permissions,
+            'users' => $users,
+        ];
+        return Inertia::render('RolesDetails',
+            [
+                'roleDetails' => $temp
+            ]
+        );
+
+    }
     public function store(CreateRoleRequest $request)
     {
 
