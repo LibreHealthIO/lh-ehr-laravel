@@ -33,6 +33,10 @@ class RolesController extends Controller
         $role->display_name = $request->display_name;
         $role->description = $request->description;
         $role->save();
+        foreach ($request->permissions as $permission) {
+            $role->permissions()->attach([$permission['id']]);
+        }
+        $role->save();
         return response()->json($role, 201);
     }
     public function getRoles()

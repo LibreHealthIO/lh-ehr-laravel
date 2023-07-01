@@ -4,34 +4,30 @@
             <h2 class="text-2xl font-bold mb-4">Add Role</h2>
             <form @submit.prevent="addRole">
                 <div class="mb-4">
-                    <label class="block font-bold mb-2" for="name">Name</label>
-                    <input
-                        v-model="name"
-                        type="text"
-                        id="name"
-                        class="w-full px-4 py-2 rounded ring-2 ring-orange-500 focus:ring-orange-500"
+                    <ehr-input
+                        v-model="roleForm.name"
+                        :error="errors.name"
+                        :label="'Role Name'"
+                        :placeholder="'Enter Role Name'"
+                        required
                     />
                 </div>
                 <div class="mb-4">
-                    <label class="block font-bold mb-2" for="name"
-                        >Display Name</label
-                    >
-                    <input
-                        v-model="display_name"
-                        type="text"
-                        id="display_name"
-                        class="w-full px-4 py-2 rounded ring-2 ring-orange-500 focus:ring-orange-500"
+                    <ehr-input
+                        v-model="roleForm.display_name"
+                        :error="errors.display_name"
+                        :label="'Display Name'"
+                        :placeholder="'Enter Role Display Name'"
+                        required
                     />
                 </div>
                 <div class="mb-4">
-                    <label class="block font-bold mb-2" for="description"
-                        >Description</label
-                    >
-                    <input
-                        v-model="description"
-                        id="description"
-                        rows="4"
-                        class="w-full px-4 py-2 rounded ring-2 ring-orange-500 focus:ring-orange-500"
+                    <ehr-input
+                        v-model="roleForm.description"
+                        :error="errors.description"
+                        :label="'Role Description'"
+                        :placeholder="'Enter Role Description'"
+                        required
                     />
                 </div>
 
@@ -55,7 +51,7 @@
 
                         <button
                             id="permissions-dropdown"
-                            class="w-full px-4 py-2 rounded ring-2 ring-orange-500 focus:ring-orange-500"
+                            class="w-full px-4 py-2 rounded ring-2"
                             type="button"
                             @click="togglePermissionList()"
                         >
@@ -160,7 +156,9 @@ import DashboardLayout from "../layouts/DashboardLayout";
 export default {
     name: "Roles",
     layout: DashboardLayout,
-
+    props: {
+        errors: Object,
+    },
     data() {
         return {
             openDropdown: null,
@@ -170,7 +168,13 @@ export default {
             description: "",
             permissions: [],
             selectedPermissions: [],
+
             roles: [],
+            roleForm: this.$inertia.form({
+                name: null,
+                display_name: null,
+                description: null,
+            }),
         };
     },
     mounted() {
@@ -193,9 +197,10 @@ export default {
         addRole() {
             axios
                 .post(this.route("dashboard.roles.store"), {
-                    name: this.name,
-                    display_name: this.display_name,
-                    description: this.description,
+                    name: this.roleForm.name,
+                    display_name: this.roleForm.display_name,
+                    description: this.roleForm.description,
+                    permissions: this.selectedPermissions,
                 })
                 .then((response) => {
                     console.log(response);
