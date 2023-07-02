@@ -2,7 +2,7 @@
     <div class="flex min-h-screen bg-white py-8 px-4">
         <div class="w-1/3 mx-auto bg-white rounded shadow-md p-6">
             <h2 class="text-2xl font-bold mb-4">Add Role</h2>
-            <form @submit.prevent="addRole">
+            <form @submit.prevent="addRole" method="post">
                 <div class="mb-4">
                     <ehr-input
                         v-model="roleForm.name"
@@ -37,11 +37,11 @@
                     >
                     <div class="relative">
                         <div
-                            v-if="selectedPermissions.length > 0"
+                            v-if="roleForm.permissions.length > 0"
                             class="flex flex-wrap items-center mb-2"
                         >
                             <span
-                                v-for="permission in selectedPermissions"
+                                v-for="permission in roleForm.permissions"
                                 :key="permission.id"
                                 class="bg-orange-500 text-white rounded-full px-2 py-1 mr-2 mb-2"
                             >
@@ -200,13 +200,12 @@ export default {
             display_name: "",
             description: "",
             permissions: [],
-            selectedPermissions: [],
-
             roles: [],
             roleForm: this.$inertia.form({
                 name: null,
                 display_name: null,
                 description: null,
+                permissions: [],
             }),
         };
     },
@@ -228,26 +227,11 @@ export default {
                 });
         },
         addRole() {
-            axios
-                .post(this.route("dashboard.roles.store"), {
-                    name: this.roleForm.name,
-                    display_name: this.roleForm.display_name,
-                    description: this.roleForm.description,
-                    permissions: this.selectedPermissions,
-                })
-                .then((response) => {
-                    this.roles.push(response.data);
-                    this.name = "";
-                    this.description = "";
-                    this.permissions = [];
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+            this.roleForm.post(this.route("dashboard.roles.store"));
         },
         selectPermission(permission) {
-            if (!this.selectedPermissions.includes(permission)) {
-                this.selectedPermissions.push(permission);
+            if (!this.roleForm.permissions.includes(permission)) {
+                this.roleForm.permissions.push(permission);
             }
         },
         toggleDropdown(roleId) {
