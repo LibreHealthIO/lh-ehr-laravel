@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-
+use Inertia\Response;
+use Inertia\Inertia;
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
+
+    public function index():Response
+    {
+       /**
+     * Shows the role page
      * @return Response
      */
-    public function index()
-    {
-        //
+    return Inertia::render('AddUsers');
     }
 
     /**

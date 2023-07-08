@@ -111,6 +111,8 @@ Route::group([
 
             // ======== Calendar routes ========
             Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
+
+            // ======== Roles & Permissions Routes ========
             Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
             Route::get('/roles/{rolesId}', [RolesController::class, 'details'])->name('roles.details');
             Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
