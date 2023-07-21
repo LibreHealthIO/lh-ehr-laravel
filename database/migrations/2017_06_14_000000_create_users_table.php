@@ -34,7 +34,7 @@ class CreateUsersTable extends Migration
             $table->string('facility')->nullable();
             $table->text('additional_details')->nullable();
             $table->string('token')->nullable()->comment('Token');
-            $table->timestamp('token_expiry')->comment('Token Expiry');
+            $table->timestamp('token_expiry')->default(now())->comment('Token Expiry');
 
 
             // Miscellaneous properties
