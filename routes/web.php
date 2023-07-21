@@ -19,6 +19,7 @@ use App\Http\Controllers\Installer\InstallerDatabaseController;
 use App\Http\Controllers\Installer\InstallerFilePermissionController;
 use App\Http\Controllers\Installer\InstallerRequirementsController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -91,6 +92,7 @@ Route::group([
     /* =================================
         LH EHR PORTAL Routes
     ================================= */
+
     Route::group(
         [
             'as' => 'dashboard.',
@@ -129,6 +131,8 @@ Route::group([
                 'update' => 'users.update',
                 'destroy' => 'users.destroy',
             ]);
+            Route::post('/add-user', [UserController::class, 'store'])->name('users.add');
+
             Route::get('users/load/data', [UserController::class, 'getUserData'])
                 ->name('users.load.data');
 
@@ -202,7 +206,12 @@ Route::group([
             );
         }
     );
+    /* =================================
+        LH EHR New User Routes
+    ================================= */
 
+    Route::get('/add-password', [UserController::class, 'AddPassword'])->name('users.confirm');
+    Route::post('/verify-user', [UserController::class, 'verifyUser'])->name('users.verify');
 
     /* =================================
         LH EHR ADMIN Routes

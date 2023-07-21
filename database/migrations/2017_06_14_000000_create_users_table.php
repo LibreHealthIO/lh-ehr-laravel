@@ -28,6 +28,13 @@ class CreateUsersTable extends Migration
             $table->string('address_one')->nullable()->comment('Address One');
             $table->string('address_two')->nullable()->comment('Address Two');
             $table->string('zip')->nullable()->comment('Zip code');
+            $table->string('license')->nullable();
+            $table->string('provider_type')->nullable();
+            $table->string('warehouse')->nullable();
+            $table->string('facility')->nullable();
+            $table->text('additional_details')->nullable();
+            $table->string('token')->nullable()->comment('Token');
+            $table->timestamp('token_expiry')->comment('Token Expiry');
 
 
             // Miscellaneous properties
@@ -38,15 +45,16 @@ class CreateUsersTable extends Migration
             $table->boolean('in_calendar')->default(1)
                 ->comment('If user wants calendar or not. 0 -> No | 1 -> Yes');
             $table->integer('see_auth')
-                ->comment('See Authorization. 0 -> None | 1 -> All | 2 -> Only Mine');
-            $table->string('calendar_ui')
+                ->comment('See Authorization. 0 -> None | 1 -> All | 2 -> Only Mine')->default(0);
+            $table->string('calendar_ui')->default('Original')
                 ->comment('Calendar Preference. viz Outlook, Original and Fancy');
-	        $table->bigInteger('npi')->comment('National Provider Identifier.');
+	        $table->bigInteger('npi')->comment('National Provider Identifier.')->default(0);
 	        $table->longText('info')->nullable()->comment('About/Biography/Job Description');
+
 
 	        // TODO Move to ACL (laratrust)
 	        $table->string('new_crop_user_role')
-                ->comment('Role of created user. Like admin, nurse, doctor, etc.');
+                ->comment('Role of created user. Like admin, nurse, doctor, etc.')->default('NewCrop Admin');
 	        $table->string('access_control')
                 ->comment('Access Control of user. Viz Accounting, Administrators, Clinicians, etc.');
 
