@@ -19,8 +19,6 @@ use App\Http\Controllers\Installer\InstallerDatabaseController;
 use App\Http\Controllers\Installer\InstallerFilePermissionController;
 use App\Http\Controllers\Installer\InstallerRequirementsController;
 use App\Http\Controllers\LocaleController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\MailSendingController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\UserInvitationController;
 use Illuminate\Support\Facades\Route;

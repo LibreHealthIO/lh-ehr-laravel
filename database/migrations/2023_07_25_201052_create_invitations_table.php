@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_invitations', function (Blueprint $table) {
+        Schema::create('invitations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('for_user')->constrained('users_invited');
+            $table->foreignId('for_user')->constrained('users');
             $table->string('email');
-            $table->string('code')->unique();
+            $table->string('token')->unique();
             $table->string('status')->default('pending');
             $table->timestamp('valid_till')->nullable();
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_invitations');
+        Schema::dropIfExists('invitations');
     }
 };

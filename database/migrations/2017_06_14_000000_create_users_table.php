@@ -33,8 +33,8 @@ class CreateUsersTable extends Migration
             $table->string('warehouse')->nullable();
             $table->string('facility')->nullable();
             $table->text('additional_details')->nullable();
-            $table->string('token')->nullable()->comment('Token');
-            $table->timestamp('token_expiry')->default(now())->comment('Token Expiry');
+            $table->string('invitation')->default('pending')->comment('Invitation Status');
+
 
 
             // Miscellaneous properties

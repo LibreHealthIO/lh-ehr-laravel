@@ -2,11 +2,9 @@
 namespace App;
 
 use App\Mail\InvitationMail;
-use App\Mail\UserInvitationMail;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\UsersInvited;
-use App\Models\UserInvitation;
+use App\Models\Invitation;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -20,15 +18,15 @@ class Invite
 
 
         // Save the invitation data in the users_invited table
-        $userInvited = UsersInvited::create($userData);
-        // Generate a unique code for the invitation
-        $code = Str::random(10);
+        $userInvited = User::create($userData);
+        // Generate a unique token for the invitation
+        $token = Str::random(10);
 
         // Save the invitation data in the user_invitations table
-        $invitation=UserInvitation::create([
+        $invitation=Invitation::create([
             'for_user' => $userInvited->id,
             'email' => $email,
-            'code' => $code,
+            'token' => $token,
             'status' => 'pending',
             'valid_till' => now()->addDays(7), // Invitation valid for 7 days
         ]);
@@ -37,7 +35,7 @@ class Invite
         $url = URL::temporarySignedRoute(
             'users.confirm',
             now()->addDays(7),
-            ['username' => $userData['username'],'code'=>$code]
+            ['username' => $userData['username'],'token'=>$token]
         );
         $mailData = [
             'title' => 'User Invitation Mail',
@@ -55,93 +53,91 @@ class Invite
         }
     }
 
-    public static function accept($code, $password)
+    public static function accept($token, $password)
     {
-        // Find the invitation by code
-        $invitation = UserInvitation::where('code', $code)->first();
+        // Find the invitation by token
+        $invitation = Invitation::where('token', $token)->first();
 
         if (!$invitation || $invitation->valid_till < now() || $invitation->status != 'pending') {
-            return false; // Invalid invitation code or invitation expired or invitation already accepted/rejected
+            return false; // Invalid invitation token or invitation expired or invitation already accepted/rejected
         }
 
         // Create the new user in the real users table
-        $invitedUser=UsersInvited::find($invitation->for_user);
-
-        $user = User::create([
-            'username' => $invitedUser->username,
-            'email' => $invitedUser->email,
-            'password' =>$password,
-            'first_name' => $invitedUser->first_name,
-            'middle_name' => $invitedUser->middle_name,
-            'last_name' => $invitedUser->last_name,
-            'federal_tax_id' => $invitedUser->federal_tax_id,
-            'federal_drug_id' => $invitedUser->federal_drug_id,
-            'npi' => $invitedUser->npi,
-            'suffix' => $invitedUser->suffix,
-            'taxonomy' => $invitedUser->taxonomy,
-            'info' => $invitedUser->info,
-            'access_control' => $invitedUser->access_control,
-            'warehouse' => $invitedUser->warehouse,
-            'facility'=> $invitedUser->facility,
-            'provider_type' => $invitedUser->provider_type,
-            'license' => $invitedUser->license,
-        ]);
+        $invitedUser=User::find($invitation->for_user);
         $role = Role::where('name', '=', $invitedUser->access_control)->first();
         $permissions=$role->permissions;
-        $user->attachRole($role);
+        $invitedUser->attachRole($role);
         foreach ($permissions as $permission) {
-            $user->attachPermission($permission);
+            $invitedUser->attachPermission($permission);
         }
         $invitation->update([
             'status' => 'accepted',
         ]);
+        $invitedUser->update([
+            'password' => $password,
+            'invitation' => 'accepted',
+        ]);
         $invitation->save();
-        if($user->save()){
+        if($invitedUser->save()){
             return true;
         }
 
         return false; //if any error occurs
     }
 
-    public static function reject($code)
+    public static function reject($token)
     {
-        // Find the invitation by code
-        $invitation = UserInvitation::where('code', $code)->first();
+        // Find the invitation by token
+        $invitation = Invitation::where('token', $token)->first();
 
         if (!$invitation) {
-            return false; // Invalid invitation code
+            return false; // Invalid invitation token
         }
+        $invitedUser=User::where('id', $invitation->for_user)->first();
 
+        if (!$invitedUser) {
+            return false; // Invalid invitation token
+        }
+        $invitedUser->update([
+            'invitation' => 'rejected',
+        ]);
+        $invitedUser->save();
         // Update the invitation status
         $invitation->update([
             'status' => 'rejected',
         ]);
 
         $invitation->save();
+
         return true; // Invitation rejected successfully
     }
 
-    public static function isExpired($code)
+    public static function isExpired($token)
     {
-        // Find the invitation by code
-        $invitation = UserInvitation::where('code', $code)->first();
+        // Find the invitation by token
+        $invitation = Invitation::where('token', $token)->first();
+        $invitedUser=User::find($invitation->for_user);
         if($invitation->valid_till < now()){
             $invitation->update([
                 'status' => 'expired',
             ]);
+            $invitedUser->update([
+                'invitation' => 'expired',
+            ]);
             $invitation->save();
+            $invitedUser->save();
             return true;
         }
         return false;
     }
 
-    public static function status($code)
+    public static function status($token)
     {
-        // Find the invitation by code
-        $invitation = UserInvitation::where('code', $code)->first();
+        // Find the invitation by token
+        $invitation = Invitation::where('token', $token)->first();
 
         if (!$invitation) {
-            return 'invalid'; // Invalid invitation code
+            return 'invalid'; // Invalid invitation token
         }
 
         return $invitation->status;

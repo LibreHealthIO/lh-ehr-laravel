@@ -83,12 +83,12 @@ export default {
     },
     data() {
         return {
-            code: null,
+            token: null,
             message: null,
             passwordForm: this.$inertia.form({
                 expires: null,
                 username: null,
-                code: null,
+                token: null,
                 password: null,
             }),
             showExpiredMessage: true,
@@ -111,7 +111,7 @@ export default {
         rejectInvitation() {
             console.log("reject invitation");
             axios
-                .post(this.route("invitation.reject"), { code: this.code })
+                .post(this.route("invitation.reject"), { token: this.token })
                 .then((response) => {
                     if (response.data.status == "success") {
                         this.message = "Rejected";
@@ -121,9 +121,9 @@ export default {
                     }
                 });
         },
-        tokenExpired(code) {
+        tokenExpired(token) {
             axios
-                .post(this.route("invitation.status"), { code: code })
+                .post(this.route("invitation.status"), { token: token })
                 .then((response) => {
                     if (response.data.status != "pending") {
                         this.message = response.data.status;
@@ -142,11 +142,11 @@ export default {
 
     created() {
         this.passwordForm.username = this.route().params.username;
-        this.passwordForm.code = this.route().params.code;
-        this.code = this.route().params.code;
+        this.passwordForm.token = this.route().params.token;
+        this.token = this.route().params.token;
         this.passwordForm.expires = this.route().params.expires;
         this.$on("submit", this.addPassword);
-        this.tokenExpired(this.code);
+        this.tokenExpired(this.token);
     },
 };
 </script>

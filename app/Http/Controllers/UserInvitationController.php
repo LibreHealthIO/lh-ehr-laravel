@@ -6,14 +6,17 @@ use App\Invite;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Redirect;
+use Str;
 
 class UserInvitationController extends Controller
 {
 
     public function sendInvite(Request $request)
     {
+        $temporaryPassword = Str::random(10);
         $userData=[
             'username' => $request->username,
+            'password'=> bcrypt($temporaryPassword),
             'email' => $request->email,
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
@@ -40,9 +43,9 @@ class UserInvitationController extends Controller
 
     public function acceptInvite(Request $request)
     {
-        $code = $request->code;
+        $token = $request->token;
         $password = bcrypt($request->password);
-        $success=Invite::accept($code, $password);
+        $success=Invite::accept($token, $password);
         if($success){
             return Inertia::location(route('login'));
         }else{
@@ -53,8 +56,8 @@ class UserInvitationController extends Controller
 
     public function rejectInvite(Request $request)
     {
-        $code = $request->code;
-        $success=Invite::reject($code);
+        $token = $request->token;
+        $success=Invite::reject($token);
         if($success){
             return response()->json(['status' => 'success']);
         }else{
@@ -65,8 +68,8 @@ class UserInvitationController extends Controller
 
     public function invitationStatus(Request $request)
     {
-        $code = $request->code;
-        $status = Invite::status($code);
+        $token = $request->token;
+        $status = Invite::status($token);
         return response()->json(['status' => $status]);
 
     }
