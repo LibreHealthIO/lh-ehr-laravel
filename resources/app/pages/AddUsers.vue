@@ -260,7 +260,7 @@ export default {
         },
         addUser() {
             console.log(this.userForm);
-            this.userForm.post(this.route("dashboard.users.store"));
+            this.userForm.post(this.route("dashboard.users.add"));
         },
         selectDefaultFacility(facility) {
             this.userForm.default_facility = facility.name;

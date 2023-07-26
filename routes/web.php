@@ -20,7 +20,9 @@ use App\Http\Controllers\Installer\InstallerFilePermissionController;
 use App\Http\Controllers\Installer\InstallerRequirementsController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\MailSendingController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserInvitationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -110,6 +112,7 @@ Route::group([
             // ======== Flow Board routes ========
             Route::get('flow-board', [FlowBoardController::class, 'index'])->name('flow_board');
 
+            Route::get('mail', [MailSendingController::class, 'sendWelcomeEmail'])->name('mail');
 
             // ======== Calendar routes ========
             Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
@@ -131,7 +134,7 @@ Route::group([
                 'update' => 'users.update',
                 'destroy' => 'users.destroy',
             ]);
-            Route::post('/add-user', [UserController::class, 'store'])->name('users.add');
+            Route::post('/add-user', [UserInvitationController::class, 'sendInvite'])->name('users.add');
 
             Route::get('users/load/data', [UserController::class, 'getUserData'])
                 ->name('users.load.data');
@@ -209,9 +212,12 @@ Route::group([
     /* =================================
         LH EHR New User Routes
     ================================= */
-
     Route::get('/add-password', [UserController::class, 'AddPassword'])->name('users.confirm');
-    Route::post('/verify-user', [UserController::class, 'verifyUser'])->name('users.verify');
+    // User Invitation Routes
+    Route::post('/check-invitation-status',
+    [UserInvitationController::class, 'invitationStatus'])->name('invitation.status');
+    Route::post('/accept-invite', [UserInvitationController::class, 'acceptInvite'])->name('invitation.accept');
+    Route::post('/reject-invite', [UserInvitationController::class, 'rejectInvite'])->name('invitation.reject');
 
     /* =================================
         LH EHR ADMIN Routes
