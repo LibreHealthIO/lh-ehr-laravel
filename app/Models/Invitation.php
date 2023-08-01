@@ -9,10 +9,5 @@ class Invitation extends Model
 {
     use HasFactory;
     protected $table = 'invitations';
-    protected $fillable = ['for_user', 'email', 'token', 'status', 'valid_till'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'for_user');
-    }
+    protected $fillable = ['email', 'facility', 'token', 'status', 'valid_till', 'accepted_at'];
 }

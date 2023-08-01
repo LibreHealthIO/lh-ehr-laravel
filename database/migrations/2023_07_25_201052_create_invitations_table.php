@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('for_user')->constrained('users');
             $table->string('email');
+            $table->string('facility');
             $table->string('token')->unique();
             $table->string('status')->default('pending');
+            $table->timestamp('accepted_at')->nullable();
             $table->timestamp('valid_till')->nullable();
             $table->timestamps();
         });

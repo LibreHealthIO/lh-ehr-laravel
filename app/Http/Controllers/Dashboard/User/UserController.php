@@ -17,22 +17,13 @@ use URL;
 class UserController extends Controller
 {
 
-    public function index():Response
+    public function index(): Response
     {
-       /**
-     * Shows the role page
-     * @return Response
-     */
-    return Inertia::render('AddUsers');
-    }
-    public function AddPassword():Response
-    {
-       /**
-     * Shows the role page
-     * @return Response
-     */
-    return Inertia::render('AddPassword');
-
+        /**
+         * Shows the role page
+         * @return Response
+         */
+        return Inertia::render('AddUsers');
     }
     /**
      * Show the form for creating a new resource.
@@ -57,7 +48,7 @@ class UserController extends Controller
         $user = User::create([
             'username' => $request->username,
             'email' => $request->email,
-            'password' =>bcrypt($token),
+            'password' => bcrypt($token),
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
@@ -69,7 +60,7 @@ class UserController extends Controller
             'info' => $request->job_description,
             'access_control' => $request->role,
             'warehouse' => $request->default_warehouse,
-            'facility'=> $request->default_facility,
+            'facility' => $request->default_facility,
             'provider_type' => $request->provider_type,
             'license' => $request->license_number,
             'additional_details' => $request->additional_details,
@@ -77,7 +68,7 @@ class UserController extends Controller
             'token_expiry' => now()->addDays(7),
         ]);
         $role = Role::where('name', '=', $request->role)->first();
-        $permissions=$role->permissions;
+        $permissions = $role->permissions;
         $user->attachRole($role);
         foreach ($permissions as $permission) {
             $user->attachPermission($permission);
@@ -86,39 +77,38 @@ class UserController extends Controller
         $url = URL::temporarySignedRoute(
             'users.confirm',
             now()->addDays(7),
-            ['username' => $user->username,'token'=>$token]
+            ['username' => $user->username, 'token' => $token]
         );
         $mailData = [
             'title' => 'User Invitation Mail',
-            'url'=> $url,
+            'url' => $url,
             'facility' => $request->default_facility,
-            'role'=> $request->role,
+            'role' => $request->role,
             'username' => $request->username,
 
         ];
         Mail::to($request->email)->send(new InvitationMail($mailData));
-        if($user->save()){
+        if ($user->save()) {
             return Inertia::location(route('dashboard.users.index'));
-        }else{
+        } else {
             return Redirect::back()->with(['error' => 'Something went wrong']);
         }
-
     }
 
     public function verifyUser(Request $request)
     {
         $user = User::where('username', '=', $request->username)->first();
-        if($user->token_expiry < now()){
+        if ($user->token_expiry < now()) {
             return Redirect::back()->with(['error' => 'Token Expired']);
         }
-        if($user->token == $request->token){
+        if ($user->token == $request->token) {
             $user->password = bcrypt($request->password);
             $user->token = null;
             $user->save();
             return Inertia::location(route('login'));
-        }else{
+        } else {
 
-          return Redirect::back()->with(['error' => 'Token Mismatch']);
+            return Redirect::back()->with(['error' => 'Token Mismatch']);
         }
     }
     /**

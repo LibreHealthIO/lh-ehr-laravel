@@ -167,7 +167,7 @@ Route::group([
                     'prefix' => 'patients',
                     'namespace' => '\\',
                     // TODO (add a middleware for selected patients)
-                     'middleware' => 'select.patient',
+                    'middleware' => 'select.patient',
                 ],
                 function () {
                     Route::get('select/{pid}', [PatientController::class, 'selectPatient'])
@@ -210,12 +210,9 @@ Route::group([
     /* =================================
         LH EHR New User Routes
     ================================= */
-    Route::get('/add-password', [UserController::class, 'AddPassword'])->name('users.confirm');
-    // User Invitation Routes
-    Route::post('/check-invitation-status',
-    [UserInvitationController::class, 'invitationStatus'])->name('invitation.status');
-    Route::post('/accept-invite', [UserInvitationController::class, 'acceptInvite'])->name('invitation.accept');
-    Route::post('/reject-invite', [UserInvitationController::class, 'rejectInvite'])->name('invitation.reject');
+    Route::get('/invitations/join/{token}', [UserInvitationController::class, 'index'])->name('invitation.get');
+    Route::post('/invitations/accept', [UserInvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
+
 
     /* =================================
         LH EHR ADMIN Routes
@@ -236,5 +233,3 @@ Route::group([
         });
     });
 });
-
-

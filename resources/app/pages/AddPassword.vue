@@ -3,15 +3,15 @@
         <div
             class="w-1/2 mx-auto bg-white rounded shadow-md p-6 overflow-y-auto no-scrollbar"
         >
-            <div v-if="showExpiredMessage">
+            <div v-if="status != 'pending'">
                 <!-- Show expired message if the token is expired -->
                 <div class="mb-4 text-center">
                     <p class="text-3xl text-red-600 font-bold">
-                        Invitation {{ message }}
+                        Invitation {{ status }}. Please Contact Admin.
                     </p>
                 </div>
             </div>
-            <div v-if="!showExpiredMessage && showOptions">
+            <div v-if="showOptions && status == 'pending'">
                 <!-- Show the Accept or Reject Invitation button -->
                 <h2 class="text-2xl font-bold mb-4 text-center">
                     Accept Invitation
@@ -33,22 +33,17 @@
                 </div>
             </div>
 
-            <div v-if="!showExpiredMessage && showAddPasswordForm">
+            <div v-if="showAddPasswordForm">
                 <!-- Show the Add Password form -->
                 <h2 class="text-2xl font-bold mb-4 text-center">
                     Add Password
                 </h2>
                 <form @submit.prevent="addPassword" method="post">
-                    <div class="mb-4">
-                        <ehr-input
-                            v-model="passwordForm.username"
-                            :error="errors.username"
-                            :label="'User Name'"
-                            :placeholder="'Enter User Name'"
-                            required
-                            disabled
-                        />
-                    </div>
+                    <p class="text-lg text-center mb-5">
+                        This invitation is for
+                        <span class="font-bold">{{ email }}</span
+                        >. Add a password to login into the account.
+                    </p>
 
                     <div class="mb-4">
                         <ehr-input
@@ -60,6 +55,21 @@
                             required
                         />
                     </div>
+                    <div class="mb-4">
+                        <ehr-input
+                            v-model="confirmPassword"
+                            :label="'Confirm Password'"
+                            :placeholder="'Confirm Password'"
+                            type="password"
+                            required
+                        />
+                    </div>
+                    <p
+                        v-if="showPasswordMismatchError"
+                        class="text-red-500 mb-5"
+                    >
+                        Password and Confirm Password must match.
+                    </p>
                     <div class="text-center">
                         <button
                             type="submit"
@@ -80,25 +90,42 @@ export default {
     name: "AddPassword",
     props: {
         errors: Object,
+        status: String,
+        email: String,
     },
     data() {
         return {
-            token: null,
             message: null,
             passwordForm: this.$inertia.form({
-                expires: null,
-                username: null,
                 token: null,
                 password: null,
+                reject: false,
             }),
-            showExpiredMessage: true,
+            confirmPassword: null,
+            passwordsMatch: true,
             showAddPasswordForm: false,
             showOptions: true,
         };
     },
-
+    computed: {
+        showPasswordMismatchError() {
+            return (
+                this.passwordForm.password !== this.confirmPassword &&
+                !this.passwordsMatch
+            );
+        },
+    },
     methods: {
         addPassword() {
+            this.passwordsMatch =
+                this.passwordForm.password === this.confirmPassword;
+
+            if (!this.passwordsMatch) {
+                this.errors.confirmPassword =
+                    "Password and Confirm Password must match.";
+                return;
+            }
+            this.errors.confirmPassword = null; // Reset the error if passwords match
             this.passwordForm.post(this.route("invitation.accept"));
         },
 
@@ -110,43 +137,14 @@ export default {
 
         rejectInvitation() {
             console.log("reject invitation");
-            axios
-                .post(this.route("invitation.reject"), { token: this.token })
-                .then((response) => {
-                    if (response.data.status == "success") {
-                        this.message = "Rejected";
-                        this.showExpiredMessage = true;
-                        this.showOptions = false;
-                        this.showAddPasswordForm = false;
-                    }
-                });
-        },
-        tokenExpired(token) {
-            axios
-                .post(this.route("invitation.status"), { token: token })
-                .then((response) => {
-                    if (response.data.status != "pending") {
-                        this.message = response.data.status;
-                        this.showExpiredMessage = true;
-                        this.showOptions = false;
-                        this.showAddPasswordForm = false;
-                        return true;
-                    } else {
-                        this.showExpiredMessage = false;
-                        this.showOptions = true;
-                        return false;
-                    }
-                });
+            this.passwordForm.reject = true;
+            this.passwordForm.post(this.route("invitation.accept"));
         },
     },
 
     created() {
-        this.passwordForm.username = this.route().params.username;
         this.passwordForm.token = this.route().params.token;
-        this.token = this.route().params.token;
-        this.passwordForm.expires = this.route().params.expires;
-        this.$on("submit", this.addPassword);
-        this.tokenExpired(this.token);
+        // this.$on("submit", this.addPassword);
     },
 };
 </script>

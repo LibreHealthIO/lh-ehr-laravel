@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('warehouse')->nullable();
             $table->string('facility')->nullable();
             $table->text('additional_details')->nullable();
-            $table->string('invitation')->default('pending')->comment('Invitation Status');
+
 
 
 
