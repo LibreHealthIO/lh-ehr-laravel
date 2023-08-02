@@ -10,7 +10,7 @@ use Redirect;
 use Inertia\Response;
 use Str;
 
-class UserInvitationController extends Controller
+class InvitationController extends Controller
 {
 
     public function index($token): Response
@@ -29,10 +29,9 @@ class UserInvitationController extends Controller
         //masking the username part of the email.
         $email = $invite->email;
         [$username, $domain] = explode('@', $email);
+        $emailLength = strlen($email);
         $usernameLength = strlen($username);
-        $firstHalf = substr($username, 0, ceil($usernameLength / 2));
-        $secondHalf = str_repeat('*', floor($usernameLength / 2));
-        $maskedEmail = $firstHalf . $secondHalf . '@' . $domain;
+        $maskedEmail = Str::mask($email, '*', - ($emailLength - $usernameLength / 2), $usernameLength / 2);
 
         return Inertia::render('AddPassword', ['status' => $invite->status, 'email' => $maskedEmail]);
     }
@@ -64,7 +63,7 @@ class UserInvitationController extends Controller
 
 
         Invite::send($userData, $request->email);
-        return Inertia::location(route('dashboard.users.index'));
+        return Inertia::location(route('dashboard.users.invite'));
     }
 
     //single controller for both accept and reject based on reject parameter

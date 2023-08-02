@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\Patient\PatientAppointmentController;
 use App\Http\Controllers\Dashboard\Patient\PatientController;
 use App\Http\Controllers\Dashboard\Patient\PatientHistoryController;
 use App\Http\Controllers\Dashboard\PermissionController;
+use App\Http\Controllers\Dashboard\User\SetupAccount;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Installer\InstallerController;
 use App\Http\Controllers\Installer\InstallerDatabaseController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\Installer\InstallerFilePermissionController;
 use App\Http\Controllers\Installer\InstallerRequirementsController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\UserInvitationController;
+use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -132,7 +133,8 @@ Route::group([
                 'update' => 'users.update',
                 'destroy' => 'users.destroy',
             ]);
-            Route::post('/add-user', [UserInvitationController::class, 'sendInvite'])->name('users.add');
+            Route::get('/add-user', [SetupAccount::class, 'index'])->name('users.invite');
+            Route::post('/add-user', [InvitationController::class, 'sendInvite'])->name('users.add');
 
             Route::get('users/load/data', [UserController::class, 'getUserData'])
                 ->name('users.load.data');
@@ -210,8 +212,8 @@ Route::group([
     /* =================================
         LH EHR New User Routes
     ================================= */
-    Route::get('/invitations/join/{token}', [UserInvitationController::class, 'index'])->name('invitation.get');
-    Route::post('/invitations/accept', [UserInvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
+    Route::get('/invitations/join/{token}', [InvitationController::class, 'index'])->name('invitation.get');
+    Route::post('/invitations/accept', [InvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
 
 
     /* =================================

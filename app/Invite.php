@@ -34,7 +34,8 @@ class Invite
         ]);
 
         // Send the invitation email
-        $url = url("/invitations/join/{$token}");
+        // $url = url("/invitations/join/{$token}");
+        $url = route('invitation.get', ['token' => $token]);
         $mailData = [
             'title' => 'User Invitation Mail',
             'url' => $url,
