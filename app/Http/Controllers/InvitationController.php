@@ -12,6 +12,13 @@ use Str;
 
 class InvitationController extends Controller
 {
+    public function showInvitations(): Response
+    {
+        // Fetch invitation data from the database
+        $invitations = Invitation::with('user')->get();
+
+        return Inertia::render('Invitations', ['invitations' => $invitations]);
+    }
 
     public function index($token): Response
     {

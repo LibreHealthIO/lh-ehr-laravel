@@ -133,8 +133,10 @@ Route::group([
                 'update' => 'users.update',
                 'destroy' => 'users.destroy',
             ]);
+
             Route::get('/add-user', [SetupAccount::class, 'index'])->name('users.invite');
             Route::post('/add-user', [InvitationController::class, 'sendInvite'])->name('users.add');
+            Route::get('/invitations', [InvitationController::class, 'showInvitations'])->name('user.invitations');
 
             Route::get('users/load/data', [UserController::class, 'getUserData'])
                 ->name('users.load.data');
@@ -212,6 +214,7 @@ Route::group([
     /* =================================
         LH EHR New User Routes
     ================================= */
+
     Route::get('/invitations/join/{token}', [InvitationController::class, 'index'])->name('invitation.get');
     Route::post('/invitations/accept', [InvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
 
