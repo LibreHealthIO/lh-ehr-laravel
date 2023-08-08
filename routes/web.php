@@ -217,6 +217,7 @@ Route::group([
 
     Route::get('/invitations/join/{token}', [InvitationController::class, 'index'])->name('invitation.get');
     Route::post('/invitations/accept', [InvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
+    Route::get('/invitations', [InvitationController::class, 'getInvitations'])->name('invitation.fetch');
 
 
     /* =================================

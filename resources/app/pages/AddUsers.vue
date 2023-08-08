@@ -147,12 +147,12 @@
                             class="absolute w-72 mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-72 overflow-y-auto no-scrollbar"
                         >
                             <li
-                                v-for="facility in facilityOptions"
+                                v-for="facility in facilities"
                                 :key="facility.id"
                                 @click="selectDefaultFacility(facility)"
                                 class="px-4 py-2 hover:bg-gray-100 cursor-pointer w-full"
                             >
-                                {{ facility.name }}
+                                {{ facility }}
                             </li>
                         </ul>
                     </div>
@@ -205,6 +205,9 @@
 </template>
 <script>
 export default {
+    props: {
+        facilities: Object,
+    },
     data() {
         return {
             role_dropdown: null,
@@ -232,20 +235,6 @@ export default {
                 username: "",
                 full_name: "",
             },
-            facilityOptions: [
-                {
-                    id: 1,
-                    name: "Facility 1",
-                },
-                {
-                    id: 2,
-                    name: "Facility 2",
-                },
-                {
-                    id: 3,
-                    name: "Facility 3",
-                },
-            ],
             roleOptions: [],
         };
     },
@@ -263,7 +252,7 @@ export default {
             this.userForm.post(this.route("dashboard.users.add"));
         },
         selectDefaultFacility(facility) {
-            this.userForm.default_facility = facility.name;
+            this.userForm.default_facility = facility;
             this.default_facility_dropdown = false;
         },
         selectRole(role) {

@@ -3,21 +3,46 @@
 namespace App\Http\Controllers;
 
 use App\Invite;
+use App\Models\Facilities\Facility;
 use App\Models\Invitation;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Redirect;
 use Inertia\Response;
+use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 use Str;
 
 class InvitationController extends Controller
 {
     public function showInvitations(): Response
     {
-        // Fetch invitation data from the database
-        $invitations = Invitation::with('user')->get();
 
-        return Inertia::render('Invitations', ['invitations' => $invitations]);
+        $facilities = Facility::pluck('name', 'id');
+
+        return Inertia::render('Invitations', ['facilities' => $facilities]);
+    }
+
+
+    //URL for datatable for invitations
+    public function getInvitations(Request $request)
+    {
+        $length = $request->input('length', 10);
+        $sortBy = $request->input('column');
+        $orderBy = $request->input('dir');
+        $facility = $request->input('facility');
+
+
+        $query = Invitation::with('user');
+
+        $query->orderBy($sortBy, $orderBy);
+
+        if ($facility != null) {
+            $query->where('facility', $facility);
+        }
+
+        $data = $query->paginate($length);
+
+        return new DataTableCollectionResource($data);
     }
 
     public function index($token): Response

@@ -4,125 +4,140 @@
             <h2 class="text-2xl font-bold mb-4">Invitation Details</h2>
         </div>
 
-        <!-- Facility Filter -->
-        <div class="mb-4">
-            <label class="block mb-2 text-sm font-medium text-gray-700"
-                >Filter by Facility:</label
+        <data-table :columns="columns" :url="url">
+            <div
+                class="flex justify-between mb-2"
+                slot="filters"
+                slot-scope="{ tableFilters, perPage }"
             >
-            <select
-                v-model="selectedFacility"
-                class="w-full px-4 py-2 border rounded-md"
+                <div class="w-1/2 mr-5">
+                    <label class="block mb-2 text-sm font-medium text-gray-700"
+                        >Filter by Facility:</label
+                    >
+                    <select
+                        v-model="tableFilters.filters.facility"
+                        class="w-full px-4 py-2 border rounded-md"
+                    >
+                        <option :value="null">All Facilities</option>
+                        <option
+                            v-for="facility in facilities"
+                            :key="facility"
+                            :value="facility"
+                        >
+                            {{ facility }}
+                        </option>
+                    </select>
+                </div>
+                <div class="w-1/2">
+                    <label class="block mb-2 text-sm font-medium text-gray-700"
+                        >Rows Per Page:</label
+                    >
+                    <select
+                        v-model="tableFilters.length"
+                        class="w-full px-4 py-2 border rounded-md"
+                    >
+                        <option :key="page" v-for="page in perPage">
+                            {{ page }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div
+                class="flex justify-center mt-4"
+                slot="pagination"
+                slot-scope="{ links = {}, meta = {} }"
             >
-                <option value="">All Facilities</option>
-                <option
-                    v-for="facility in uniqueFacilities"
-                    :key="facility"
-                    :value="facility"
-                >
-                    {{ facility }}
-                </option>
-            </select>
-        </div>
-
-        <table class="w-full border-collapse">
-            <!-- Table Headers -->
-            <thead>
-                <tr>
-                    <th class="p-4 bg-gray-200">Invitation ID</th>
-                    <th class="p-4 bg-gray-200">Name</th>
-                    <th class="p-4 bg-gray-200">Email</th>
-                    <th class="p-4 bg-gray-200">Facility</th>
-                    <th class="p-4 bg-gray-200">Role</th>
-                    <th class="p-4 bg-gray-200">Status</th>
-                    <th class="p-4 bg-gray-200">Additional Info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Table Rows -->
-                <tr
-                    v-for="invitation in filteredInvitations"
-                    :key="invitation.id"
-                >
-                    <td class="p-4 border">{{ invitation.id }}</td>
-                    <td class="p-4 border">
-                        {{ invitation.user.first_name }}
-                        {{ invitation.user.last_name }}
-                    </td>
-                    <td class="p-4 border">{{ invitation.email }}</td>
-                    <td class="p-4 border">{{ invitation.facility }}</td>
-                    <td class="p-4 border">
-                        {{ invitation.user.access_control }}
-                    </td>
-                    <td class="p-4 border">
-                        <span
-                            :class="{
-                                'text-green-500':
-                                    invitation.status === 'accepted',
-                                ' text-red-500':
-                                    invitation.status === 'rejected',
-                                ' text-yellow-500':
-                                    invitation.status === 'pending',
-                            }"
-                            class="px-2 py-1 rounded"
-                        >
-                            {{ invitation.status }}
-                        </span>
-                    </td>
-                    <td class="p-4 border">
-                        <span
-                            v-if="invitation.status === 'accepted'"
-                            class="text-green-500 px-2 py-1 rounded"
-                        >
-                            Accepted at: {{ invitation.accepted_at }}
-                        </span>
-                        <span
-                            v-if="invitation.status === 'pending'"
-                            class="text-yellow-500 px-2 py-1 rounded"
-                        >
-                            Valid till: {{ invitation.valid_till }}
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                <div class="flex items-center">
+                    <nav>
+                        <div class="inline-flex">
+                            <div class="mr-4 mt-2">
+                                <span class="text-gray-600">
+                                    Showing {{ meta.from }} to {{ meta.to }} of
+                                    {{ meta.total }} Entries
+                                </span>
+                            </div>
+                            <div>
+                                <button
+                                    :disabled="!links.prev"
+                                    class="px-4 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                                    @click="url = links.prev"
+                                >
+                                    Prev
+                                </button>
+                                <button
+                                    :disabled="!links.next"
+                                    class="ml-2 px-4 py-2 rounded-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                                    @click="url = links.next"
+                                >
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </data-table>
     </div>
 </template>
 
 <script>
-import DashboardLayout from "../layouts/DashboardLayout";
 export default {
-    layout: DashboardLayout,
     props: {
-        invitations: Array, // Get the invitations data from the controller
+        facilities: Object,
     },
     data() {
         return {
-            selectedFacility: "", // Holds the selected facility for filtering
+            filters: {
+                facility: null,
+            },
+            url: "",
         };
     },
     computed: {
-        // Get a list of unique facilities from the invitations data
-        uniqueFacilities() {
-            console.log(this.invitations);
+        columns() {
             return [
-                ...new Set(
-                    this.invitations.map((invitation) => invitation.facility)
-                ),
+                { label: "Invitation ID", name: "id", orderable: true },
+                {
+                    label: "Name",
+                    name: "user.first_name",
+                    transform: ({ data, name }) =>
+                        `${data.user.first_name} ${data.user.last_name}`,
+                },
+                { label: "Email", name: "email", orderable: true },
+                { label: "Facility", name: "facility", orderable: true },
+                { label: "Role", name: "user.access_control" },
+                {
+                    label: "Status",
+                    name: "status",
+                    transform: ({ data, name }) => {
+                        const status = data[name];
+                        let className = "";
+                        if (status === "accepted") className = "text-green-500";
+                        else if (status === "rejected")
+                            className = "text-red-500";
+                        else if (status === "pending")
+                            className = "text-yellow-500";
+                        return `<span class="px-2 py-1 rounded ${className}">${status}</span>`;
+                    },
+                },
+                {
+                    label: "Additional Info",
+                    name: "status_info",
+                    transform: ({ data, name }) => {
+                        const status = data.status;
+                        if (status === "accepted") {
+                            return `<span class="text-green-500 px-2 py-1 rounded">Accepted at: ${data.accepted_at}</span>`;
+                        } else if (status === "pending") {
+                            return `<span class="text-yellow-500 px-2 py-1 rounded">Valid till: ${data.valid_till}</span>`;
+                        }
+                        return "";
+                    },
+                },
             ];
         },
-        // Filter the invitations based on the selected facility
-        filteredInvitations() {
-            if (this.selectedFacility === "") {
-                // If no facility selected, show all invitations
-                return this.invitations;
-            } else {
-                // Filter the invitations based on the selected facility
-                return this.invitations.filter(
-                    (invitation) =>
-                        invitation.facility === this.selectedFacility
-                );
-            }
-        },
+    },
+    mounted() {
+        this.url = route("invitation.fetch");
     },
 };
 </script>
