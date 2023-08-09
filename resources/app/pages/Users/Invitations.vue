@@ -81,7 +81,9 @@
 </template>
 
 <script>
+import DashboardLayout from "../../layouts/DashboardLayout";
 export default {
+    layout: DashboardLayout,
     props: {
         facilities: Object,
     },

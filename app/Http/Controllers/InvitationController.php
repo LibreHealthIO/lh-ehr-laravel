@@ -19,7 +19,7 @@ class InvitationController extends Controller
 
         $facilities = Facility::pluck('name', 'id');
 
-        return Inertia::render('Invitations', ['facilities' => $facilities]);
+        return Inertia::render('Users/Invitations', ['facilities' => $facilities]);
     }
 
 
@@ -55,7 +55,7 @@ class InvitationController extends Controller
 
         //send a invalid token message if the invite is not found in the database.
         if (!$invite) {
-            return Inertia::render('AddPassword', ['status' => 'invalid']);
+            return Inertia::render('Users/AddPassword', ['status' => 'invalid']);
         }
 
         //masking the username part of the email.
@@ -65,7 +65,7 @@ class InvitationController extends Controller
         $usernameLength = strlen($username);
         $maskedEmail = Str::mask($email, '*', - ($emailLength - $usernameLength / 2), $usernameLength / 2);
 
-        return Inertia::render('AddPassword', ['status' => $invite->status, 'email' => $maskedEmail]);
+        return Inertia::render('Users/AddPassword', ['status' => $invite->status, 'email' => $maskedEmail]);
     }
 
     public function sendInvite(Request $request)

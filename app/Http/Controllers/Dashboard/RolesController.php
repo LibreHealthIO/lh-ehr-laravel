@@ -16,19 +16,21 @@ class RolesController extends Controller
 {
     public function index(): Response
     {
-    /**
-     * Shows the role page
-     * @return Response
-     */
-        return Inertia::render('Roles',['roles' => []]
+        /**
+         * Shows the role page
+         * @return Response
+         */
+        return Inertia::render(
+            'AccessControl/Roles',
+            ['roles' => []]
         );
     }
     public function details($roleId): Response
     {
-         /**
-     * Shows the role page
-     * @return Response
-     */
+        /**
+         * Shows the role page
+         * @return Response
+         */
         $role = Role::with('permissions')->where('id', $roleId)->first();
         $users = $role->users()->get();
         $temp = [
@@ -39,9 +41,10 @@ class RolesController extends Controller
             'permissions' => $role->permissions,
             'users' => $users,
         ];
-        return Inertia::render('RolesDetails',['roleDetails' => $temp]
+        return Inertia::render(
+            'AccessControl/RolesDetails',
+            ['roleDetails' => $temp]
         );
-
     }
     public function store(CreateRoleRequest $request)
     {
@@ -54,29 +57,29 @@ class RolesController extends Controller
             $role->permissions()->attach([$permission['id']]);
         }
         $role->save();
-        if($role->save()){
+        if ($role->save()) {
             return Inertia::location(route('dashboard.roles.index'));
-        }else{
+        } else {
             return Redirect::back()->with(['error' => 'Something went wrong']);
         }
     }
     public function getRoles()
     {
-        $result=[];
+        $result = [];
         $roles = Role::with('permissions')->get();
         foreach ($roles as $role) {
-        $users = $role->users()->get();
-        $temp = [
-            'id' => $role->id,
-            'name' => $role->name,
-            'display_name' => $role->display_name,
-            'description' => $role->description,
-            'permissions' => $role->permissions,
-            'users' => $users,
-        ];
-        array_push($result, $temp);
-    }
+            $users = $role->users()->get();
+            $temp = [
+                'id' => $role->id,
+                'name' => $role->name,
+                'display_name' => $role->display_name,
+                'description' => $role->description,
+                'permissions' => $role->permissions,
+                'users' => $users,
+            ];
+            array_push($result, $temp);
+        }
 
-     return response()->json($result, 200);
+        return response()->json($result, 200);
     }
 }

@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardLayout from "../../layouts/DashboardLayout";
 export default {
     layout: DashboardLayout,
     props: {

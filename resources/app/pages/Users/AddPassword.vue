@@ -1,7 +1,7 @@
 <template>
     <div class="flex min-h-screen bg-white py-8 px-4">
         <div
-            class="w-1/2 mx-auto bg-white rounded shadow-md p-6 overflow-y-auto no-scrollbar"
+            class="mx-auto bg-white rounded shadow-md p-6 overflow-y-auto no-scrollbar"
         >
             <div v-if="status != 'pending'">
                 <!-- Show expired message if the token is expired -->
@@ -85,9 +85,10 @@
 </template>
 
 <script>
-import axios from "axios";
+import AuthLayout from "../../layouts/AuthLayout";
 export default {
     name: "AddPassword",
+    layout: AuthLayout,
     props: {
         errors: Object,
         status: String,

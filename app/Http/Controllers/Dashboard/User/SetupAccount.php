@@ -14,6 +14,6 @@ class SetupAccount extends Controller
     {
         $facilities = Facility::pluck('name', 'id');
 
-        return Inertia::render('AddUsers', ['facilities' => $facilities]);
+        return Inertia::render('Users/AddUsers', ['facilities' => $facilities]);
     }
 }

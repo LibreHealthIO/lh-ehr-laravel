@@ -184,7 +184,7 @@
     </div>
 </template>
 <script>
-import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardLayout from "../../layouts/DashboardLayout";
 export default {
     name: "Roles",
     layout: DashboardLayout,
