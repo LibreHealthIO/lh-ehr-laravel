@@ -102,8 +102,13 @@ export default {
                 {
                     label: "Name",
                     name: "user.first_name",
-                    transform: ({ data, name }) =>
-                        `${data.user.first_name} ${data.user.last_name}`,
+                    transform: ({ data, name }) => {
+                        const userId = data.user.id;
+                        const fullName = `${data.user.first_name} ${data.user.last_name}`;
+                        return `<a href="${route("dashboard.users.profile", {
+                            id: userId,
+                        })}" class="text-blue-500 hover:underline">${fullName}</a>`;
+                    },
                 },
                 { label: "Email", name: "email", orderable: true },
                 { label: "Facility", name: "facility", orderable: true },

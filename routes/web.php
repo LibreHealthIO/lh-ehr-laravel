@@ -137,9 +137,10 @@ Route::group([
             Route::get('/add-user', [SetupAccount::class, 'index'])->name('users.invite');
             Route::post('/add-user', [InvitationController::class, 'sendInvite'])->name('users.add');
             Route::get('/invitations', [InvitationController::class, 'showInvitations'])->name('user.invitations');
+            Route::get('/users/profile/{userId}', [UserController::class, 'profile'])->name('users.profile');
 
-            Route::get('users/load/data', [UserController::class, 'getUserData'])
-                ->name('users.load.data');
+
+
 
             // ======== Facility related routes ========
             Route::resource('facilities', FacilityController::class)->names([

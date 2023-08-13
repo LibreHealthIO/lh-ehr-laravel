@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
 use App\Mail\InvitationMail;
+use App\Models\Invitation;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -52,6 +53,20 @@ class UserController extends Controller
     public function show($id)
     {
         //
+    }
+
+
+    public function profile($userId): Response
+    {
+        /**
+         * Shows the user profile page
+         * @return Response
+         */
+        $user = User::where('id', $userId)->first();
+        $invitation_details = Invitation::where('email', $user->email)->first();
+        $user->invitation_details = $invitation_details;
+
+        return Inertia::render('Users/UserProfile', ['userData' => $user]);
     }
 
     /**
