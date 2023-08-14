@@ -129,8 +129,6 @@ Route::group([
                 'create' => 'users.create',
                 'show' => 'users.show',
                 'store' => 'users.store',
-                'edit' => 'users.edit',
-                'update' => 'users.update',
                 'destroy' => 'users.destroy',
             ]);
 
@@ -138,6 +136,8 @@ Route::group([
             Route::post('/add-user', [InvitationController::class, 'sendInvite'])->name('users.add');
             Route::get('/invitations', [InvitationController::class, 'showInvitations'])->name('user.invitations');
             Route::get('/users/profile/{userId}', [UserController::class, 'profile'])->name('users.profile');
+            Route::get('/users/edit/{userId}', [UserController::class, 'showEditPage'])->name('users.edit');
+            Route::post('/users/edit/{userId}', [UserController::class, 'update'])->name('users.update');
 
 
 

@@ -1,8 +1,16 @@
 <template>
     <div class="min-h-screen bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 py-8">
+        <Breadcrumb :active-link="activeLink" />
+        <div class="max-w-7xl mx-auto px-4 py-8 relative">
             <div class="flex justify-center">
                 <h1 class="text-3xl font-semibold mb-6">User Profile</h1>
+                <a :href="editLink()">
+                    <button
+                        class="absolute top-3 right-0 mt-8 mr-4 bg-gray-900 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded shadow"
+                    >
+                        Edit Profile
+                    </button>
+                </a>
             </div>
 
             <div
@@ -156,14 +164,24 @@
 
 <script>
 import DashboardLayout from "../../layouts/DashboardLayout";
+import i18n from "../../i18n";
 
 export default {
     layout: DashboardLayout,
     props: {
         userData: Object, // Pass the user data as a prop
     },
+
     data() {
-        return {};
+        return {
+            activeLink: i18n.t("userProfile"),
+        };
+    },
+    methods: {
+        editLink() {
+            console.log(this.userData.id);
+            return this.route("dashboard.users.edit", this.userData.id);
+        },
     },
 };
 </script>
