@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
+use App\Invite;
 use App\Mail\InvitationMail;
 use App\Models\Facilities\Facility;
 use App\Models\Invitation;
@@ -22,18 +23,24 @@ class UserController extends Controller
     public function index()
     {
         /**
-         * Shows the role page
+         * Shows the Users/Invitations page
          * @return Response
          */
+        $facilities = Facility::pluck('name', 'id');
+
+        return Inertia::render('Users/Invitations', ['facilities' => $facilities]);
     }
     /**
      * Show the form for creating a new resource.
      *
      * @return Response
      */
-    public function create()
+    public function create(): Response
     {
         //
+        $facilities = Facility::pluck('name', 'id');
+
+        return Inertia::render('Users/Add', ['facilities' => $facilities]);
     }
 
     /**
@@ -44,20 +51,42 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $temporaryPassword = Str::random(10);
+        $userData = [
+            'username' => $request->username,
+            'password' => bcrypt($temporaryPassword),
+            'email' => $request->email,
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
+            'federal_tax_id' => $request->tax_id,
+            'federal_drug_id' => $request->dea_number,
+            'npi' => $request->npi,
+            'suffix' => $request->suffix,
+            'taxonomy' => $request->taxonomy,
+            'info' => $request->job_description,
+            'access_control' => $request->role,
+            'warehouse' => $request->default_warehouse,
+            'facility' => $request->default_facility,
+            'provider_type' => $request->provider_type,
+            'license' => $request->license_number,
+            'additional_details' => $request->additional_details,
+        ];
+
+
+
+        Invite::send($userData, $request->email);
+        return Inertia::location(route('dashboard.users.create'));
     }
+
+
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-
-    public function profile($userId): Response
+    public function show($userId): Response
     {
         /**
          * Shows the user profile page
@@ -67,19 +96,7 @@ class UserController extends Controller
         $invitation_details = Invitation::where('email', $user->email)->first();
         $user->invitation_details = $invitation_details;
 
-        return Inertia::render('Users/UserProfile', ['userData' => $user]);
-    }
-
-    public function showEditPage($userId): Response
-    {
-        /**
-         * Shows the user edit page
-         * @return Response
-         */
-        $user = User::where('id', $userId)->first();
-        $facilities = Facility::pluck('name', 'id');
-
-        return Inertia::render('Users/EditUser', ['userData' => $user, 'facilities' => $facilities]);
+        return Inertia::render('Users/Profile', ['userData' => $user]);
     }
 
 
@@ -89,9 +106,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function edit()
+    public function edit($userId): Response
     {
+        /**
+         * Shows the user edit page
+         * @return Response
+         */
+        $user = User::where('id', $userId)->first();
+        $facilities = Facility::pluck('name', 'id');
+
+        return Inertia::render('Users/Edit', ['userData' => $user, 'facilities' => $facilities]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -102,10 +128,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $userId)
     {
-        //
 
-
-        //
         // Get the existing user data
         $user = User::findOrFail($userId);
 
@@ -141,7 +164,7 @@ class UserController extends Controller
             }
         }
         $user->save();
-        return Inertia::location(route('dashboard.users.edit', ['userId' => $user->id]));
+        return Inertia::location(route('dashboard.users.edit', ['user' => $user->id]));
     }
 
     /**

@@ -1,5 +1,6 @@
 <template>
     <div class="container mx-auto">
+        <Breadcrumb :active-link="activeLink" />
         <div class="flex justify-center">
             <h2 class="text-2xl font-bold mb-4">Invitation Details</h2>
         </div>
@@ -82,6 +83,7 @@
 
 <script>
 import DashboardLayout from "../../layouts/DashboardLayout";
+import i18n from "../../i18n";
 export default {
     layout: DashboardLayout,
     props: {
@@ -93,6 +95,7 @@ export default {
                 facility: null,
             },
             url: "",
+            activeLink: i18n.t("users/invitations"),
         };
     },
     computed: {
@@ -105,7 +108,7 @@ export default {
                     transform: ({ data, name }) => {
                         const userId = data.user.id;
                         const fullName = `${data.user.first_name} ${data.user.last_name}`;
-                        return `<a href="${route("dashboard.users.profile", {
+                        return `<a href="${route("dashboard.users.show", {
                             id: userId,
                         })}" class="text-blue-500 hover:underline">${fullName}</a>`;
                     },

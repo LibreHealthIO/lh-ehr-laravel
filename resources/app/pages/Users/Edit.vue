@@ -1,10 +1,11 @@
 <template>
-    <div class="flex min-h-screen bg-white py-8 px-4">
+    <div class="min-h-screen bg-white py-4 px-4">
+        <Breadcrumb :page-routes="pagesRoutes" :active-link="activeLink" />
         <div
             class="w-1/2 mx-auto bg-white rounded shadow-md p-6 overflow-y-auto no-scrollbar"
         >
-            <h2 class="text-2xl font-bold mb-4">Add User</h2>
-            <form @submit.prevent="addUser" method="post">
+            <h2 class="text-2xl font-bold mb-4">Edit User</h2>
+            <form @submit.prevent="updateUser" method="post">
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <ehr-input
@@ -195,7 +196,7 @@
                             type="submit"
                             class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-orange-500"
                         >
-                            Add User
+                            Edit User
                         </button>
                     </div>
                 </div>
@@ -205,39 +206,57 @@
 </template>
 <script>
 import DashboardLayout from "../../layouts/DashboardLayout";
+import i18n from "../../i18n";
 export default {
     layout: DashboardLayout,
     props: {
         facilities: Object,
+        userData: Object,
     },
     data() {
         return {
             role_dropdown: null,
             default_facility_dropdown: false,
             userForm: this.$inertia.form({
-                username: "",
-                email: "",
-                suffix: "",
-                first_name: "",
-                middle_name: "",
-                last_name: "",
-                dea_number: "",
-                tax_id: "",
-                npi: "",
-                job_description: "",
-                provider_type: "",
-                default_warehouse: "",
-                taxonomy: "",
-                license_number: "",
-                additional_details: "",
-                default_facility: "",
-                role: "",
+                // Initialize the form fields with userData
+                username: this.userData.username,
+                email: this.userData.email,
+                suffix: this.userData.suffix,
+                first_name: this.userData.first_name,
+                middle_name: this.userData.middle_name,
+                last_name: this.userData.last_name,
+                dea_number: this.userData.federal_drug_id,
+                tax_id: this.userData.federal_tax_id,
+                npi: this.userData.npi.toString(),
+                job_description: this.userData.info,
+                provider_type: this.userData.provider_type,
+                default_warehouse: this.userData.warehouse,
+                taxonomy: this.userData.taxonomy.toString(),
+                license_number: this.userData.license,
+                additional_details: this.userData.additional_details,
+                default_facility: this.userData.facility,
+                role: this.userData.access_control,
             }),
             errors: {
                 username: "",
                 full_name: "",
             },
             roleOptions: [],
+
+            pagesRoutes: [
+                {
+                    title: i18n.t("user/invitations"),
+                    link: this.route("dashboard.users.index"),
+                },
+                {
+                    title:
+                        this.userData.first_name +
+                        " " +
+                        this.userData.last_name,
+                    link: this.route("dashboard.users.show", this.userData.id),
+                },
+            ],
+            activeLink: i18n.t("edit"),
         };
     },
     mounted() {
@@ -249,9 +268,11 @@ export default {
                 this.roleOptions = response.data;
             });
         },
-        addUser() {
+        updateUser() {
             console.log(this.userForm);
-            this.userForm.post(this.route("dashboard.users.add"));
+            this.userForm.put(
+                this.route("dashboard.users.update", this.userData.id)
+            );
         },
         selectDefaultFacility(facility) {
             this.userForm.default_facility = facility;

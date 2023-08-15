@@ -14,14 +14,6 @@ use Str;
 
 class InvitationController extends Controller
 {
-    public function showInvitations(): Response
-    {
-
-        $facilities = Facility::pluck('name', 'id');
-
-        return Inertia::render('Users/Invitations', ['facilities' => $facilities]);
-    }
-
 
     //URL for datatable for invitations
     public function getInvitations(Request $request)
@@ -68,35 +60,6 @@ class InvitationController extends Controller
         return Inertia::render('Users/AddPassword', ['status' => $invite->status, 'email' => $maskedEmail]);
     }
 
-    public function sendInvite(Request $request)
-    {
-        $temporaryPassword = Str::random(10);
-        $userData = [
-            'username' => $request->username,
-            'password' => bcrypt($temporaryPassword),
-            'email' => $request->email,
-            'first_name' => $request->first_name,
-            'middle_name' => $request->middle_name,
-            'last_name' => $request->last_name,
-            'federal_tax_id' => $request->tax_id,
-            'federal_drug_id' => $request->dea_number,
-            'npi' => $request->npi,
-            'suffix' => $request->suffix,
-            'taxonomy' => $request->taxonomy,
-            'info' => $request->job_description,
-            'access_control' => $request->role,
-            'warehouse' => $request->default_warehouse,
-            'facility' => $request->default_facility,
-            'provider_type' => $request->provider_type,
-            'license' => $request->license_number,
-            'additional_details' => $request->additional_details,
-        ];
-
-
-
-        Invite::send($userData, $request->email);
-        return Inertia::location(route('dashboard.users.invite'));
-    }
 
     //single controller for both accept and reject based on reject parameter
     public function acceptOrRejectInvite(Request $request)
