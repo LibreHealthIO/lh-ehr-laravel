@@ -30,60 +30,16 @@
                         required
                     />
                 </div>
-
                 <div class="mb-4">
-                    <label class="block font-bold mb-2" for="permissions"
-                        >Permissions</label
-                    >
-                    <div class="relative">
-                        <div
-                            v-if="roleForm.permissions.length > 0"
-                            class="flex flex-wrap items-center mb-2"
-                        >
-                            <span
-                                v-for="permission in roleForm.permissions"
-                                :key="permission.id"
-                                class="bg-orange-500 text-white rounded-full px-2 py-1 mr-2 mb-2"
-                            >
-                                {{ permission.display_name }}
-                            </span>
-                        </div>
-
-                        <button
-                            id="permissions-dropdown"
-                            class="w-full px-4 py-2 rounded ring-2"
-                            type="button"
-                            @click="togglePermissionList()"
-                        >
-                            Select Permissions
-
-                            <span
-                                :class="{
-                                    'transform rotate-180':
-                                        permission_dropdown === true,
-                                }"
-                                class="inline-block transition-transform duration-300"
-                            >
-                                &#9662;
-                            </span>
-                        </button>
-
-                        <ul
-                            v-if="permission_dropdown === true"
-                            class="absolute mt-2 py-2 bg-white rounded-md shadow-lg z-10 max-h-72 overflow-y-auto no-scrollbar"
-                        >
-                            <li
-                                v-for="permission in permissions"
-                                :key="permission.id"
-                                @click="selectPermission(permission)"
-                                class="px-4 py-2 hover:bg-gray-100 cursor-pointer w-full"
-                            >
-                                {{ permission.display_name }} @{{
-                                    permission.name
-                                }}
-                            </li>
-                        </ul>
-                    </div>
+                    <ehr-input
+                        type="multiselect"
+                        :options="permissions"
+                        v-model="roleForm.permissions"
+                        :error="errors.permissions"
+                        :label="'Select Permissions'"
+                        :placeholder="'Select Permissions'"
+                        required
+                    />
                 </div>
                 <button
                     type="submit"
@@ -194,8 +150,6 @@ export default {
     data() {
         return {
             openDropdown: null,
-            userDropdown: null,
-            permission_dropdown: null,
             name: "",
             display_name: "",
             description: "",
@@ -224,25 +178,16 @@ export default {
                 .get(this.route("dashboard.permissions.all"))
                 .then((response) => {
                     this.permissions = response.data;
+                    console.log(this.permissions);
                 });
         },
         addRole() {
             this.roleForm.post(this.route("dashboard.roles.store"));
         },
-        selectPermission(permission) {
-            if (!this.roleForm.permissions.includes(permission)) {
-                this.roleForm.permissions.push(permission);
-            }
-        },
         toggleDropdown(roleId) {
             this.openDropdown = this.openDropdown === roleId ? null : roleId;
         },
-        toggleUserDropdown(roleId) {
-            this.userDropdown = this.userDropdown === roleId ? null : roleId;
-        },
-        togglePermissionList() {
-            this.permission_dropdown = !this.permission_dropdown;
-        },
+
     },
 
     created() {
