@@ -31,15 +31,30 @@
                     />
                 </div>
                 <div class="mb-4">
-                    <ehr-input
-                        type="multiselect"
-                        :options="permissions"
+                    <label class="typo__label">Select Permissions</label>
+                    <multiselect
                         v-model="roleForm.permissions"
-                        :error="errors.permissions"
-                        :label="'Select Permissions'"
-                        :placeholder="'Select Permissions'"
-                        required
-                    />
+                        :options="permissions"
+                        :multiple="true"
+                        :close-on-select="false"
+                        :clear-on-select="false"
+                        :preserve-search="true"
+                        placeholder="Pick some"
+                        label="name"
+                        track-by="name"
+                        :preselect-first="true"
+                    >
+                        <template
+                            slot="selection"
+                            slot-scope="{ values, search, isOpen }"
+                            ><span
+                                class="multiselect__single"
+                                v-if="values.length"
+                                v-show="!isOpen"
+                                >{{ values.length }} permissions selected</span
+                            ></template
+                        >
+                    </multiselect>
                 </div>
                 <button
                     type="submit"
@@ -141,11 +156,15 @@
 </template>
 <script>
 import DashboardLayout from "../../layouts/DashboardLayout";
+import Multiselect from "vue-multiselect";
 export default {
     name: "Roles",
     layout: DashboardLayout,
     props: {
         errors: Object,
+    },
+    components: {
+        Multiselect,
     },
     data() {
         return {
@@ -187,7 +206,6 @@ export default {
         toggleDropdown(roleId) {
             this.openDropdown = this.openDropdown === roleId ? null : roleId;
         },
-
     },
 
     created() {

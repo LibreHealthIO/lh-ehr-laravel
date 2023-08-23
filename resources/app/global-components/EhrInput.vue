@@ -19,16 +19,6 @@
             </select>
         </div>
 
-        <div v-if="type === 'multiselect'" class="relative">
-            <select :disabled="disabled" :required="required" multiple="true" @input="handleSelectChange($event.target)"
-                v-if="options.length >= 0" id="underline_select"
-                class="block py-2.5 px-3 w-full bg-transparent focus:border-green-500 border border-gray-300 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none leading-normal placeholder:text-gray-500 placeholder:opacity-100">
-                <option v-for="option in options" :key="option.id" :value="option.id">
-                    {{ option.name }}
-                </option>
-            </select>
-        </div>
-
         <div v-else class="relative">
             <input :id="id" ref="input" :disabled="disabled" :readonly="read_only" v-bind="$attrs" :minlength="minLength"
                 :placeholder="placeholder" :required="required"
@@ -94,7 +84,6 @@ export default {
     },
     data() {
         return {
-            selectedVal: [],
             isPassword: this.type === "password",
             togglePassword: true
         }
@@ -108,13 +97,6 @@ export default {
         },
         changeType() {
             this.togglePassword = !this.togglePassword
-        },
-        handleSelectChange(selectElement) {
-            const selectedOptions = Array.from(selectElement.options)
-                .filter(option => option.selected)
-                .map(option => option.value);
-
-            this.$emit('input', selectedOptions);
         },
     }
 }

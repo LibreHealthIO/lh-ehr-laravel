@@ -54,7 +54,7 @@ class RolesController extends Controller
         $role->description = $request->description;
         $role->save();
         foreach ($request->permissions as $permission) {
-            $role->permissions()->attach([$permission]);
+            $role->permissions()->attach([$permission['id']]);
         }
         $role->save();
         if ($role->save()) {
