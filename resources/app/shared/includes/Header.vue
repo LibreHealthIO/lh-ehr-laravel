@@ -29,12 +29,7 @@
                             </span>
                         </button>
 
-                        <!-- drawer init and show -->
-                        <!-- <div class="text-center">
-   <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" type="button" data-drawer-target="drawer-navigation" data-drawer-show="drawer-navigation" aria-controls="drawer-navigation">
-   Show navigation
-   </button>
-</div> -->
+
 
                         <!-- drawer component -->
                         <div
@@ -72,7 +67,7 @@
                             </button>
                             <div class="py-4 overflow-y-auto">
                                 <ul class="space-y-2 font-medium">
-                                    <li>
+                                    <li >
                                         <div
                                             class="flex items-center p-2 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                                         >
@@ -1273,6 +1268,24 @@
                                                     Facilities
                                                 </inertia-link>
                                             </li>
+                                               <li>
+                                                <inertia-link
+                                                    :href="
+                                                        route(
+                                                            'dashboard.settings'
+                                                        )
+                                                    "
+                                                    :class="
+                                                        isSubMenuActive(
+                                                            'dashboard.settings'
+                                                        )
+                                                            ? 'text-gray-900 dark:text-white'
+                                                            : 'text-gray-400 dark:text-gray-400'
+                                                    "
+                                                >
+                                                    Invitations
+                                                </inertia-link>
+                                            </li>
                                             <li>
                                                 <inertia-link
                                                     :href="
@@ -1385,7 +1398,7 @@
                                                 <inertia-link
                                                     :href="
                                                         route(
-                                                            'dashboard.settings'
+                                                            'dashboard.roles.index'
                                                         )
                                                     "
                                                     :class="
@@ -3452,7 +3465,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Visit Forms')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -3714,7 +3727,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Visits')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="'#'"
@@ -3747,7 +3760,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Records')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -3762,7 +3775,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Import')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -3981,6 +3994,15 @@
                                         "
                                         >Facilities
                                     </inertia-link>
+                                        <inertia-link
+                                        :href="route('dashboard.settings')"
+                                        :class="
+                                            isSubMenuActive(
+                                                'dashboard.settings'
+                                            )
+                                        "
+                                        >Invitations
+                                    </inertia-link>
                                     <inertia-link
                                         :href="route('dashboard.settings')"
                                         :class="
@@ -4036,7 +4058,7 @@
                                         >Lists
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('dashboard.settings')"
+                                        :href="route('dashboard.roles.index')"
                                         :class="
                                             isSubMenuActive(
                                                 'dashboard.settings'
@@ -4048,7 +4070,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Other')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4212,7 +4234,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Clients')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4307,7 +4329,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Visits')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4466,7 +4488,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Financial')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4559,7 +4581,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Inventory')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4592,7 +4614,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Procedures')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4616,7 +4638,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Insurance')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4649,7 +4671,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Blank Forms')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4682,7 +4704,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Services')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -4787,7 +4809,7 @@
                                     <ehr-header-menu
                                         style="background-color: white"
                                         :label="$t('Utilities')"
-                                        subMenu="true"
+                                        :subMenu="true"
                                     >
                                         <inertia-link
                                             :href="route('dashboard.settings')"
@@ -5357,6 +5379,6 @@ onMounted(() => {
     const $targetEl = document.getElementById("drawer-navigation");
 
     const drawer = new Drawer($targetEl);
-    drawer.init();
+
 });
 </script>

@@ -98,7 +98,6 @@ Route::group([
         [
             'as' => 'dashboard.',
             'prefix' => 'dashboard',
-            'middleware' => ['role:super_admin|admin|user'],
             'namespace' => '\\',
         ],
         function () {
@@ -109,29 +108,32 @@ Route::group([
             Route::get('settings', [DashboardController::class, 'settings'])->name('settings');
 
             // ======== Flow Board routes ========
-            Route::get('flow-board', [FlowBoardController::class, 'index'])->name('flow_board');
+            Route::get('flow-board',[FlowBoardController::class, 'index'])->name('flow_board')->middleware('permission:flow-board-read');
 
             Route::get('mail', [MailSendingController::class, 'sendWelcomeEmail'])->name('mail');
 
             // ======== Calendar routes ========
-            Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
+            Route::get('calendar', [CalendarController::class, 'index'])->name('calendar')->middleware('permission:calendar-read');
 
-            // ======== Roles & Permissions Routes ========
-            Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
-            Route::get('/roles/{rolesId}', [RolesController::class, 'details'])->name('roles.details');
-            Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
-            Route::get('/all-roles', [RolesController::class, 'getRoles'])->name('roles.all');
-            Route::get('/all-permissions', [PermissionController::class, 'getPermissions'])->name('permissions.all');
+            Route::middleware(['role:super_admin|admin'])->group(function () {
+                Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
+                Route::get('/roles/{rolesId}', [RolesController::class, 'details'])->name('roles.details');
+                Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
+                Route::get('/all-roles', [RolesController::class, 'getRoles'])->name('roles.all');
+                Route::get('/all-permissions', [PermissionController::class, 'getPermissions'])->name('permissions.all');
 
-            // ======== Users related routes ========
-            Route::resource('users', UserController::class)->names([
-                'index' => 'users.index',
-                'create' => 'users.create',
-                'edit' => 'users.edit',
-                'update' => 'users.update',
-                'show' => 'users.show',
-                'destroy' => 'users.destroy',
-            ]);
+
+                // ======== Users related routes ========
+                Route::resource('users', UserController::class)->names([
+                    'index' => 'users.index',
+                    'create' => 'users.create',
+                    'edit' => 'users.edit',
+                    'update' => 'users.update',
+                    'show' => 'users.show',
+                    'destroy' => 'users.destroy',
+                ]);
+
+            });
 
             // ======== Facility related routes ========
             Route::resource('facilities', FacilityController::class)->names([
@@ -142,7 +144,7 @@ Route::group([
                 'edit' => 'facilities.edit',
                 'update' => 'facilities.update',
                 'destroy' => 'facilities.destroy',
-            ]);
+            ])->middleware('permission:facility-read');
 
             // ======== Patient related routes ========
             Route::resource('patients', PatientController::class)->names([
@@ -153,7 +155,7 @@ Route::group([
                 'edit' => 'patients.edit',
                 'update' => 'patients.update',
                 'destroy' => 'patients.destroy',
-            ]);
+            ])->middleware('permission:patient-read');
             Route::get('patients/load/data', [PatientController::class, 'getPatientData'])
                 ->name('patients.load.data');
 
@@ -162,8 +164,8 @@ Route::group([
                     'as' => 'patients.',
                     'prefix' => 'patients',
                     'namespace' => '\\',
-                    // TODO (add a middleware for selected patients)
-                    'middleware' => 'select.patient',
+
+                    'middleware' => ['select.patient', 'permission:patient-read']
                 ],
                 function () {
                     Route::get('select/{pid}', [PatientController::class, 'selectPatient'])
