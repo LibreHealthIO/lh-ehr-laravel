@@ -3,7 +3,7 @@
         <FlashMessages/>
         <div class="w-full h-screen flex">
             <img :src="'/images/main_bg.jpg'" alt="background" class="object-cover object-center h-screen w-7/12">
-            <div class="bg-white overflow-scroll-container flex flex-col  w-5/12 shadow-lg border-solid border-t-4 border-orange-600">
+            <div class="h-screen overflow-x-hidden overflow-y-scroll bg-white overflow-scroll-container flex flex-col  w-5/12 shadow-lg border-solid border-t-4 border-orange-600">
                 <div class="flex rtl:ml-10 ltr:mr-10 my-4 justify-end">
                     <LanguageSwitcher/>
                 </div>
