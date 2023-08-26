@@ -15,6 +15,16 @@ use Str;
 class InvitationController extends Controller
 {
 
+    public function show()
+    {
+        /**
+         * Shows the Users/Invitations page
+         * @return Response
+         */
+        $facilities = Facility::pluck('name', 'id');
+
+        return Inertia::render('Users/Invitations', ['facilities' => $facilities]);
+    }
     //URL for datatable for invitations
     public function getInvitations(Request $request)
     {

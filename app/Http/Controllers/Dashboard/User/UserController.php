@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Response;
 use Inertia\Inertia;
+use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
 use Mail;
 use Redirect;
 use Str;
@@ -28,7 +29,30 @@ class UserController extends Controller
          */
         $facilities = Facility::pluck('name', 'id');
 
-        return Inertia::render('Users/Invitations', ['facilities' => $facilities]);
+        return Inertia::render('Users/Index', ['facilities' => $facilities]);
+    }
+
+    //URL for datatable for users
+    public function getUsers(Request $request)
+    {
+        $length = $request->input('length', 10);
+        $sortBy = $request->input('column');
+        $orderBy = $request->input('dir');
+        $facility = $request->input('facility');
+
+
+        //get User
+        $query = User::query();
+
+        $query->orderBy($sortBy, $orderBy);
+
+        if ($facility != null) {
+            $query->where('facility', $facility);
+        }
+
+        $data = $query->paginate($length);
+
+        return new DataTableCollectionResource($data);
     }
     /**
      * Show the form for creating a new resource.

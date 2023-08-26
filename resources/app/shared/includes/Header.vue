@@ -1272,7 +1272,7 @@
                                                 <inertia-link
                                                     :href="
                                                         route(
-                                                            'dashboard.settings'
+                                                            'dashboard.invitations.index'
                                                         )
                                                     "
                                                     :class="
@@ -1290,7 +1290,7 @@
                                                 <inertia-link
                                                     :href="
                                                         route(
-                                                            'dashboard.settings'
+                                                            'dashboard.users.index'
                                                         )
                                                     "
                                                     :class="
@@ -3995,7 +3995,7 @@
                                         >Facilities
                                     </inertia-link>
                                         <inertia-link
-                                        :href="route('dashboard.settings')"
+                                        :href="route('dashboard.invitations.index')"
                                         :class="
                                             isSubMenuActive(
                                                 'dashboard.settings'
@@ -4004,7 +4004,7 @@
                                         >Invitations
                                     </inertia-link>
                                     <inertia-link
-                                        :href="route('dashboard.settings')"
+                                        :href="route('dashboard.users.index')"
                                         :class="
                                             isSubMenuActive(
                                                 'dashboard.settings'

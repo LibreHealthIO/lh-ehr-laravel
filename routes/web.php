@@ -132,7 +132,11 @@ Route::group([
                     'show' => 'users.show',
                     'destroy' => 'users.destroy',
                 ]);
-
+                Route::get('/users-fetch', [UserController::class, 'getUsers'])
+                    ->name('users.fetch');
+                Route::get('/invitations-fetch', [InvitationController::class, 'getInvitations'])->name('invitations.fetch');
+                Route::get('/invitations', [InvitationController::class, 'show'])
+                    ->name('invitations.index');
             });
 
             // ======== Facility related routes ========
@@ -211,7 +215,7 @@ Route::group([
 
     Route::get('/invitations/join/{token}', [InvitationController::class, 'index'])->name('invitation.get');
     Route::post('/invitations/accept', [InvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
-    Route::get('/invitations', [InvitationController::class, 'getInvitations'])->name('invitation.fetch');
+
 
 
     /* =================================
