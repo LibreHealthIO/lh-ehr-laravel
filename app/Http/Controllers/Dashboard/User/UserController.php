@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
 use App\Invite;
 use App\Mail\InvitationMail;
 use App\Models\Facilities\Facility;
@@ -73,7 +74,7 @@ class UserController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
         $temporaryPassword = Str::random(10);
         $userData = [
@@ -100,7 +101,7 @@ class UserController extends Controller
 
 
         Invite::send($userData, $request->email);
-        return Inertia::location(route('dashboard.users.create'));
+        return Inertia::location(route('dashboard.invitations.index'));
     }
 
 

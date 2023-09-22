@@ -5,6 +5,14 @@
             <h2 class="text-2xl font-bold mb-4">Invitation Details</h2>
         </div>
 
+        <div class="flex justify-end">
+            <inertia-link :href="route('dashboard.users.create')">
+            <button class="bg-gray-900 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded shadow ml-auto">
+              Add User
+            </button>
+        </inertia-link>
+        </div>
+
         <data-table :columns="columns" :url="url">
             <div
                 class="flex justify-between mb-2"

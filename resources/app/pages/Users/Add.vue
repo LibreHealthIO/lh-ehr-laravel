@@ -29,6 +29,7 @@
                         <ehr-input
                             v-model="userForm.tax_id"
                             :label="'Tax ID'"
+                            :error="errors.tax_id"
                             :placeholder="'Enter Tax ID'"
                             required
                         />
@@ -37,7 +38,9 @@
                         <ehr-input
                             v-model="userForm.suffix"
                             :label="'Suffix'"
+                            :error="errors.suffix"
                             :placeholder="'Enter Suffix'"
+                            required
                         />
                     </div>
 
@@ -70,6 +73,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.dea_number"
+                            :error="errors.dea_number"
                             :label="'DEA Number'"
                             :placeholder="'Enter DEA Number'"
                             required
@@ -79,6 +83,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.npi"
+                            :error="errors.npi"
                             :label="'NPI'"
                             :placeholder="'Enter NPI'"
                             required
@@ -88,6 +93,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.taxonomy"
+                            :error="errors.taxonomy"
                             :label="'Taxonomy'"
                             :placeholder="'Enter Taxonomy'"
                             required
@@ -96,6 +102,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.license_number"
+                            :error="errors.license_number"
                             :label="'License No.'"
                             :placeholder="'Enter License No.'"
                             required
@@ -104,6 +111,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.provider_type"
+                            :error="errors.provider_type"
                             :label="'Provider Type'"
                             :placeholder="'Enter Provider Type'"
                         />
@@ -111,6 +119,7 @@
                     <div>
                         <ehr-input
                             v-model="userForm.default_warehouse"
+                            :error="errors.default_warehouse"
                             :label="'Default Warehouse'"
                             :placeholder="'Enter Default Warehouse'"
                         />
@@ -118,18 +127,21 @@
                     <div>
                         <ehr-input
                             v-model="userForm.job_description"
+                            :error="errors.job_description"
                             :label="'Job Description'"
                             :placeholder="'Enter Job Description'"
                         />
                     </div>
                     <div>
+                       <p class="text-red-500 pb-4"> {{ errors.default_facility }}</p>
+
                         <button
                             id="default-facility-dropdown"
                             class="w-full px-4 py-2 rounded ring-2"
                             type="button"
                             @click="toggleDefaultFacilityList()"
                         >
-                            Default Facility:
+                           Facility:
                             <b>{{ userForm.default_facility }}</b>
 
                             <span
@@ -158,6 +170,7 @@
                         </ul>
                     </div>
                     <div>
+                          <p class="text-red-500 pb-4"> {{ errors.role }}</p>
                         <button
                             id="role-dropdown"
                             class="w-full px-4 py-2 rounded ring-2"
@@ -212,6 +225,7 @@ export default {
     layout: DashboardLayout,
     props: {
         facilities: Object,
+        errors: Object,
     },
     data() {
         return {
