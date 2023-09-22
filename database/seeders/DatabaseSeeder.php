@@ -42,6 +42,7 @@ class DatabaseSeeder extends Seeder
             DB::table($name)->truncate();
         }
         Schema::enableForeignKeyConstraints();
+
         $this->seedData();
         $this->complete();
     }
@@ -58,7 +59,9 @@ class DatabaseSeeder extends Seeder
         if (count($continents) < 1) {
             Artisan::call('world:init');
         }
+
         $this->call(CurrencySeeder::class);
+        $this->call(LaratrustSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(AddressTableSeeder::class);
         $this->call(ContactTableSeeder::class);
