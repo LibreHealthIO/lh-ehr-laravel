@@ -1,15 +1,21 @@
 export default {
     "ae": {
-        "passwords": {
-            "reset": "تمت إعادة تعيين كلمة المرور!",
-            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
-            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
-            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
-            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
-        },
         "auth": {
             "failed": "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.",
             "throttle": "عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد {seconds} ثانية."
+        },
+        "forms": {
+            "username": "اسم المستخدم",
+            "email": "البريد الإلكتروني",
+            "password": "كلمه السر",
+            "continue": "استمر",
+            "date_of_birth": "تاريخ الولادة",
+            "age": "عمر"
+        },
+        "general": {
+            "welcome": "أهلا بك",
+            "all_rights_reserved": "كل الحقوق محفوظة.",
+            "acknowledgement_licensing_and_cert": "شكر وتقدير والترخيص والشهادة"
         },
         "languages": {
             "english": "الإنجليزية",
@@ -27,9 +33,29 @@ export default {
             "japanese": "اليابانية",
             "chinese": "صينى"
         },
+        "menu": {
+            "calendar": "التقويم",
+            "flow_board": "مجلس التدفق",
+            "inventory": "المخزون",
+            "fees": "الرسوم",
+            "patient_client": "المريض / العميل",
+            "procedures": "الإجراءات",
+            "reports": "التقارير",
+            "miscellaneous": "متنوع",
+            "popups": "تظهر ظهور مفاجئ",
+            "qa_measures": "تدابير ضمان الجودة",
+            "help": "مساعدة"
+        },
         "pagination": {
             "previous": "&laquo; السابق",
             "next": "التالي &raquo;"
+        },
+        "passwords": {
+            "reset": "تمت إعادة تعيين كلمة المرور!",
+            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
+            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
+            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
+            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
         },
         "validation-inline": {
             "accepted": "يجب قبول {attribute}.",
@@ -141,19 +167,6 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
-        },
-        "menu": {
-            "calendar": "التقويم",
-            "flow_board": "مجلس التدفق",
-            "inventory": "المخزون",
-            "fees": "الرسوم",
-            "patient_client": "المريض / العميل",
-            "procedures": "الإجراءات",
-            "reports": "التقارير",
-            "miscellaneous": "متنوع",
-            "popups": "تظهر ظهور مفاجئ",
-            "qa_measures": "تدابير ضمان الجودة",
-            "help": "مساعدة"
         },
         "validation": {
             "accepted": "يجب قبول {attribute}.",
@@ -296,147 +309,15 @@ export default {
                 "available": "مُتاح",
                 "size": "الحجم"
             }
-        },
-        "general": {
-            "welcome": "أهلا بك",
-            "all_rights_reserved": "كل الحقوق محفوظة.",
-            "acknowledgement_licensing_and_cert": "شكر وتقدير والترخيص والشهادة"
-        },
-        "forms": {
-            "username": "اسم المستخدم",
-            "email": "البريد الإلكتروني",
-            "password": "كلمه السر",
-            "continue": "استمر",
-            "date_of_birth": "تاريخ الولادة",
-            "age": "عمر"
         }
     },
     "ar": {
-        "passwords": {
-            "reset": "تمت إعادة تعيين كلمة المرور!",
-            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
-            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
-            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
-            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
-        },
         "auth": {
             "failed": "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.",
             "throttle": "عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد {seconds} ثانية."
         },
-        "pagination": {
-            "previous": "&laquo; السابق",
-            "next": "التالي &raquo;"
-        },
-        "validation-inline": {
-            "accepted": "يجب قبول {attribute}.",
-            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
-            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
-            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
-            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
-            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
-            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
-            "array": "يجب أن يكون {attribute} ًمصفوفة.",
-            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
-            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
-            "between": {
-                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
-                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
-                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
-                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
-            },
-            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
-            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
-            "date": "{attribute} ليس تاريخًا صحيحًا.",
-            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
-            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
-            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
-            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
-            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
-            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
-            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
-            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
-            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
-            "exists": "القيمة المحددة {attribute} غير موجودة.",
-            "file": "الـ {attribute} يجب أن يكون ملفا.",
-            "filled": "{attribute} إجباري.",
-            "gt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "gte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
-            },
-            "image": "يجب أن يكون {attribute} صورةً.",
-            "in": "{attribute} غير موجود.",
-            "in_array": "{attribute} غير موجود في {other}.",
-            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
-            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
-            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
-            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
-            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
-            "lt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
-            },
-            "lte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "max": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
-            },
-            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "min": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
-            },
-            "not_in": "العنصر {attribute} غير صحيح.",
-            "not_regex": "صيغة {attribute} غير صحيحة.",
-            "numeric": "يجب على {attribute} أن يكون رقمًا.",
-            "password": "كلمة المرور غير صحيحة.",
-            "present": "يجب تقديم {attribute}.",
-            "regex": "صيغة {attribute} .غير صحيحة.",
-            "required": "{attribute} مطلوب.",
-            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
-            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
-            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "same": "يجب أن يتطابق {attribute} مع {other}.",
-            "size": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
-                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
-                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
-                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
-            },
-            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
-            "string": "يجب أن يكون {attribute} نصًا.",
-            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
-            "unique": "قيمة {attribute} مُستخدمة من قبل.",
-            "uploaded": "فشل في تحميل الـ {attribute}.",
-            "url": "صيغة الرابط {attribute} غير صحيحة.",
-            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
+        "general": {
+            "welcome": "Welcome"
         },
         "menu": {
             "calendar": "وثائق المعمل",
@@ -451,6 +332,128 @@ export default {
             "qa_measures": "QA Measures",
             "help": "Help"
         },
+        "pagination": {
+            "previous": "&laquo; السابق",
+            "next": "التالي &raquo;"
+        },
+        "passwords": {
+            "reset": "تمت إعادة تعيين كلمة المرور!",
+            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
+            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
+            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
+            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
+        },
+        "validation-inline": {
+            "accepted": "يجب قبول {attribute}.",
+            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
+            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
+            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
+            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
+            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
+            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
+            "array": "يجب أن يكون {attribute} ًمصفوفة.",
+            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
+            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
+            "between": {
+                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
+                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
+                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
+            },
+            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
+            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
+            "date": "{attribute} ليس تاريخًا صحيحًا.",
+            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
+            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
+            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
+            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
+            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
+            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
+            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
+            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
+            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
+            "exists": "القيمة المحددة {attribute} غير موجودة.",
+            "file": "الـ {attribute} يجب أن يكون ملفا.",
+            "filled": "{attribute} إجباري.",
+            "gt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "gte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
+            },
+            "image": "يجب أن يكون {attribute} صورةً.",
+            "in": "{attribute} غير موجود.",
+            "in_array": "{attribute} غير موجود في {other}.",
+            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
+            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
+            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
+            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
+            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
+            "lt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
+            },
+            "lte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "max": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
+            },
+            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "min": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
+            },
+            "not_in": "العنصر {attribute} غير صحيح.",
+            "not_regex": "صيغة {attribute} غير صحيحة.",
+            "numeric": "يجب على {attribute} أن يكون رقمًا.",
+            "password": "كلمة المرور غير صحيحة.",
+            "present": "يجب تقديم {attribute}.",
+            "regex": "صيغة {attribute} .غير صحيحة.",
+            "required": "{attribute} مطلوب.",
+            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
+            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
+            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "same": "يجب أن يتطابق {attribute} مع {other}.",
+            "size": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
+                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
+                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
+                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
+            },
+            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
+            "string": "يجب أن يكون {attribute} نصًا.",
+            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
+            "unique": "قيمة {attribute} مُستخدمة من قبل.",
+            "uploaded": "فشل في تحميل الـ {attribute}.",
+            "url": "صيغة الرابط {attribute} غير صحيحة.",
+            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
         "validation": {
             "accepted": "يجب قبول {attribute}.",
             "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
@@ -592,19 +595,9 @@ export default {
                 "available": "مُتاح",
                 "size": "الحجم"
             }
-        },
-        "general": {
-            "welcome": "Welcome"
         }
     },
     "az": {
-        "passwords": {
-            "reset": "Şifrə yeniləndi",
-            "sent": "Şifrə yeniləmə adresi sizə email olaraq göndərildi",
-            "throttled": "Please wait before retrying.",
-            "token": "Bu şifrə yeniləmə kodu yanlışdır",
-            "user": "Bu email'ə uyğun istifadəçi tapılmadı"
-        },
         "auth": {
             "failed": "İstifadəçi adı və ya şifrə səhvdir",
             "throttle": "{seconds} saniyə ərzində yenidən cəhd edin"
@@ -612,6 +605,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Əvvəl",
             "next": "Sonra &raquo;"
+        },
+        "passwords": {
+            "reset": "Şifrə yeniləndi",
+            "sent": "Şifrə yeniləmə adresi sizə email olaraq göndərildi",
+            "throttled": "Please wait before retrying.",
+            "token": "Bu şifrə yeniləmə kodu yanlışdır",
+            "user": "Bu email'ə uyğun istifadəçi tapılmadı"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -838,13 +838,6 @@ export default {
         }
     },
     "be": {
-        "passwords": {
-            "reset": "Ваш пароль быў скінуты!",
-            "sent": "Спасылка на скід пароля была адпраўлена!",
-            "throttled": "Please wait before retrying.",
-            "token": "Памылковы код скіду пароля.",
-            "user": "Не атрымалася знайсці карыстальніка з дадзеным электронным адрасам."
-        },
         "auth": {
             "failed": "Імя карыстальніка і пароль не супадаюць.",
             "throttle": "Занадта шмат спробаў ўваходу. Калі ласка, паспрабуйце яшчэ раз праз {seconds} секунд."
@@ -852,6 +845,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Наперад &raquo;"
+        },
+        "passwords": {
+            "reset": "Ваш пароль быў скінуты!",
+            "sent": "Спасылка на скід пароля была адпраўлена!",
+            "throttled": "Please wait before retrying.",
+            "token": "Памылковы код скіду пароля.",
+            "user": "Не атрымалася знайсці карыстальніка з дадзеным электронным адрасам."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1078,13 +1078,6 @@ export default {
         }
     },
     "bg": {
-        "passwords": {
-            "reset": "Паролата е нулирана!",
-            "sent": "Изпратено е напомняне за вашата парола!",
-            "throttled": "Моля изчакайте, преди да опитате отново.",
-            "token": "Този токен за нулиране на парола е невалиден.",
-            "user": "Потребител с такъв e-mail адрес не може да бъде открит."
-        },
         "auth": {
             "failed": "Неуспешно удостоверяване на потребител.",
             "throttle": "Твърде много опити за вход. Моля, опитайте отново след {seconds} секунди."
@@ -1092,6 +1085,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Напред &raquo;"
+        },
+        "passwords": {
+            "reset": "Паролата е нулирана!",
+            "sent": "Изпратено е напомняне за вашата парола!",
+            "throttled": "Моля изчакайте, преди да опитате отново.",
+            "token": "Този токен за нулиране на парола е невалиден.",
+            "user": "Потребител с такъв e-mail адрес не може да бъде открит."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1350,13 +1350,6 @@ export default {
         }
     },
     "bn": {
-        "passwords": {
-            "reset": "আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!",
-            "sent": "আমরা আপনার পাসওয়ার্ড পুনরায় সেট করার লিঙ্ক ইমেইল করেছি !",
-            "throttled": "Please wait before retrying.",
-            "token": "এই পাসওয়ার্ড রিসেট টোকেন অবৈধ.",
-            "user": "আমরা এই  ইমেল ঠিকানা দিয়ে  ব্যবহারকারী খুঁজে পাচ্ছি না"
-        },
         "auth": {
             "failed": "এই পরিচয়পত্র আমাদের রেকর্ডের সাথে মেলে না.",
             "throttle": "লগইন করার জন্য অনেকগুলি চেষ্টা করেছেন. {seconds} সেকেন্ড পরে আবার চেষ্টা করুন ."
@@ -1364,6 +1357,13 @@ export default {
         "pagination": {
             "previous": "&laquo; আগে",
             "next": "পরবর্তী &raquo;"
+        },
+        "passwords": {
+            "reset": "আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!",
+            "sent": "আমরা আপনার পাসওয়ার্ড পুনরায় সেট করার লিঙ্ক ইমেইল করেছি !",
+            "throttled": "Please wait before retrying.",
+            "token": "এই পাসওয়ার্ড রিসেট টোকেন অবৈধ.",
+            "user": "আমরা এই  ইমেল ঠিকানা দিয়ে  ব্যবহারকারী খুঁজে পাচ্ছি না"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1590,14 +1590,6 @@ export default {
         }
     },
     "bs": {
-        "passwords": {
-            "password": "Lozinke moraju da budu osam karaktera i da se slaže sa potvrdnom lozinkom.",
-            "reset": "Lozinka je resetovana!",
-            "sent": "Poslan vam je e-mail za povrat lozinke!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ovaj token za resetovanje lozinke nije ispravan.",
-            "user": "Ne može se pronaći korisnik sa tom e-mail adresom."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -1605,6 +1597,14 @@ export default {
         "pagination": {
             "previous": "&laquo; Nazad",
             "next": "Naprijed &raquo;"
+        },
+        "passwords": {
+            "password": "Lozinke moraju da budu osam karaktera i da se slaže sa potvrdnom lozinkom.",
+            "reset": "Lozinka je resetovana!",
+            "sent": "Poslan vam je e-mail za povrat lozinke!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ovaj token za resetovanje lozinke nije ispravan.",
+            "user": "Ne može se pronaći korisnik sa tom e-mail adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1831,13 +1831,6 @@ export default {
         }
     },
     "ca": {
-        "passwords": {
-            "reset": "La contrasenya s'ha restablert!",
-            "sent": "Li hem enviat un correu electrònic amb un enllaç per a reiniciar la teva contrasenya!",
-            "throttled": "Si us plau, esperi abans de tornar-ho a intentar.",
-            "token": "Aquest token de recuperació de contrasenya és invàlid.",
-            "user": "No existeix cap usuari amb aquest correu."
-        },
         "auth": {
             "failed": "Aquestes credencials no concorden amb els nostres registres.",
             "throttle": "Ha superat el nombre màxim d'intents d'accés. Si us plau, torni a intentar-ho en {seconds} segons."
@@ -1845,6 +1838,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Anterior",
             "next": "Següent &raquo;"
+        },
+        "passwords": {
+            "reset": "La contrasenya s'ha restablert!",
+            "sent": "Li hem enviat un correu electrònic amb un enllaç per a reiniciar la teva contrasenya!",
+            "throttled": "Si us plau, esperi abans de tornar-ho a intentar.",
+            "token": "Aquest token de recuperació de contrasenya és invàlid.",
+            "user": "No existeix cap usuari amb aquest correu."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2107,13 +2107,6 @@ export default {
         }
     },
     "cs": {
-        "passwords": {
-            "reset": "Heslo bylo obnoveno!",
-            "sent": "E-mail s instrukcemi k obnovení hesla byl odeslán!",
-            "throttled": "Počkejte prosím a zkuste to znovu.",
-            "token": "Klíč pro obnovu hesla je nesprávný.",
-            "user": "Nepodařilo se najít uživatele s touto e-mailovou adresou."
-        },
         "auth": {
             "failed": "Tyto přihlašovací údaje neodpovídají žadnému záznamu.",
             "throttle": "Příliš mnoho pokusů o přihlášení. Zkuste to prosím znovu za {seconds} vteřin."
@@ -2121,6 +2114,13 @@ export default {
         "pagination": {
             "previous": "&laquo; předchozí",
             "next": "další &raquo;"
+        },
+        "passwords": {
+            "reset": "Heslo bylo obnoveno!",
+            "sent": "E-mail s instrukcemi k obnovení hesla byl odeslán!",
+            "throttled": "Počkejte prosím a zkuste to znovu.",
+            "token": "Klíč pro obnovu hesla je nesprávný.",
+            "user": "Nepodařilo se najít uživatele s touto e-mailovou adresou."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2349,13 +2349,6 @@ export default {
         }
     },
     "cy": {
-        "passwords": {
-            "reset": "Mae dy gyfrinair wedi ei ail-osod!",
-            "sent": "Rydym wedi e-bostio'r ddolen i ail-osod y cyfrinair!",
-            "throttled": "Please wait before retrying.",
-            "token": "Nid yw'r tocyn ail-osod cyfrinair yn ddilys.",
-            "user": "Ni oes gennym ddefnyddiwr gyda'r cyfeiriad e-bost yna."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -2363,6 +2356,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Cynt",
             "next": "Nesaf &raquo;"
+        },
+        "passwords": {
+            "reset": "Mae dy gyfrinair wedi ei ail-osod!",
+            "sent": "Rydym wedi e-bostio'r ddolen i ail-osod y cyfrinair!",
+            "throttled": "Please wait before retrying.",
+            "token": "Nid yw'r tocyn ail-osod cyfrinair yn ddilys.",
+            "user": "Ni oes gennym ddefnyddiwr gyda'r cyfeiriad e-bost yna."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2589,13 +2589,6 @@ export default {
         }
     },
     "da": {
-        "passwords": {
-            "reset": "Adgangskoden er blevet nulstillet!",
-            "sent": "Vi har sendt dig en e-mail til at nulstille din adgangskode!",
-            "throttled": "Vent venligst inden du prøver igen.",
-            "token": "Koden til nulstilling af adgangskoden er ugyldig.",
-            "user": "Vi kan ikke finde en bruger med den e-mailadresse."
-        },
         "auth": {
             "failed": "De angivne oplysninger er ugyldige.",
             "throttle": "For mange loginforsøg. Prøv igen om {seconds} sekunder."
@@ -2603,6 +2596,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Forrige",
             "next": "Næste &raquo;"
+        },
+        "passwords": {
+            "reset": "Adgangskoden er blevet nulstillet!",
+            "sent": "Vi har sendt dig en e-mail til at nulstille din adgangskode!",
+            "throttled": "Vent venligst inden du prøver igen.",
+            "token": "Koden til nulstilling af adgangskoden er ugyldig.",
+            "user": "Vi kan ikke finde en bruger med den e-mailadresse."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2829,16 +2829,25 @@ export default {
         }
     },
     "de": {
-        "passwords": {
-            "reset": "Das Passwort wurde zurückgesetzt!",
-            "sent": "Passworterinnerung wurde gesendet!",
-            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
-            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
-            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
-        },
         "auth": {
             "failed": "Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.",
             "throttle": "Zu viele Loginversuche. Versuchen Sie es bitte in {seconds} Sekunden nochmal."
+        },
+        "forms": {
+            "username": "Benutzername",
+            "email": "E-mail",
+            "password": "Kennwort",
+            "continue": "Weiter",
+            "date_of_birth": "Geburtsdatum",
+            "age": "Alter"
+        },
+        "general": {
+            "welcome": "Willkommen",
+            "print": "Drucken",
+            "search": "Suche",
+            "add": "hinzufügen",
+            "all_rights_reserved": "Tutti i diritti riservati.",
+            "acknowledgement_licensing_and_cert": "Danksagungen, Lizenzierung und Zertifizierung"
         },
         "languages": {
             "english": "Englische",
@@ -2856,9 +2865,29 @@ export default {
             "japanese": "Japanisch",
             "chinese": "Chinesisch"
         },
+        "menu": {
+            "calendar": "Kalender",
+            "flow_board": "Flow-Brett",
+            "inventory": "Bestandsaufnahme",
+            "fees": "Gebühren",
+            "patient_client": "Patient/Kunde",
+            "procedures": "Verfahren",
+            "reports": "Berichte",
+            "miscellaneous": "Verschiedenes",
+            "popups": "Popups",
+            "qa_measures": "QS-Maßnahmen",
+            "help": "Hilfe"
+        },
         "pagination": {
             "previous": "&laquo; Zurück",
             "next": "Weiter &raquo;"
+        },
+        "passwords": {
+            "reset": "Das Passwort wurde zurückgesetzt!",
+            "sent": "Passworterinnerung wurde gesendet!",
+            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
+            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
+            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
         },
         "validation-inline": {
             "accepted": "Dieses Feld muss akzeptiert werden.",
@@ -2970,19 +2999,6 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
-        },
-        "menu": {
-            "calendar": "Kalender",
-            "flow_board": "Flow-Brett",
-            "inventory": "Bestandsaufnahme",
-            "fees": "Gebühren",
-            "patient_client": "Patient/Kunde",
-            "procedures": "Verfahren",
-            "reports": "Berichte",
-            "miscellaneous": "Verschiedenes",
-            "popups": "Popups",
-            "qa_measures": "QS-Maßnahmen",
-            "help": "Hilfe"
         },
         "validation": {
             "accepted": "{attribute} muss akzeptiert werden.",
@@ -3125,32 +3141,9 @@ export default {
                 "available": "verfügbar",
                 "size": "Größe"
             }
-        },
-        "general": {
-            "welcome": "Willkommen",
-            "print": "Drucken",
-            "search": "Suche",
-            "add": "hinzufügen",
-            "all_rights_reserved": "Tutti i diritti riservati.",
-            "acknowledgement_licensing_and_cert": "Danksagungen, Lizenzierung und Zertifizierung"
-        },
-        "forms": {
-            "username": "Benutzername",
-            "email": "E-mail",
-            "password": "Kennwort",
-            "continue": "Weiter",
-            "date_of_birth": "Geburtsdatum",
-            "age": "Alter"
         }
     },
     "de_CH": {
-        "passwords": {
-            "reset": "Das Passwort wurde zurückgesetzt!",
-            "sent": "Passworterinnerung wurde gesendet!",
-            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
-            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
-            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
-        },
         "auth": {
             "failed": "Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.",
             "throttle": "Zu viele Loginversuche. Versuchen Sie es bitte in {seconds} Sekunden nochmal."
@@ -3158,6 +3151,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Zurück",
             "next": "Weiter &raquo;"
+        },
+        "passwords": {
+            "reset": "Das Passwort wurde zurückgesetzt!",
+            "sent": "Passworterinnerung wurde gesendet!",
+            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
+            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
+            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
         },
         "validation-inline": {
             "accepted": "Dieses Feld muss akzeptiert werden.",
@@ -3414,13 +3414,6 @@ export default {
         }
     },
     "el": {
-        "passwords": {
-            "reset": "Έχει γίνει επαναφορά του συνθηματικού!",
-            "sent": "Η υπενθύμιση του συνθηματικού εστάλη!",
-            "throttled": "Please wait before retrying.",
-            "token": "Το κλειδί αρχικοποίησης του συνθηματικού δεν είναι έγκυρο.",
-            "user": "Δεν βρέθηκε χρήστης με το συγκεκριμένο email."
-        },
         "auth": {
             "failed": "Τα στοιχεία αυτά δεν ταιριάζουν με τα δικά μας.",
             "throttle": "Πολλές προσπάθειες σύνδεσης. Παρακαλώ δοκιμάστε ξανά σε {seconds} δευτερόλεπτα."
@@ -3428,6 +3421,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Προηγούμενη",
             "next": "Επόμενη &raquo;"
+        },
+        "passwords": {
+            "reset": "Έχει γίνει επαναφορά του συνθηματικού!",
+            "sent": "Η υπενθύμιση του συνθηματικού εστάλη!",
+            "throttled": "Please wait before retrying.",
+            "token": "Το κλειδί αρχικοποίησης του συνθηματικού δεν είναι έγκυρο.",
+            "user": "Δεν βρέθηκε χρήστης με το συγκεκριμένο email."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -3687,12 +3687,6 @@ export default {
         }
     },
     "en": {
-        "passwords": {
-            "reset": "Your password has been reset!",
-            "sent": "We have e-mailed your password reset link!",
-            "token": "This password reset token is invalid.",
-            "user": "We can't find a user with that e-mail address."
-        },
         "auth": {
             "failed": "Invalid login. Please try again.",
             "password": "The provided password is incorrect.",
@@ -3702,6 +3696,53 @@ export default {
             "expired_page": "Your session has expired. Please refresh the page to continue.",
             "enter_password": "Please provide a password",
             "login": "Login"
+        },
+        "forms": {
+            "username": "Username",
+            "email": "E-mail",
+            "password": "Password",
+            "continue": "Continue",
+            "next": "Next",
+            "previous": "Previous",
+            "finish": "Finish",
+            "date_of_birth": "Date of birth",
+            "age": "Age",
+            "year": "Year|Years",
+            "month": "Month|Months",
+            "day": "Day|Days",
+            "hour": "Hour|Hours",
+            "minute": "Minute|Minutes",
+            "second": "Second|Seconds"
+        },
+        "general": {
+            "dashboard": "Dashboard",
+            "welcome": "Welcome",
+            "print": "Print",
+            "search": "Search",
+            "add": "Add",
+            "error": "Error",
+            "success": "Success",
+            "warning": "Warning",
+            "info": "Info",
+            "all_rights_reserved": "All Rights Reserved.",
+            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
+            "no_such_patient": "No such Patient",
+            "please_select_a_patient": "You must first select or add a patient",
+            "please_select_a_correct_patient": "The selected patient seems not to be correct please try again",
+            "selected_encounter": "Select Encounter",
+            "forgot_your_password": "Forgot your password?",
+            "forgot_password": "Forgot Password",
+            "reset_password": "Reset Password",
+            "verify_account": "Verify Account",
+            "click_here": "Click here"
+        },
+        "installer": {
+            "installation_steps": "Installation Steps",
+            "introduction": "Introduction",
+            "server_requirements": "Server Requirements",
+            "file_permissions": "File Permissions",
+            "database_configuration": "Database Configuration",
+            "ehr_settings": "ERH Configuration"
         },
         "languages": {
             "english": "English",
@@ -3719,9 +3760,29 @@ export default {
             "japanese": "Japanese",
             "chinese": "Chinese"
         },
+        "menu": {
+            "calendar": "Calendar",
+            "flow_board": "Flow Board",
+            "inventory": "Inventory",
+            "fees": "Fees",
+            "patient_client": "Patient/Client",
+            "procedures": "Procedures",
+            "administration": "Administration",
+            "reports": "Reports",
+            "miscellaneous": "Miscellaneous",
+            "popups": "Popups",
+            "qa_measures": "QA Measures",
+            "help": "Help"
+        },
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
+        },
+        "passwords": {
+            "reset": "Your password has been reset!",
+            "sent": "We have e-mailed your password reset link!",
+            "token": "This password reset token is invalid.",
+            "user": "We can't find a user with that e-mail address."
         },
         "validation-inline": {
             "accepted": "يجب قبول {attribute}.",
@@ -3834,28 +3895,6 @@ export default {
                 }
             }
         },
-        "menu": {
-            "calendar": "Calendar",
-            "flow_board": "Flow Board",
-            "inventory": "Inventory",
-            "fees": "Fees",
-            "patient_client": "Patient/Client",
-            "procedures": "Procedures",
-            "administration": "Administration",
-            "reports": "Reports",
-            "miscellaneous": "Miscellaneous",
-            "popups": "Popups",
-            "qa_measures": "QA Measures",
-            "help": "Help"
-        },
-        "installer": {
-            "installation_steps": "Installation Steps",
-            "introduction": "Introduction",
-            "server_requirements": "Server Requirements",
-            "file_permissions": "File Permissions",
-            "database_configuration": "Database Configuration",
-            "ehr_settings": "ERH Configuration"
-        },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
             "active_url": "The {attribute} is not a valid URL.",
@@ -3966,58 +4005,28 @@ export default {
                 }
             },
             "attributes": []
-        },
-        "general": {
-            "dashboard": "Dashboard",
-            "welcome": "Welcome",
-            "print": "Print",
-            "search": "Search",
-            "add": "Add",
-            "error": "Error",
-            "success": "Success",
-            "warning": "Warning",
-            "info": "Info",
-            "all_rights_reserved": "All Rights Reserved.",
-            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
-            "no_such_patient": "No such Patient",
-            "please_select_a_patient": "You must first select or add a patient",
-            "please_select_a_correct_patient": "The selected patient seems not to be correct please try again",
-            "selected_encounter": "Select Encounter",
-            "forgot_your_password": "Forgot your password?",
-            "forgot_password": "Forgot Password",
-            "reset_password": "Reset Password",
-            "verify_account": "Verify Account",
-            "click_here": "Click here"
-        },
-        "forms": {
-            "username": "Username",
-            "email": "E-mail",
-            "password": "Password",
-            "continue": "Continue",
-            "next": "Next",
-            "previous": "Previous",
-            "finish": "Finish",
-            "date_of_birth": "Date of birth",
-            "age": "Age",
-            "year": "Year|Years",
-            "month": "Month|Months",
-            "day": "Day|Days",
-            "hour": "Hour|Hours",
-            "minute": "Minute|Minutes",
-            "second": "Second|Seconds"
         }
     },
     "es": {
-        "passwords": {
-            "reset": "¡Tu contraseña ha sido restablecida!",
-            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
-            "throttled": "Por favor espera antes de intentar de nuevo.",
-            "token": "El token de recuperación de contraseña es inválido.",
-            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
-        },
         "auth": {
             "failed": "Estas credenciales no coinciden con nuestros registros.",
             "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en {seconds} segundos."
+        },
+        "forms": {
+            "username": "Nombre de usuario",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "continue": "Continúa",
+            "date_of_birth": "Fecha de nacimiento",
+            "age": "Edad"
+        },
+        "general": {
+            "welcome": "Bienvenido",
+            "print": "Imprimir",
+            "search": "Busca en",
+            "add": "Añade",
+            "all_rights_reserved": "Todos los derechos reservados.",
+            "acknowledgement_licensing_and_cert": "Reconocimientos, licencias y certificaciones"
         },
         "languages": {
             "arabic": "عربي (árabe)",
@@ -4035,9 +4044,29 @@ export default {
             "turkish": "Turco",
             "ukrainian": "Ucraniano"
         },
+        "menu": {
+            "calendar": "Calendario",
+            "fees": "Tarifas",
+            "flow_board": "Tablero de flujo",
+            "help": "Ayuda",
+            "inventory": "Inventario",
+            "miscellaneous": "Miscelánea",
+            "patient_client": "Paciente/Cliente",
+            "popups": "Popups",
+            "procedures": "Procedimientos",
+            "qa_measures": "Medidas de control de calidad",
+            "reports": "Informes"
+        },
         "pagination": {
             "next": "Siguiente &raquo;",
             "previous": "&laquo; Anterior"
+        },
+        "passwords": {
+            "reset": "¡Tu contraseña ha sido restablecida!",
+            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
+            "throttled": "Por favor espera antes de intentar de nuevo.",
+            "token": "El token de recuperación de contraseña es inválido.",
+            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -4149,19 +4178,6 @@ export default {
             "uploaded": "This failed to upload.",
             "url": "This format is invalid.",
             "uuid": "This must be a valid UUID."
-        },
-        "menu": {
-            "calendar": "Calendario",
-            "fees": "Tarifas",
-            "flow_board": "Tablero de flujo",
-            "help": "Ayuda",
-            "inventory": "Inventario",
-            "miscellaneous": "Miscelánea",
-            "patient_client": "Paciente/Cliente",
-            "popups": "Popups",
-            "procedures": "Procedimientos",
-            "qa_measures": "Medidas de control de calidad",
-            "reports": "Informes"
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",
@@ -4310,32 +4326,9 @@ export default {
             "uploaded": "Subir {attribute} ha fallado.",
             "url": "El formato {attribute} es inválido.",
             "uuid": "El campo {attribute} debe ser un UUID válido."
-        },
-        "general": {
-            "welcome": "Bienvenido",
-            "print": "Imprimir",
-            "search": "Busca en",
-            "add": "Añade",
-            "all_rights_reserved": "Todos los derechos reservados.",
-            "acknowledgement_licensing_and_cert": "Reconocimientos, licencias y certificaciones"
-        },
-        "forms": {
-            "username": "Nombre de usuario",
-            "email": "Correo electrónico",
-            "password": "Contraseña",
-            "continue": "Continúa",
-            "date_of_birth": "Fecha de nacimiento",
-            "age": "Edad"
         }
     },
     "et": {
-        "passwords": {
-            "reset": "Sinu parool on lähtestatud!",
-            "sent": "Oleme saatnud sulle e-postiga parooli lähtestamise lingi!",
-            "throttled": "Please wait before retrying.",
-            "token": "See parooli lähtestamise tunnus on vigane.",
-            "user": "Ei suutnud leida sellise e-posti aadressiga kasutajat."
-        },
         "auth": {
             "failed": "Need andmed ei klapi meie kirjetega.",
             "throttle": "Liiga palju sisselogimise katseid. Palun proovi uuesti {seconds} sekundi pärast."
@@ -4343,6 +4336,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Eelmine",
             "next": "Järgmine &raquo;"
+        },
+        "passwords": {
+            "reset": "Sinu parool on lähtestatud!",
+            "sent": "Oleme saatnud sulle e-postiga parooli lähtestamise lingi!",
+            "throttled": "Please wait before retrying.",
+            "token": "See parooli lähtestamise tunnus on vigane.",
+            "user": "Ei suutnud leida sellise e-posti aadressiga kasutajat."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -4576,13 +4576,6 @@ export default {
         }
     },
     "eu": {
-        "passwords": {
-            "reset": "Zure pasahitza berrezarri da!",
-            "sent": "Zure pasahitza berrezartzeko esteka postaz bidali dizugu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Pasahitza berreskuratzeko tokena baliogabea da.",
-            "user": "Ezin izan dugu helbide elektroniko horrekin bat datorren erabiltzailerik aurkitu."
-        },
         "auth": {
             "failed": "Kredentzial hauek ez datoz bat gure erregistroekin.",
             "throttle": "Atzipen saialdi gehiegi. Mesedez berriro saiatu {seconds} segundo barru."
@@ -4590,6 +4583,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Aurrekoa",
             "next": "Hurrengoa &raquo;"
+        },
+        "passwords": {
+            "reset": "Zure pasahitza berrezarri da!",
+            "sent": "Zure pasahitza berrezartzeko esteka postaz bidali dizugu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Pasahitza berreskuratzeko tokena baliogabea da.",
+            "user": "Ezin izan dugu helbide elektroniko horrekin bat datorren erabiltzailerik aurkitu."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -4849,13 +4849,6 @@ export default {
         }
     },
     "fa": {
-        "passwords": {
-            "reset": "رمز عبور شما بازگردانی شد!",
-            "sent": "لینک بازگردانی رمز عبور به ایمیل شما ارسال شد.",
-            "throttled": "پیش از تلاش مجدد کمی صبر کنید.",
-            "token": "مشخصه‌ی بازگردانی رمز عبور معتبر نیست.",
-            "user": "ما کاربری با این نشانی ایمیل نداریم!"
-        },
         "auth": {
             "failed": "مشخصات وارد شده با اطلاعات ما سازگار نیست.",
             "throttle": "دفعات تلاش شما برای ورود بیش از حد مجاز است. لطفا پس از {seconds} ثانیه مجددا تلاش فرمایید."
@@ -4863,6 +4856,13 @@ export default {
         "pagination": {
             "previous": "&laquo; قبلی",
             "next": "بعدی &raquo;"
+        },
+        "passwords": {
+            "reset": "رمز عبور شما بازگردانی شد!",
+            "sent": "لینک بازگردانی رمز عبور به ایمیل شما ارسال شد.",
+            "throttled": "پیش از تلاش مجدد کمی صبر کنید.",
+            "token": "مشخصه‌ی بازگردانی رمز عبور معتبر نیست.",
+            "user": "ما کاربری با این نشانی ایمیل نداریم!"
         },
         "validation-inline": {
             "accepted": "این مقدار باید پذیرفته شده باشد.",
@@ -5118,13 +5118,6 @@ export default {
         }
     },
     "fi": {
-        "passwords": {
-            "reset": "Salasana on resetoitu!",
-            "sent": "Resetointilinkki lähetetty sähköpostitse!",
-            "throttled": "Odota, ennen kuin yrität uudelleen",
-            "token": "Resetointitunniste on viallinen.",
-            "user": "Sähköpostiosoitteella ei löydy käyttäjää."
-        },
         "auth": {
             "failed": "Kirjautuminen epäonnistui.",
             "throttle": "Liian monta kirjautumisyritystä. Yritä uudelleen {seconds} sekunnin kuluttua."
@@ -5132,6 +5125,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Edellinen",
             "next": "Seuraava &raquo;"
+        },
+        "passwords": {
+            "reset": "Salasana on resetoitu!",
+            "sent": "Resetointilinkki lähetetty sähköpostitse!",
+            "throttled": "Odota, ennen kuin yrität uudelleen",
+            "token": "Resetointitunniste on viallinen.",
+            "user": "Sähköpostiosoitteella ei löydy käyttäjää."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -5358,13 +5358,6 @@ export default {
         }
     },
     "fil": {
-        "passwords": {
-            "reset": "Your password has been reset!",
-            "sent": "We have emailed your password reset link!",
-            "throttled": "Please wait before retrying.",
-            "token": "This password reset token is invalid.",
-            "user": "We can't find a user with that email address."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -5372,6 +5365,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
+        },
+        "passwords": {
+            "reset": "Your password has been reset!",
+            "sent": "We have emailed your password reset link!",
+            "throttled": "Please wait before retrying.",
+            "token": "This password reset token is invalid.",
+            "user": "We can't find a user with that email address."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -5598,13 +5598,6 @@ export default {
         }
     },
     "fr": {
-        "passwords": {
-            "reset": "Votre mot de passe a été réinitialisé !",
-            "sent": "Nous vous avons envoyé par email le lien de réinitialisation du mot de passe !",
-            "throttled": "Veuillez patienter avant de réessayer.",
-            "token": "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
-            "user": "Aucun utilisateur n'a été trouvé avec cette adresse email."
-        },
         "auth": {
             "failed": "Identifiants invalide. Veuillez réessayer encore",
             "throttle": "Tentatives de connexion trop nombreuses. Veuillez essayer de nouveau dans {seconds} secondes.",
@@ -5614,6 +5607,41 @@ export default {
             "expired_page": "Votre session a expiré. Veuillez rafraîchir la page pour continuer.",
             "enter_password": "Veuillez saisir votre mot de passe",
             "login": "Connexion"
+        },
+        "forms": {
+            "username": "Nom d'utilisateur",
+            "email": "E-mail",
+            "password": "Mot de passe",
+            "continue": "Continuer",
+            "date_of_birth": "Date de naissance",
+            "age": "Âge",
+            "year": "An|Ans",
+            "month": "Mois|Mois",
+            "day": "Jour|Jours",
+            "hour": "Heure|Heures",
+            "minute": "Minute|Minutes",
+            "second": "Seconde|Secondes"
+        },
+        "general": {
+            "dashboard": " Tableau de bord",
+            "welcome": "Bienvenue",
+            "print": "Imprimer",
+            "search": "Recherchez",
+            "add": "Ajouter",
+            "error": "Erreur",
+            "success": "Succès",
+            "warning": "Alerte",
+            "info": "Info",
+            "all_rights_reserved": "Tous droits réservés.",
+            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications",
+            "no_such_patient": "Aucun patient existant",
+            "selected_encounter": "Choisir une rencontre",
+            "forgot_password": "Mot de passe oublié",
+            "reset_password": "Réinitialiser le mot de passe",
+            "verify_account": "Vérifier le compte",
+            "forgot_your_password": "Vous avez oublié votre mot de passe ?",
+            "click": "Cliquez",
+            "click_here": "Cliquez Ici"
         },
         "languages": {
             "english": "Anglais",
@@ -5631,9 +5659,29 @@ export default {
             "japanese": "Japonais",
             "chinese": "Chinois"
         },
+        "menu": {
+            "calendar": "Calendrier",
+            "flow_board": "Conseil d'administration",
+            "inventory": "Inventaire",
+            "fees": "Frais",
+            "patient_client": "Patient/Client",
+            "procedures": "Procédures",
+            "reports": "Rapports",
+            "miscellaneous": "Divers",
+            "popups": "Popups",
+            "qa_measures": "Mesures d'AQ",
+            "help": "Aide"
+        },
         "pagination": {
             "previous": "&laquo; Précédent",
             "next": "Suivant &raquo;"
+        },
+        "passwords": {
+            "reset": "Votre mot de passe a été réinitialisé !",
+            "sent": "Nous vous avons envoyé par email le lien de réinitialisation du mot de passe !",
+            "throttled": "Veuillez patienter avant de réessayer.",
+            "token": "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
+            "user": "Aucun utilisateur n'a été trouvé avec cette adresse email."
         },
         "validation-inline": {
             "accepted": "Ce champ doit être accepté.",
@@ -5777,19 +5825,6 @@ export default {
                 "size": "taille"
             }
         },
-        "menu": {
-            "calendar": "Calendrier",
-            "flow_board": "Conseil d'administration",
-            "inventory": "Inventaire",
-            "fees": "Frais",
-            "patient_client": "Patient/Client",
-            "procedures": "Procédures",
-            "reports": "Rapports",
-            "miscellaneous": "Divers",
-            "popups": "Popups",
-            "qa_measures": "Mesures d'AQ",
-            "help": "Aide"
-        },
         "validation": {
             "accepted": "Le champ {attribute} doit être accepté.",
             "active_url": "Le champ {attribute} n'est pas une URL valide.",
@@ -5931,51 +5966,9 @@ export default {
                 "available": "disponible",
                 "size": "taille"
             }
-        },
-        "general": {
-            "dashboard": " Tableau de bord",
-            "welcome": "Bienvenue",
-            "print": "Imprimer",
-            "search": "Recherchez",
-            "add": "Ajouter",
-            "error": "Erreur",
-            "success": "Succès",
-            "warning": "Alerte",
-            "info": "Info",
-            "all_rights_reserved": "Tous droits réservés.",
-            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications",
-            "no_such_patient": "Aucun patient existant",
-            "selected_encounter": "Choisir une rencontre",
-            "forgot_password": "Mot de passe oublié",
-            "reset_password": "Réinitialiser le mot de passe",
-            "verify_account": "Vérifier le compte",
-            "forgot_your_password": "Vous avez oublié votre mot de passe ?",
-            "click": "Cliquez",
-            "click_here": "Cliquez Ici"
-        },
-        "forms": {
-            "username": "Nom d'utilisateur",
-            "email": "E-mail",
-            "password": "Mot de passe",
-            "continue": "Continuer",
-            "date_of_birth": "Date de naissance",
-            "age": "Âge",
-            "year": "An|Ans",
-            "month": "Mois|Mois",
-            "day": "Jour|Jours",
-            "hour": "Heure|Heures",
-            "minute": "Minute|Minutes",
-            "second": "Seconde|Secondes"
         }
     },
     "gl": {
-        "passwords": {
-            "reset": "O teu contrasinal foi restablecido!",
-            "sent": "Enviámosche por correo electrónico o enlace para restablecer o teu contrasinal!",
-            "throttled": "Please wait before retrying.",
-            "token": "Este token de restablecemento do contrasinal non é válido.",
-            "user": "Non podemos encontrar un usuario con esa dirección de correo electrónico."
-        },
         "auth": {
             "failed": "Estas credenciais non coinciden cos nosos rexistros.",
             "throttle": "Demasiados intentos de acceso. Por favor, inténtao de novo en {seconds} segundos."
@@ -5983,6 +5976,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Anterior",
             "next": "Seguinte &raquo;"
+        },
+        "passwords": {
+            "reset": "O teu contrasinal foi restablecido!",
+            "sent": "Enviámosche por correo electrónico o enlace para restablecer o teu contrasinal!",
+            "throttled": "Please wait before retrying.",
+            "token": "Este token de restablecemento do contrasinal non é válido.",
+            "user": "Non podemos encontrar un usuario con esa dirección de correo electrónico."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6209,13 +6209,6 @@ export default {
         }
     },
     "he": {
-        "passwords": {
-            "reset": "הסיסמה אופסה!",
-            "sent": "קישור לאיפוס הסיסמה נשלח אליך באימייל",
-            "throttled": "אנא חכו לפני שתנסו שוב.",
-            "token": "אסימון איפוס הסיסמה הזה לא תקני.",
-            "user": "לא הצלחנו למצוא משתמש עם כתובת האימייל הזאת."
-        },
         "auth": {
             "failed": "פרטים אלה אינם תואמים את רישומינו.",
             "throttle": "ניסיונות כניסה רבים מדי. אנא נסו שוב בעוד {seconds} שניות."
@@ -6223,6 +6216,13 @@ export default {
         "pagination": {
             "previous": "&laquo; הקודם",
             "next": "הבא &raquo;"
+        },
+        "passwords": {
+            "reset": "הסיסמה אופסה!",
+            "sent": "קישור לאיפוס הסיסמה נשלח אליך באימייל",
+            "throttled": "אנא חכו לפני שתנסו שוב.",
+            "token": "אסימון איפוס הסיסמה הזה לא תקני.",
+            "user": "לא הצלחנו למצוא משתמש עם כתובת האימייל הזאת."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6449,13 +6449,6 @@ export default {
         }
     },
     "hi": {
-        "passwords": {
-            "reset": "आपका पासवर्ड रीसेट कर दिया गया है!",
-            "sent": "हमने आपको एक पासवर्ड रीसेट लिंक ई-मेल किया है!",
-            "throttled": "Please wait before retrying.",
-            "token": "यह पासवर्ड रीसेट टोकन अमान्य है।",
-            "user": "हमें उस ई-मेल पते के साथ एक उपयोगकर्ता नहीं मिल सकता है।"
-        },
         "auth": {
             "failed": "ये साख हमारे रिकॉर्ड से मेल नहीं खा रहे हैं।",
             "throttle": "बहुत सारे लॉगिन प्रयास। {seconds} सेकंड में फिर से कोशिश करें।"
@@ -6463,6 +6456,13 @@ export default {
         "pagination": {
             "previous": "&laquo; पिछला",
             "next": "अगला &raquo;"
+        },
+        "passwords": {
+            "reset": "आपका पासवर्ड रीसेट कर दिया गया है!",
+            "sent": "हमने आपको एक पासवर्ड रीसेट लिंक ई-मेल किया है!",
+            "throttled": "Please wait before retrying.",
+            "token": "यह पासवर्ड रीसेट टोकन अमान्य है।",
+            "user": "हमें उस ई-मेल पते के साथ एक उपयोगकर्ता नहीं मिल सकता है।"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6696,13 +6696,6 @@ export default {
         }
     },
     "hr": {
-        "passwords": {
-            "reset": "Lozinka je postavljena!",
-            "sent": "Poveznica za ponovono postavljanje lozinke je poslana!",
-            "throttled": "Please wait before retrying.",
-            "token": "Oznaka za ponovno postavljanje lozinke više nije važeća.",
-            "user": "Korisnik nije pronađen."
-        },
         "auth": {
             "failed": "Ovi podaci ne odgovaraju našima.",
             "throttle": "Previše pokušaja prijave. Molim Vas pokušajte ponovno za {seconds} sekundi."
@@ -6710,6 +6703,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Prethodna",
             "next": "Sljedeća &raquo;"
+        },
+        "passwords": {
+            "reset": "Lozinka je postavljena!",
+            "sent": "Poveznica za ponovono postavljanje lozinke je poslana!",
+            "throttled": "Please wait before retrying.",
+            "token": "Oznaka za ponovno postavljanje lozinke više nije važeća.",
+            "user": "Korisnik nije pronađen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6936,13 +6936,6 @@ export default {
         }
     },
     "hu": {
-        "passwords": {
-            "reset": "Az új jelszó beállítva!",
-            "sent": "Jelszó-emlékeztető elküldve!",
-            "throttled": "Kérjük várjon, mielőtt újra megpróbálná.",
-            "token": "Ez az új jelszó generálásához tartozó token érvénytelen.",
-            "user": "Nem található felhasználó a megadott email címmel."
-        },
         "auth": {
             "failed": "Rossz email-jelszó páros.",
             "throttle": "Túl sok próbálkozás. Kérjük próbálja újra {seconds} másodperc múlva."
@@ -6950,6 +6943,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Előző",
             "next": "Következő &raquo;"
+        },
+        "passwords": {
+            "reset": "Az új jelszó beállítva!",
+            "sent": "Jelszó-emlékeztető elküldve!",
+            "throttled": "Kérjük várjon, mielőtt újra megpróbálná.",
+            "token": "Ez az új jelszó generálásához tartozó token érvénytelen.",
+            "user": "Nem található felhasználó a megadott email címmel."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7179,13 +7179,6 @@ export default {
         }
     },
     "hy": {
-        "passwords": {
-            "reset": "Ձեր գաղտնաբառը վերականգնվել է",
-            "sent": "Ձեր գաղտնաբառի վերականգնման հղումն ուղարկվել է ձեր Էլ․ հասցեին",
-            "throttled": "Խնդրում ենք սպասել նախքան կրկին փորձելը։",
-            "token": "Գաղտնաբառի վերականգնման կոդը սխալ է։",
-            "user": "Տվյալ Էլ․ հասցեով օգտատեր չի գտնվել։"
-        },
         "auth": {
             "failed": "Մուտքագրված տվյալները սխալ են։",
             "throttle": "Չափազանց շատ մուտք գործելու փորձեր։ Խնդրում ենք փորձել կրկին {seconds} վայրկյան անց։"
@@ -7193,6 +7186,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Նախորդ",
             "next": "Հաջորդ &raquo;"
+        },
+        "passwords": {
+            "reset": "Ձեր գաղտնաբառը վերականգնվել է",
+            "sent": "Ձեր գաղտնաբառի վերականգնման հղումն ուղարկվել է ձեր Էլ․ հասցեին",
+            "throttled": "Խնդրում ենք սպասել նախքան կրկին փորձելը։",
+            "token": "Գաղտնաբառի վերականգնման կոդը սխալ է։",
+            "user": "Տվյալ Էլ․ հասցեով օգտատեր չի գտնվել։"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7449,13 +7449,6 @@ export default {
         }
     },
     "id": {
-        "passwords": {
-            "reset": "Kata sandi Anda sudah direset!",
-            "sent": "Kami sudah mengirim surel yang berisi tautan untuk mereset kata sandi Anda!",
-            "throttled": "Harap tunggu sebelum mencoba lagi.",
-            "token": "Token pengaturan ulang kata sandi tidak sah.",
-            "user": "Kami tidak dapat menemukan pengguna dengan alamat surel tersebut."
-        },
         "auth": {
             "failed": "Identitas tersebut tidak cocok dengan data kami.",
             "throttle": "Terlalu banyak usaha masuk. Silahkan coba lagi dalam {seconds} detik."
@@ -7463,6 +7456,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Sebelumnya",
             "next": "Berikutnya &raquo;"
+        },
+        "passwords": {
+            "reset": "Kata sandi Anda sudah direset!",
+            "sent": "Kami sudah mengirim surel yang berisi tautan untuk mereset kata sandi Anda!",
+            "throttled": "Harap tunggu sebelum mencoba lagi.",
+            "token": "Token pengaturan ulang kata sandi tidak sah.",
+            "user": "Kami tidak dapat menemukan pengguna dengan alamat surel tersebut."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7689,13 +7689,6 @@ export default {
         }
     },
     "is": {
-        "passwords": {
-            "reset": "Lykilorðið þitt hefur verið endurstillt!",
-            "sent": "Við sendum þér tölvupóst með slóð til að endurheimta lykilorðið þitt.",
-            "throttled": "Please wait before retrying.",
-            "token": "Kóðinn til að endurheimta lykilorðið er rangur.",
-            "user": "Notandi með þetta netfang finnst ekki."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -7703,6 +7696,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Fyrri",
             "next": "Næsta &raquo;"
+        },
+        "passwords": {
+            "reset": "Lykilorðið þitt hefur verið endurstillt!",
+            "sent": "Við sendum þér tölvupóst með slóð til að endurheimta lykilorðið þitt.",
+            "throttled": "Please wait before retrying.",
+            "token": "Kóðinn til að endurheimta lykilorðið er rangur.",
+            "user": "Notandi með þetta netfang finnst ekki."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7959,16 +7959,25 @@ export default {
         }
     },
     "it": {
-        "passwords": {
-            "reset": "La password è stata reimpostata!",
-            "sent": "Promemoria della password inviato!",
-            "throttled": "Per favore attendi prima di riprovare.",
-            "token": "Questo token per la reimpostazione della password non è valido.",
-            "user": "Non esiste un utente associato a questo indirizzo e-mail."
-        },
         "auth": {
             "failed": "Credenziali non corrispondenti ai dati registrati.",
             "throttle": "Troppi tentativi di accesso. Riprova tra {seconds} secondi."
+        },
+        "forms": {
+            "username": "Nome utente",
+            "email": "E-mail",
+            "password": "Password",
+            "continue": "Continua",
+            "date_of_birth": "Data di nascita",
+            "age": "Età"
+        },
+        "general": {
+            "welcome": "Benvenuti a",
+            "print": "Stampa",
+            "search": "Ricerca",
+            "add": "Aggiungi",
+            "all_rights_reserved": "Tutti i diritti riservati.",
+            "acknowledgement_licensing_and_cert": "Riconoscimenti, licenze e certificazioni"
         },
         "languages": {
             "english": "Inglese",
@@ -7986,9 +7995,29 @@ export default {
             "japanese": "Giapponese",
             "chinese": "Cinese"
         },
+        "menu": {
+            "calendar": "Calendario",
+            "flow_board": "Bordo di flusso",
+            "inventory": "Inventario",
+            "fees": "Tariffe",
+            "patient_client": "Paziente/Cliente",
+            "procedures": "Procedure",
+            "reports": "Rapporti",
+            "miscellaneous": "Varie",
+            "popups": "Popups",
+            "qa_measures": "Misure di AQ",
+            "help": "Aiuto"
+        },
         "pagination": {
             "previous": "&laquo; Precedente",
             "next": "Successivo &raquo;"
+        },
+        "passwords": {
+            "reset": "La password è stata reimpostata!",
+            "sent": "Promemoria della password inviato!",
+            "throttled": "Per favore attendi prima di riprovare.",
+            "token": "Questo token per la reimpostazione della password non è valido.",
+            "user": "Non esiste un utente associato a questo indirizzo e-mail."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8100,19 +8129,6 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
-        },
-        "menu": {
-            "calendar": "Calendario",
-            "flow_board": "Bordo di flusso",
-            "inventory": "Inventario",
-            "fees": "Tariffe",
-            "patient_client": "Paziente/Cliente",
-            "procedures": "Procedure",
-            "reports": "Rapporti",
-            "miscellaneous": "Varie",
-            "popups": "Popups",
-            "qa_measures": "Misure di AQ",
-            "help": "Aiuto"
         },
         "validation": {
             "accepted": "{attribute} deve essere accettato.",
@@ -8253,35 +8269,28 @@ export default {
                 "available": "disponibile",
                 "size": "dimensione"
             }
-        },
-        "general": {
-            "welcome": "Benvenuti a",
-            "print": "Stampa",
-            "search": "Ricerca",
-            "add": "Aggiungi",
-            "all_rights_reserved": "Tutti i diritti riservati.",
-            "acknowledgement_licensing_and_cert": "Riconoscimenti, licenze e certificazioni"
-        },
-        "forms": {
-            "username": "Nome utente",
-            "email": "E-mail",
-            "password": "Password",
-            "continue": "Continua",
-            "date_of_birth": "Data di nascita",
-            "age": "Età"
         }
     },
     "jp": {
-        "passwords": {
-            "reset": "パスワードをリセットしました。",
-            "sent": "パスワードリマインダーを送信しました。",
-            "throttled": "時間を置いて再度お試しください。",
-            "token": "このパスワードリセットトークンは無効です。",
-            "user": "このメールアドレスに一致するユーザーを見つけることが出来ませんでした。"
-        },
         "auth": {
             "failed": "認証情報と一致するレコードがありません。",
             "throttle": "ログインの試行回数が多すぎます。{seconds} 秒後にお試しください。"
+        },
+        "forms": {
+            "username": "ユーザー名",
+            "email": "電子メール",
+            "password": "パスワード",
+            "continue": "続ける",
+            "date_of_birth": "生年月日",
+            "age": "年齢"
+        },
+        "general": {
+            "welcome": "歓迎",
+            "print": "印刷",
+            "search": "検索",
+            "add": "追加",
+            "all_rights_reserved": "すべての権利は予約されています。",
+            "acknowledgement_licensing_and_cert": "謝辞、ライセンス、認証"
         },
         "languages": {
             "english": "英語",
@@ -8299,9 +8308,29 @@ export default {
             "japanese": "にほんご",
             "chinese": "ちゅうごく"
         },
+        "menu": {
+            "calendar": "カレンダー",
+            "flow_board": "フローボード",
+            "inventory": "インベントリ",
+            "fees": "料金",
+            "patient_client": "患者/クライアント",
+            "procedures": "手続き",
+            "reports": "報告書",
+            "miscellaneous": "その他",
+            "popups": "ポップアップ",
+            "qa_measures": "品質保証対策",
+            "help": "ヘルプ"
+        },
         "pagination": {
             "previous": "&laquo; 前",
             "next": "次 &raquo;"
+        },
+        "passwords": {
+            "reset": "パスワードをリセットしました。",
+            "sent": "パスワードリマインダーを送信しました。",
+            "throttled": "時間を置いて再度お試しください。",
+            "token": "このパスワードリセットトークンは無効です。",
+            "user": "このメールアドレスに一致するユーザーを見つけることが出来ませんでした。"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8414,19 +8443,6 @@ export default {
                 }
             }
         },
-        "menu": {
-            "calendar": "カレンダー",
-            "flow_board": "フローボード",
-            "inventory": "インベントリ",
-            "fees": "料金",
-            "patient_client": "患者/クライアント",
-            "procedures": "手続き",
-            "reports": "報告書",
-            "miscellaneous": "その他",
-            "popups": "ポップアップ",
-            "qa_measures": "品質保証対策",
-            "help": "ヘルプ"
-        },
         "validation": {
             "accepted": "{attribute}を承認してください。",
             "active_url": "{attribute}は、有効なURLではありません。",
@@ -8538,32 +8554,9 @@ export default {
                 }
             },
             "attributes": []
-        },
-        "general": {
-            "welcome": "歓迎",
-            "print": "印刷",
-            "search": "検索",
-            "add": "追加",
-            "all_rights_reserved": "すべての権利は予約されています。",
-            "acknowledgement_licensing_and_cert": "謝辞、ライセンス、認証"
-        },
-        "forms": {
-            "username": "ユーザー名",
-            "email": "電子メール",
-            "password": "パスワード",
-            "continue": "続ける",
-            "date_of_birth": "生年月日",
-            "age": "年齢"
         }
     },
     "ka": {
-        "passwords": {
-            "reset": "თქვენი პაროლი განახლებულია!",
-            "sent": "თქვენს ელ.ფოსტაზე მიიღებთ პაროლის განახლების ბმულს!",
-            "throttled": "Please wait before retrying.",
-            "token": "პაროლის განახლების კოდი არასწორია.",
-            "user": "მომხმარებელი ამ მონაცემებით არ არსებობს."
-        },
         "auth": {
             "failed": "მომხმარებელი ამ მონაცემებით არ არსებობს.",
             "throttle": "წარუმატებელი ავტორიზაცია. გთხოვთ, სცადოთ {seconds} წამში."
@@ -8571,6 +8564,13 @@ export default {
         "pagination": {
             "previous": "&laquo; წინა",
             "next": "შემდეგი &raquo;"
+        },
+        "passwords": {
+            "reset": "თქვენი პაროლი განახლებულია!",
+            "sent": "თქვენს ელ.ფოსტაზე მიიღებთ პაროლის განახლების ბმულს!",
+            "throttled": "Please wait before retrying.",
+            "token": "პაროლის განახლების კოდი არასწორია.",
+            "user": "მომხმარებელი ამ მონაცემებით არ არსებობს."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8797,13 +8797,6 @@ export default {
         }
     },
     "kk": {
-        "passwords": {
-            "reset": "Құпия сөзіңіз қайта орнатылды!",
-            "sent": "Сізге құпия сөзді қайта орнату сілтемесін жібердік!",
-            "throttled": "Please wait before retrying.",
-            "token": "Осы құпиясөзді қайта орнату таңбалауышы жарамсыз.",
-            "user": "Бұл электрондық поштамен ешбір пайдаланушыны таба алмадық."
-        },
         "auth": {
             "failed": "Тіркелгі деректері біздің жазбаларымызға сай емес.",
             "throttle": "Кіру әрекеті тым көп болды. {seconds} секундтан соң қайталап көріңіз."
@@ -8811,6 +8804,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Алдыңғы",
             "next": "Келесі &raquo;"
+        },
+        "passwords": {
+            "reset": "Құпия сөзіңіз қайта орнатылды!",
+            "sent": "Сізге құпия сөзді қайта орнату сілтемесін жібердік!",
+            "throttled": "Please wait before retrying.",
+            "token": "Осы құпиясөзді қайта орнату таңбалауышы жарамсыз.",
+            "user": "Бұл электрондық поштамен ешбір пайдаланушыны таба алмадық."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9067,13 +9067,6 @@ export default {
         }
     },
     "km": {
-        "passwords": {
-            "reset": "Password has been reset!",
-            "sent": "ពាក្យសម្ងាត់ដែលបានរំលឹកបានផ្ញើរួចរាល់!",
-            "throttled": "Please wait before retrying.",
-            "token": "ពាក្យសម្ងាត់ដែលកំណត់ឡើងវិញគឺមិនត្រឹមត្រូវទេ។",
-            "user": "យើងមិនអាចរកឃើញអ្នកប្រើដែលមានអាសយដ្ឋានអ៊ីមែលមួយនេះទេ។"
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -9081,6 +9074,13 @@ export default {
         "pagination": {
             "previous": "&laquo; មុន",
             "next": "បន្ទាប់ &raquo;"
+        },
+        "passwords": {
+            "reset": "Password has been reset!",
+            "sent": "ពាក្យសម្ងាត់ដែលបានរំលឹកបានផ្ញើរួចរាល់!",
+            "throttled": "Please wait before retrying.",
+            "token": "ពាក្យសម្ងាត់ដែលកំណត់ឡើងវិញគឺមិនត្រឹមត្រូវទេ។",
+            "user": "យើងមិនអាចរកឃើញអ្នកប្រើដែលមានអាសយដ្ឋានអ៊ីមែលមួយនេះទេ។"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9307,13 +9307,6 @@ export default {
         }
     },
     "kn": {
-        "passwords": {
-            "reset": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ!",
-            "sent": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ನಾವು ಇ-ಮೇಲ್ ಮಾಡಿದ್ದೇವೆ!",
-            "throttled": "Please wait before retrying.",
-            "token": "ಈ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಟೋಕನ್ ಅಮಾನ್ಯವಾಗಿದೆ.",
-            "user": "ಆ ಇ-ಮೇಲ್ ವಿಳಾಸದೊಂದಿಗೆ ನಾವು ಒಬ್ಬ ಬಳಕೆದಾರನನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ."
-        },
         "auth": {
             "failed": "ಈ ರುಜುವಾತುಗಳು ನಮ್ಮ ದಾಖಲೆಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.",
             "throttle": "ಹಲವಾರು ಲಾಗಿನ್ ಪ್ರಯತ್ನಗಳು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ {seconds}\t ಸೆಕೆಂಡುಗಳಲ್ಲಿ"
@@ -9321,6 +9314,13 @@ export default {
         "pagination": {
             "previous": "&laquo; ಹಿಂದಿನ",
             "next": "ಮುಂದಿನ &raquo;"
+        },
+        "passwords": {
+            "reset": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ!",
+            "sent": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ನಾವು ಇ-ಮೇಲ್ ಮಾಡಿದ್ದೇವೆ!",
+            "throttled": "Please wait before retrying.",
+            "token": "ಈ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಟೋಕನ್ ಅಮಾನ್ಯವಾಗಿದೆ.",
+            "user": "ಆ ಇ-ಮೇಲ್ ವಿಳಾಸದೊಂದಿಗೆ ನಾವು ಒಬ್ಬ ಬಳಕೆದಾರನನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9577,13 +9577,6 @@ export default {
         }
     },
     "ko": {
-        "passwords": {
-            "reset": "비밀번호가 변경되었습니다!",
-            "sent": "비밀번호 재설정 링크를 이메일로 전송했습니다!",
-            "throttled": "잠시 후 다시 시도해주세요.",
-            "token": "해당 비밀번호 재설정 토큰이 유효하지 않습니다.",
-            "user": "해당 이메일을 사용하는 사용자를 찾을 수 없습니다."
-        },
         "auth": {
             "failed": "제출된 인증 정보가 레코드와 일치하지 않습니다.",
             "throttle": "너무 많은 로그인을 시도하였습니다. {seconds} 초 후에 다시 시도하십시요."
@@ -9591,6 +9584,13 @@ export default {
         "pagination": {
             "previous": "&laquo; 이전",
             "next": "다음 &raquo;"
+        },
+        "passwords": {
+            "reset": "비밀번호가 변경되었습니다!",
+            "sent": "비밀번호 재설정 링크를 이메일로 전송했습니다!",
+            "throttled": "잠시 후 다시 시도해주세요.",
+            "token": "해당 비밀번호 재설정 토큰이 유효하지 않습니다.",
+            "user": "해당 이메일을 사용하는 사용자를 찾을 수 없습니다."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9817,13 +9817,6 @@ export default {
         }
     },
     "lt": {
-        "passwords": {
-            "reset": "Nustatytas naujas slaptažodis!",
-            "sent": "Naujo slaptažodžio nustatymo nuoroda išsiųsta",
-            "throttled": "Palaukite prieš tęsdami.",
-            "token": "Šis slaptažodžio raktas yra neteisingas.",
-            "user": "Vartotojas su tokiu el. paštu nerastas."
-        },
         "auth": {
             "failed": "Prisijungimo duomenys neatitinka.",
             "throttle": "Per daug bandymų prisijungti. Bandykite po {seconds} sec."
@@ -9831,6 +9824,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Ankstesnis",
             "next": "Kitas &raquo;"
+        },
+        "passwords": {
+            "reset": "Nustatytas naujas slaptažodis!",
+            "sent": "Naujo slaptažodžio nustatymo nuoroda išsiųsta",
+            "throttled": "Palaukite prieš tęsdami.",
+            "token": "Šis slaptažodžio raktas yra neteisingas.",
+            "user": "Vartotojas su tokiu el. paštu nerastas."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10057,13 +10057,6 @@ export default {
         }
     },
     "lv": {
-        "passwords": {
-            "reset": "Jūsu parole ir atjaunināta!",
-            "sent": "Mēs nosūtījām paroles maiņas linku uz jūsu e-pastu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Šāda zīme pie paroles maiņas nav atļauta.",
-            "user": "Mēs nevaram atrast lietotāju ar tādu e-pasta adresi."
-        },
         "auth": {
             "failed": "Šie dati neatbilst mūsu reģistram.",
             "throttle": "Pārāk daudz pieteikšanās mēģinājumu. Lūdzu mēģiniet vēlreiz pēc {seconds} sekundēm."
@@ -10071,6 +10064,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Iepriekšējais",
             "next": "Nākamais &raquo;"
+        },
+        "passwords": {
+            "reset": "Jūsu parole ir atjaunināta!",
+            "sent": "Mēs nosūtījām paroles maiņas linku uz jūsu e-pastu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Šāda zīme pie paroles maiņas nav atļauta.",
+            "user": "Mēs nevaram atrast lietotāju ar tādu e-pasta adresi."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10297,13 +10297,6 @@ export default {
         }
     },
     "me": {
-        "passwords": {
-            "reset": "Vaš password je resetovan!",
-            "sent": "Poslali smo Vam link za reset Vašeg password-a!",
-            "throttled": "Please wait before retrying.",
-            "token": "Token za reset ovog passworda nije validan.",
-            "user": "Ne možemo naći korisnika sa unijetom email adresom."
-        },
         "auth": {
             "failed": "Neispravan username i/ili password.",
             "throttle": "Previše neuspješnih pokušaja. Probajte ponovo za {seconds} sekundi."
@@ -10311,6 +10304,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Prethodna",
             "next": "Sledeća &raquo;"
+        },
+        "passwords": {
+            "reset": "Vaš password je resetovan!",
+            "sent": "Poslali smo Vam link za reset Vašeg password-a!",
+            "throttled": "Please wait before retrying.",
+            "token": "Token za reset ovog passworda nije validan.",
+            "user": "Ne možemo naći korisnika sa unijetom email adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10567,13 +10567,6 @@ export default {
         }
     },
     "mk": {
-        "passwords": {
-            "reset": "Password has been reset!",
-            "sent": "Испратен емаил со инструкции за ресетирање на лозинка!",
-            "throttled": "Please wait before retrying.",
-            "token": "Невалиден токен за ресетирање на лозинката.",
-            "user": "Не може да се пронајде корисник со таква емаил адреса."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -10581,6 +10574,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Напред &raquo;"
+        },
+        "passwords": {
+            "reset": "Password has been reset!",
+            "sent": "Испратен емаил со инструкции за ресетирање на лозинка!",
+            "throttled": "Please wait before retrying.",
+            "token": "Невалиден токен за ресетирање на лозинката.",
+            "user": "Не може да се пронајде корисник со таква емаил адреса."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10807,13 +10807,6 @@ export default {
         }
     },
     "mn": {
-        "passwords": {
-            "reset": "Таний нууц үг шинэчлэгдсэн!",
-            "sent": "Нууц үг сэргээх холбоосийг таний и-мэйл хаяг уруу явуулсан!",
-            "throttled": "Please wait before retrying.",
-            "token": "Алдаатай нууц үг сэргээх холбоос.",
-            "user": "Ийм и-мэйл хаягтай хэрэглэгч олдсонгүй."
-        },
         "auth": {
             "failed": "Хэрэглэгчийн нэр эсвэл нууц үг буруу.",
             "throttle": "Олон удаагийн буруу оролдого. {seconds} секундийн дараа дахин оролдоно уу."
@@ -10821,6 +10814,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Өмнөх",
             "next": "Дараах &raquo;"
+        },
+        "passwords": {
+            "reset": "Таний нууц үг шинэчлэгдсэн!",
+            "sent": "Нууц үг сэргээх холбоосийг таний и-мэйл хаяг уруу явуулсан!",
+            "throttled": "Please wait before retrying.",
+            "token": "Алдаатай нууц үг сэргээх холбоос.",
+            "user": "Ийм и-мэйл хаягтай хэрэглэгч олдсонгүй."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11047,13 +11047,6 @@ export default {
         }
     },
     "mr": {
-        "passwords": {
-            "reset": "आपला पासवर्ड पुनर्रचीत केला गेला आहे.",
-            "sent": "आपल्याला पासवर्ड पुनर्रचीत करायचा मेल केला गेला आहे.",
-            "throttled": "Please wait before retrying.",
-            "token": "आपला पासवर्ड पुनर्रचीत करायचे टोकं अवैध नाही.",
-            "user": "या ई-मेल वर कोणतेही खाते उपलब्ध नाही."
-        },
         "auth": {
             "failed": "हे खाते वैध नाही.",
             "throttle": "प्रवेशाचा जास्त वेळा प्रयत्न. {seconds} सेकंड नंतर पुन्हा प्रयत्न करा."
@@ -11061,6 +11054,13 @@ export default {
         "pagination": {
             "previous": "&laquo; मागचा",
             "next": "पुढचा &raquo;"
+        },
+        "passwords": {
+            "reset": "आपला पासवर्ड पुनर्रचीत केला गेला आहे.",
+            "sent": "आपल्याला पासवर्ड पुनर्रचीत करायचा मेल केला गेला आहे.",
+            "throttled": "Please wait before retrying.",
+            "token": "आपला पासवर्ड पुनर्रचीत करायचे टोकं अवैध नाही.",
+            "user": "या ई-मेल वर कोणतेही खाते उपलब्ध नाही."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11294,13 +11294,6 @@ export default {
         }
     },
     "ms": {
-        "passwords": {
-            "reset": "Kata laluan anda telah ditetapkan semula!",
-            "sent": "Kami telah e-mel pautan set semula kata laluan anda!",
-            "throttled": "Please wait before retrying.",
-            "token": "Token set semula kata laluan ini tidak sah.",
-            "user": "Kami tidak dapat mencari pengguna dengan alamat e-mel tersebut."
-        },
         "auth": {
             "failed": "Butiran ini tidak sepadan dengan rekod kami.",
             "throttle": "Terlalu banyak percubaan log masuk. Sila cuba lagi dalam {seconds} saat."
@@ -11308,6 +11301,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Sebelumnya",
             "next": "Seterusnya &raquo;"
+        },
+        "passwords": {
+            "reset": "Kata laluan anda telah ditetapkan semula!",
+            "sent": "Kami telah e-mel pautan set semula kata laluan anda!",
+            "throttled": "Please wait before retrying.",
+            "token": "Token set semula kata laluan ini tidak sah.",
+            "user": "Kami tidak dapat mencari pengguna dengan alamat e-mel tersebut."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11534,13 +11534,6 @@ export default {
         }
     },
     "nb": {
-        "passwords": {
-            "reset": "Passordet ditt har blitt nullstilt!",
-            "sent": "Vi har sendt din lenke for å nullstille passordet!",
-            "throttled": "Vennligst vent før du prøver på nytt.",
-            "token": "Denne koden for å nullstille passordet er ugyldig.",
-            "user": "Vi kan ikke finne en bruker med den e-postadressen."
-        },
         "auth": {
             "failed": "Disse opplysningene samsvarer ikke med hva vi har lagret.",
             "throttle": "For mange innloggingsforsøk. Vennligst prøv igjen om {seconds} sekunder."
@@ -11548,6 +11541,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Forrige",
             "next": "Neste &raquo;"
+        },
+        "passwords": {
+            "reset": "Passordet ditt har blitt nullstilt!",
+            "sent": "Vi har sendt din lenke for å nullstille passordet!",
+            "throttled": "Vennligst vent før du prøver på nytt.",
+            "token": "Denne koden for å nullstille passordet er ugyldig.",
+            "user": "Vi kan ikke finne en bruker med den e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11774,13 +11774,6 @@ export default {
         }
     },
     "ne": {
-        "passwords": {
-            "reset": "पासवर्ड रिसेट भयो!",
-            "sent": "हामीले पासवर्ड परिवर्तन गर्ने लिंक ईमेलमा पठाएका छौ!",
-            "throttled": "पुन: प्रयास गर्नु अघि कृपया प्रतीक्षा गर्नुहोस्.",
-            "token": "यो पासवर्ड रिसेट गर्ने टोकन अमान्य छ।",
-            "user": "दिइएको ईमेल प्रयोगकर्ता भेटिएन।"
-        },
         "auth": {
             "failed": "यी प्रमाणहरू हाम्रो रेकर्ड संग मेल खादैनन्।",
             "throttle": "धेरै लगिन प्रयास भयो {seconds} सेकेन्ड पछि फेरि प्रयास गर्नुहोस्।"
@@ -11788,6 +11781,13 @@ export default {
         "pagination": {
             "previous": "&laquo; अघिल्लो",
             "next": "अर्को &raquo;"
+        },
+        "passwords": {
+            "reset": "पासवर्ड रिसेट भयो!",
+            "sent": "हामीले पासवर्ड परिवर्तन गर्ने लिंक ईमेलमा पठाएका छौ!",
+            "throttled": "पुन: प्रयास गर्नु अघि कृपया प्रतीक्षा गर्नुहोस्.",
+            "token": "यो पासवर्ड रिसेट गर्ने टोकन अमान्य छ।",
+            "user": "दिइएको ईमेल प्रयोगकर्ता भेटिएन।"
         },
         "validation-inline": {
             "accepted": "यो क्षेत्र स्वीकार गर्नु पर्छ।",
@@ -12014,13 +12014,6 @@ export default {
         }
     },
     "nl": {
-        "passwords": {
-            "reset": "Het wachtwoord van uw account is gewijzigd.",
-            "sent": "We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.",
-            "throttled": "Gelieve even te wachten voor u het opnieuw probeert.",
-            "token": "Dit wachtwoordhersteltoken is niet geldig.",
-            "user": "Geen gebruiker bekend met het e-mailadres."
-        },
         "auth": {
             "failed": "Deze combinatie van e-mailadres en wachtwoord is niet geldig.",
             "throttle": "Te veel mislukte loginpogingen. Probeer het over {seconds} seconden nogmaals."
@@ -12028,6 +12021,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Vorige",
             "next": "Volgende &raquo;"
+        },
+        "passwords": {
+            "reset": "Het wachtwoord van uw account is gewijzigd.",
+            "sent": "We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.",
+            "throttled": "Gelieve even te wachten voor u het opnieuw probeert.",
+            "token": "Dit wachtwoordhersteltoken is niet geldig.",
+            "user": "Geen gebruiker bekend met het e-mailadres."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -12296,13 +12296,6 @@ export default {
         }
     },
     "nn": {
-        "passwords": {
-            "reset": "Passordet vart endra!",
-            "sent": "Vi har sendt deg ei lenke du kan klikke på for å endre passordet ditt!",
-            "throttled": "Please wait before retrying.",
-            "token": "Koden for å nullstille passord er ikkje gyldig.",
-            "user": "Vi finn ingen brukarar med denne e-postadressen."
-        },
         "auth": {
             "failed": "Brukarnamn og/eller passord er feil.",
             "throttle": "For mange innloggingsforsøk. Ver venleg og prøv på nytt om {seconds} sekund."
@@ -12310,6 +12303,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Førre",
             "next": "Neste &raquo;"
+        },
+        "passwords": {
+            "reset": "Passordet vart endra!",
+            "sent": "Vi har sendt deg ei lenke du kan klikke på for å endre passordet ditt!",
+            "throttled": "Please wait before retrying.",
+            "token": "Koden for å nullstille passord er ikkje gyldig.",
+            "user": "Vi finn ingen brukarar med denne e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -12536,13 +12536,6 @@ export default {
         }
     },
     "pl": {
-        "passwords": {
-            "reset": "Hasło zostało zresetowane!",
-            "sent": "Przypomnienie hasła zostało wysłane!",
-            "throttled": "Proszę zaczekać zanim spróbujesz ponownie.",
-            "token": "Token resetowania hasła jest nieprawidłowy.",
-            "user": "Nie znaleziono użytkownika z takim adresem e-mail."
-        },
         "auth": {
             "failed": "Błędny login lub hasło.",
             "throttle": "Za dużo nieudanych prób logowania. Proszę spróbować za {seconds} sekund."
@@ -12550,6 +12543,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Poprzednia",
             "next": "Następna &raquo;"
+        },
+        "passwords": {
+            "reset": "Hasło zostało zresetowane!",
+            "sent": "Przypomnienie hasła zostało wysłane!",
+            "throttled": "Proszę zaczekać zanim spróbujesz ponownie.",
+            "token": "Token resetowania hasła jest nieprawidłowy.",
+            "user": "Nie znaleziono użytkownika z takim adresem e-mail."
         },
         "validation-inline": {
             "accepted": "Pole musi zostać zaakceptowane.",
@@ -12776,13 +12776,6 @@ export default {
         }
     },
     "ps": {
-        "passwords": {
-            "reset": "ما خپل پاسورډ جوړ کړی دی",
-            "sent": "د پاسورډ یادونې لیږل شوی.",
-            "throttled": "Please wait before retrying.",
-            "token": "د دې کارن د بیاکتنې نښه ناباوره ده.",
-            "user": "د کاروونکي د برېښناليک پتې سره کارن ونه موندل شو."
-        },
         "auth": {
             "failed": "داسې ریکارډ شتون نلري چې د اعتبار معلومات سره سمون لري.",
             "throttle": "دلته ډیر د ننوتلو هڅې شتون لري.{seconds} لطفا د دویمې برخې وروسته هڅه وکړئ."
@@ -12790,6 +12783,13 @@ export default {
         "pagination": {
             "previous": "&laquo; مخکې",
             "next": "بل &raquo;"
+        },
+        "passwords": {
+            "reset": "ما خپل پاسورډ جوړ کړی دی",
+            "sent": "د پاسورډ یادونې لیږل شوی.",
+            "throttled": "Please wait before retrying.",
+            "token": "د دې کارن د بیاکتنې نښه ناباوره ده.",
+            "user": "د کاروونکي د برېښناليک پتې سره کارن ونه موندل شو."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -13046,13 +13046,6 @@ export default {
         }
     },
     "pt": {
-        "passwords": {
-            "reset": "A palavra-passe foi redefinida!",
-            "sent": "O lembrete para a palavra-passe foi enviado!",
-            "throttled": "Por favor aguarde, antes de tentar novamente.",
-            "token": "Este código de recuperação da palavra-passe é inválido.",
-            "user": "Não existe nenhum utilizador com o e-mail indicado."
-        },
         "auth": {
             "failed": "As credenciais indicadas não coincidem com as registadas no sistema.",
             "throttle": "O número limite de tentativas de login foi atingido. Por favor tente novamente dentro de {seconds} segundos."
@@ -13060,6 +13053,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Anterior",
             "next": "Próxima &raquo;"
+        },
+        "passwords": {
+            "reset": "A palavra-passe foi redefinida!",
+            "sent": "O lembrete para a palavra-passe foi enviado!",
+            "throttled": "Por favor aguarde, antes de tentar novamente.",
+            "token": "Este código de recuperação da palavra-passe é inválido.",
+            "user": "Não existe nenhum utilizador com o e-mail indicado."
         },
         "validation-inline": {
             "accepted": "Este campo deve ser aceite.",
@@ -13286,13 +13286,6 @@ export default {
         }
     },
     "pt_BR": {
-        "passwords": {
-            "reset": "Sua senha foi redefinida!",
-            "sent": "Enviamos um link para redefinir a sua senha por e-mail.",
-            "throttled": "Por favor espere antes de tentar novamente.",
-            "token": "Esse código de redefinição de senha é inválido.",
-            "user": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail informado."
-        },
         "auth": {
             "failed": "Credenciais informadas não correspondem com nossos registros.",
             "throttle": "Você realizou muitas tentativas de login. Por favor, tente novamente em {seconds} segundos."
@@ -13300,6 +13293,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Anterior",
             "next": "Próxima &raquo;"
+        },
+        "passwords": {
+            "reset": "Sua senha foi redefinida!",
+            "sent": "Enviamos um link para redefinir a sua senha por e-mail.",
+            "throttled": "Por favor espere antes de tentar novamente.",
+            "token": "Esse código de redefinição de senha é inválido.",
+            "user": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail informado."
         },
         "validation-inline": {
             "accepted": "Este campo deve ser aceito.",
@@ -13559,13 +13559,6 @@ export default {
         }
     },
     "ro": {
-        "passwords": {
-            "reset": "Parola a fost resetată!",
-            "sent": "Am trimis un e-mail cu link-ul de resetare a parolei!",
-            "throttled": "Please wait before retrying.",
-            "token": "Codul de resetare a parolei este greșit.",
-            "user": "Nu există niciun utilizator cu această adresă de e-mail."
-        },
         "auth": {
             "failed": "Datele de identificare nu pot fi confirmate.",
             "throttle": "Prea multe încercări de intrare în cont. Puteți încerca din nou peste {seconds} secunde."
@@ -13573,6 +13566,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Înapoi",
             "next": "Înainte &raquo;"
+        },
+        "passwords": {
+            "reset": "Parola a fost resetată!",
+            "sent": "Am trimis un e-mail cu link-ul de resetare a parolei!",
+            "throttled": "Please wait before retrying.",
+            "token": "Codul de resetare a parolei este greșit.",
+            "user": "Nu există niciun utilizator cu această adresă de e-mail."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -13799,16 +13799,25 @@ export default {
         }
     },
     "ru": {
-        "passwords": {
-            "reset": "Ваш пароль был сброшен!",
-            "sent": "Ссылка на сброс пароля была отправлена!",
-            "throttled": "Пожалуйста, подождите перед повторной попыткой.",
-            "token": "Ошибочный код сброса пароля.",
-            "user": "Не удалось найти пользователя с указанным электронным адресом."
-        },
         "auth": {
             "failed": "Неверное имя пользователя или пароль.",
             "throttle": "Слишком много попыток входа. Пожалуйста, попробуйте еще раз через {seconds} секунд."
+        },
+        "forms": {
+            "username": "Имя пользователя",
+            "email": "Электронный",
+            "password": "Пароль",
+            "continue": "Войти",
+            "date_of_birth": "Дата рождения",
+            "age": "Возраст"
+        },
+        "general": {
+            "welcome": "Добро пожаловать на",
+            "print": "Печать",
+            "search": "Поиск",
+            "add": "Добавить",
+            "all_rights_reserved": "Все права защищены.",
+            "acknowledgement_licensing_and_cert": "Подтверждения, лицензирование и сертификация"
         },
         "languages": {
             "english": "английский язык",
@@ -13826,9 +13835,29 @@ export default {
             "japanese": "Японский",
             "chinese": "китайский язык"
         },
+        "menu": {
+            "calendar": "Календарь",
+            "flow_board": "Потоковая доска",
+            "inventory": "Инвентаризация",
+            "fees": "Тарифы",
+            "patient_client": "пациент/клиент",
+            "procedures": "Процедуры",
+            "reports": "Доклады",
+            "miscellaneous": "Разное",
+            "popups": "Всплывающие окна",
+            "qa_measures": "Меры по обеспечению качества",
+            "help": "Помощь"
+        },
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Вперёд &raquo;"
+        },
+        "passwords": {
+            "reset": "Ваш пароль был сброшен!",
+            "sent": "Ссылка на сброс пароля была отправлена!",
+            "throttled": "Пожалуйста, подождите перед повторной попыткой.",
+            "token": "Ошибочный код сброса пароля.",
+            "user": "Не удалось найти пользователя с указанным электронным адресом."
         },
         "validation-inline": {
             "accepted": "Должно быть принято.",
@@ -13940,19 +13969,6 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
-        },
-        "menu": {
-            "calendar": "Календарь",
-            "flow_board": "Потоковая доска",
-            "inventory": "Инвентаризация",
-            "fees": "Тарифы",
-            "patient_client": "пациент/клиент",
-            "procedures": "Процедуры",
-            "reports": "Доклады",
-            "miscellaneous": "Разное",
-            "popups": "Всплывающие окна",
-            "qa_measures": "Меры по обеспечению качества",
-            "help": "Помощь"
         },
         "validation": {
             "accepted": "Вы должны принять {attribute}.",
@@ -14095,32 +14111,9 @@ export default {
                 "available": "Доступно",
                 "size": "Размер"
             }
-        },
-        "general": {
-            "welcome": "Добро пожаловать на",
-            "print": "Печать",
-            "search": "Поиск",
-            "add": "Добавить",
-            "all_rights_reserved": "Все права защищены.",
-            "acknowledgement_licensing_and_cert": "Подтверждения, лицензирование и сертификация"
-        },
-        "forms": {
-            "username": "Имя пользователя",
-            "email": "Электронный",
-            "password": "Пароль",
-            "continue": "Войти",
-            "date_of_birth": "Дата рождения",
-            "age": "Возраст"
         }
     },
     "sc": {
-        "passwords": {
-            "reset": "Sa password est istada torrada a impostare!",
-            "sent": "Regordu de sa password imbiadu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Custu token pro torrare a impostare sa password no est bàlidu.",
-            "user": "Non s'agatat un'impitadore assotziadu a custu indiritzu email."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -14128,6 +14121,13 @@ export default {
         "pagination": {
             "previous": "&laquo; A in antis",
             "next": "A pustis &raquo;"
+        },
+        "passwords": {
+            "reset": "Sa password est istada torrada a impostare!",
+            "sent": "Regordu de sa password imbiadu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Custu token pro torrare a impostare sa password no est bàlidu.",
+            "user": "Non s'agatat un'impitadore assotziadu a custu indiritzu email."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14354,13 +14354,6 @@ export default {
         }
     },
     "si": {
-        "passwords": {
-            "reset": "ඔබගේ මුරපදය යළි සැකසිනි!",
-            "sent": "ඔබගේ රහස් පද යළි සකසන සබැඳිය අප විසින් ඊ-තැපැල් කර ඇත!",
-            "throttled": "නැවත උත්සහා කිරීමට පෙර,මදක් රැදිසිටින්න.",
-            "token": "මෙම මුරපද යළි පිහිටුවීමේ ටෝකනය වලංගු නොවේ.",
-            "user": "අපට එම විද්යුත් තැපැල් ලිපිනය සමඟ පරිශීලකයෙකු සොයා ගත නොහැක."
-        },
         "auth": {
             "failed": "මෙම අක්තපත්ර අපගේ වාර්තා වලට ගැලපෙන්නේ නැත.",
             "throttle": "බොහෝ පිවිසුම් උත්සහයන් සිදු කර ඇත. කරුණාකර නැවත උත්සාහ කරන්න: තත්පර තත්පර."
@@ -14368,6 +14361,13 @@ export default {
         "pagination": {
             "previous": "&laquo; පෙර",
             "next": "ඊළඟ &raquo;"
+        },
+        "passwords": {
+            "reset": "ඔබගේ මුරපදය යළි සැකසිනි!",
+            "sent": "ඔබගේ රහස් පද යළි සකසන සබැඳිය අප විසින් ඊ-තැපැල් කර ඇත!",
+            "throttled": "නැවත උත්සහා කිරීමට පෙර,මදක් රැදිසිටින්න.",
+            "token": "මෙම මුරපද යළි පිහිටුවීමේ ටෝකනය වලංගු නොවේ.",
+            "user": "අපට එම විද්යුත් තැපැල් ලිපිනය සමඟ පරිශීලකයෙකු සොයා ගත නොහැක."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14627,13 +14627,6 @@ export default {
         }
     },
     "sk": {
-        "passwords": {
-            "reset": "Heslo bolo zmenené!",
-            "sent": "Pripomienka k zmene hesla bola odoslaná!",
-            "throttled": "Pred ďalším pokusom chvíľu počkajte.",
-            "token": "Klúč pre obnovu hesla je neplatný.",
-            "user": "Nepodarilo sa nájsť používateľa s touto e-mailovou adresou."
-        },
         "auth": {
             "failed": "Prihlasovacie údaje nie sú správne.",
             "throttle": "Prekročený limit pokusov. Skúste znovu o {seconds} sekúnd."
@@ -14641,6 +14634,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Predchádzajúca",
             "next": "Nasledujúca &raquo;"
+        },
+        "passwords": {
+            "reset": "Heslo bolo zmenené!",
+            "sent": "Pripomienka k zmene hesla bola odoslaná!",
+            "throttled": "Pred ďalším pokusom chvíľu počkajte.",
+            "token": "Klúč pre obnovu hesla je neplatný.",
+            "user": "Nepodarilo sa nájsť používateľa s touto e-mailovou adresou."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14867,13 +14867,6 @@ export default {
         }
     },
     "sl": {
-        "passwords": {
-            "reset": "Geslo je bilo spremenjeno!",
-            "sent": "Opomnik za geslo poslano!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ponastavitveni žeton je neveljaven.",
-            "user": "Ne moremo najti uporabnika s tem e-poštnim naslovom."
-        },
         "auth": {
             "failed": "Ti podatki se ne ujemajo z našimi.",
             "throttle": "Preveč poskusov prijave. Prosimo, poskusite ponovno čez {seconds} sekund."
@@ -14881,6 +14874,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Prejšnja",
             "next": "Naslednja &raquo;"
+        },
+        "passwords": {
+            "reset": "Geslo je bilo spremenjeno!",
+            "sent": "Opomnik za geslo poslano!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ponastavitveni žeton je neveljaven.",
+            "user": "Ne moremo najti uporabnika s tem e-poštnim naslovom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15107,13 +15107,6 @@ export default {
         }
     },
     "sq": {
-        "passwords": {
-            "reset": "Fjalëkalimi u ndryshua!",
-            "sent": "Adresa për ndryshimin e fjalëkalimit u dërgua!",
-            "throttled": "Ju lutemi prisni para se të provoni përsëri.",
-            "token": "Ky tallon për ndryshimin e fjalëkalimit është i pasaktë.",
-            "user": "Nuk mund të gjejmë një përdorues me atë adresë email-i."
-        },
         "auth": {
             "failed": "Këto të dhëna nuk përputhen me të dhënat tona.",
             "throttle": "Shumë tentime për t'u kyçur. Ju lutem provoni përsëri pas {seconds} sekondave."
@@ -15121,6 +15114,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Prapa",
             "next": "Para &raquo;"
+        },
+        "passwords": {
+            "reset": "Fjalëkalimi u ndryshua!",
+            "sent": "Adresa për ndryshimin e fjalëkalimit u dërgua!",
+            "throttled": "Ju lutemi prisni para se të provoni përsëri.",
+            "token": "Ky tallon për ndryshimin e fjalëkalimit është i pasaktë.",
+            "user": "Nuk mund të gjejmë një përdorues me atë adresë email-i."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15347,13 +15347,6 @@ export default {
         }
     },
     "sr_Cyrillic": {
-        "passwords": {
-            "reset": "Лозинка је ресетована!",
-            "sent": "Послали смо ресет линк за вашу лозинку!",
-            "throttled": "Молимо сачекајте пре него сто покушате поново.",
-            "token": "Укуцана ознака за ресетовање лозинке није важећа.",
-            "user": "Нисмо успели пронаћи корисника са емаил адресом."
-        },
         "auth": {
             "failed": "Подаци не одговарају ни једном налогу.",
             "throttle": "Превише неуспелих покушаја. Покушајте поново за {seconds} секунди."
@@ -15361,6 +15354,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Напред &raquo;"
+        },
+        "passwords": {
+            "reset": "Лозинка је ресетована!",
+            "sent": "Послали смо ресет линк за вашу лозинку!",
+            "throttled": "Молимо сачекајте пре него сто покушате поново.",
+            "token": "Укуцана ознака за ресетовање лозинке није важећа.",
+            "user": "Нисмо успели пронаћи корисника са емаил адресом."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15617,13 +15617,6 @@ export default {
         }
     },
     "sr_Latin": {
-        "passwords": {
-            "reset": "Lozinka je resetovana!",
-            "sent": "Poslali smo reset link za vašu lozinku!",
-            "throttled": "Molimo sačekajte pre nego sto pokušate ponovo.",
-            "token": "Ukucana oznaka za resetovanje lozinke nije važeća.",
-            "user": "Nismo uspeli pronaći korisnika sa email adresom."
-        },
         "auth": {
             "failed": "Podaci ne odgovaraju ni jednom nalogu.",
             "throttle": "Previše neuspelih pokušaja. Pokušajte ponovo za {seconds} sekundi."
@@ -15631,6 +15624,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Nazad",
             "next": "Napred &raquo;"
+        },
+        "passwords": {
+            "reset": "Lozinka je resetovana!",
+            "sent": "Poslali smo reset link za vašu lozinku!",
+            "throttled": "Molimo sačekajte pre nego sto pokušate ponovo.",
+            "token": "Ukucana oznaka za resetovanje lozinke nije važeća.",
+            "user": "Nismo uspeli pronaći korisnika sa email adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15887,13 +15887,6 @@ export default {
         }
     },
     "sv": {
-        "passwords": {
-            "reset": "Lösenordet har blivit återställt!",
-            "sent": "Lösenordspåminnelse skickad!",
-            "throttled": "Vänligen vänta innan du försöker igen.",
-            "token": "Koden för lösenordsåterställning är ogiltig.",
-            "user": "Det finns ingen användare med den e-postadressen."
-        },
         "auth": {
             "failed": "Dessa uppgifter stämmer inte överens med vårt register.",
             "throttle": "För många inloggningsförsök. Var vänlig försök igen om {seconds} sekunder."
@@ -15901,6 +15894,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Föregående",
             "next": "Nästa &raquo;"
+        },
+        "passwords": {
+            "reset": "Lösenordet har blivit återställt!",
+            "sent": "Lösenordspåminnelse skickad!",
+            "throttled": "Vänligen vänta innan du försöker igen.",
+            "token": "Koden för lösenordsåterställning är ogiltig.",
+            "user": "Det finns ingen användare med den e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16127,13 +16127,6 @@ export default {
         }
     },
     "sw": {
-        "passwords": {
-            "reset": "Nenosiri lako limefufuliwa upya!",
-            "sent": "Tumekutumia barua pepe ya fungo la kufufua nenosiri!",
-            "throttled": "Please wait before retrying.",
-            "token": "Huu ufufuzi wa nenosiri si halali.",
-            "user": "Hatupati mtumiaji wa hiyo anuani ya barua pepe."
-        },
         "auth": {
             "failed": "Hii hati tambulishi hailingani na rekodi zetu.",
             "throttle": "Majaribio mengi sana ya kuingia. Tafadhali jaribu tena katika {sekunde} sekunde."
@@ -16141,6 +16134,13 @@ export default {
         "pagination": {
             "previous": "na laquo; Awali",
             "next": "Ifuatayo na raquo;"
+        },
+        "passwords": {
+            "reset": "Nenosiri lako limefufuliwa upya!",
+            "sent": "Tumekutumia barua pepe ya fungo la kufufua nenosiri!",
+            "throttled": "Please wait before retrying.",
+            "token": "Huu ufufuzi wa nenosiri si halali.",
+            "user": "Hatupati mtumiaji wa hiyo anuani ya barua pepe."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16374,13 +16374,6 @@ export default {
         }
     },
     "tg": {
-        "passwords": {
-            "reset": "Гузарвожаи шумо бозгардонӣ карда шуд!",
-            "sent": "Ба шумо пайванд барои иваз намудани гузарвожа фиристода шуд!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ин код барои иваз намудани гузарвожа нодуруст мебошад.",
-            "user": "Чунин истифодабаранда бо суроғаи электронии зерин ёфт нашуд."
-        },
         "auth": {
             "failed": "Номи истифодабаранда ва гузарвожа нодуруст мебошад.",
             "throttle": "Теъдоди зиёди талош барои воридшудан ба система. Лутфан баъд аз {seconds} сония боз кӯшиш намоед."
@@ -16388,6 +16381,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Қаблӣ",
             "next": "Баъдӣ &raquo;"
+        },
+        "passwords": {
+            "reset": "Гузарвожаи шумо бозгардонӣ карда шуд!",
+            "sent": "Ба шумо пайванд барои иваз намудани гузарвожа фиристода шуд!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ин код барои иваз намудани гузарвожа нодуруст мебошад.",
+            "user": "Чунин истифодабаранда бо суроғаи электронии зерин ёфт нашуд."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16614,13 +16614,6 @@ export default {
         }
     },
     "th": {
-        "passwords": {
-            "reset": "ทำการตั้งค่ารหัสผ่านใหม่แล้ว",
-            "sent": "ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!",
-            "throttled": "Please wait before retrying.",
-            "token": "ชุดรหัสสำหรับการเปลี่ยนรหัสผ่านไม่ถูกต้อง",
-            "user": "ไม่พบผู้ใช้งานที่ตรงกับอีเมล์นี้"
-        },
         "auth": {
             "failed": "ข้อมูลที่ใช้ในการยืนยันตัวตนไม่ถูกต้อง",
             "throttle": "คุณได้พยายามเข้าระบบหลายครั้งเกินไป กรุณาลองใหม่ใน {seconds} วินาทีข้างหน้า."
@@ -16628,6 +16621,13 @@ export default {
         "pagination": {
             "previous": "&laquo; ก่อนหน้า",
             "next": "ถัดไป &raquo;"
+        },
+        "passwords": {
+            "reset": "ทำการตั้งค่ารหัสผ่านใหม่แล้ว",
+            "sent": "ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!",
+            "throttled": "Please wait before retrying.",
+            "token": "ชุดรหัสสำหรับการเปลี่ยนรหัสผ่านไม่ถูกต้อง",
+            "user": "ไม่พบผู้ใช้งานที่ตรงกับอีเมล์นี้"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16854,13 +16854,6 @@ export default {
         }
     },
     "tk": {
-        "passwords": {
-            "reset": "Açarsöz üýtgedildi!",
-            "sent": "Açarsöz ýatlatmasy ugradyldy!",
-            "throttled": "Please wait before retrying.",
-            "token": "Açarsöz tazeleme söz birligi ýalňyş.",
-            "user": "Bu e-mail adrese degişli ulanyjy tapylmady."
-        },
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
@@ -16868,6 +16861,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Öňki",
             "next": "Indiki &raquo;"
+        },
+        "passwords": {
+            "reset": "Açarsöz üýtgedildi!",
+            "sent": "Açarsöz ýatlatmasy ugradyldy!",
+            "throttled": "Please wait before retrying.",
+            "token": "Açarsöz tazeleme söz birligi ýalňyş.",
+            "user": "Bu e-mail adrese degişli ulanyjy tapylmady."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17094,13 +17094,6 @@ export default {
         }
     },
     "tl": {
-        "passwords": {
-            "reset": "Na-reset na ang password mo!",
-            "sent": "Na-email na namin sa iyo ang link sa pag-reset ng password!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ang token sa pag-reset ng password na ito ay imbalido.",
-            "user": "Hindi namin mahanap ang user na may ganyang email address."
-        },
         "auth": {
             "failed": "Ang credentials na ito ay hindi katugma ng nasa rekord namin.",
             "throttle": "Sobrang daming pagtatangkang mag-login. Pakisubukan ulit sa {segundo} segundo."
@@ -17108,6 +17101,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Nauna",
             "next": "Susunod &raquo;"
+        },
+        "passwords": {
+            "reset": "Na-reset na ang password mo!",
+            "sent": "Na-email na namin sa iyo ang link sa pag-reset ng password!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ang token sa pag-reset ng password na ito ay imbalido.",
+            "user": "Hindi namin mahanap ang user na may ganyang email address."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17341,13 +17341,6 @@ export default {
         }
     },
     "tr": {
-        "passwords": {
-            "reset": "Parolanız sıfırlandı!",
-            "sent": "Parola sıfırlama bağlantınız e-posta ile gönderildi!",
-            "throttled": "Tekrar denemeden önce lütfen bekleyin.",
-            "token": "Parola sıfırlama kodu geçersiz.",
-            "user": "Bu e-posta adresi ile kayıtlı bir üye bulunamadı."
-        },
         "auth": {
             "failed": "Bu kimlik bilgileri kayıtlarımızla eşleşmiyor.",
             "throttle": "Çok fazla giriş denemesi. {seconds} saniye sonra lütfen tekrar deneyin."
@@ -17355,6 +17348,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Öncekiler",
             "next": "Sonrakiler &raquo;"
+        },
+        "passwords": {
+            "reset": "Parolanız sıfırlandı!",
+            "sent": "Parola sıfırlama bağlantınız e-posta ile gönderildi!",
+            "throttled": "Tekrar denemeden önce lütfen bekleyin.",
+            "token": "Parola sıfırlama kodu geçersiz.",
+            "user": "Bu e-posta adresi ile kayıtlı bir üye bulunamadı."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17581,13 +17581,6 @@ export default {
         }
     },
     "ug": {
-        "passwords": {
-            "reset": "پارولنى قايتا بېكىتىش مۇۋاپىققىيەتلىك بولدى!",
-            "sent": "پارولنى قايتا بېكىتىش تورخېتى يوللاندى!",
-            "throttled": "Please wait before retrying.",
-            "token": "پارولنى قايتا بېكىتىش ئىجازەت كودى ئىناۋەتسىز.",
-            "user": "بۇ تورخەت ئادىرىسىغا ماس كىلىدىغان قوللانچى نام تېپىلمىدى."
-        },
         "auth": {
             "failed": "قوللانچى نامى ياكى پارولدا خاتالىق بار.",
             "throttle": "مەشغۇلات قېتىم سانى بەك كۆپ بۇلۇپ كەتتى، يەنە {seconds} سېكۇنتتىن كىيىن قايتا سىناپ بېقىڭ."
@@ -17595,6 +17588,13 @@ export default {
         "pagination": {
             "previous": "&laquo; ئالدىنقى بەت",
             "next": "كىيىنكى بەت &raquo;"
+        },
+        "passwords": {
+            "reset": "پارولنى قايتا بېكىتىش مۇۋاپىققىيەتلىك بولدى!",
+            "sent": "پارولنى قايتا بېكىتىش تورخېتى يوللاندى!",
+            "throttled": "Please wait before retrying.",
+            "token": "پارولنى قايتا بېكىتىش ئىجازەت كودى ئىناۋەتسىز.",
+            "user": "بۇ تورخەت ئادىرىسىغا ماس كىلىدىغان قوللانچى نام تېپىلمىدى."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17851,13 +17851,6 @@ export default {
         }
     },
     "uk": {
-        "passwords": {
-            "reset": "Ваш пароль змінено!",
-            "sent": "Ми надіслали на Вашу електронну адресу посилання для зміни пароля!",
-            "throttled": "Зачекайте, перш ніж повторити спробу.",
-            "token": "Код для зміни пароля вказано невірно.",
-            "user": "Користувача із вказаною електронною адресою не знайдено."
-        },
         "auth": {
             "failed": "Вказані облікові дані не збігаються з нашими записами.",
             "throttle": "Забагато спроб входу. Будь ласка, спробуйте ще раз, через {seconds} секунд."
@@ -17865,6 +17858,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Назад",
             "next": "Далі &raquo;"
+        },
+        "passwords": {
+            "reset": "Ваш пароль змінено!",
+            "sent": "Ми надіслали на Вашу електронну адресу посилання для зміни пароля!",
+            "throttled": "Зачекайте, перш ніж повторити спробу.",
+            "token": "Код для зміни пароля вказано невірно.",
+            "user": "Користувача із вказаною електронною адресою не знайдено."
         },
         "validation-inline": {
             "accepted": "Поле має бути прийнято.",
@@ -18121,13 +18121,6 @@ export default {
         }
     },
     "ur": {
-        "passwords": {
-            "reset": "آپ کا پاس ورڈ دوبارہ مرتب کر دیا گیا ہے۔",
-            "sent": "پاس ورڈ دوبارہ مرتب کرنے کے لیے ہم نے آپ کو لنک ای میل کر دیا ہے!",
-            "throttled": "Please wait before retrying.",
-            "token": "پاس ورڈ مرتب کرنے کا یہ طریقہ نا قابلِ قبول ہے۔",
-            "user": "اس ای میل پتے کے ساتھ ہمیں کوئی صارف نہیں ملا۔"
-        },
         "auth": {
             "failed": "یہ تفصیلات ہمارے ریکارڈ سے مطابقت نہیں رکھتیں۔",
             "throttle": "لاگ اِن کرنے کی بہت زیادہ کوششیں۔ براہِ مہربانی {seconds} سیکنڈ میں دوبارہ کوشش کریں۔"
@@ -18135,6 +18128,13 @@ export default {
         "pagination": {
             "previous": "&laquo; گزشتہ",
             "next": "آئندہ &raquo;"
+        },
+        "passwords": {
+            "reset": "آپ کا پاس ورڈ دوبارہ مرتب کر دیا گیا ہے۔",
+            "sent": "پاس ورڈ دوبارہ مرتب کرنے کے لیے ہم نے آپ کو لنک ای میل کر دیا ہے!",
+            "throttled": "Please wait before retrying.",
+            "token": "پاس ورڈ مرتب کرنے کا یہ طریقہ نا قابلِ قبول ہے۔",
+            "user": "اس ای میل پتے کے ساتھ ہمیں کوئی صارف نہیں ملا۔"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -18368,13 +18368,6 @@ export default {
         }
     },
     "uz_Cyrillic": {
-        "passwords": {
-            "reset": "Сизнинг калит сўзингиз тикланди!",
-            "sent": "Калит сўзни тиклаш ҳаволасини электрон почта орқали юбордик!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ушбу калит сўзни қайта тиклаш белгиси (token) нотўғри.",
-            "user": "Ушбу электрон почта манзилли фойдаланувчи топилмади."
-        },
         "auth": {
             "failed": "Бундай маълумотларга эга фойдаланувчи мавжуд эмас.",
             "throttle": "Кириш учун жуда кўп урунишлар аниқланди. Илтимос {seconds} сониядан сўнг яна уриниб кўринг."
@@ -18382,6 +18375,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Олдинги",
             "next": "Кейинги &raquo;"
+        },
+        "passwords": {
+            "reset": "Сизнинг калит сўзингиз тикланди!",
+            "sent": "Калит сўзни тиклаш ҳаволасини электрон почта орқали юбордик!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ушбу калит сўзни қайта тиклаш белгиси (token) нотўғри.",
+            "user": "Ушбу электрон почта манзилли фойдаланувчи топилмади."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -18608,13 +18608,6 @@ export default {
         }
     },
     "uz_Latin": {
-        "passwords": {
-            "reset": "Sizning parolingiz tiklandi!",
-            "sent": "Parolni tiklash havolasini elektron pochta orqali yubordik!",
-            "throttled": "Iltimos birozdan so‘ng qayta urinib ko‘ring.",
-            "token": "Ushbu parolni qayta tiklash kodi noto‘g‘ri.",
-            "user": "Ushbu elektron pochta manziliga ega foydalanuvchi topilmadi."
-        },
         "auth": {
             "failed": "Bunday maʼlumotlarga ega foydalanuvchi mavjud emas.",
             "throttle": "Kirish uchun juda ko‘p urunishlar aniqlandi. Iltimos {seconds} soniyadan so‘ng yana urinib ko‘ring."
@@ -18622,6 +18615,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Oldingi",
             "next": "Keyingi &raquo;"
+        },
+        "passwords": {
+            "reset": "Sizning parolingiz tiklandi!",
+            "sent": "Parolni tiklash havolasini elektron pochta orqali yubordik!",
+            "throttled": "Iltimos birozdan so‘ng qayta urinib ko‘ring.",
+            "token": "Ushbu parolni qayta tiklash kodi noto‘g‘ri.",
+            "user": "Ushbu elektron pochta manziliga ega foydalanuvchi topilmadi."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -18878,13 +18878,6 @@ export default {
         }
     },
     "vi": {
-        "passwords": {
-            "reset": "Mật khẩu mới đã được cập nhật!",
-            "sent": "Hướng dẫn cấp lại mật khẩu đã được gửi!",
-            "throttled": "Please wait before retrying.",
-            "token": "Mã khôi phục mật khẩu không hợp lệ.",
-            "user": "Không tìm thấy người dùng với địa chỉ email này."
-        },
         "auth": {
             "failed": "Thông tin tài khoản không tìm thấy trong hệ thống.",
             "throttle": "Vượt quá số lần đăng nhập cho phép. Vui lòng thử lại sau {seconds} giây."
@@ -18892,6 +18885,13 @@ export default {
         "pagination": {
             "previous": "&laquo; Trang sau",
             "next": "Trang trước &raquo;"
+        },
+        "passwords": {
+            "reset": "Mật khẩu mới đã được cập nhật!",
+            "sent": "Hướng dẫn cấp lại mật khẩu đã được gửi!",
+            "throttled": "Please wait before retrying.",
+            "token": "Mã khôi phục mật khẩu không hợp lệ.",
+            "user": "Không tìm thấy người dùng với địa chỉ email này."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -19151,13 +19151,6 @@ export default {
         }
     },
     "zh_CN": {
-        "passwords": {
-            "reset": "密码重置成功！",
-            "sent": "密码重置邮件已发送！",
-            "throttled": "请稍候再试。",
-            "token": "密码重置令牌无效。",
-            "user": "找不到该邮箱对应的用户。"
-        },
         "auth": {
             "failed": "用户名或密码错误",
             "throttle": "您尝试的登录次数过多，请 {seconds} 秒后再试。"
@@ -19165,6 +19158,13 @@ export default {
         "pagination": {
             "previous": "&laquo; 上一页",
             "next": "下一页 &raquo;"
+        },
+        "passwords": {
+            "reset": "密码重置成功！",
+            "sent": "密码重置邮件已发送！",
+            "throttled": "请稍候再试。",
+            "token": "密码重置令牌无效。",
+            "user": "找不到该邮箱对应的用户。"
         },
         "validation-inline": {
             "accepted": "您必须接受。",
@@ -19452,13 +19452,6 @@ export default {
         }
     },
     "zh_HK": {
-        "passwords": {
-            "reset": "密碼重設已完成！",
-            "sent": "密碼重設電郵經已寄出！",
-            "throttled": "請稍候再試。",
-            "token": "密碼重設碼不正確。",
-            "user": "找不到該電郵地址所對應的用戶。"
-        },
         "auth": {
             "failed": "用戶名或密碼錯誤",
             "throttle": "登入次數過多，請在 {seconds} 秒後再試。"
@@ -19466,6 +19459,13 @@ export default {
         "pagination": {
             "previous": "&laquo; 上一頁",
             "next": "下一頁 &raquo;"
+        },
+        "passwords": {
+            "reset": "密碼重設已完成！",
+            "sent": "密碼重設電郵經已寄出！",
+            "throttled": "請稍候再試。",
+            "token": "密碼重設碼不正確。",
+            "user": "找不到該電郵地址所對應的用戶。"
         },
         "validation-inline": {
             "accepted": "必須接受。",
@@ -19753,13 +19753,6 @@ export default {
         }
     },
     "zh_TW": {
-        "passwords": {
-            "reset": "密碼已成功重設！",
-            "sent": "密碼重設郵件已發送！",
-            "throttled": "請稍候再試。",
-            "token": "密碼重設碼無效。",
-            "user": "找不到該 E-mail 對應的使用者。"
-        },
         "auth": {
             "failed": "使用者名稱或密碼錯誤",
             "throttle": "嘗試登入太多次，請在 {seconds} 秒後再試。"
@@ -19767,6 +19760,13 @@ export default {
         "pagination": {
             "previous": "&laquo; 上一頁",
             "next": "下一頁 &raquo;"
+        },
+        "passwords": {
+            "reset": "密碼已成功重設！",
+            "sent": "密碼重設郵件已發送！",
+            "throttled": "請稍候再試。",
+            "token": "密碼重設碼無效。",
+            "user": "找不到該 E-mail 對應的使用者。"
         },
         "validation-inline": {
             "accepted": "必須接受。",
