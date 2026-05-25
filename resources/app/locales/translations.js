@@ -4,6 +4,259 @@ export default {
             "failed": "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.",
             "throttle": "عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد {seconds} ثانية."
         },
+        "validation": {
+            "accepted": "يجب قبول {attribute}.",
+            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
+            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
+            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
+            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
+            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
+            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
+            "array": "يجب أن يكون {attribute} ًمصفوفة.",
+            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
+            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
+            "between": {
+                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
+                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
+                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
+            },
+            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
+            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
+            "date": "{attribute} ليس تاريخًا صحيحًا.",
+            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
+            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
+            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
+            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
+            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
+            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
+            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
+            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
+            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
+            "exists": "القيمة المحددة {attribute} غير موجودة.",
+            "file": "الـ {attribute} يجب أن يكون ملفا.",
+            "filled": "{attribute} إجباري.",
+            "gt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "gte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
+            },
+            "image": "يجب أن يكون {attribute} صورةً.",
+            "in": "{attribute} غير موجود.",
+            "in_array": "{attribute} غير موجود في {other}.",
+            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
+            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
+            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
+            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
+            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
+            "lt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
+            },
+            "lte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "max": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
+            },
+            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "min": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
+            },
+            "not_in": "العنصر {attribute} غير صحيح.",
+            "not_regex": "صيغة {attribute} غير صحيحة.",
+            "numeric": "يجب على {attribute} أن يكون رقمًا.",
+            "password": "كلمة المرور غير صحيحة.",
+            "present": "يجب تقديم {attribute}.",
+            "regex": "صيغة {attribute} .غير صحيحة.",
+            "required": "{attribute} مطلوب.",
+            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
+            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
+            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "same": "يجب أن يتطابق {attribute} مع {other}.",
+            "size": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
+                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
+                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
+                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
+            },
+            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
+            "string": "يجب أن يكون {attribute} نصًا.",
+            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
+            "unique": "قيمة {attribute} مُستخدمة من قبل.",
+            "uploaded": "فشل في تحميل الـ {attribute}.",
+            "url": "صيغة الرابط {attribute} غير صحيحة.",
+            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "الاسم",
+                "username": "اسم المُستخدم",
+                "email": "البريد الالكتروني",
+                "first_name": "الاسم الأول",
+                "last_name": "اسم العائلة",
+                "password": "كلمة المرور",
+                "password_confirmation": "تأكيد كلمة المرور",
+                "city": "المدينة",
+                "country": "الدولة",
+                "address": "العنوان",
+                "phone": "الهاتف",
+                "mobile": "الجوال",
+                "age": "العمر",
+                "sex": "الجنس",
+                "gender": "النوع",
+                "day": "اليوم",
+                "month": "الشهر",
+                "year": "السنة",
+                "hour": "ساعة",
+                "minute": "دقيقة",
+                "second": "ثانية",
+                "title": "العنوان",
+                "content": "المُحتوى",
+                "description": "الوصف",
+                "excerpt": "المُلخص",
+                "date": "التاريخ",
+                "time": "الوقت",
+                "available": "مُتاح",
+                "size": "الحجم"
+            }
+        },
+        "validation-inline": {
+            "accepted": "يجب قبول {attribute}.",
+            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
+            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
+            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
+            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
+            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
+            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
+            "array": "يجب أن يكون {attribute} ًمصفوفة.",
+            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
+            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
+            "between": {
+                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
+                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
+                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
+            },
+            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
+            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
+            "date": "{attribute} ليس تاريخًا صحيحًا.",
+            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
+            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
+            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
+            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
+            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
+            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
+            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
+            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
+            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
+            "exists": "القيمة المحددة {attribute} غير موجودة.",
+            "file": "الـ {attribute} يجب أن يكون ملفا.",
+            "filled": "{attribute} إجباري.",
+            "gt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "gte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
+            },
+            "image": "يجب أن يكون {attribute} صورةً.",
+            "in": "{attribute} غير موجود.",
+            "in_array": "{attribute} غير موجود في {other}.",
+            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
+            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
+            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
+            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
+            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
+            "lt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
+            },
+            "lte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "max": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
+            },
+            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "min": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
+            },
+            "not_in": "العنصر {attribute} غير صحيح.",
+            "not_regex": "صيغة {attribute} غير صحيحة.",
+            "numeric": "يجب على {attribute} أن يكون رقمًا.",
+            "password": "كلمة المرور غير صحيحة.",
+            "present": "يجب تقديم {attribute}.",
+            "regex": "صيغة {attribute} .غير صحيحة.",
+            "required": "{attribute} مطلوب.",
+            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
+            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
+            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "same": "يجب أن يتطابق {attribute} مع {other}.",
+            "size": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
+                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
+                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
+                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
+            },
+            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
+            "string": "يجب أن يكون {attribute} نصًا.",
+            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
+            "unique": "قيمة {attribute} مُستخدمة من قبل.",
+            "uploaded": "فشل في تحميل الـ {attribute}.",
+            "url": "صيغة الرابط {attribute} غير صحيحة.",
+            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
         "forms": {
             "username": "اسم المستخدم",
             "email": "البريد الإلكتروني",
@@ -11,6 +264,13 @@ export default {
             "continue": "استمر",
             "date_of_birth": "تاريخ الولادة",
             "age": "عمر"
+        },
+        "passwords": {
+            "reset": "تمت إعادة تعيين كلمة المرور!",
+            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
+            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
+            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
+            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
         },
         "general": {
             "welcome": "أهلا بك",
@@ -49,124 +309,12 @@ export default {
         "pagination": {
             "previous": "&laquo; السابق",
             "next": "التالي &raquo;"
-        },
-        "passwords": {
-            "reset": "تمت إعادة تعيين كلمة المرور!",
-            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
-            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
-            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
-            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
-        },
-        "validation-inline": {
-            "accepted": "يجب قبول {attribute}.",
-            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
-            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
-            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
-            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
-            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
-            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
-            "array": "يجب أن يكون {attribute} ًمصفوفة.",
-            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
-            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
-            "between": {
-                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
-                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
-                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
-                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
-            },
-            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
-            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
-            "date": "{attribute} ليس تاريخًا صحيحًا.",
-            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
-            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
-            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
-            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
-            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
-            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
-            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
-            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
-            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
-            "exists": "القيمة المحددة {attribute} غير موجودة.",
-            "file": "الـ {attribute} يجب أن يكون ملفا.",
-            "filled": "{attribute} إجباري.",
-            "gt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "gte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
-            },
-            "image": "يجب أن يكون {attribute} صورةً.",
-            "in": "{attribute} غير موجود.",
-            "in_array": "{attribute} غير موجود في {other}.",
-            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
-            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
-            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
-            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
-            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
-            "lt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
-            },
-            "lte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "max": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
-            },
-            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "min": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
-            },
-            "not_in": "العنصر {attribute} غير صحيح.",
-            "not_regex": "صيغة {attribute} غير صحيحة.",
-            "numeric": "يجب على {attribute} أن يكون رقمًا.",
-            "password": "كلمة المرور غير صحيحة.",
-            "present": "يجب تقديم {attribute}.",
-            "regex": "صيغة {attribute} .غير صحيحة.",
-            "required": "{attribute} مطلوب.",
-            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
-            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
-            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "same": "يجب أن يتطابق {attribute} مع {other}.",
-            "size": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
-                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
-                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
-                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
-            },
-            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
-            "string": "يجب أن يكون {attribute} نصًا.",
-            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
-            "unique": "قيمة {attribute} مُستخدمة من قبل.",
-            "uploaded": "فشل في تحميل الـ {attribute}.",
-            "url": "صيغة الرابط {attribute} غير صحيحة.",
-            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
+        }
+    },
+    "ar": {
+        "auth": {
+            "failed": "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.",
+            "throttle": "عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد {seconds} ثانية."
         },
         "validation": {
             "accepted": "يجب قبول {attribute}.",
@@ -309,12 +457,124 @@ export default {
                 "available": "مُتاح",
                 "size": "الحجم"
             }
-        }
-    },
-    "ar": {
-        "auth": {
-            "failed": "بيانات الاعتماد هذه غير متطابقة مع البيانات المسجلة لدينا.",
-            "throttle": "عدد كبير جدا من محاولات الدخول. يرجى المحاولة مرة أخرى بعد {seconds} ثانية."
+        },
+        "validation-inline": {
+            "accepted": "يجب قبول {attribute}.",
+            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
+            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
+            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
+            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
+            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
+            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
+            "array": "يجب أن يكون {attribute} ًمصفوفة.",
+            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
+            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
+            "between": {
+                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
+                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
+                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
+            },
+            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
+            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
+            "date": "{attribute} ليس تاريخًا صحيحًا.",
+            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
+            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
+            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
+            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
+            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
+            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
+            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
+            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
+            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
+            "exists": "القيمة المحددة {attribute} غير موجودة.",
+            "file": "الـ {attribute} يجب أن يكون ملفا.",
+            "filled": "{attribute} إجباري.",
+            "gt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "gte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
+            },
+            "image": "يجب أن يكون {attribute} صورةً.",
+            "in": "{attribute} غير موجود.",
+            "in_array": "{attribute} غير موجود في {other}.",
+            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
+            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
+            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
+            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
+            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
+            "lt": {
+                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
+                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
+            },
+            "lte": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
+            },
+            "max": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
+                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
+                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
+            },
+            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
+            "min": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
+                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
+                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
+            },
+            "not_in": "العنصر {attribute} غير صحيح.",
+            "not_regex": "صيغة {attribute} غير صحيحة.",
+            "numeric": "يجب على {attribute} أن يكون رقمًا.",
+            "password": "كلمة المرور غير صحيحة.",
+            "present": "يجب تقديم {attribute}.",
+            "regex": "صيغة {attribute} .غير صحيحة.",
+            "required": "{attribute} مطلوب.",
+            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
+            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
+            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
+            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
+            "same": "يجب أن يتطابق {attribute} مع {other}.",
+            "size": {
+                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
+                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
+                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
+                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
+            },
+            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
+            "string": "يجب أن يكون {attribute} نصًا.",
+            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
+            "unique": "قيمة {attribute} مُستخدمة من قبل.",
+            "uploaded": "فشل في تحميل الـ {attribute}.",
+            "url": "صيغة الرابط {attribute} غير صحيحة.",
+            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "تمت إعادة تعيين كلمة المرور!",
+            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
+            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
+            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
+            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
         },
         "general": {
             "welcome": "Welcome"
@@ -335,394 +595,12 @@ export default {
         "pagination": {
             "previous": "&laquo; السابق",
             "next": "التالي &raquo;"
-        },
-        "passwords": {
-            "reset": "تمت إعادة تعيين كلمة المرور!",
-            "sent": "تم إرسال تفاصيل استعادة كلمة المرور الخاصة بك إلى بريدك الإلكتروني!",
-            "throttled": "الرجاء الانتظار قبل إعادة المحاولة.",
-            "token": "رمز استعادة كلمة المرور الذي أدخلته غير صحيح.",
-            "user": "لم يتم العثور على أيّ حسابٍ بهذا العنوان الإلكتروني."
-        },
-        "validation-inline": {
-            "accepted": "يجب قبول {attribute}.",
-            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
-            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
-            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
-            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
-            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
-            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
-            "array": "يجب أن يكون {attribute} ًمصفوفة.",
-            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
-            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
-            "between": {
-                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
-                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
-                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
-                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
-            },
-            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
-            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
-            "date": "{attribute} ليس تاريخًا صحيحًا.",
-            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
-            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
-            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
-            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
-            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
-            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
-            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
-            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
-            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
-            "exists": "القيمة المحددة {attribute} غير موجودة.",
-            "file": "الـ {attribute} يجب أن يكون ملفا.",
-            "filled": "{attribute} إجباري.",
-            "gt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "gte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
-            },
-            "image": "يجب أن يكون {attribute} صورةً.",
-            "in": "{attribute} غير موجود.",
-            "in_array": "{attribute} غير موجود في {other}.",
-            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
-            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
-            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
-            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
-            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
-            "lt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
-            },
-            "lte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "max": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
-            },
-            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "min": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
-            },
-            "not_in": "العنصر {attribute} غير صحيح.",
-            "not_regex": "صيغة {attribute} غير صحيحة.",
-            "numeric": "يجب على {attribute} أن يكون رقمًا.",
-            "password": "كلمة المرور غير صحيحة.",
-            "present": "يجب تقديم {attribute}.",
-            "regex": "صيغة {attribute} .غير صحيحة.",
-            "required": "{attribute} مطلوب.",
-            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
-            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
-            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "same": "يجب أن يتطابق {attribute} مع {other}.",
-            "size": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
-                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
-                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
-                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
-            },
-            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
-            "string": "يجب أن يكون {attribute} نصًا.",
-            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
-            "unique": "قيمة {attribute} مُستخدمة من قبل.",
-            "uploaded": "فشل في تحميل الـ {attribute}.",
-            "url": "صيغة الرابط {attribute} غير صحيحة.",
-            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
-        },
-        "validation": {
-            "accepted": "يجب قبول {attribute}.",
-            "active_url": "{attribute} لا يُمثّل رابطًا صحيحًا.",
-            "after": "يجب على {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
-            "after_or_equal": "{attribute} يجب أن يكون تاريخاً لاحقاً أو مطابقاً للتاريخ {date}.",
-            "alpha": "يجب أن لا يحتوي {attribute} سوى على حروف.",
-            "alpha_dash": "يجب أن لا يحتوي {attribute} سوى على حروف، أرقام ومطّات.",
-            "alpha_num": "يجب أن يحتوي {attribute} على حروفٍ وأرقامٍ فقط.",
-            "array": "يجب أن يكون {attribute} ًمصفوفة.",
-            "before": "يجب على {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
-            "before_or_equal": "{attribute} يجب أن يكون تاريخا سابقا أو مطابقا للتاريخ {date}.",
-            "between": {
-                "numeric": "يجب أن تكون قيمة {attribute} بين {min} و {max}.",
-                "file": "يجب أن يكون حجم الملف {attribute} بين {min} و {max} كيلوبايت.",
-                "string": "يجب أن يكون عدد حروف النّص {attribute} بين {min} و {max}.",
-                "array": "يجب أن يحتوي {attribute} على عدد من العناصر بين {min} و {max}."
-            },
-            "boolean": "يجب أن تكون قيمة {attribute} إما true أو false .",
-            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
-            "date": "{attribute} ليس تاريخًا صحيحًا.",
-            "date_equals": "يجب أن يكون {attribute} مطابقاً للتاريخ {date}.",
-            "date_format": "لا يتوافق {attribute} مع الشكل {format}.",
-            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفين.",
-            "digits": "يجب أن يحتوي {attribute} على {digits} رقمًا/أرقام.",
-            "digits_between": "يجب أن يحتوي {attribute} بين {min} و {max} رقمًا/أرقام .",
-            "dimensions": "الـ {attribute} يحتوي على أبعاد صورة غير صالحة.",
-            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
-            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
-            "ends_with": "يجب أن ينتهي {attribute} بأحد القيم التالية: {values}",
-            "exists": "القيمة المحددة {attribute} غير موجودة.",
-            "file": "الـ {attribute} يجب أن يكون ملفا.",
-            "filled": "{attribute} إجباري.",
-            "gt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أكثر من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "gte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {value} عُنصرًا/عناصر."
-            },
-            "image": "يجب أن يكون {attribute} صورةً.",
-            "in": "{attribute} غير موجود.",
-            "in_array": "{attribute} غير موجود في {other}.",
-            "integer": "يجب أن يكون {attribute} عددًا صحيحًا.",
-            "ip": "يجب أن يكون {attribute} عنوان IP صحيحًا.",
-            "ipv4": "يجب أن يكون {attribute} عنوان IPv4 صحيحًا.",
-            "ipv6": "يجب أن يكون {attribute} عنوان IPv6 صحيحًا.",
-            "json": "يجب أن يكون {attribute} نصًا من نوع JSON.",
-            "lt": {
-                "numeric": "يجب أن تكون قيمة {attribute} أصغر من {value}.",
-                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {value} كيلوبايت.",
-                "string": "يجب أن يكون طول النّص {attribute} أقل من {value} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على أقل من {value} عناصر/عنصر."
-            },
-            "lte": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {value}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {value} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {value} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {value} عناصر/عنصر."
-            },
-            "max": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أصغر من {max}.",
-                "file": "يجب أن لا يتجاوز حجم الملف {attribute} {max} كيلوبايت.",
-                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ/حرفًا.",
-                "array": "يجب أن لا يحتوي {attribute} على أكثر من {max} عناصر/عنصر."
-            },
-            "mimes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "mimetypes": "يجب أن يكون ملفًا من نوع : {values}.",
-            "min": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية أو أكبر من {min}.",
-                "file": "يجب أن يكون حجم الملف {attribute} على الأقل {min} كيلوبايت.",
-                "string": "يجب أن يكون طول النص {attribute} على الأقل {min} حروفٍ/حرفًا.",
-                "array": "يجب أن يحتوي {attribute} على الأقل على {min} عُنصرًا/عناصر."
-            },
-            "not_in": "العنصر {attribute} غير صحيح.",
-            "not_regex": "صيغة {attribute} غير صحيحة.",
-            "numeric": "يجب على {attribute} أن يكون رقمًا.",
-            "password": "كلمة المرور غير صحيحة.",
-            "present": "يجب تقديم {attribute}.",
-            "regex": "صيغة {attribute} .غير صحيحة.",
-            "required": "{attribute} مطلوب.",
-            "required_if": "{attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
-            "required_unless": "{attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
-            "required_with": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_with_all": "{attribute} مطلوب إذا توفّر {values}.",
-            "required_without": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "required_without_all": "{attribute} مطلوب إذا لم يتوفّر {values}.",
-            "same": "يجب أن يتطابق {attribute} مع {other}.",
-            "size": {
-                "numeric": "يجب أن تكون قيمة {attribute} مساوية لـ {size}.",
-                "file": "يجب أن يكون حجم الملف {attribute} {size} كيلوبايت.",
-                "string": "يجب أن يحتوي النص {attribute} على {size} حروفٍ/حرفًا بالضبط.",
-                "array": "يجب أن يحتوي {attribute} على {size} عنصرٍ/عناصر بالضبط."
-            },
-            "starts_with": "يجب أن يبدأ {attribute} بأحد القيم التالية: {values}",
-            "string": "يجب أن يكون {attribute} نصًا.",
-            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا.",
-            "unique": "قيمة {attribute} مُستخدمة من قبل.",
-            "uploaded": "فشل في تحميل الـ {attribute}.",
-            "url": "صيغة الرابط {attribute} غير صحيحة.",
-            "uuid": "{attribute} يجب أن يكون بصيغة UUID سليمة.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "attributes": {
-                "name": "الاسم",
-                "username": "اسم المُستخدم",
-                "email": "البريد الالكتروني",
-                "first_name": "الاسم الأول",
-                "last_name": "اسم العائلة",
-                "password": "كلمة المرور",
-                "password_confirmation": "تأكيد كلمة المرور",
-                "city": "المدينة",
-                "country": "الدولة",
-                "address": "العنوان",
-                "phone": "الهاتف",
-                "mobile": "الجوال",
-                "age": "العمر",
-                "sex": "الجنس",
-                "gender": "النوع",
-                "day": "اليوم",
-                "month": "الشهر",
-                "year": "السنة",
-                "hour": "ساعة",
-                "minute": "دقيقة",
-                "second": "ثانية",
-                "title": "العنوان",
-                "content": "المُحتوى",
-                "description": "الوصف",
-                "excerpt": "المُلخص",
-                "date": "التاريخ",
-                "time": "الوقت",
-                "available": "مُتاح",
-                "size": "الحجم"
-            }
         }
     },
     "az": {
         "auth": {
             "failed": "İstifadəçi adı və ya şifrə səhvdir",
             "throttle": "{seconds} saniyə ərzində yenidən cəhd edin"
-        },
-        "pagination": {
-            "previous": "&laquo; Əvvəl",
-            "next": "Sonra &raquo;"
-        },
-        "passwords": {
-            "reset": "Şifrə yeniləndi",
-            "sent": "Şifrə yeniləmə adresi sizə email olaraq göndərildi",
-            "throttled": "Please wait before retrying.",
-            "token": "Bu şifrə yeniləmə kodu yanlışdır",
-            "user": "Bu email'ə uyğun istifadəçi tapılmadı"
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} qəbul edilməlidir",
@@ -835,23 +713,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "be": {
-        "auth": {
-            "failed": "Імя карыстальніка і пароль не супадаюць.",
-            "throttle": "Занадта шмат спробаў ўваходу. Калі ласка, паспрабуйце яшчэ раз праз {seconds} секунд."
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Наперад &raquo;"
-        },
-        "passwords": {
-            "reset": "Ваш пароль быў скінуты!",
-            "sent": "Спасылка на скід пароля была адпраўлена!",
-            "throttled": "Please wait before retrying.",
-            "token": "Памылковы код скіду пароля.",
-            "user": "Не атрымалася знайсці карыстальніка з дадзеным электронным адрасам."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -963,6 +824,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Şifrə yeniləndi",
+            "sent": "Şifrə yeniləmə adresi sizə email olaraq göndərildi",
+            "throttled": "Please wait before retrying.",
+            "token": "Bu şifrə yeniləmə kodu yanlışdır",
+            "user": "Bu email'ə uyğun istifadəçi tapılmadı"
+        },
+        "pagination": {
+            "previous": "&laquo; Əvvəl",
+            "next": "Sonra &raquo;"
+        }
+    },
+    "be": {
+        "auth": {
+            "failed": "Імя карыстальніка і пароль не супадаюць.",
+            "throttle": "Занадта шмат спробаў ўваходу. Калі ласка, паспрабуйце яшчэ раз праз {seconds} секунд."
         },
         "validation": {
             "accepted": "Вы павінны прыняць {attribute}.",
@@ -1075,23 +953,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "bg": {
-        "auth": {
-            "failed": "Неуспешно удостоверяване на потребител.",
-            "throttle": "Твърде много опити за вход. Моля, опитайте отново след {seconds} секунди."
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Напред &raquo;"
-        },
-        "passwords": {
-            "reset": "Паролата е нулирана!",
-            "sent": "Изпратено е напомняне за вашата парола!",
-            "throttled": "Моля изчакайте, преди да опитате отново.",
-            "token": "Този токен за нулиране на парола е невалиден.",
-            "user": "Потребител с такъв e-mail адрес не може да бъде открит."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1203,6 +1064,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Ваш пароль быў скінуты!",
+            "sent": "Спасылка на скід пароля была адпраўлена!",
+            "throttled": "Please wait before retrying.",
+            "token": "Памылковы код скіду пароля.",
+            "user": "Не атрымалася знайсці карыстальніка з дадзеным электронным адрасам."
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Наперад &raquo;"
+        }
+    },
+    "bg": {
+        "auth": {
+            "failed": "Неуспешно удостоверяване на потребител.",
+            "throttle": "Твърде много опити за вход. Моля, опитайте отново след {seconds} секунди."
         },
         "validation": {
             "accepted": "Трябва да приемете {attribute}.",
@@ -1347,23 +1225,6 @@ export default {
                 "subject": "Заглавие",
                 "message": "Съобщение"
             }
-        }
-    },
-    "bn": {
-        "auth": {
-            "failed": "এই পরিচয়পত্র আমাদের রেকর্ডের সাথে মেলে না.",
-            "throttle": "লগইন করার জন্য অনেকগুলি চেষ্টা করেছেন. {seconds} সেকেন্ড পরে আবার চেষ্টা করুন ."
-        },
-        "pagination": {
-            "previous": "&laquo; আগে",
-            "next": "পরবর্তী &raquo;"
-        },
-        "passwords": {
-            "reset": "আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!",
-            "sent": "আমরা আপনার পাসওয়ার্ড পুনরায় সেট করার লিঙ্ক ইমেইল করেছি !",
-            "throttled": "Please wait before retrying.",
-            "token": "এই পাসওয়ার্ড রিসেট টোকেন অবৈধ.",
-            "user": "আমরা এই  ইমেল ঠিকানা দিয়ে  ব্যবহারকারী খুঁজে পাচ্ছি না"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1475,6 +1336,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Паролата е нулирана!",
+            "sent": "Изпратено е напомняне за вашата парола!",
+            "throttled": "Моля изчакайте, преди да опитате отново.",
+            "token": "Този токен за нулиране на парола е невалиден.",
+            "user": "Потребител с такъв e-mail адрес не може да бъде открит."
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Напред &raquo;"
+        }
+    },
+    "bn": {
+        "auth": {
+            "failed": "এই পরিচয়পত্র আমাদের রেকর্ডের সাথে মেলে না.",
+            "throttle": "লগইন করার জন্য অনেকগুলি চেষ্টা করেছেন. {seconds} সেকেন্ড পরে আবার চেষ্টা করুন ."
         },
         "validation": {
             "accepted": "{attribute} গ্রহণ করা আবশ্যক।",
@@ -1587,24 +1465,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "bs": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Nazad",
-            "next": "Naprijed &raquo;"
-        },
-        "passwords": {
-            "password": "Lozinke moraju da budu osam karaktera i da se slaže sa potvrdnom lozinkom.",
-            "reset": "Lozinka je resetovana!",
-            "sent": "Poslan vam je e-mail za povrat lozinke!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ovaj token za resetovanje lozinke nije ispravan.",
-            "user": "Ne može se pronaći korisnik sa tom e-mail adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1716,6 +1576,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "আপনার পাসওয়ার্ড পুনরায় সেট করা হয়েছে!",
+            "sent": "আমরা আপনার পাসওয়ার্ড পুনরায় সেট করার লিঙ্ক ইমেইল করেছি !",
+            "throttled": "Please wait before retrying.",
+            "token": "এই পাসওয়ার্ড রিসেট টোকেন অবৈধ.",
+            "user": "আমরা এই  ইমেল ঠিকানা দিয়ে  ব্যবহারকারী খুঁজে পাচ্ছি না"
+        },
+        "pagination": {
+            "previous": "&laquo; আগে",
+            "next": "পরবর্তী &raquo;"
+        }
+    },
+    "bs": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "Polje {attribute} mora biti prihvaćeno.",
@@ -1828,23 +1705,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "ca": {
-        "auth": {
-            "failed": "Aquestes credencials no concorden amb els nostres registres.",
-            "throttle": "Ha superat el nombre màxim d'intents d'accés. Si us plau, torni a intentar-ho en {seconds} segons."
-        },
-        "pagination": {
-            "previous": "&laquo; Anterior",
-            "next": "Següent &raquo;"
-        },
-        "passwords": {
-            "reset": "La contrasenya s'ha restablert!",
-            "sent": "Li hem enviat un correu electrònic amb un enllaç per a reiniciar la teva contrasenya!",
-            "throttled": "Si us plau, esperi abans de tornar-ho a intentar.",
-            "token": "Aquest token de recuperació de contrasenya és invàlid.",
-            "user": "No existeix cap usuari amb aquest correu."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -1956,6 +1816,24 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "password": "Lozinke moraju da budu osam karaktera i da se slaže sa potvrdnom lozinkom.",
+            "reset": "Lozinka je resetovana!",
+            "sent": "Poslan vam je e-mail za povrat lozinke!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ovaj token za resetovanje lozinke nije ispravan.",
+            "user": "Ne može se pronaći korisnik sa tom e-mail adresom."
+        },
+        "pagination": {
+            "previous": "&laquo; Nazad",
+            "next": "Naprijed &raquo;"
+        }
+    },
+    "ca": {
+        "auth": {
+            "failed": "Aquestes credencials no concorden amb els nostres registres.",
+            "throttle": "Ha superat el nombre màxim d'intents d'accés. Si us plau, torni a intentar-ho en {seconds} segons."
         },
         "validation": {
             "accepted": "{attribute} ha de ser acceptat.",
@@ -2104,23 +1982,6 @@ export default {
                 "username": "usuari",
                 "year": "any"
             }
-        }
-    },
-    "cs": {
-        "auth": {
-            "failed": "Tyto přihlašovací údaje neodpovídají žadnému záznamu.",
-            "throttle": "Příliš mnoho pokusů o přihlášení. Zkuste to prosím znovu za {seconds} vteřin."
-        },
-        "pagination": {
-            "previous": "&laquo; předchozí",
-            "next": "další &raquo;"
-        },
-        "passwords": {
-            "reset": "Heslo bylo obnoveno!",
-            "sent": "E-mail s instrukcemi k obnovení hesla byl odeslán!",
-            "throttled": "Počkejte prosím a zkuste to znovu.",
-            "token": "Klíč pro obnovu hesla je nesprávný.",
-            "user": "Nepodařilo se najít uživatele s touto e-mailovou adresou."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2232,6 +2093,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "La contrasenya s'ha restablert!",
+            "sent": "Li hem enviat un correu electrònic amb un enllaç per a reiniciar la teva contrasenya!",
+            "throttled": "Si us plau, esperi abans de tornar-ho a intentar.",
+            "token": "Aquest token de recuperació de contrasenya és invàlid.",
+            "user": "No existeix cap usuari amb aquest correu."
+        },
+        "pagination": {
+            "previous": "&laquo; Anterior",
+            "next": "Següent &raquo;"
+        }
+    },
+    "cs": {
+        "auth": {
+            "failed": "Tyto přihlašovací údaje neodpovídají žadnému záznamu.",
+            "throttle": "Příliš mnoho pokusů o přihlášení. Zkuste to prosím znovu za {seconds} vteřin."
         },
         "validation": {
             "accepted": "{attribute} musí být přijat.",
@@ -2346,23 +2224,6 @@ export default {
             "attributes": {
                 "password": "heslo"
             }
-        }
-    },
-    "cy": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Cynt",
-            "next": "Nesaf &raquo;"
-        },
-        "passwords": {
-            "reset": "Mae dy gyfrinair wedi ei ail-osod!",
-            "sent": "Rydym wedi e-bostio'r ddolen i ail-osod y cyfrinair!",
-            "throttled": "Please wait before retrying.",
-            "token": "Nid yw'r tocyn ail-osod cyfrinair yn ddilys.",
-            "user": "Ni oes gennym ddefnyddiwr gyda'r cyfeiriad e-bost yna."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2474,6 +2335,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Heslo bylo obnoveno!",
+            "sent": "E-mail s instrukcemi k obnovení hesla byl odeslán!",
+            "throttled": "Počkejte prosím a zkuste to znovu.",
+            "token": "Klíč pro obnovu hesla je nesprávný.",
+            "user": "Nepodařilo se najít uživatele s touto e-mailovou adresou."
+        },
+        "pagination": {
+            "previous": "&laquo; předchozí",
+            "next": "další &raquo;"
+        }
+    },
+    "cy": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "Rhaid derbyn {attribute}.",
@@ -2586,23 +2464,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "da": {
-        "auth": {
-            "failed": "De angivne oplysninger er ugyldige.",
-            "throttle": "For mange loginforsøg. Prøv igen om {seconds} sekunder."
-        },
-        "pagination": {
-            "previous": "&laquo; Forrige",
-            "next": "Næste &raquo;"
-        },
-        "passwords": {
-            "reset": "Adgangskoden er blevet nulstillet!",
-            "sent": "Vi har sendt dig en e-mail til at nulstille din adgangskode!",
-            "throttled": "Vent venligst inden du prøver igen.",
-            "token": "Koden til nulstilling af adgangskoden er ugyldig.",
-            "user": "Vi kan ikke finde en bruger med den e-mailadresse."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -2715,6 +2576,23 @@ export default {
                 }
             }
         },
+        "passwords": {
+            "reset": "Mae dy gyfrinair wedi ei ail-osod!",
+            "sent": "Rydym wedi e-bostio'r ddolen i ail-osod y cyfrinair!",
+            "throttled": "Please wait before retrying.",
+            "token": "Nid yw'r tocyn ail-osod cyfrinair yn ddilys.",
+            "user": "Ni oes gennym ddefnyddiwr gyda'r cyfeiriad e-bost yna."
+        },
+        "pagination": {
+            "previous": "&laquo; Cynt",
+            "next": "Nesaf &raquo;"
+        }
+    },
+    "da": {
+        "auth": {
+            "failed": "De angivne oplysninger er ugyldige.",
+            "throttle": "For mange loginforsøg. Prøv igen om {seconds} sekunder."
+        },
         "validation": {
             "accepted": "{attribute} skal accepteres.",
             "active_url": "{attribute} er ikke en gyldig URL.",
@@ -2826,179 +2704,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Adgangskoden er blevet nulstillet!",
+            "sent": "Vi har sendt dig en e-mail til at nulstille din adgangskode!",
+            "throttled": "Vent venligst inden du prøver igen.",
+            "token": "Koden til nulstilling af adgangskoden er ugyldig.",
+            "user": "Vi kan ikke finde en bruger med den e-mailadresse."
+        },
+        "pagination": {
+            "previous": "&laquo; Forrige",
+            "next": "Næste &raquo;"
         }
     },
     "de": {
         "auth": {
             "failed": "Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.",
             "throttle": "Zu viele Loginversuche. Versuchen Sie es bitte in {seconds} Sekunden nochmal."
-        },
-        "forms": {
-            "username": "Benutzername",
-            "email": "E-mail",
-            "password": "Kennwort",
-            "continue": "Weiter",
-            "date_of_birth": "Geburtsdatum",
-            "age": "Alter"
-        },
-        "general": {
-            "welcome": "Willkommen",
-            "print": "Drucken",
-            "search": "Suche",
-            "add": "hinzufügen",
-            "all_rights_reserved": "Tutti i diritti riservati.",
-            "acknowledgement_licensing_and_cert": "Danksagungen, Lizenzierung und Zertifizierung"
-        },
-        "languages": {
-            "english": "Englische",
-            "french": "Französisch",
-            "spanish": "Spanisch",
-            "dutch": "Niederländisch",
-            "russian": "Russisch",
-            "portuguese": "Portugiesisch",
-            "italian": "Italienisch",
-            "arabic": "عربي (Arabisch)",
-            "hebrew": "Hebräisch",
-            "romanian": "Rumänisch",
-            "ukrainian": "Ukrainisch",
-            "turkish": "Türkisch",
-            "japanese": "Japanisch",
-            "chinese": "Chinesisch"
-        },
-        "menu": {
-            "calendar": "Kalender",
-            "flow_board": "Flow-Brett",
-            "inventory": "Bestandsaufnahme",
-            "fees": "Gebühren",
-            "patient_client": "Patient/Kunde",
-            "procedures": "Verfahren",
-            "reports": "Berichte",
-            "miscellaneous": "Verschiedenes",
-            "popups": "Popups",
-            "qa_measures": "QS-Maßnahmen",
-            "help": "Hilfe"
-        },
-        "pagination": {
-            "previous": "&laquo; Zurück",
-            "next": "Weiter &raquo;"
-        },
-        "passwords": {
-            "reset": "Das Passwort wurde zurückgesetzt!",
-            "sent": "Passworterinnerung wurde gesendet!",
-            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
-            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
-            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
-        },
-        "validation-inline": {
-            "accepted": "Dieses Feld muss akzeptiert werden.",
-            "active_url": "Das ist keine gültige Internet-Adresse.",
-            "after": "Das muss ein Datum nach dem {date} sein.",
-            "after_or_equal": "Das muss ein Datum nach dem {date} oder gleich dem {date} sein.",
-            "alpha": "Der Inhalt darf nur aus Buchstaben bestehen.",
-            "alpha_dash": "Der Inhalt darf nur aus Buchstaben, Zahlen, Binde- und Unterstrichen bestehen.",
-            "alpha_num": "Der Inhalt darf nur aus Buchstaben und Zahlen bestehen.",
-            "array": "Dieses Feld muss ein Array sein.",
-            "before": "Das muss ein Datum vor dem {date} sein.",
-            "before_or_equal": "Das muss ein Datum vor dem {date} oder gleich dem {date} sein.",
-            "between": {
-                "numeric": "Dieser Wert muss zwischen {min} & {max} liegen.",
-                "file": "Diese Datei muss zwischen {min} & {max} Kilobytes groß sein.",
-                "string": "Diese Zeichenkette muss zwischen {min} & {max} Zeichen lang sein.",
-                "array": "Dieser Inhalt muss zwischen {min} & {max} Elemente haben."
-            },
-            "boolean": "Dieses Feld muss entweder 'true' oder 'false' sein.",
-            "confirmed": "Die Bestätigung stimmt nicht überein.",
-            "date": "Das ist kein gültiges Datum.",
-            "date_equals": "Das Datum muss identisch zu {date} sein.",
-            "date_format": "Das Datum entspricht nicht dem gültigen Format für {format}.",
-            "different": "Das muss sich von {other} unterscheiden.",
-            "digits": "Das muss {digits} Stellen haben.",
-            "digits_between": "Das muss zwischen {min} und {max} Stellen haben.",
-            "dimensions": "Das Bild hat ungültige Abmessungen.",
-            "distinct": "Dieser Wert ist bereits vorhanden.",
-            "email": "Das muss eine gültige E-Mail-Adresse sein.",
-            "ends_with": "Der Inhalt muss eine der folgenden Endungen aufweisen: {values}",
-            "exists": "Der gewählte Wert ist ungültig.",
-            "file": "Der Inhalt muss eine Datei sein.",
-            "filled": "Dieses Feld muss ausgefüllt sein.",
-            "gt": {
-                "numeric": "Der Wert muss größer als {value} sein.",
-                "file": "Die Datei muss größer als {value} Kilobytes sein.",
-                "string": "Die Zeichenkette muss länger als {value} Zeichen sein.",
-                "array": "Der Inhalt muss mehr als {value} Elemente haben."
-            },
-            "gte": {
-                "numeric": "Der Wert muss größer oder gleich {value} sein.",
-                "file": "Die Datei muss größer oder gleich {value} Kilobytes sein.",
-                "string": "Die Zeichenkette muss mindestens {value} Zeichen lang sein.",
-                "array": "Der Inhalt muss mindestens {value} Elemente haben."
-            },
-            "image": "Das muss ein Bild sein.",
-            "in": "Der gewählte Wert ist ungültig.",
-            "in_array": "Der gewählte Wert kommt nicht in {other} vor.",
-            "integer": "Das muss eine ganze Zahl sein.",
-            "ip": "Das muss eine gültige IP-Adresse sein.",
-            "ipv4": "Das muss eine gültige IPv4-Adresse sein.",
-            "ipv6": "Das muss eine gültige IPv6-Adresse sein.",
-            "json": "Das muss ein gültiger JSON-String sein.",
-            "lt": {
-                "numeric": "Der Wert muss kleiner als {value} sein.",
-                "file": "Die Datei muss kleiner als {value} Kilobytes sein.",
-                "string": "Die Zeichenkette muss kürzer als {value} Zeichen sein.",
-                "array": "Der Inhalt muss weniger als {value} Elemente haben."
-            },
-            "lte": {
-                "numeric": "Der Wert muss kleiner oder gleich {value} sein.",
-                "file": "Die Datei muss kleiner oder gleich {value} Kilobytes sein.",
-                "string": "Die Zeichenkette darf maximal {value} Zeichen lang sein.",
-                "array": "Der Inhalt darf maximal {value} Elemente haben."
-            },
-            "max": {
-                "numeric": "Der Wert darf maximal {max} sein.",
-                "file": "Die Datei darf maximal {max} Kilobytes groß sein.",
-                "string": "Die Zeichenkette darf maximal {max} Zeichen haben.",
-                "array": "Der Inhalt darf maximal {max} Elemente haben."
-            },
-            "mimes": "Das muss den Dateityp {values} haben.",
-            "mimetypes": "Das muss den Dateityp {values} haben.",
-            "min": {
-                "numeric": "Der Wert muss mindestens {min} sein.",
-                "file": "Die Datei muss mindestens {min} Kilobytes groß sein.",
-                "string": "Die Zeichenkette muss mindestens {min} Zeichen lang sein.",
-                "array": "Der Inhalt muss mindestens {min} Elemente haben."
-            },
-            "not_in": "Der gewählte Wert ist ungültig.",
-            "not_regex": "Dieses Format ist ungültig.",
-            "numeric": "Das muss eine Zahl sein.",
-            "password": "Das Passwort ist falsch.",
-            "present": "Dieses Feld muss vorhanden sein.",
-            "regex": "Dieses Format ist ungültig.",
-            "required": "Dieses Feld muss ausgefüllt werden.",
-            "required_if": "Dieses Feld muss ausgefüllt werden, wenn {other} den Wert {value} hat.",
-            "required_unless": "Dieses Feld muss ausgefüllt werden, wenn {other} nicht den Wert {values} hat.",
-            "required_with": "Dieses Feld muss ausgefüllt werden, wenn {values} ausgefüllt wurde.",
-            "required_with_all": "Dieses Feld muss ausgefüllt werden, wenn {values} ausgefüllt wurde.",
-            "required_without": "Dieses Feld muss ausgefüllt werden, wenn {values} nicht ausgefüllt wurde.",
-            "required_without_all": "Dieses Feld muss ausgefüllt werden, wenn keines der Felder {values} ausgefüllt wurde.",
-            "same": "Der Wert von diesem Feld und muss mit demjenigen von {other} übereinstimmen.",
-            "size": {
-                "numeric": "Der Wert muss gleich {size} sein.",
-                "file": "Die Datei muss {size} Kilobyte groß sein.",
-                "string": "Die Zeichenkette muss {size} Zeichen lang sein.",
-                "array": "Der Inhalt muss genau {size} Elemente haben."
-            },
-            "starts_with": "Der Inhalt muss einen der folgenden Anfänge aufweisen: {values}",
-            "string": "Das muss ein String sein.",
-            "timezone": "Das muss eine gültige Zeitzone sein.",
-            "unique": "Das ist bereits vergeben.",
-            "uploaded": "Das konnte nicht hochgeladen werden.",
-            "url": "Das muss eine URL sein.",
-            "uuid": "Das muss eine UUID sein.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} muss akzeptiert werden.",
@@ -3141,23 +2974,6 @@ export default {
                 "available": "verfügbar",
                 "size": "Größe"
             }
-        }
-    },
-    "de_CH": {
-        "auth": {
-            "failed": "Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.",
-            "throttle": "Zu viele Loginversuche. Versuchen Sie es bitte in {seconds} Sekunden nochmal."
-        },
-        "pagination": {
-            "previous": "&laquo; Zurück",
-            "next": "Weiter &raquo;"
-        },
-        "passwords": {
-            "reset": "Das Passwort wurde zurückgesetzt!",
-            "sent": "Passworterinnerung wurde gesendet!",
-            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
-            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
-            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
         },
         "validation-inline": {
             "accepted": "Dieses Feld muss akzeptiert werden.",
@@ -3172,7 +2988,7 @@ export default {
             "before_or_equal": "Das muss ein Datum vor dem {date} oder gleich dem {date} sein.",
             "between": {
                 "numeric": "Dieser Wert muss zwischen {min} & {max} liegen.",
-                "file": "Diese Datei muss zwischen {min} & {max} Kilobytes gross sein.",
+                "file": "Diese Datei muss zwischen {min} & {max} Kilobytes groß sein.",
                 "string": "Diese Zeichenkette muss zwischen {min} & {max} Zeichen lang sein.",
                 "array": "Dieser Inhalt muss zwischen {min} & {max} Elemente haben."
             },
@@ -3192,16 +3008,16 @@ export default {
             "file": "Der Inhalt muss eine Datei sein.",
             "filled": "Dieses Feld muss ausgefüllt sein.",
             "gt": {
-                "numeric": "Der Wert muss mindestens {value} sein.",
-                "file": "Die Datei muss mindestens {value} Kilobytes gross sein.",
-                "string": "Die Zeichenkette muss mindestens {value} Zeichen lang sein.",
-                "array": "Der Inhalt muss mindestens {value} Elemente haben."
+                "numeric": "Der Wert muss größer als {value} sein.",
+                "file": "Die Datei muss größer als {value} Kilobytes sein.",
+                "string": "Die Zeichenkette muss länger als {value} Zeichen sein.",
+                "array": "Der Inhalt muss mehr als {value} Elemente haben."
             },
             "gte": {
-                "numeric": "Der Wert muss grösser oder gleich {value} sein.",
-                "file": "Die Datei muss grösser oder gleich {value} Kilobytes sein.",
-                "string": "Die Zeichenkette muss grösser oder gleich {value} Zeichen lang sein.",
-                "array": "Der Inhalt muss grösser oder gleich {value} Elemente haben."
+                "numeric": "Der Wert muss größer oder gleich {value} sein.",
+                "file": "Die Datei muss größer oder gleich {value} Kilobytes sein.",
+                "string": "Die Zeichenkette muss mindestens {value} Zeichen lang sein.",
+                "array": "Der Inhalt muss mindestens {value} Elemente haben."
             },
             "image": "Das muss ein Bild sein.",
             "in": "Der gewählte Wert ist ungültig.",
@@ -3212,28 +3028,28 @@ export default {
             "ipv6": "Das muss eine gültige IPv6-Adresse sein.",
             "json": "Das muss ein gültiger JSON-String sein.",
             "lt": {
-                "numeric": "Der Wert muss kleiner {value} sein.",
-                "file": "Die Datei muss kleiner {value} Kilobytes gross sein.",
-                "string": "Die Zeichenkette muss kleiner {value} Zeichen lang sein.",
-                "array": "Der Inhalt muss kleiner {value} Elemente haben."
+                "numeric": "Der Wert muss kleiner als {value} sein.",
+                "file": "Die Datei muss kleiner als {value} Kilobytes sein.",
+                "string": "Die Zeichenkette muss kürzer als {value} Zeichen sein.",
+                "array": "Der Inhalt muss weniger als {value} Elemente haben."
             },
             "lte": {
                 "numeric": "Der Wert muss kleiner oder gleich {value} sein.",
                 "file": "Die Datei muss kleiner oder gleich {value} Kilobytes sein.",
-                "string": "Die Zeichenkette muss kleiner oder gleich {value} Zeichen lang sein.",
-                "array": "Der Inhalt muss kleiner oder gleich {value} Elemente haben."
+                "string": "Die Zeichenkette darf maximal {value} Zeichen lang sein.",
+                "array": "Der Inhalt darf maximal {value} Elemente haben."
             },
             "max": {
                 "numeric": "Der Wert darf maximal {max} sein.",
-                "file": "Die Datei darf maximal {max} Kilobytes gross sein.",
+                "file": "Die Datei darf maximal {max} Kilobytes groß sein.",
                 "string": "Die Zeichenkette darf maximal {max} Zeichen haben.",
-                "array": "Der Inhalt darf nicht mehr als {max} Elemente haben."
+                "array": "Der Inhalt darf maximal {max} Elemente haben."
             },
             "mimes": "Das muss den Dateityp {values} haben.",
             "mimetypes": "Das muss den Dateityp {values} haben.",
             "min": {
                 "numeric": "Der Wert muss mindestens {min} sein.",
-                "file": "Die Datei muss mindestens {min} Kilobytes gross sein.",
+                "file": "Die Datei muss mindestens {min} Kilobytes groß sein.",
                 "string": "Die Zeichenkette muss mindestens {min} Zeichen lang sein.",
                 "array": "Der Inhalt muss mindestens {min} Elemente haben."
             },
@@ -3243,24 +3059,24 @@ export default {
             "password": "Das Passwort ist falsch.",
             "present": "Dieses Feld muss vorhanden sein.",
             "regex": "Dieses Format ist ungültig.",
-            "required": "Dieses Feld muss ausgefüllt sein.",
-            "required_if": "Dieses Feld muss ausgefüllt sein, wenn {other} {value} ist.",
-            "required_unless": "Dieses Feld muss ausgefüllt sein, wenn {other} nicht {values} ist.",
-            "required_with": "Dieses Feld muss angegeben werden, wenn {values} ausgefüllt wurde.",
-            "required_with_all": "Dieses Feld muss angegeben werden, wenn {values} ausgefüllt wurde.",
-            "required_without": "Dieses Feld muss angegeben werden, wenn {values} nicht ausgefüllt wurde.",
-            "required_without_all": "Dieses Feld muss angegeben werden, wenn keines der Felder {values} ausgefüllt wurde.",
+            "required": "Dieses Feld muss ausgefüllt werden.",
+            "required_if": "Dieses Feld muss ausgefüllt werden, wenn {other} den Wert {value} hat.",
+            "required_unless": "Dieses Feld muss ausgefüllt werden, wenn {other} nicht den Wert {values} hat.",
+            "required_with": "Dieses Feld muss ausgefüllt werden, wenn {values} ausgefüllt wurde.",
+            "required_with_all": "Dieses Feld muss ausgefüllt werden, wenn {values} ausgefüllt wurde.",
+            "required_without": "Dieses Feld muss ausgefüllt werden, wenn {values} nicht ausgefüllt wurde.",
+            "required_without_all": "Dieses Feld muss ausgefüllt werden, wenn keines der Felder {values} ausgefüllt wurde.",
             "same": "Der Wert von diesem Feld und muss mit demjenigen von {other} übereinstimmen.",
             "size": {
                 "numeric": "Der Wert muss gleich {size} sein.",
-                "file": "Die Datei muss {size} Kilobyte gross sein.",
+                "file": "Die Datei muss {size} Kilobyte groß sein.",
                 "string": "Die Zeichenkette muss {size} Zeichen lang sein.",
                 "array": "Der Inhalt muss genau {size} Elemente haben."
             },
             "starts_with": "Der Inhalt muss einen der folgenden Anfänge aufweisen: {values}",
             "string": "Das muss ein String sein.",
             "timezone": "Das muss eine gültige Zeitzone sein.",
-            "unique": "Das ist schon vergeben.",
+            "unique": "Das ist bereits vergeben.",
             "uploaded": "Das konnte nicht hochgeladen werden.",
             "url": "Das muss eine URL sein.",
             "uuid": "Das muss eine UUID sein.",
@@ -3269,6 +3085,68 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "forms": {
+            "username": "Benutzername",
+            "email": "E-mail",
+            "password": "Kennwort",
+            "continue": "Weiter",
+            "date_of_birth": "Geburtsdatum",
+            "age": "Alter"
+        },
+        "passwords": {
+            "reset": "Das Passwort wurde zurückgesetzt!",
+            "sent": "Passworterinnerung wurde gesendet!",
+            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
+            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
+            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
+        },
+        "general": {
+            "welcome": "Willkommen",
+            "print": "Drucken",
+            "search": "Suche",
+            "add": "hinzufügen",
+            "all_rights_reserved": "Tutti i diritti riservati.",
+            "acknowledgement_licensing_and_cert": "Danksagungen, Lizenzierung und Zertifizierung"
+        },
+        "languages": {
+            "english": "Englische",
+            "french": "Französisch",
+            "spanish": "Spanisch",
+            "dutch": "Niederländisch",
+            "russian": "Russisch",
+            "portuguese": "Portugiesisch",
+            "italian": "Italienisch",
+            "arabic": "عربي (Arabisch)",
+            "hebrew": "Hebräisch",
+            "romanian": "Rumänisch",
+            "ukrainian": "Ukrainisch",
+            "turkish": "Türkisch",
+            "japanese": "Japanisch",
+            "chinese": "Chinesisch"
+        },
+        "menu": {
+            "calendar": "Kalender",
+            "flow_board": "Flow-Brett",
+            "inventory": "Bestandsaufnahme",
+            "fees": "Gebühren",
+            "patient_client": "Patient/Kunde",
+            "procedures": "Verfahren",
+            "reports": "Berichte",
+            "miscellaneous": "Verschiedenes",
+            "popups": "Popups",
+            "qa_measures": "QS-Maßnahmen",
+            "help": "Hilfe"
+        },
+        "pagination": {
+            "previous": "&laquo; Zurück",
+            "next": "Weiter &raquo;"
+        }
+    },
+    "de_CH": {
+        "auth": {
+            "failed": "Diese Kombination aus Zugangsdaten wurde nicht in unserer Datenbank gefunden.",
+            "throttle": "Zu viele Loginversuche. Versuchen Sie es bitte in {seconds} Sekunden nochmal."
         },
         "validation": {
             "accepted": "{attribute} muss akzeptiert werden.",
@@ -3411,134 +3289,134 @@ export default {
                 "available": "verfügbar",
                 "size": "Grösse"
             }
+        },
+        "validation-inline": {
+            "accepted": "Dieses Feld muss akzeptiert werden.",
+            "active_url": "Das ist keine gültige Internet-Adresse.",
+            "after": "Das muss ein Datum nach dem {date} sein.",
+            "after_or_equal": "Das muss ein Datum nach dem {date} oder gleich dem {date} sein.",
+            "alpha": "Der Inhalt darf nur aus Buchstaben bestehen.",
+            "alpha_dash": "Der Inhalt darf nur aus Buchstaben, Zahlen, Binde- und Unterstrichen bestehen.",
+            "alpha_num": "Der Inhalt darf nur aus Buchstaben und Zahlen bestehen.",
+            "array": "Dieses Feld muss ein Array sein.",
+            "before": "Das muss ein Datum vor dem {date} sein.",
+            "before_or_equal": "Das muss ein Datum vor dem {date} oder gleich dem {date} sein.",
+            "between": {
+                "numeric": "Dieser Wert muss zwischen {min} & {max} liegen.",
+                "file": "Diese Datei muss zwischen {min} & {max} Kilobytes gross sein.",
+                "string": "Diese Zeichenkette muss zwischen {min} & {max} Zeichen lang sein.",
+                "array": "Dieser Inhalt muss zwischen {min} & {max} Elemente haben."
+            },
+            "boolean": "Dieses Feld muss entweder 'true' oder 'false' sein.",
+            "confirmed": "Die Bestätigung stimmt nicht überein.",
+            "date": "Das ist kein gültiges Datum.",
+            "date_equals": "Das Datum muss identisch zu {date} sein.",
+            "date_format": "Das Datum entspricht nicht dem gültigen Format für {format}.",
+            "different": "Das muss sich von {other} unterscheiden.",
+            "digits": "Das muss {digits} Stellen haben.",
+            "digits_between": "Das muss zwischen {min} und {max} Stellen haben.",
+            "dimensions": "Das Bild hat ungültige Abmessungen.",
+            "distinct": "Dieser Wert ist bereits vorhanden.",
+            "email": "Das muss eine gültige E-Mail-Adresse sein.",
+            "ends_with": "Der Inhalt muss eine der folgenden Endungen aufweisen: {values}",
+            "exists": "Der gewählte Wert ist ungültig.",
+            "file": "Der Inhalt muss eine Datei sein.",
+            "filled": "Dieses Feld muss ausgefüllt sein.",
+            "gt": {
+                "numeric": "Der Wert muss mindestens {value} sein.",
+                "file": "Die Datei muss mindestens {value} Kilobytes gross sein.",
+                "string": "Die Zeichenkette muss mindestens {value} Zeichen lang sein.",
+                "array": "Der Inhalt muss mindestens {value} Elemente haben."
+            },
+            "gte": {
+                "numeric": "Der Wert muss grösser oder gleich {value} sein.",
+                "file": "Die Datei muss grösser oder gleich {value} Kilobytes sein.",
+                "string": "Die Zeichenkette muss grösser oder gleich {value} Zeichen lang sein.",
+                "array": "Der Inhalt muss grösser oder gleich {value} Elemente haben."
+            },
+            "image": "Das muss ein Bild sein.",
+            "in": "Der gewählte Wert ist ungültig.",
+            "in_array": "Der gewählte Wert kommt nicht in {other} vor.",
+            "integer": "Das muss eine ganze Zahl sein.",
+            "ip": "Das muss eine gültige IP-Adresse sein.",
+            "ipv4": "Das muss eine gültige IPv4-Adresse sein.",
+            "ipv6": "Das muss eine gültige IPv6-Adresse sein.",
+            "json": "Das muss ein gültiger JSON-String sein.",
+            "lt": {
+                "numeric": "Der Wert muss kleiner {value} sein.",
+                "file": "Die Datei muss kleiner {value} Kilobytes gross sein.",
+                "string": "Die Zeichenkette muss kleiner {value} Zeichen lang sein.",
+                "array": "Der Inhalt muss kleiner {value} Elemente haben."
+            },
+            "lte": {
+                "numeric": "Der Wert muss kleiner oder gleich {value} sein.",
+                "file": "Die Datei muss kleiner oder gleich {value} Kilobytes sein.",
+                "string": "Die Zeichenkette muss kleiner oder gleich {value} Zeichen lang sein.",
+                "array": "Der Inhalt muss kleiner oder gleich {value} Elemente haben."
+            },
+            "max": {
+                "numeric": "Der Wert darf maximal {max} sein.",
+                "file": "Die Datei darf maximal {max} Kilobytes gross sein.",
+                "string": "Die Zeichenkette darf maximal {max} Zeichen haben.",
+                "array": "Der Inhalt darf nicht mehr als {max} Elemente haben."
+            },
+            "mimes": "Das muss den Dateityp {values} haben.",
+            "mimetypes": "Das muss den Dateityp {values} haben.",
+            "min": {
+                "numeric": "Der Wert muss mindestens {min} sein.",
+                "file": "Die Datei muss mindestens {min} Kilobytes gross sein.",
+                "string": "Die Zeichenkette muss mindestens {min} Zeichen lang sein.",
+                "array": "Der Inhalt muss mindestens {min} Elemente haben."
+            },
+            "not_in": "Der gewählte Wert ist ungültig.",
+            "not_regex": "Dieses Format ist ungültig.",
+            "numeric": "Das muss eine Zahl sein.",
+            "password": "Das Passwort ist falsch.",
+            "present": "Dieses Feld muss vorhanden sein.",
+            "regex": "Dieses Format ist ungültig.",
+            "required": "Dieses Feld muss ausgefüllt sein.",
+            "required_if": "Dieses Feld muss ausgefüllt sein, wenn {other} {value} ist.",
+            "required_unless": "Dieses Feld muss ausgefüllt sein, wenn {other} nicht {values} ist.",
+            "required_with": "Dieses Feld muss angegeben werden, wenn {values} ausgefüllt wurde.",
+            "required_with_all": "Dieses Feld muss angegeben werden, wenn {values} ausgefüllt wurde.",
+            "required_without": "Dieses Feld muss angegeben werden, wenn {values} nicht ausgefüllt wurde.",
+            "required_without_all": "Dieses Feld muss angegeben werden, wenn keines der Felder {values} ausgefüllt wurde.",
+            "same": "Der Wert von diesem Feld und muss mit demjenigen von {other} übereinstimmen.",
+            "size": {
+                "numeric": "Der Wert muss gleich {size} sein.",
+                "file": "Die Datei muss {size} Kilobyte gross sein.",
+                "string": "Die Zeichenkette muss {size} Zeichen lang sein.",
+                "array": "Der Inhalt muss genau {size} Elemente haben."
+            },
+            "starts_with": "Der Inhalt muss einen der folgenden Anfänge aufweisen: {values}",
+            "string": "Das muss ein String sein.",
+            "timezone": "Das muss eine gültige Zeitzone sein.",
+            "unique": "Das ist schon vergeben.",
+            "uploaded": "Das konnte nicht hochgeladen werden.",
+            "url": "Das muss eine URL sein.",
+            "uuid": "Das muss eine UUID sein.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Das Passwort wurde zurückgesetzt!",
+            "sent": "Passworterinnerung wurde gesendet!",
+            "throttled": "Bitte warten Sie, bevor Sie es erneut versuchen.",
+            "token": "Der Passwort-Wiederherstellungs-Schlüssel ist ungültig oder abgelaufen.",
+            "user": "Es konnte leider kein Nutzer mit dieser E-Mail-Adresse gefunden werden."
+        },
+        "pagination": {
+            "previous": "&laquo; Zurück",
+            "next": "Weiter &raquo;"
         }
     },
     "el": {
         "auth": {
             "failed": "Τα στοιχεία αυτά δεν ταιριάζουν με τα δικά μας.",
             "throttle": "Πολλές προσπάθειες σύνδεσης. Παρακαλώ δοκιμάστε ξανά σε {seconds} δευτερόλεπτα."
-        },
-        "pagination": {
-            "previous": "&laquo; Προηγούμενη",
-            "next": "Επόμενη &raquo;"
-        },
-        "passwords": {
-            "reset": "Έχει γίνει επαναφορά του συνθηματικού!",
-            "sent": "Η υπενθύμιση του συνθηματικού εστάλη!",
-            "throttled": "Please wait before retrying.",
-            "token": "Το κλειδί αρχικοποίησης του συνθηματικού δεν είναι έγκυρο.",
-            "user": "Δεν βρέθηκε χρήστης με το συγκεκριμένο email."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Το πεδίο {attribute} πρέπει να γίνει αποδεκτό.",
@@ -3684,6 +3562,128 @@ export default {
                 "subject": "Θέμα",
                 "message": "Μήνυμα"
             }
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Έχει γίνει επαναφορά του συνθηματικού!",
+            "sent": "Η υπενθύμιση του συνθηματικού εστάλη!",
+            "throttled": "Please wait before retrying.",
+            "token": "Το κλειδί αρχικοποίησης του συνθηματικού δεν είναι έγκυρο.",
+            "user": "Δεν βρέθηκε χρήστης με το συγκεκριμένο email."
+        },
+        "pagination": {
+            "previous": "&laquo; Προηγούμενη",
+            "next": "Επόμενη &raquo;"
         }
     },
     "en": {
@@ -3697,92 +3697,116 @@ export default {
             "enter_password": "Please provide a password",
             "login": "Login"
         },
-        "forms": {
-            "username": "Username",
-            "email": "E-mail",
-            "password": "Password",
-            "continue": "Continue",
-            "next": "Next",
-            "previous": "Previous",
-            "finish": "Finish",
-            "date_of_birth": "Date of birth",
-            "age": "Age",
-            "year": "Year|Years",
-            "month": "Month|Months",
-            "day": "Day|Days",
-            "hour": "Hour|Hours",
-            "minute": "Minute|Minutes",
-            "second": "Second|Seconds"
-        },
-        "general": {
-            "dashboard": "Dashboard",
-            "welcome": "Welcome",
-            "print": "Print",
-            "search": "Search",
-            "add": "Add",
-            "error": "Error",
-            "success": "Success",
-            "warning": "Warning",
-            "info": "Info",
-            "all_rights_reserved": "All Rights Reserved.",
-            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
-            "no_such_patient": "No such Patient",
-            "please_select_a_patient": "You must first select or add a patient",
-            "please_select_a_correct_patient": "The selected patient seems not to be correct please try again",
-            "selected_encounter": "Select Encounter",
-            "forgot_your_password": "Forgot your password?",
-            "forgot_password": "Forgot Password",
-            "reset_password": "Reset Password",
-            "verify_account": "Verify Account",
-            "click_here": "Click here"
-        },
-        "installer": {
-            "installation_steps": "Installation Steps",
-            "introduction": "Introduction",
-            "server_requirements": "Server Requirements",
-            "file_permissions": "File Permissions",
-            "database_configuration": "Database Configuration",
-            "ehr_settings": "ERH Configuration"
-        },
-        "languages": {
-            "english": "English",
-            "french": "French",
-            "spanish": "Spanish",
-            "dutch": "Dutch",
-            "russian": "Russian",
-            "portuguese": "Portuguese",
-            "italian": "Italian",
-            "arabic": "عربي (Arabic)",
-            "hebrew": "Hebrew",
-            "romanian": "Romanian",
-            "ukrainian": "Ukrainian",
-            "turkish": "Turkish",
-            "japanese": "Japanese",
-            "chinese": "Chinese"
-        },
-        "menu": {
-            "calendar": "Calendar",
-            "flow_board": "Flow Board",
-            "inventory": "Inventory",
-            "fees": "Fees",
-            "patient_client": "Patient/Client",
-            "procedures": "Procedures",
-            "administration": "Administration",
-            "reports": "Reports",
-            "miscellaneous": "Miscellaneous",
-            "popups": "Popups",
-            "qa_measures": "QA Measures",
-            "help": "Help"
-        },
-        "pagination": {
-            "previous": "&laquo; Previous",
-            "next": "Next &raquo;"
-        },
-        "passwords": {
-            "reset": "Your password has been reset!",
-            "sent": "We have e-mailed your password reset link!",
-            "token": "This password reset token is invalid.",
-            "user": "We can't find a user with that e-mail address."
+        "validation": {
+            "accepted": "The {attribute} must be accepted.",
+            "active_url": "The {attribute} is not a valid URL.",
+            "after": "The {attribute} must be a date after {date}.",
+            "after_or_equal": "The {attribute} must be a date after or equal to {date}.",
+            "alpha": "The {attribute} may only contain letters.",
+            "alpha_dash": "The {attribute} may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "The {attribute} may only contain letters and numbers.",
+            "array": "The {attribute} must be an array.",
+            "before": "The {attribute} must be a date before {date}.",
+            "before_or_equal": "The {attribute} must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "The {attribute} must be between {min} and {max}.",
+                "file": "The {attribute} must be between {min} and {max} kilobytes.",
+                "string": "The {attribute} must be between {min} and {max} characters.",
+                "array": "The {attribute} must have between {min} and {max} items."
+            },
+            "boolean": "The {attribute} field must be true or false.",
+            "confirmed": "The {attribute} confirmation does not match.",
+            "date": "The {attribute} is not a valid date.",
+            "date_equals": "The {attribute} must be a date equal to {date}.",
+            "date_format": "The {attribute} does not match the format {format}.",
+            "different": "The {attribute} and {other} must be different.",
+            "digits": "The {attribute} must be {digits} digits.",
+            "digits_between": "The {attribute} must be between {min} and {max} digits.",
+            "dimensions": "The {attribute} has invalid image dimensions.",
+            "distinct": "The {attribute} field has a duplicate value.",
+            "email": "The {attribute} must be a valid email address.",
+            "ends_with": "The {attribute} must end with one of the following: {values}",
+            "exists": "The selected {attribute} is invalid.",
+            "file": "The {attribute} must be a file.",
+            "filled": "The {attribute} field must have a value.",
+            "gt": {
+                "numeric": "The {attribute} must be greater than {value}.",
+                "file": "The {attribute} must be greater than {value} kilobytes.",
+                "string": "The {attribute} must be greater than {value} characters.",
+                "array": "The {attribute} must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The {attribute} must be greater than or equal {value}.",
+                "file": "The {attribute} must be greater than or equal {value} kilobytes.",
+                "string": "The {attribute} must be greater than or equal {value} characters.",
+                "array": "The {attribute} must have {value} items or more."
+            },
+            "image": "The {attribute} must be an image.",
+            "in": "The selected {attribute} is invalid.",
+            "in_array": "The {attribute} field does not exist in {other}.",
+            "integer": "The {attribute} must be an integer.",
+            "ip": "The {attribute} must be a valid IP address.",
+            "ipv4": "The {attribute} must be a valid IPv4 address.",
+            "ipv6": "The {attribute} must be a valid IPv6 address.",
+            "json": "The {attribute} must be a valid JSON string.",
+            "lt": {
+                "numeric": "The {attribute} must be less than {value}.",
+                "file": "The {attribute} must be less than {value} kilobytes.",
+                "string": "The {attribute} must be less than {value} characters.",
+                "array": "The {attribute} must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The {attribute} must be less than or equal {value}.",
+                "file": "The {attribute} must be less than or equal {value} kilobytes.",
+                "string": "The {attribute} must be less than or equal {value} characters.",
+                "array": "The {attribute} must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The {attribute} may not be greater than {max}.",
+                "file": "The {attribute} may not be greater than {max} kilobytes.",
+                "string": "The {attribute} may not be greater than {max} characters.",
+                "array": "The {attribute} may not have more than {max} items."
+            },
+            "mimes": "The {attribute} must be a file of type: {values}.",
+            "mimetypes": "The {attribute} must be a file of type: {values}.",
+            "min": {
+                "numeric": "The {attribute} must be at least {min}.",
+                "file": "The {attribute} must be at least {min} kilobytes.",
+                "string": "The {attribute} must be at least {min} characters.",
+                "array": "The {attribute} must have at least {min} items."
+            },
+            "not_in": "The selected {attribute} is invalid.",
+            "not_regex": "The {attribute} format is invalid.",
+            "numeric": "The {attribute} must be a number.",
+            "present": "The {attribute} field must be present.",
+            "regex": "The {attribute} format is invalid.",
+            "required": "The {attribute} field is required.",
+            "required_if": "The {attribute} field is required when {other} is {value}.",
+            "required_unless": "The {attribute} field is required unless {other} is in {values}.",
+            "required_with": "The {attribute} field is required when {values} is present.",
+            "required_with_all": "The {attribute} field is required when {values} are present.",
+            "required_without": "The {attribute} field is required when {values} is not present.",
+            "required_without_all": "The {attribute} field is required when none of {values} are present.",
+            "same": "The {attribute} and {other} must match.",
+            "size": {
+                "numeric": "The {attribute} must be {size}.",
+                "file": "The {attribute} must be {size} kilobytes.",
+                "string": "The {attribute} must be {size} characters.",
+                "array": "The {attribute} must contain {size} items."
+            },
+            "starts_with": "The {attribute} must start with one of the following: {values}",
+            "string": "The {attribute} must be a string.",
+            "timezone": "The {attribute} must be a valid zone.",
+            "unique": "The {attribute} has already been taken.",
+            "uploaded": "The {attribute} failed to upload.",
+            "url": "The {attribute} format is invalid.",
+            "uuid": "The {attribute} must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": []
         },
         "validation-inline": {
             "accepted": "يجب قبول {attribute}.",
@@ -3895,289 +3919,98 @@ export default {
                 }
             }
         },
-        "validation": {
-            "accepted": "The {attribute} must be accepted.",
-            "active_url": "The {attribute} is not a valid URL.",
-            "after": "The {attribute} must be a date after {date}.",
-            "after_or_equal": "The {attribute} must be a date after or equal to {date}.",
-            "alpha": "The {attribute} may only contain letters.",
-            "alpha_dash": "The {attribute} may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "The {attribute} may only contain letters and numbers.",
-            "array": "The {attribute} must be an array.",
-            "before": "The {attribute} must be a date before {date}.",
-            "before_or_equal": "The {attribute} must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "The {attribute} must be between {min} and {max}.",
-                "file": "The {attribute} must be between {min} and {max} kilobytes.",
-                "string": "The {attribute} must be between {min} and {max} characters.",
-                "array": "The {attribute} must have between {min} and {max} items."
-            },
-            "boolean": "The {attribute} field must be true or false.",
-            "confirmed": "The {attribute} confirmation does not match.",
-            "date": "The {attribute} is not a valid date.",
-            "date_equals": "The {attribute} must be a date equal to {date}.",
-            "date_format": "The {attribute} does not match the format {format}.",
-            "different": "The {attribute} and {other} must be different.",
-            "digits": "The {attribute} must be {digits} digits.",
-            "digits_between": "The {attribute} must be between {min} and {max} digits.",
-            "dimensions": "The {attribute} has invalid image dimensions.",
-            "distinct": "The {attribute} field has a duplicate value.",
-            "email": "The {attribute} must be a valid email address.",
-            "ends_with": "The {attribute} must end with one of the following: {values}",
-            "exists": "The selected {attribute} is invalid.",
-            "file": "The {attribute} must be a file.",
-            "filled": "The {attribute} field must have a value.",
-            "gt": {
-                "numeric": "The {attribute} must be greater than {value}.",
-                "file": "The {attribute} must be greater than {value} kilobytes.",
-                "string": "The {attribute} must be greater than {value} characters.",
-                "array": "The {attribute} must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The {attribute} must be greater than or equal {value}.",
-                "file": "The {attribute} must be greater than or equal {value} kilobytes.",
-                "string": "The {attribute} must be greater than or equal {value} characters.",
-                "array": "The {attribute} must have {value} items or more."
-            },
-            "image": "The {attribute} must be an image.",
-            "in": "The selected {attribute} is invalid.",
-            "in_array": "The {attribute} field does not exist in {other}.",
-            "integer": "The {attribute} must be an integer.",
-            "ip": "The {attribute} must be a valid IP address.",
-            "ipv4": "The {attribute} must be a valid IPv4 address.",
-            "ipv6": "The {attribute} must be a valid IPv6 address.",
-            "json": "The {attribute} must be a valid JSON string.",
-            "lt": {
-                "numeric": "The {attribute} must be less than {value}.",
-                "file": "The {attribute} must be less than {value} kilobytes.",
-                "string": "The {attribute} must be less than {value} characters.",
-                "array": "The {attribute} must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The {attribute} must be less than or equal {value}.",
-                "file": "The {attribute} must be less than or equal {value} kilobytes.",
-                "string": "The {attribute} must be less than or equal {value} characters.",
-                "array": "The {attribute} must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The {attribute} may not be greater than {max}.",
-                "file": "The {attribute} may not be greater than {max} kilobytes.",
-                "string": "The {attribute} may not be greater than {max} characters.",
-                "array": "The {attribute} may not have more than {max} items."
-            },
-            "mimes": "The {attribute} must be a file of type: {values}.",
-            "mimetypes": "The {attribute} must be a file of type: {values}.",
-            "min": {
-                "numeric": "The {attribute} must be at least {min}.",
-                "file": "The {attribute} must be at least {min} kilobytes.",
-                "string": "The {attribute} must be at least {min} characters.",
-                "array": "The {attribute} must have at least {min} items."
-            },
-            "not_in": "The selected {attribute} is invalid.",
-            "not_regex": "The {attribute} format is invalid.",
-            "numeric": "The {attribute} must be a number.",
-            "present": "The {attribute} field must be present.",
-            "regex": "The {attribute} format is invalid.",
-            "required": "The {attribute} field is required.",
-            "required_if": "The {attribute} field is required when {other} is {value}.",
-            "required_unless": "The {attribute} field is required unless {other} is in {values}.",
-            "required_with": "The {attribute} field is required when {values} is present.",
-            "required_with_all": "The {attribute} field is required when {values} are present.",
-            "required_without": "The {attribute} field is required when {values} is not present.",
-            "required_without_all": "The {attribute} field is required when none of {values} are present.",
-            "same": "The {attribute} and {other} must match.",
-            "size": {
-                "numeric": "The {attribute} must be {size}.",
-                "file": "The {attribute} must be {size} kilobytes.",
-                "string": "The {attribute} must be {size} characters.",
-                "array": "The {attribute} must contain {size} items."
-            },
-            "starts_with": "The {attribute} must start with one of the following: {values}",
-            "string": "The {attribute} must be a string.",
-            "timezone": "The {attribute} must be a valid zone.",
-            "unique": "The {attribute} has already been taken.",
-            "uploaded": "The {attribute} failed to upload.",
-            "url": "The {attribute} format is invalid.",
-            "uuid": "The {attribute} must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "attributes": []
+        "forms": {
+            "username": "Username",
+            "email": "E-mail",
+            "password": "Password",
+            "continue": "Continue",
+            "next": "Next",
+            "previous": "Previous",
+            "finish": "Finish",
+            "date_of_birth": "Date of birth",
+            "age": "Age",
+            "year": "Year|Years",
+            "month": "Month|Months",
+            "day": "Day|Days",
+            "hour": "Hour|Hours",
+            "minute": "Minute|Minutes",
+            "second": "Second|Seconds"
+        },
+        "passwords": {
+            "reset": "Your password has been reset!",
+            "sent": "We have e-mailed your password reset link!",
+            "token": "This password reset token is invalid.",
+            "user": "We can't find a user with that e-mail address."
+        },
+        "installer": {
+            "installation_steps": "Installation Steps",
+            "introduction": "Introduction",
+            "server_requirements": "Server Requirements",
+            "file_permissions": "File Permissions",
+            "database_configuration": "Database Configuration",
+            "ehr_settings": "ERH Configuration"
+        },
+        "general": {
+            "dashboard": "Dashboard",
+            "welcome": "Welcome",
+            "print": "Print",
+            "search": "Search",
+            "add": "Add",
+            "error": "Error",
+            "success": "Success",
+            "warning": "Warning",
+            "info": "Info",
+            "all_rights_reserved": "All Rights Reserved.",
+            "acknowledgement_licensing_and_cert": "Acknowledgments, Licensing and Certification",
+            "no_such_patient": "No such Patient",
+            "please_select_a_patient": "You must first select or add a patient",
+            "please_select_a_correct_patient": "The selected patient seems not to be correct please try again",
+            "selected_encounter": "Select Encounter",
+            "forgot_your_password": "Forgot your password?",
+            "forgot_password": "Forgot Password",
+            "reset_password": "Reset Password",
+            "verify_account": "Verify Account",
+            "click_here": "Click here"
+        },
+        "languages": {
+            "english": "English",
+            "french": "French",
+            "spanish": "Spanish",
+            "dutch": "Dutch",
+            "russian": "Russian",
+            "portuguese": "Portuguese",
+            "italian": "Italian",
+            "arabic": "عربي (Arabic)",
+            "hebrew": "Hebrew",
+            "romanian": "Romanian",
+            "ukrainian": "Ukrainian",
+            "turkish": "Turkish",
+            "japanese": "Japanese",
+            "chinese": "Chinese"
+        },
+        "menu": {
+            "calendar": "Calendar",
+            "flow_board": "Flow Board",
+            "inventory": "Inventory",
+            "fees": "Fees",
+            "patient_client": "Patient/Client",
+            "procedures": "Procedures",
+            "administration": "Administration",
+            "reports": "Reports",
+            "miscellaneous": "Miscellaneous",
+            "popups": "Popups",
+            "qa_measures": "QA Measures",
+            "help": "Help"
+        },
+        "pagination": {
+            "previous": "&laquo; Previous",
+            "next": "Next &raquo;"
         }
     },
     "es": {
         "auth": {
             "failed": "Estas credenciales no coinciden con nuestros registros.",
             "throttle": "Demasiados intentos de acceso. Por favor intente nuevamente en {seconds} segundos."
-        },
-        "forms": {
-            "username": "Nombre de usuario",
-            "email": "Correo electrónico",
-            "password": "Contraseña",
-            "continue": "Continúa",
-            "date_of_birth": "Fecha de nacimiento",
-            "age": "Edad"
-        },
-        "general": {
-            "welcome": "Bienvenido",
-            "print": "Imprimir",
-            "search": "Busca en",
-            "add": "Añade",
-            "all_rights_reserved": "Todos los derechos reservados.",
-            "acknowledgement_licensing_and_cert": "Reconocimientos, licencias y certificaciones"
-        },
-        "languages": {
-            "arabic": "عربي (árabe)",
-            "chinese": "Chino",
-            "dutch": "Holandés",
-            "english": "Inglés",
-            "french": "Francés",
-            "hebrew": "Hebreo",
-            "italian": "Italiano",
-            "japanese": "Japonés",
-            "portuguese": "Portugués",
-            "romanian": "Rumano",
-            "russian": "Ruso",
-            "spanish": "Español",
-            "turkish": "Turco",
-            "ukrainian": "Ucraniano"
-        },
-        "menu": {
-            "calendar": "Calendario",
-            "fees": "Tarifas",
-            "flow_board": "Tablero de flujo",
-            "help": "Ayuda",
-            "inventory": "Inventario",
-            "miscellaneous": "Miscelánea",
-            "patient_client": "Paciente/Cliente",
-            "popups": "Popups",
-            "procedures": "Procedimientos",
-            "qa_measures": "Medidas de control de calidad",
-            "reports": "Informes"
-        },
-        "pagination": {
-            "next": "Siguiente &raquo;",
-            "previous": "&laquo; Anterior"
-        },
-        "passwords": {
-            "reset": "¡Tu contraseña ha sido restablecida!",
-            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
-            "throttled": "Por favor espera antes de intentar de nuevo.",
-            "token": "El token de recuperación de contraseña es inválido.",
-            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "array": "This content must have between {min} and {max} items.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "numeric": "This value must be between {min} and {max}.",
-                "string": "This string must be between {min} and {max} characters."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "array": "The content must have more than {value} items.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "numeric": "The value must be greater than {value}.",
-                "string": "The string must be greater than {value} characters."
-            },
-            "gte": {
-                "array": "The content must have {value} items or more.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "numeric": "The value must be greater than or equal {value}.",
-                "string": "The string must be greater than or equal {value} characters."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "array": "The content must have less than {value} items.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "numeric": "The value must be less than {value}.",
-                "string": "The string must be less than {value} characters."
-            },
-            "lte": {
-                "array": "The content must not have more than {value} items.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "numeric": "The value must be less than or equal {value}.",
-                "string": "The string must be less than or equal {value} characters."
-            },
-            "max": {
-                "array": "The content may not have more than {max} items.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "numeric": "The value may not be greater than {max}.",
-                "string": "The string may not be greater than {max} characters."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "array": "The value must have at least {min} items.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "numeric": "The value must be at least {min}.",
-                "string": "The string must be at least {min} characters."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "array": "The content must contain {size} items.",
-                "file": "The file size must be {size} kilobytes.",
-                "numeric": "The value must be {size}.",
-                "string": "The string must be {size} characters."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID."
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",
@@ -4326,23 +4159,6 @@ export default {
             "uploaded": "Subir {attribute} ha fallado.",
             "url": "El formato {attribute} es inválido.",
             "uuid": "El campo {attribute} debe ser un UUID válido."
-        }
-    },
-    "et": {
-        "auth": {
-            "failed": "Need andmed ei klapi meie kirjetega.",
-            "throttle": "Liiga palju sisselogimise katseid. Palun proovi uuesti {seconds} sekundi pärast."
-        },
-        "pagination": {
-            "previous": "&laquo; Eelmine",
-            "next": "Järgmine &raquo;"
-        },
-        "passwords": {
-            "reset": "Sinu parool on lähtestatud!",
-            "sent": "Oleme saatnud sulle e-postiga parooli lähtestamise lingi!",
-            "throttled": "Please wait before retrying.",
-            "token": "See parooli lähtestamise tunnus on vigane.",
-            "user": "Ei suutnud leida sellise e-posti aadressiga kasutajat."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -4356,13 +4172,18 @@ export default {
             "before": "This must be a date before {date}.",
             "before_or_equal": "This must be a date before or equal to {date}.",
             "between": {
-                "numeric": "This value must be between {min} and {max}.",
+                "array": "This content must have between {min} and {max} items.",
                 "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
+                "numeric": "This value must be between {min} and {max}.",
+                "string": "This string must be between {min} and {max} characters."
             },
             "boolean": "This field must be true or false.",
             "confirmed": "The confirmation does not match.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
             "date": "This is not a valid date.",
             "date_equals": "This must be a date equal to {date}.",
             "date_format": "This does not match the format {format}.",
@@ -4377,16 +4198,16 @@ export default {
             "file": "The content must be a file.",
             "filled": "This field must have a value.",
             "gt": {
-                "numeric": "The value must be greater than {value}.",
+                "array": "The content must have more than {value} items.",
                 "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
+                "numeric": "The value must be greater than {value}.",
+                "string": "The string must be greater than {value} characters."
             },
             "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
+                "array": "The content must have {value} items or more.",
                 "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
+                "numeric": "The value must be greater than or equal {value}.",
+                "string": "The string must be greater than or equal {value} characters."
             },
             "image": "This must be an image.",
             "in": "The selected value is invalid.",
@@ -4397,30 +4218,30 @@ export default {
             "ipv6": "This must be a valid IPv6 address.",
             "json": "This must be a valid JSON string.",
             "lt": {
-                "numeric": "The value must be less than {value}.",
+                "array": "The content must have less than {value} items.",
                 "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
+                "numeric": "The value must be less than {value}.",
+                "string": "The string must be less than {value} characters."
             },
             "lte": {
-                "numeric": "The value must be less than or equal {value}.",
+                "array": "The content must not have more than {value} items.",
                 "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
+                "numeric": "The value must be less than or equal {value}.",
+                "string": "The string must be less than or equal {value} characters."
             },
             "max": {
-                "numeric": "The value may not be greater than {max}.",
+                "array": "The content may not have more than {max} items.",
                 "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
+                "numeric": "The value may not be greater than {max}.",
+                "string": "The string may not be greater than {max} characters."
             },
             "mimes": "This must be a file of type: {values}.",
             "mimetypes": "This must be a file of type: {values}.",
             "min": {
-                "numeric": "The value must be at least {min}.",
+                "array": "The value must have at least {min} items.",
                 "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
+                "numeric": "The value must be at least {min}.",
+                "string": "The string must be at least {min} characters."
             },
             "not_in": "The selected value is invalid.",
             "not_regex": "This format is invalid.",
@@ -4437,10 +4258,10 @@ export default {
             "required_without_all": "This field is required when none of {values} are present.",
             "same": "The value of this field must match the one from {other}.",
             "size": {
-                "numeric": "The value must be {size}.",
+                "array": "The content must contain {size} items.",
                 "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
+                "numeric": "The value must be {size}.",
+                "string": "The string must be {size} characters."
             },
             "starts_with": "This must start with one of the following: {values}.",
             "string": "This must be a string.",
@@ -4448,12 +4269,69 @@ export default {
             "unique": "This has already been taken.",
             "uploaded": "This failed to upload.",
             "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
+            "uuid": "This must be a valid UUID."
+        },
+        "forms": {
+            "username": "Nombre de usuario",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "continue": "Continúa",
+            "date_of_birth": "Fecha de nacimiento",
+            "age": "Edad"
+        },
+        "passwords": {
+            "reset": "¡Tu contraseña ha sido restablecida!",
+            "sent": "¡Te hemos enviado por correo el enlace para restablecer tu contraseña!",
+            "throttled": "Por favor espera antes de intentar de nuevo.",
+            "token": "El token de recuperación de contraseña es inválido.",
+            "user": "No podemos encontrar ningún usuario con ese correo electrónico."
+        },
+        "general": {
+            "welcome": "Bienvenido",
+            "print": "Imprimir",
+            "search": "Busca en",
+            "add": "Añade",
+            "all_rights_reserved": "Todos los derechos reservados.",
+            "acknowledgement_licensing_and_cert": "Reconocimientos, licencias y certificaciones"
+        },
+        "languages": {
+            "arabic": "عربي (árabe)",
+            "chinese": "Chino",
+            "dutch": "Holandés",
+            "english": "Inglés",
+            "french": "Francés",
+            "hebrew": "Hebreo",
+            "italian": "Italiano",
+            "japanese": "Japonés",
+            "portuguese": "Portugués",
+            "romanian": "Rumano",
+            "russian": "Ruso",
+            "spanish": "Español",
+            "turkish": "Turco",
+            "ukrainian": "Ucraniano"
+        },
+        "menu": {
+            "calendar": "Calendario",
+            "fees": "Tarifas",
+            "flow_board": "Tablero de flujo",
+            "help": "Ayuda",
+            "inventory": "Inventario",
+            "miscellaneous": "Miscelánea",
+            "patient_client": "Paciente/Cliente",
+            "popups": "Popups",
+            "procedures": "Procedimientos",
+            "qa_measures": "Medidas de control de calidad",
+            "reports": "Informes"
+        },
+        "pagination": {
+            "next": "Siguiente &raquo;",
+            "previous": "&laquo; Anterior"
+        }
+    },
+    "et": {
+        "auth": {
+            "failed": "Need andmed ei klapi meie kirjetega.",
+            "throttle": "Liiga palju sisselogimise katseid. Palun proovi uuesti {seconds} sekundi pärast."
         },
         "validation": {
             "accepted": "{attribute} tuleb aktsepteerida.",
@@ -4573,23 +4451,6 @@ export default {
                 "result_text_under_image": "Tulemuse tekst pildi all",
                 "short_text": "Lühitekst"
             }
-        }
-    },
-    "eu": {
-        "auth": {
-            "failed": "Kredentzial hauek ez datoz bat gure erregistroekin.",
-            "throttle": "Atzipen saialdi gehiegi. Mesedez berriro saiatu {seconds} segundo barru."
-        },
-        "pagination": {
-            "previous": "&laquo; Aurrekoa",
-            "next": "Hurrengoa &raquo;"
-        },
-        "passwords": {
-            "reset": "Zure pasahitza berrezarri da!",
-            "sent": "Zure pasahitza berrezartzeko esteka postaz bidali dizugu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Pasahitza berreskuratzeko tokena baliogabea da.",
-            "user": "Ezin izan dugu helbide elektroniko horrekin bat datorren erabiltzailerik aurkitu."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -4701,6 +4562,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Sinu parool on lähtestatud!",
+            "sent": "Oleme saatnud sulle e-postiga parooli lähtestamise lingi!",
+            "throttled": "Please wait before retrying.",
+            "token": "See parooli lähtestamise tunnus on vigane.",
+            "user": "Ei suutnud leida sellise e-posti aadressiga kasutajat."
+        },
+        "pagination": {
+            "previous": "&laquo; Eelmine",
+            "next": "Järgmine &raquo;"
+        }
+    },
+    "eu": {
+        "auth": {
+            "failed": "Kredentzial hauek ez datoz bat gure erregistroekin.",
+            "throttle": "Atzipen saialdi gehiegi. Mesedez berriro saiatu {seconds} segundo barru."
         },
         "validation": {
             "accepted": "{attribute} onartu beharra dago.",
@@ -4846,134 +4724,134 @@ export default {
                 "available": "erabilgarria",
                 "size": "neurria"
             }
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Zure pasahitza berrezarri da!",
+            "sent": "Zure pasahitza berrezartzeko esteka postaz bidali dizugu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Pasahitza berreskuratzeko tokena baliogabea da.",
+            "user": "Ezin izan dugu helbide elektroniko horrekin bat datorren erabiltzailerik aurkitu."
+        },
+        "pagination": {
+            "previous": "&laquo; Aurrekoa",
+            "next": "Hurrengoa &raquo;"
         }
     },
     "fa": {
         "auth": {
             "failed": "مشخصات وارد شده با اطلاعات ما سازگار نیست.",
             "throttle": "دفعات تلاش شما برای ورود بیش از حد مجاز است. لطفا پس از {seconds} ثانیه مجددا تلاش فرمایید."
-        },
-        "pagination": {
-            "previous": "&laquo; قبلی",
-            "next": "بعدی &raquo;"
-        },
-        "passwords": {
-            "reset": "رمز عبور شما بازگردانی شد!",
-            "sent": "لینک بازگردانی رمز عبور به ایمیل شما ارسال شد.",
-            "throttled": "پیش از تلاش مجدد کمی صبر کنید.",
-            "token": "مشخصه‌ی بازگردانی رمز عبور معتبر نیست.",
-            "user": "ما کاربری با این نشانی ایمیل نداریم!"
-        },
-        "validation-inline": {
-            "accepted": "این مقدار باید پذیرفته شده باشد.",
-            "active_url": "این مقدار یک آدرس معتبر نیست.",
-            "after": "این مقدار باید یک تاریخ بعد از {date} باشد.",
-            "after_or_equal": "این مقدار باید یک تاریخ مساوی یا بعد از {date} باشد.",
-            "alpha": "این مقدار تنها میتواند شامل حروف باشد.",
-            "alpha_dash": "این مقدار تنها میتواند شامل حروف، اعداد، خط تیره و زیرخط باشد.",
-            "alpha_num": "این مقداز تنها میتواند شامل حروف و اعداد باشد.",
-            "array": "این مقدار باید یک آرایه باشد.",
-            "before": "این مقدار باید یک تاریخ قبل از {date} باشد.",
-            "before_or_equal": "این مقدار باید یک تاریخ مساوی یا قبل از {date} باشد.",
-            "between": {
-                "numeric": "این مقدار باید بین {min} و {max} باشد.",
-                "file": "حجم این فایل باید بین {min} و {max} کیلوبایت باشد.",
-                "string": "این رشته باید بین {min} و {max} حرف داشته باشد.",
-                "array": "این مقدار باید بین {min} و {max} گزینه داشته باشد."
-            },
-            "boolean": "این مقدار باید حتما true و یا false باشد.",
-            "confirmed": "با مقدار تکرار همخوانی ندارد.",
-            "date": "این مقدار یک تاریخ معبتر نیست.",
-            "date_equals": "این مقدار باید یک تاریخ مساوی با {date} باشد.",
-            "date_format": "این مقدار با فرمت {format} همخوانی ندارد.",
-            "different": "این مقدار باید متفاوت از {other} باشد.",
-            "digits": "این مقدار باید {digits} رقمی باشد.",
-            "digits_between": "تعداد ارقام این مقدار باید بین {min} و {max} باشد.",
-            "dimensions": "ابعاد این عکس نامعتبر است.",
-            "distinct": "مقدار این ورودی تکراری است.",
-            "email": "این مقدار باید یک آدرس ایمیل معتبر باشد.",
-            "ends_with": "این مقدار باید با یکی از عبارت های روبرو پایان یابد: {values}.",
-            "exists": "مقدار انتخابی نا معتبر است.",
-            "file": "این ورودی باید یک فایل باشد.",
-            "filled": "این ورودی باید یک مقدار داشته باشد.",
-            "gt": {
-                "numeric": "مقدار ورودی باید بزرگتر از {value} باشد.",
-                "file": "حجم فایل ورودی باید بزرگتر از {value} کیلوبایت باشد.",
-                "string": "تعداد حروف رشته ورودی باید بیشتر از {value} باشد.",
-                "array": "مقدار ورودی باید بیشتر از {value} گزینه داشته باشد."
-            },
-            "gte": {
-                "numeric": "مقدار ورودی باید بزرگتر یا مساوی {value} باشد.",
-                "file": "حجم فایل ورودی باید بیشتر یا مساوی {value} کیلوبایت باشد.",
-                "string": "تعداد حروف رشته ورودی باید بیشتر یا مساوی {value} باشد.",
-                "array": "مقدار ورودی باید {value} گزینه یا بیشتر داشته باشد."
-            },
-            "image": "این مقدار باید یک عکس باشد.",
-            "in": "مقدار انتخابی نامعتبر است.",
-            "in_array": "این مقدار در {other} موجود نیست.",
-            "integer": "این مقدار باید یک عدد صحیح باشد.",
-            "ip": "این مقدار باید یک آدرس IP معتبر باشد.",
-            "ipv4": "این مقدار باید یک آدرس IPv4 معتبر باشد.",
-            "ipv6": "این مقدار باید یک آدرس IPv6 معتبر باشد.",
-            "json": "این مقدار باید یک رشته معتبر JSON باشد.",
-            "lt": {
-                "numeric": "مقدار ورودی باید کمتر از {value} باشد.",
-                "file": "حجم فایل ورودی باید کمتر از {value} کیلوبایت باشد.",
-                "string": "تعداد حروف رشته ورودی باید کمتر از {value} باشد.",
-                "array": "مقدار ورودی باید کمتر از {value} گزینه داشته باشد."
-            },
-            "lte": {
-                "numeric": "مقدار ورودی باید کمتر یا مساوی {value} باشد.",
-                "file": "حجم فایل ورودی باید کمتر یا مساوی {value} کیلوبایت باشد.",
-                "string": "تعداد حروف رشته ورودی باید کمتر یا مساوی {value} باشد.",
-                "array": "مقدار ورودی باید {value} گزینه یا کمتر داشته باشد."
-            },
-            "max": {
-                "numeric": "مقدار ورودی نباید بزرگتر از {max} باشد.",
-                "file": "حجم فایل ورودی نباید بیشتر از {max} کیلوبایت باشد.",
-                "string": "تعداد حروف رشته ورودی نباید بیشتر از {max} باشد.",
-                "array": "مقدار ورودی نباید بیشتر از {max} گزینه داشته باشد."
-            },
-            "mimes": "این مقدار باید یک فایل از این انواع باشد: {values}.",
-            "mimetypes": "این مقدار باید یک فایل از این انواع باشد: {values}.",
-            "min": {
-                "numeric": "مقدار ورودی باید حداقل {min} باشد.",
-                "file": "حجم فایل ورودی باید حداقل {min} کیلوبایت باشد.",
-                "string": "رشته ورودی باید حداقل {min} حرف داشته باشد.",
-                "array": "مقدار ورودی باید حداقل {min} گزینه داشته باشد."
-            },
-            "not_in": "گزینه انتخابی نامعتبر است.",
-            "not_regex": "این فرمت نامعتبر است.",
-            "numeric": "این مقدار باید عددی باشد.",
-            "password": "رمزعبور اشتباه است.",
-            "present": "این مقدار باید وارد شده باشد.",
-            "regex": "این فرمت نامعتبر است.",
-            "required": "این مقدار ضروری است.",
-            "required_if": "این مقدار ضروری است وقتی که {other} برابر {value} است.",
-            "required_unless": "این مقدار ضروری است مگر اینکه {other} برابر {values} باشد.",
-            "required_with": "این مقدار ضروری است وقتی که {values} وارد شده باشد.",
-            "required_with_all": "این مقدار ضروری است وقتی که مقادیر {values} وارد شده باشند.",
-            "required_without": "این مقدار ضروری است وقتی که {values} وارد نشده باشد.",
-            "required_without_all": "این مقدار ضروری است وقتی که هیچکدام از {values} وارد نشده باشند.",
-            "same": "مقدار این ورودی باید یکی از مقدار های {other} باشد.",
-            "size": {
-                "numeric": "مقدار ورودی باید {size} باشد.",
-                "file": "حجم فایل ورودی باید {size} کیلوبایت باشد.",
-                "string": "طول رشته ورودی باید {size} حرف باشد.",
-                "array": "مقدار ورودی باید {size} گزینه داشته باشد."
-            },
-            "starts_with": "این مقدار باید با یکی از گزینه های روبرو شروع شود: {values}.",
-            "string": "این مقدار باید یک رشته باشد.",
-            "timezone": "این مقدار باید یک منطقه زمانی باشد.",
-            "unique": "این مقدار قبلا استفاده شده.",
-            "uploaded": "این ورودی بارگزاری نشد.",
-            "url": "این فرمت نامعتبر است.",
-            "uuid": "این مقدار باید یک UUID معتبر باشد.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} باید پذیرفته شده باشد.",
@@ -5115,134 +4993,134 @@ export default {
                 "terms": "شرایط",
                 "province": "استان"
             }
+        },
+        "validation-inline": {
+            "accepted": "این مقدار باید پذیرفته شده باشد.",
+            "active_url": "این مقدار یک آدرس معتبر نیست.",
+            "after": "این مقدار باید یک تاریخ بعد از {date} باشد.",
+            "after_or_equal": "این مقدار باید یک تاریخ مساوی یا بعد از {date} باشد.",
+            "alpha": "این مقدار تنها میتواند شامل حروف باشد.",
+            "alpha_dash": "این مقدار تنها میتواند شامل حروف، اعداد، خط تیره و زیرخط باشد.",
+            "alpha_num": "این مقداز تنها میتواند شامل حروف و اعداد باشد.",
+            "array": "این مقدار باید یک آرایه باشد.",
+            "before": "این مقدار باید یک تاریخ قبل از {date} باشد.",
+            "before_or_equal": "این مقدار باید یک تاریخ مساوی یا قبل از {date} باشد.",
+            "between": {
+                "numeric": "این مقدار باید بین {min} و {max} باشد.",
+                "file": "حجم این فایل باید بین {min} و {max} کیلوبایت باشد.",
+                "string": "این رشته باید بین {min} و {max} حرف داشته باشد.",
+                "array": "این مقدار باید بین {min} و {max} گزینه داشته باشد."
+            },
+            "boolean": "این مقدار باید حتما true و یا false باشد.",
+            "confirmed": "با مقدار تکرار همخوانی ندارد.",
+            "date": "این مقدار یک تاریخ معبتر نیست.",
+            "date_equals": "این مقدار باید یک تاریخ مساوی با {date} باشد.",
+            "date_format": "این مقدار با فرمت {format} همخوانی ندارد.",
+            "different": "این مقدار باید متفاوت از {other} باشد.",
+            "digits": "این مقدار باید {digits} رقمی باشد.",
+            "digits_between": "تعداد ارقام این مقدار باید بین {min} و {max} باشد.",
+            "dimensions": "ابعاد این عکس نامعتبر است.",
+            "distinct": "مقدار این ورودی تکراری است.",
+            "email": "این مقدار باید یک آدرس ایمیل معتبر باشد.",
+            "ends_with": "این مقدار باید با یکی از عبارت های روبرو پایان یابد: {values}.",
+            "exists": "مقدار انتخابی نا معتبر است.",
+            "file": "این ورودی باید یک فایل باشد.",
+            "filled": "این ورودی باید یک مقدار داشته باشد.",
+            "gt": {
+                "numeric": "مقدار ورودی باید بزرگتر از {value} باشد.",
+                "file": "حجم فایل ورودی باید بزرگتر از {value} کیلوبایت باشد.",
+                "string": "تعداد حروف رشته ورودی باید بیشتر از {value} باشد.",
+                "array": "مقدار ورودی باید بیشتر از {value} گزینه داشته باشد."
+            },
+            "gte": {
+                "numeric": "مقدار ورودی باید بزرگتر یا مساوی {value} باشد.",
+                "file": "حجم فایل ورودی باید بیشتر یا مساوی {value} کیلوبایت باشد.",
+                "string": "تعداد حروف رشته ورودی باید بیشتر یا مساوی {value} باشد.",
+                "array": "مقدار ورودی باید {value} گزینه یا بیشتر داشته باشد."
+            },
+            "image": "این مقدار باید یک عکس باشد.",
+            "in": "مقدار انتخابی نامعتبر است.",
+            "in_array": "این مقدار در {other} موجود نیست.",
+            "integer": "این مقدار باید یک عدد صحیح باشد.",
+            "ip": "این مقدار باید یک آدرس IP معتبر باشد.",
+            "ipv4": "این مقدار باید یک آدرس IPv4 معتبر باشد.",
+            "ipv6": "این مقدار باید یک آدرس IPv6 معتبر باشد.",
+            "json": "این مقدار باید یک رشته معتبر JSON باشد.",
+            "lt": {
+                "numeric": "مقدار ورودی باید کمتر از {value} باشد.",
+                "file": "حجم فایل ورودی باید کمتر از {value} کیلوبایت باشد.",
+                "string": "تعداد حروف رشته ورودی باید کمتر از {value} باشد.",
+                "array": "مقدار ورودی باید کمتر از {value} گزینه داشته باشد."
+            },
+            "lte": {
+                "numeric": "مقدار ورودی باید کمتر یا مساوی {value} باشد.",
+                "file": "حجم فایل ورودی باید کمتر یا مساوی {value} کیلوبایت باشد.",
+                "string": "تعداد حروف رشته ورودی باید کمتر یا مساوی {value} باشد.",
+                "array": "مقدار ورودی باید {value} گزینه یا کمتر داشته باشد."
+            },
+            "max": {
+                "numeric": "مقدار ورودی نباید بزرگتر از {max} باشد.",
+                "file": "حجم فایل ورودی نباید بیشتر از {max} کیلوبایت باشد.",
+                "string": "تعداد حروف رشته ورودی نباید بیشتر از {max} باشد.",
+                "array": "مقدار ورودی نباید بیشتر از {max} گزینه داشته باشد."
+            },
+            "mimes": "این مقدار باید یک فایل از این انواع باشد: {values}.",
+            "mimetypes": "این مقدار باید یک فایل از این انواع باشد: {values}.",
+            "min": {
+                "numeric": "مقدار ورودی باید حداقل {min} باشد.",
+                "file": "حجم فایل ورودی باید حداقل {min} کیلوبایت باشد.",
+                "string": "رشته ورودی باید حداقل {min} حرف داشته باشد.",
+                "array": "مقدار ورودی باید حداقل {min} گزینه داشته باشد."
+            },
+            "not_in": "گزینه انتخابی نامعتبر است.",
+            "not_regex": "این فرمت نامعتبر است.",
+            "numeric": "این مقدار باید عددی باشد.",
+            "password": "رمزعبور اشتباه است.",
+            "present": "این مقدار باید وارد شده باشد.",
+            "regex": "این فرمت نامعتبر است.",
+            "required": "این مقدار ضروری است.",
+            "required_if": "این مقدار ضروری است وقتی که {other} برابر {value} است.",
+            "required_unless": "این مقدار ضروری است مگر اینکه {other} برابر {values} باشد.",
+            "required_with": "این مقدار ضروری است وقتی که {values} وارد شده باشد.",
+            "required_with_all": "این مقدار ضروری است وقتی که مقادیر {values} وارد شده باشند.",
+            "required_without": "این مقدار ضروری است وقتی که {values} وارد نشده باشد.",
+            "required_without_all": "این مقدار ضروری است وقتی که هیچکدام از {values} وارد نشده باشند.",
+            "same": "مقدار این ورودی باید یکی از مقدار های {other} باشد.",
+            "size": {
+                "numeric": "مقدار ورودی باید {size} باشد.",
+                "file": "حجم فایل ورودی باید {size} کیلوبایت باشد.",
+                "string": "طول رشته ورودی باید {size} حرف باشد.",
+                "array": "مقدار ورودی باید {size} گزینه داشته باشد."
+            },
+            "starts_with": "این مقدار باید با یکی از گزینه های روبرو شروع شود: {values}.",
+            "string": "این مقدار باید یک رشته باشد.",
+            "timezone": "این مقدار باید یک منطقه زمانی باشد.",
+            "unique": "این مقدار قبلا استفاده شده.",
+            "uploaded": "این ورودی بارگزاری نشد.",
+            "url": "این فرمت نامعتبر است.",
+            "uuid": "این مقدار باید یک UUID معتبر باشد.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "رمز عبور شما بازگردانی شد!",
+            "sent": "لینک بازگردانی رمز عبور به ایمیل شما ارسال شد.",
+            "throttled": "پیش از تلاش مجدد کمی صبر کنید.",
+            "token": "مشخصه‌ی بازگردانی رمز عبور معتبر نیست.",
+            "user": "ما کاربری با این نشانی ایمیل نداریم!"
+        },
+        "pagination": {
+            "previous": "&laquo; قبلی",
+            "next": "بعدی &raquo;"
         }
     },
     "fi": {
         "auth": {
             "failed": "Kirjautuminen epäonnistui.",
             "throttle": "Liian monta kirjautumisyritystä. Yritä uudelleen {seconds} sekunnin kuluttua."
-        },
-        "pagination": {
-            "previous": "&laquo; Edellinen",
-            "next": "Seuraava &raquo;"
-        },
-        "passwords": {
-            "reset": "Salasana on resetoitu!",
-            "sent": "Resetointilinkki lähetetty sähköpostitse!",
-            "throttled": "Odota, ennen kuin yrität uudelleen",
-            "token": "Resetointitunniste on viallinen.",
-            "user": "Sähköpostiosoitteella ei löydy käyttäjää."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Kenttä {attribute} tulee hyväksyä.",
@@ -5355,23 +5233,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "fil": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Previous",
-            "next": "Next &raquo;"
-        },
-        "passwords": {
-            "reset": "Your password has been reset!",
-            "sent": "We have emailed your password reset link!",
-            "throttled": "Please wait before retrying.",
-            "token": "This password reset token is invalid.",
-            "user": "We can't find a user with that email address."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -5484,6 +5345,23 @@ export default {
                 }
             }
         },
+        "passwords": {
+            "reset": "Salasana on resetoitu!",
+            "sent": "Resetointilinkki lähetetty sähköpostitse!",
+            "throttled": "Odota, ennen kuin yrität uudelleen",
+            "token": "Resetointitunniste on viallinen.",
+            "user": "Sähköpostiosoitteella ei löydy käyttäjää."
+        },
+        "pagination": {
+            "previous": "&laquo; Edellinen",
+            "next": "Seuraava &raquo;"
+        }
+    },
+    "fil": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
+        },
         "validation": {
             "accepted": "Dapat na tanggapin ang {attribute}.",
             "active_url": "Hindi valid na URL ang {attribute}.",
@@ -5595,6 +5473,128 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Your password has been reset!",
+            "sent": "We have emailed your password reset link!",
+            "throttled": "Please wait before retrying.",
+            "token": "This password reset token is invalid.",
+            "user": "We can't find a user with that email address."
+        },
+        "pagination": {
+            "previous": "&laquo; Previous",
+            "next": "Next &raquo;"
         }
     },
     "fr": {
@@ -5608,80 +5608,147 @@ export default {
             "enter_password": "Veuillez saisir votre mot de passe",
             "login": "Connexion"
         },
-        "forms": {
-            "username": "Nom d'utilisateur",
-            "email": "E-mail",
-            "password": "Mot de passe",
-            "continue": "Continuer",
-            "date_of_birth": "Date de naissance",
-            "age": "Âge",
-            "year": "An|Ans",
-            "month": "Mois|Mois",
-            "day": "Jour|Jours",
-            "hour": "Heure|Heures",
-            "minute": "Minute|Minutes",
-            "second": "Seconde|Secondes"
-        },
-        "general": {
-            "dashboard": " Tableau de bord",
-            "welcome": "Bienvenue",
-            "print": "Imprimer",
-            "search": "Recherchez",
-            "add": "Ajouter",
-            "error": "Erreur",
-            "success": "Succès",
-            "warning": "Alerte",
-            "info": "Info",
-            "all_rights_reserved": "Tous droits réservés.",
-            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications",
-            "no_such_patient": "Aucun patient existant",
-            "selected_encounter": "Choisir une rencontre",
-            "forgot_password": "Mot de passe oublié",
-            "reset_password": "Réinitialiser le mot de passe",
-            "verify_account": "Vérifier le compte",
-            "forgot_your_password": "Vous avez oublié votre mot de passe ?",
-            "click": "Cliquez",
-            "click_here": "Cliquez Ici"
-        },
-        "languages": {
-            "english": "Anglais",
-            "french": "Français",
-            "spanish": "Espagnol",
-            "dutch": "Néerlandais",
-            "russian": "Russe",
-            "portuguese": "Portugais",
-            "italian": "Italien",
-            "arabic": "عربي (Arabe)",
-            "hebrew": "Hébreu",
-            "romanian": "Roumain",
-            "ukrainian": "Ukrainien",
-            "turkish": "Turc",
-            "japanese": "Japonais",
-            "chinese": "Chinois"
-        },
-        "menu": {
-            "calendar": "Calendrier",
-            "flow_board": "Conseil d'administration",
-            "inventory": "Inventaire",
-            "fees": "Frais",
-            "patient_client": "Patient/Client",
-            "procedures": "Procédures",
-            "reports": "Rapports",
-            "miscellaneous": "Divers",
-            "popups": "Popups",
-            "qa_measures": "Mesures d'AQ",
-            "help": "Aide"
-        },
-        "pagination": {
-            "previous": "&laquo; Précédent",
-            "next": "Suivant &raquo;"
-        },
-        "passwords": {
-            "reset": "Votre mot de passe a été réinitialisé !",
-            "sent": "Nous vous avons envoyé par email le lien de réinitialisation du mot de passe !",
-            "throttled": "Veuillez patienter avant de réessayer.",
-            "token": "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
-            "user": "Aucun utilisateur n'a été trouvé avec cette adresse email."
+        "validation": {
+            "accepted": "Le champ {attribute} doit être accepté.",
+            "active_url": "Le champ {attribute} n'est pas une URL valide.",
+            "after": "Le champ {attribute} doit être une date postérieure au {date}.",
+            "after_or_equal": "Le champ {attribute} doit être une date postérieure ou égale au {date}.",
+            "alpha": "Le champ {attribute} doit contenir uniquement des lettres.",
+            "alpha_dash": "Le champ {attribute} doit contenir uniquement des lettres, des chiffres et des tirets.",
+            "alpha_num": "Le champ {attribute} doit contenir uniquement des chiffres et des lettres.",
+            "array": "Le champ {attribute} doit être un tableau.",
+            "before": "Le champ {attribute} doit être une date antérieure au {date}.",
+            "before_or_equal": "Le champ {attribute} doit être une date antérieure ou égale au {date}.",
+            "between": {
+                "numeric": "La valeur de {attribute} doit être comprise entre {min} et {max}.",
+                "file": "La taille du fichier de {attribute} doit être comprise entre {min} et {max} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir entre {min} et {max} caractères.",
+                "array": "Le tableau {attribute} doit contenir entre {min} et {max} éléments."
+            },
+            "boolean": "Le champ {attribute} doit être vrai ou faux.",
+            "confirmed": "Le champ de confirmation {attribute} ne correspond pas.",
+            "date": "Le champ {attribute} n'est pas une date valide.",
+            "date_equals": "Le champ {attribute} doit être une date égale à {date}.",
+            "date_format": "Le champ {attribute} ne correspond pas au format {format}.",
+            "different": "Les champs {attribute} et {other} doivent être différents.",
+            "digits": "Le champ {attribute} doit contenir {digits} chiffres.",
+            "digits_between": "Le champ {attribute} doit contenir entre {min} et {max} chiffres.",
+            "dimensions": "La taille de l'image {attribute} n'est pas conforme.",
+            "distinct": "Le champ {attribute} a une valeur en double.",
+            "email": "Le champ {attribute} doit être une adresse email valide.",
+            "ends_with": "Le champ {attribute} doit se terminer par une des valeurs suivantes : {values}",
+            "exists": "Le champ {attribute} sélectionné est invalide.",
+            "file": "Le champ {attribute} doit être un fichier.",
+            "filled": "Le champ {attribute} doit avoir une valeur.",
+            "gt": {
+                "numeric": "La valeur de {attribute} doit être supérieure à {value}.",
+                "file": "La taille du fichier de {attribute} doit être supérieure à {value} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir plus de {value} caractères.",
+                "array": "Le tableau {attribute} doit contenir plus de {value} éléments."
+            },
+            "gte": {
+                "numeric": "La valeur de {attribute} doit être supérieure ou égale à {value}.",
+                "file": "La taille du fichier de {attribute} doit être supérieure ou égale à {value} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir au moins {value} caractères.",
+                "array": "Le tableau {attribute} doit contenir au moins {value} éléments."
+            },
+            "image": "Le champ {attribute} doit être une image.",
+            "in": "Le champ {attribute} est invalide.",
+            "in_array": "Le champ {attribute} n'existe pas dans {other}.",
+            "integer": "Le champ {attribute} doit être un entier.",
+            "ip": "Le champ {attribute} doit être une adresse IP valide.",
+            "ipv4": "Le champ {attribute} doit être une adresse IPv4 valide.",
+            "ipv6": "Le champ {attribute} doit être une adresse IPv6 valide.",
+            "json": "Le champ {attribute} doit être un document JSON valide.",
+            "lt": {
+                "numeric": "La valeur de {attribute} doit être inférieure à {value}.",
+                "file": "La taille du fichier de {attribute} doit être inférieure à {value} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir moins de {value} caractères.",
+                "array": "Le tableau {attribute} doit contenir moins de {value} éléments."
+            },
+            "lte": {
+                "numeric": "La valeur de {attribute} doit être inférieure ou égale à {value}.",
+                "file": "La taille du fichier de {attribute} doit être inférieure ou égale à {value} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir au plus {value} caractères.",
+                "array": "Le tableau {attribute} doit contenir au plus {value} éléments."
+            },
+            "max": {
+                "numeric": "La valeur de {attribute} ne peut être supérieure à {max}.",
+                "file": "La taille du fichier de {attribute} ne peut pas dépasser {max} kilo-octets.",
+                "string": "Le texte de {attribute} ne peut contenir plus de {max} caractères.",
+                "array": "Le tableau {attribute} ne peut contenir plus de {max} éléments."
+            },
+            "mimes": "Le champ {attribute} doit être un fichier de type : {values}.",
+            "mimetypes": "Le champ {attribute} doit être un fichier de type : {values}.",
+            "min": {
+                "numeric": "La valeur de {attribute} doit être supérieure ou égale à {min}.",
+                "file": "La taille du fichier de {attribute} doit être supérieure à {min} kilo-octets.",
+                "string": "Le texte {attribute} doit contenir au moins {min} caractères.",
+                "array": "Le tableau {attribute} doit contenir au moins {min} éléments."
+            },
+            "not_in": "Le champ {attribute} sélectionné n'est pas valide.",
+            "not_regex": "Le format du champ {attribute} n'est pas valide.",
+            "numeric": "Le champ {attribute} doit contenir un nombre.",
+            "password": "Le mot de passe est incorrect",
+            "present": "Le champ {attribute} doit être présent.",
+            "regex": "Le format du champ {attribute} est invalide.",
+            "required": "Le champ {attribute} est obligatoire.",
+            "required_if": "Le champ {attribute} est obligatoire quand la valeur de {other} est {value}.",
+            "required_unless": "Le champ {attribute} est obligatoire sauf si {other} est {values}.",
+            "required_with": "Le champ {attribute} est obligatoire quand {values} est présent.",
+            "required_with_all": "Le champ {attribute} est obligatoire quand {values} sont présents.",
+            "required_without": "Le champ {attribute} est obligatoire quand {values} n'est pas présent.",
+            "required_without_all": "Le champ {attribute} est requis quand aucun de {values} n'est présent.",
+            "same": "Les champs {attribute} et {other} doivent être identiques.",
+            "size": {
+                "numeric": "La valeur de {attribute} doit être {size}.",
+                "file": "La taille du fichier de {attribute} doit être de {size} kilo-octets.",
+                "string": "Le texte de {attribute} doit contenir {size} caractères.",
+                "array": "Le tableau {attribute} doit contenir {size} éléments."
+            },
+            "starts_with": "Le champ {attribute} doit commencer avec une des valeurs suivantes : {values}",
+            "string": "Le champ {attribute} doit être une chaîne de caractères.",
+            "timezone": "Le champ {attribute} doit être un fuseau horaire valide.",
+            "unique": "La valeur du champ {attribute} est déjà utilisée.",
+            "uploaded": "Le fichier du champ {attribute} n'a pu être téléversé.",
+            "url": "Le format de l'URL de {attribute} n'est pas valide.",
+            "uuid": "Le champ {attribute} doit être un UUID valide",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "nom",
+                "username": "nom d'utilisateur",
+                "email": "adresse email",
+                "first_name": "prénom",
+                "last_name": "nom",
+                "password": "mot de passe",
+                "password_confirmation": "confirmation du mot de passe",
+                "city": "ville",
+                "country": "pays",
+                "address": "adresse",
+                "phone": "téléphone",
+                "mobile": "portable",
+                "age": "âge",
+                "sex": "sexe",
+                "gender": "genre",
+                "day": "jour",
+                "month": "mois",
+                "year": "année",
+                "hour": "heure",
+                "minute": "minute",
+                "second": "seconde",
+                "title": "titre",
+                "content": "contenu",
+                "description": "description",
+                "excerpt": "extrait",
+                "date": "date",
+                "time": "heure",
+                "available": "disponible",
+                "size": "taille"
+            }
         },
         "validation-inline": {
             "accepted": "Ce champ doit être accepté.",
@@ -5825,275 +5892,86 @@ export default {
                 "size": "taille"
             }
         },
-        "validation": {
-            "accepted": "Le champ {attribute} doit être accepté.",
-            "active_url": "Le champ {attribute} n'est pas une URL valide.",
-            "after": "Le champ {attribute} doit être une date postérieure au {date}.",
-            "after_or_equal": "Le champ {attribute} doit être une date postérieure ou égale au {date}.",
-            "alpha": "Le champ {attribute} doit contenir uniquement des lettres.",
-            "alpha_dash": "Le champ {attribute} doit contenir uniquement des lettres, des chiffres et des tirets.",
-            "alpha_num": "Le champ {attribute} doit contenir uniquement des chiffres et des lettres.",
-            "array": "Le champ {attribute} doit être un tableau.",
-            "before": "Le champ {attribute} doit être une date antérieure au {date}.",
-            "before_or_equal": "Le champ {attribute} doit être une date antérieure ou égale au {date}.",
-            "between": {
-                "numeric": "La valeur de {attribute} doit être comprise entre {min} et {max}.",
-                "file": "La taille du fichier de {attribute} doit être comprise entre {min} et {max} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir entre {min} et {max} caractères.",
-                "array": "Le tableau {attribute} doit contenir entre {min} et {max} éléments."
-            },
-            "boolean": "Le champ {attribute} doit être vrai ou faux.",
-            "confirmed": "Le champ de confirmation {attribute} ne correspond pas.",
-            "date": "Le champ {attribute} n'est pas une date valide.",
-            "date_equals": "Le champ {attribute} doit être une date égale à {date}.",
-            "date_format": "Le champ {attribute} ne correspond pas au format {format}.",
-            "different": "Les champs {attribute} et {other} doivent être différents.",
-            "digits": "Le champ {attribute} doit contenir {digits} chiffres.",
-            "digits_between": "Le champ {attribute} doit contenir entre {min} et {max} chiffres.",
-            "dimensions": "La taille de l'image {attribute} n'est pas conforme.",
-            "distinct": "Le champ {attribute} a une valeur en double.",
-            "email": "Le champ {attribute} doit être une adresse email valide.",
-            "ends_with": "Le champ {attribute} doit se terminer par une des valeurs suivantes : {values}",
-            "exists": "Le champ {attribute} sélectionné est invalide.",
-            "file": "Le champ {attribute} doit être un fichier.",
-            "filled": "Le champ {attribute} doit avoir une valeur.",
-            "gt": {
-                "numeric": "La valeur de {attribute} doit être supérieure à {value}.",
-                "file": "La taille du fichier de {attribute} doit être supérieure à {value} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir plus de {value} caractères.",
-                "array": "Le tableau {attribute} doit contenir plus de {value} éléments."
-            },
-            "gte": {
-                "numeric": "La valeur de {attribute} doit être supérieure ou égale à {value}.",
-                "file": "La taille du fichier de {attribute} doit être supérieure ou égale à {value} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir au moins {value} caractères.",
-                "array": "Le tableau {attribute} doit contenir au moins {value} éléments."
-            },
-            "image": "Le champ {attribute} doit être une image.",
-            "in": "Le champ {attribute} est invalide.",
-            "in_array": "Le champ {attribute} n'existe pas dans {other}.",
-            "integer": "Le champ {attribute} doit être un entier.",
-            "ip": "Le champ {attribute} doit être une adresse IP valide.",
-            "ipv4": "Le champ {attribute} doit être une adresse IPv4 valide.",
-            "ipv6": "Le champ {attribute} doit être une adresse IPv6 valide.",
-            "json": "Le champ {attribute} doit être un document JSON valide.",
-            "lt": {
-                "numeric": "La valeur de {attribute} doit être inférieure à {value}.",
-                "file": "La taille du fichier de {attribute} doit être inférieure à {value} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir moins de {value} caractères.",
-                "array": "Le tableau {attribute} doit contenir moins de {value} éléments."
-            },
-            "lte": {
-                "numeric": "La valeur de {attribute} doit être inférieure ou égale à {value}.",
-                "file": "La taille du fichier de {attribute} doit être inférieure ou égale à {value} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir au plus {value} caractères.",
-                "array": "Le tableau {attribute} doit contenir au plus {value} éléments."
-            },
-            "max": {
-                "numeric": "La valeur de {attribute} ne peut être supérieure à {max}.",
-                "file": "La taille du fichier de {attribute} ne peut pas dépasser {max} kilo-octets.",
-                "string": "Le texte de {attribute} ne peut contenir plus de {max} caractères.",
-                "array": "Le tableau {attribute} ne peut contenir plus de {max} éléments."
-            },
-            "mimes": "Le champ {attribute} doit être un fichier de type : {values}.",
-            "mimetypes": "Le champ {attribute} doit être un fichier de type : {values}.",
-            "min": {
-                "numeric": "La valeur de {attribute} doit être supérieure ou égale à {min}.",
-                "file": "La taille du fichier de {attribute} doit être supérieure à {min} kilo-octets.",
-                "string": "Le texte {attribute} doit contenir au moins {min} caractères.",
-                "array": "Le tableau {attribute} doit contenir au moins {min} éléments."
-            },
-            "not_in": "Le champ {attribute} sélectionné n'est pas valide.",
-            "not_regex": "Le format du champ {attribute} n'est pas valide.",
-            "numeric": "Le champ {attribute} doit contenir un nombre.",
-            "password": "Le mot de passe est incorrect",
-            "present": "Le champ {attribute} doit être présent.",
-            "regex": "Le format du champ {attribute} est invalide.",
-            "required": "Le champ {attribute} est obligatoire.",
-            "required_if": "Le champ {attribute} est obligatoire quand la valeur de {other} est {value}.",
-            "required_unless": "Le champ {attribute} est obligatoire sauf si {other} est {values}.",
-            "required_with": "Le champ {attribute} est obligatoire quand {values} est présent.",
-            "required_with_all": "Le champ {attribute} est obligatoire quand {values} sont présents.",
-            "required_without": "Le champ {attribute} est obligatoire quand {values} n'est pas présent.",
-            "required_without_all": "Le champ {attribute} est requis quand aucun de {values} n'est présent.",
-            "same": "Les champs {attribute} et {other} doivent être identiques.",
-            "size": {
-                "numeric": "La valeur de {attribute} doit être {size}.",
-                "file": "La taille du fichier de {attribute} doit être de {size} kilo-octets.",
-                "string": "Le texte de {attribute} doit contenir {size} caractères.",
-                "array": "Le tableau {attribute} doit contenir {size} éléments."
-            },
-            "starts_with": "Le champ {attribute} doit commencer avec une des valeurs suivantes : {values}",
-            "string": "Le champ {attribute} doit être une chaîne de caractères.",
-            "timezone": "Le champ {attribute} doit être un fuseau horaire valide.",
-            "unique": "La valeur du champ {attribute} est déjà utilisée.",
-            "uploaded": "Le fichier du champ {attribute} n'a pu être téléversé.",
-            "url": "Le format de l'URL de {attribute} n'est pas valide.",
-            "uuid": "Le champ {attribute} doit être un UUID valide",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "attributes": {
-                "name": "nom",
-                "username": "nom d'utilisateur",
-                "email": "adresse email",
-                "first_name": "prénom",
-                "last_name": "nom",
-                "password": "mot de passe",
-                "password_confirmation": "confirmation du mot de passe",
-                "city": "ville",
-                "country": "pays",
-                "address": "adresse",
-                "phone": "téléphone",
-                "mobile": "portable",
-                "age": "âge",
-                "sex": "sexe",
-                "gender": "genre",
-                "day": "jour",
-                "month": "mois",
-                "year": "année",
-                "hour": "heure",
-                "minute": "minute",
-                "second": "seconde",
-                "title": "titre",
-                "content": "contenu",
-                "description": "description",
-                "excerpt": "extrait",
-                "date": "date",
-                "time": "heure",
-                "available": "disponible",
-                "size": "taille"
-            }
+        "forms": {
+            "username": "Nom d'utilisateur",
+            "email": "E-mail",
+            "password": "Mot de passe",
+            "continue": "Continuer",
+            "date_of_birth": "Date de naissance",
+            "age": "Âge",
+            "year": "An|Ans",
+            "month": "Mois|Mois",
+            "day": "Jour|Jours",
+            "hour": "Heure|Heures",
+            "minute": "Minute|Minutes",
+            "second": "Seconde|Secondes"
+        },
+        "passwords": {
+            "reset": "Votre mot de passe a été réinitialisé !",
+            "sent": "Nous vous avons envoyé par email le lien de réinitialisation du mot de passe !",
+            "throttled": "Veuillez patienter avant de réessayer.",
+            "token": "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
+            "user": "Aucun utilisateur n'a été trouvé avec cette adresse email."
+        },
+        "general": {
+            "dashboard": " Tableau de bord",
+            "welcome": "Bienvenue",
+            "print": "Imprimer",
+            "search": "Recherchez",
+            "add": "Ajouter",
+            "error": "Erreur",
+            "success": "Succès",
+            "warning": "Alerte",
+            "info": "Info",
+            "all_rights_reserved": "Tous droits réservés.",
+            "acknowledgement_licensing_and_cert": "Reconnaissances, licences et certifications",
+            "no_such_patient": "Aucun patient existant",
+            "selected_encounter": "Choisir une rencontre",
+            "forgot_password": "Mot de passe oublié",
+            "reset_password": "Réinitialiser le mot de passe",
+            "verify_account": "Vérifier le compte",
+            "forgot_your_password": "Vous avez oublié votre mot de passe ?",
+            "click": "Cliquez",
+            "click_here": "Cliquez Ici"
+        },
+        "languages": {
+            "english": "Anglais",
+            "french": "Français",
+            "spanish": "Espagnol",
+            "dutch": "Néerlandais",
+            "russian": "Russe",
+            "portuguese": "Portugais",
+            "italian": "Italien",
+            "arabic": "عربي (Arabe)",
+            "hebrew": "Hébreu",
+            "romanian": "Roumain",
+            "ukrainian": "Ukrainien",
+            "turkish": "Turc",
+            "japanese": "Japonais",
+            "chinese": "Chinois"
+        },
+        "menu": {
+            "calendar": "Calendrier",
+            "flow_board": "Conseil d'administration",
+            "inventory": "Inventaire",
+            "fees": "Frais",
+            "patient_client": "Patient/Client",
+            "procedures": "Procédures",
+            "reports": "Rapports",
+            "miscellaneous": "Divers",
+            "popups": "Popups",
+            "qa_measures": "Mesures d'AQ",
+            "help": "Aide"
+        },
+        "pagination": {
+            "previous": "&laquo; Précédent",
+            "next": "Suivant &raquo;"
         }
     },
     "gl": {
         "auth": {
             "failed": "Estas credenciais non coinciden cos nosos rexistros.",
             "throttle": "Demasiados intentos de acceso. Por favor, inténtao de novo en {seconds} segundos."
-        },
-        "pagination": {
-            "previous": "&laquo; Anterior",
-            "next": "Seguinte &raquo;"
-        },
-        "passwords": {
-            "reset": "O teu contrasinal foi restablecido!",
-            "sent": "Enviámosche por correo electrónico o enlace para restablecer o teu contrasinal!",
-            "throttled": "Please wait before retrying.",
-            "token": "Este token de restablecemento do contrasinal non é válido.",
-            "user": "Non podemos encontrar un usuario con esa dirección de correo electrónico."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} debe ser aceptado.",
@@ -6206,23 +6084,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "he": {
-        "auth": {
-            "failed": "פרטים אלה אינם תואמים את רישומינו.",
-            "throttle": "ניסיונות כניסה רבים מדי. אנא נסו שוב בעוד {seconds} שניות."
-        },
-        "pagination": {
-            "previous": "&laquo; הקודם",
-            "next": "הבא &raquo;"
-        },
-        "passwords": {
-            "reset": "הסיסמה אופסה!",
-            "sent": "קישור לאיפוס הסיסמה נשלח אליך באימייל",
-            "throttled": "אנא חכו לפני שתנסו שוב.",
-            "token": "אסימון איפוס הסיסמה הזה לא תקני.",
-            "user": "לא הצלחנו למצוא משתמש עם כתובת האימייל הזאת."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6334,6 +6195,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "O teu contrasinal foi restablecido!",
+            "sent": "Enviámosche por correo electrónico o enlace para restablecer o teu contrasinal!",
+            "throttled": "Please wait before retrying.",
+            "token": "Este token de restablecemento do contrasinal non é válido.",
+            "user": "Non podemos encontrar un usuario con esa dirección de correo electrónico."
+        },
+        "pagination": {
+            "previous": "&laquo; Anterior",
+            "next": "Seguinte &raquo;"
+        }
+    },
+    "he": {
+        "auth": {
+            "failed": "פרטים אלה אינם תואמים את רישומינו.",
+            "throttle": "ניסיונות כניסה רבים מדי. אנא נסו שוב בעוד {seconds} שניות."
         },
         "validation": {
             "accepted": "שדה {attribute} חייב להיות מסומן.",
@@ -6446,23 +6324,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "hi": {
-        "auth": {
-            "failed": "ये साख हमारे रिकॉर्ड से मेल नहीं खा रहे हैं।",
-            "throttle": "बहुत सारे लॉगिन प्रयास। {seconds} सेकंड में फिर से कोशिश करें।"
-        },
-        "pagination": {
-            "previous": "&laquo; पिछला",
-            "next": "अगला &raquo;"
-        },
-        "passwords": {
-            "reset": "आपका पासवर्ड रीसेट कर दिया गया है!",
-            "sent": "हमने आपको एक पासवर्ड रीसेट लिंक ई-मेल किया है!",
-            "throttled": "Please wait before retrying.",
-            "token": "यह पासवर्ड रीसेट टोकन अमान्य है।",
-            "user": "हमें उस ई-मेल पते के साथ एक उपयोगकर्ता नहीं मिल सकता है।"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6574,6 +6435,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "הסיסמה אופסה!",
+            "sent": "קישור לאיפוס הסיסמה נשלח אליך באימייל",
+            "throttled": "אנא חכו לפני שתנסו שוב.",
+            "token": "אסימון איפוס הסיסמה הזה לא תקני.",
+            "user": "לא הצלחנו למצוא משתמש עם כתובת האימייל הזאת."
+        },
+        "pagination": {
+            "previous": "&laquo; הקודם",
+            "next": "הבא &raquo;"
+        }
+    },
+    "hi": {
+        "auth": {
+            "failed": "ये साख हमारे रिकॉर्ड से मेल नहीं खा रहे हैं।",
+            "throttle": "बहुत सारे लॉगिन प्रयास। {seconds} सेकंड में फिर से कोशिश करें।"
         },
         "validation": {
             "accepted": "{attribute} को स्वीकार किया जाना चाहिए।",
@@ -6693,23 +6571,6 @@ export default {
                 "result_text_under_image": "छवि के नीचे परिणाम पाठ",
                 "short_text": "लघु पाठ"
             }
-        }
-    },
-    "hr": {
-        "auth": {
-            "failed": "Ovi podaci ne odgovaraju našima.",
-            "throttle": "Previše pokušaja prijave. Molim Vas pokušajte ponovno za {seconds} sekundi."
-        },
-        "pagination": {
-            "previous": "&laquo; Prethodna",
-            "next": "Sljedeća &raquo;"
-        },
-        "passwords": {
-            "reset": "Lozinka je postavljena!",
-            "sent": "Poveznica za ponovono postavljanje lozinke je poslana!",
-            "throttled": "Please wait before retrying.",
-            "token": "Oznaka za ponovno postavljanje lozinke više nije važeća.",
-            "user": "Korisnik nije pronađen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -6821,6 +6682,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "आपका पासवर्ड रीसेट कर दिया गया है!",
+            "sent": "हमने आपको एक पासवर्ड रीसेट लिंक ई-मेल किया है!",
+            "throttled": "Please wait before retrying.",
+            "token": "यह पासवर्ड रीसेट टोकन अमान्य है।",
+            "user": "हमें उस ई-मेल पते के साथ एक उपयोगकर्ता नहीं मिल सकता है।"
+        },
+        "pagination": {
+            "previous": "&laquo; पिछला",
+            "next": "अगला &raquo;"
+        }
+    },
+    "hr": {
+        "auth": {
+            "failed": "Ovi podaci ne odgovaraju našima.",
+            "throttle": "Previše pokušaja prijave. Molim Vas pokušajte ponovno za {seconds} sekundi."
         },
         "validation": {
             "accepted": "Polje {attribute} mora biti prihvaćeno.",
@@ -6933,23 +6811,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "hu": {
-        "auth": {
-            "failed": "Rossz email-jelszó páros.",
-            "throttle": "Túl sok próbálkozás. Kérjük próbálja újra {seconds} másodperc múlva."
-        },
-        "pagination": {
-            "previous": "&laquo; Előző",
-            "next": "Következő &raquo;"
-        },
-        "passwords": {
-            "reset": "Az új jelszó beállítva!",
-            "sent": "Jelszó-emlékeztető elküldve!",
-            "throttled": "Kérjük várjon, mielőtt újra megpróbálná.",
-            "token": "Ez az új jelszó generálásához tartozó token érvénytelen.",
-            "user": "Nem található felhasználó a megadott email címmel."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7061,6 +6922,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Lozinka je postavljena!",
+            "sent": "Poveznica za ponovono postavljanje lozinke je poslana!",
+            "throttled": "Please wait before retrying.",
+            "token": "Oznaka za ponovno postavljanje lozinke više nije važeća.",
+            "user": "Korisnik nije pronađen."
+        },
+        "pagination": {
+            "previous": "&laquo; Prethodna",
+            "next": "Sljedeća &raquo;"
+        }
+    },
+    "hu": {
+        "auth": {
+            "failed": "Rossz email-jelszó páros.",
+            "throttle": "Túl sok próbálkozás. Kérjük próbálja újra {seconds} másodperc múlva."
         },
         "validation": {
             "accepted": "A(z) {attribute} el kell legyen fogadva!",
@@ -7176,23 +7054,6 @@ export default {
                 "name": "név",
                 "password": "jelszó"
             }
-        }
-    },
-    "hy": {
-        "auth": {
-            "failed": "Մուտքագրված տվյալները սխալ են։",
-            "throttle": "Չափազանց շատ մուտք գործելու փորձեր։ Խնդրում ենք փորձել կրկին {seconds} վայրկյան անց։"
-        },
-        "pagination": {
-            "previous": "&laquo; Նախորդ",
-            "next": "Հաջորդ &raquo;"
-        },
-        "passwords": {
-            "reset": "Ձեր գաղտնաբառը վերականգնվել է",
-            "sent": "Ձեր գաղտնաբառի վերականգնման հղումն ուղարկվել է ձեր Էլ․ հասցեին",
-            "throttled": "Խնդրում ենք սպասել նախքան կրկին փորձելը։",
-            "token": "Գաղտնաբառի վերականգնման կոդը սխալ է։",
-            "user": "Տվյալ Էլ․ հասցեով օգտատեր չի գտնվել։"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7304,6 +7165,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Az új jelszó beállítva!",
+            "sent": "Jelszó-emlékeztető elküldve!",
+            "throttled": "Kérjük várjon, mielőtt újra megpróbálná.",
+            "token": "Ez az új jelszó generálásához tartozó token érvénytelen.",
+            "user": "Nem található felhasználó a megadott email címmel."
+        },
+        "pagination": {
+            "previous": "&laquo; Előző",
+            "next": "Következő &raquo;"
+        }
+    },
+    "hy": {
+        "auth": {
+            "failed": "Մուտքագրված տվյալները սխալ են։",
+            "throttle": "Չափազանց շատ մուտք գործելու փորձեր։ Խնդրում ենք փորձել կրկին {seconds} վայրկյան անց։"
         },
         "validation": {
             "accepted": "{attribute} դաշտը պետք է ընդունվի։",
@@ -7446,23 +7324,6 @@ export default {
                 "available": "Առկա",
                 "size": "Չափ"
             }
-        }
-    },
-    "id": {
-        "auth": {
-            "failed": "Identitas tersebut tidak cocok dengan data kami.",
-            "throttle": "Terlalu banyak usaha masuk. Silahkan coba lagi dalam {seconds} detik."
-        },
-        "pagination": {
-            "previous": "&laquo; Sebelumnya",
-            "next": "Berikutnya &raquo;"
-        },
-        "passwords": {
-            "reset": "Kata sandi Anda sudah direset!",
-            "sent": "Kami sudah mengirim surel yang berisi tautan untuk mereset kata sandi Anda!",
-            "throttled": "Harap tunggu sebelum mencoba lagi.",
-            "token": "Token pengaturan ulang kata sandi tidak sah.",
-            "user": "Kami tidak dapat menemukan pengguna dengan alamat surel tersebut."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7574,6 +7435,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Ձեր գաղտնաբառը վերականգնվել է",
+            "sent": "Ձեր գաղտնաբառի վերականգնման հղումն ուղարկվել է ձեր Էլ․ հասցեին",
+            "throttled": "Խնդրում ենք սպասել նախքան կրկին փորձելը։",
+            "token": "Գաղտնաբառի վերականգնման կոդը սխալ է։",
+            "user": "Տվյալ Էլ․ հասցեով օգտատեր չի գտնվել։"
+        },
+        "pagination": {
+            "previous": "&laquo; Նախորդ",
+            "next": "Հաջորդ &raquo;"
+        }
+    },
+    "id": {
+        "auth": {
+            "failed": "Identitas tersebut tidak cocok dengan data kami.",
+            "throttle": "Terlalu banyak usaha masuk. Silahkan coba lagi dalam {seconds} detik."
         },
         "validation": {
             "accepted": "{Attribute} harus diterima.",
@@ -7686,23 +7564,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "is": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Fyrri",
-            "next": "Næsta &raquo;"
-        },
-        "passwords": {
-            "reset": "Lykilorðið þitt hefur verið endurstillt!",
-            "sent": "Við sendum þér tölvupóst með slóð til að endurheimta lykilorðið þitt.",
-            "throttled": "Please wait before retrying.",
-            "token": "Kóðinn til að endurheimta lykilorðið er rangur.",
-            "user": "Notandi með þetta netfang finnst ekki."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -7814,6 +7675,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Kata sandi Anda sudah direset!",
+            "sent": "Kami sudah mengirim surel yang berisi tautan untuk mereset kata sandi Anda!",
+            "throttled": "Harap tunggu sebelum mencoba lagi.",
+            "token": "Token pengaturan ulang kata sandi tidak sah.",
+            "user": "Kami tidak dapat menemukan pengguna dengan alamat surel tersebut."
+        },
+        "pagination": {
+            "previous": "&laquo; Sebelumnya",
+            "next": "Berikutnya &raquo;"
+        }
+    },
+    "is": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "Reiturinn {attribute} verður að vera samþykktur.",
@@ -7956,68 +7834,6 @@ export default {
                 "available": "Í boði",
                 "size": "Stærð"
             }
-        }
-    },
-    "it": {
-        "auth": {
-            "failed": "Credenziali non corrispondenti ai dati registrati.",
-            "throttle": "Troppi tentativi di accesso. Riprova tra {seconds} secondi."
-        },
-        "forms": {
-            "username": "Nome utente",
-            "email": "E-mail",
-            "password": "Password",
-            "continue": "Continua",
-            "date_of_birth": "Data di nascita",
-            "age": "Età"
-        },
-        "general": {
-            "welcome": "Benvenuti a",
-            "print": "Stampa",
-            "search": "Ricerca",
-            "add": "Aggiungi",
-            "all_rights_reserved": "Tutti i diritti riservati.",
-            "acknowledgement_licensing_and_cert": "Riconoscimenti, licenze e certificazioni"
-        },
-        "languages": {
-            "english": "Inglese",
-            "french": "Francese",
-            "spanish": "Spagnolo",
-            "dutch": "Olandese",
-            "russian": "Russo",
-            "portuguese": "Portoghese",
-            "italian": "Italiano",
-            "arabic": "عربي (arabo)",
-            "hebrew": "Ebraico",
-            "romanian": "Rumeno",
-            "ukrainian": "Ucraino",
-            "turkish": "Turco",
-            "japanese": "Giapponese",
-            "chinese": "Cinese"
-        },
-        "menu": {
-            "calendar": "Calendario",
-            "flow_board": "Bordo di flusso",
-            "inventory": "Inventario",
-            "fees": "Tariffe",
-            "patient_client": "Paziente/Cliente",
-            "procedures": "Procedure",
-            "reports": "Rapporti",
-            "miscellaneous": "Varie",
-            "popups": "Popups",
-            "qa_measures": "Misure di AQ",
-            "help": "Aiuto"
-        },
-        "pagination": {
-            "previous": "&laquo; Precedente",
-            "next": "Successivo &raquo;"
-        },
-        "passwords": {
-            "reset": "La password è stata reimpostata!",
-            "sent": "Promemoria della password inviato!",
-            "throttled": "Per favore attendi prima di riprovare.",
-            "token": "Questo token per la reimpostazione della password non è valido.",
-            "user": "Non esiste un utente associato a questo indirizzo e-mail."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8129,6 +7945,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Lykilorðið þitt hefur verið endurstillt!",
+            "sent": "Við sendum þér tölvupóst með slóð til að endurheimta lykilorðið þitt.",
+            "throttled": "Please wait before retrying.",
+            "token": "Kóðinn til að endurheimta lykilorðið er rangur.",
+            "user": "Notandi með þetta netfang finnst ekki."
+        },
+        "pagination": {
+            "previous": "&laquo; Fyrri",
+            "next": "Næsta &raquo;"
+        }
+    },
+    "it": {
+        "auth": {
+            "failed": "Credenziali non corrispondenti ai dati registrati.",
+            "throttle": "Troppi tentativi di accesso. Riprova tra {seconds} secondi."
         },
         "validation": {
             "accepted": "{attribute} deve essere accettato.",
@@ -8269,68 +8102,6 @@ export default {
                 "available": "disponibile",
                 "size": "dimensione"
             }
-        }
-    },
-    "jp": {
-        "auth": {
-            "failed": "認証情報と一致するレコードがありません。",
-            "throttle": "ログインの試行回数が多すぎます。{seconds} 秒後にお試しください。"
-        },
-        "forms": {
-            "username": "ユーザー名",
-            "email": "電子メール",
-            "password": "パスワード",
-            "continue": "続ける",
-            "date_of_birth": "生年月日",
-            "age": "年齢"
-        },
-        "general": {
-            "welcome": "歓迎",
-            "print": "印刷",
-            "search": "検索",
-            "add": "追加",
-            "all_rights_reserved": "すべての権利は予約されています。",
-            "acknowledgement_licensing_and_cert": "謝辞、ライセンス、認証"
-        },
-        "languages": {
-            "english": "英語",
-            "french": "フレンチ",
-            "spanish": "スペイン語",
-            "dutch": "蘭語",
-            "russian": "ロシア語",
-            "portuguese": "ポルトガル語",
-            "italian": "イタリア語",
-            "arabic": "عربية",
-            "hebrew": "ヘブライ語",
-            "romanian": "ルーマニア語",
-            "ukrainian": "ウクライナ人",
-            "turkish": "トルコ語",
-            "japanese": "にほんご",
-            "chinese": "ちゅうごく"
-        },
-        "menu": {
-            "calendar": "カレンダー",
-            "flow_board": "フローボード",
-            "inventory": "インベントリ",
-            "fees": "料金",
-            "patient_client": "患者/クライアント",
-            "procedures": "手続き",
-            "reports": "報告書",
-            "miscellaneous": "その他",
-            "popups": "ポップアップ",
-            "qa_measures": "品質保証対策",
-            "help": "ヘルプ"
-        },
-        "pagination": {
-            "previous": "&laquo; 前",
-            "next": "次 &raquo;"
-        },
-        "passwords": {
-            "reset": "パスワードをリセットしました。",
-            "sent": "パスワードリマインダーを送信しました。",
-            "throttled": "時間を置いて再度お試しください。",
-            "token": "このパスワードリセットトークンは無効です。",
-            "user": "このメールアドレスに一致するユーザーを見つけることが出来ませんでした。"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8442,6 +8213,68 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "forms": {
+            "username": "Nome utente",
+            "email": "E-mail",
+            "password": "Password",
+            "continue": "Continua",
+            "date_of_birth": "Data di nascita",
+            "age": "Età"
+        },
+        "passwords": {
+            "reset": "La password è stata reimpostata!",
+            "sent": "Promemoria della password inviato!",
+            "throttled": "Per favore attendi prima di riprovare.",
+            "token": "Questo token per la reimpostazione della password non è valido.",
+            "user": "Non esiste un utente associato a questo indirizzo e-mail."
+        },
+        "general": {
+            "welcome": "Benvenuti a",
+            "print": "Stampa",
+            "search": "Ricerca",
+            "add": "Aggiungi",
+            "all_rights_reserved": "Tutti i diritti riservati.",
+            "acknowledgement_licensing_and_cert": "Riconoscimenti, licenze e certificazioni"
+        },
+        "languages": {
+            "english": "Inglese",
+            "french": "Francese",
+            "spanish": "Spagnolo",
+            "dutch": "Olandese",
+            "russian": "Russo",
+            "portuguese": "Portoghese",
+            "italian": "Italiano",
+            "arabic": "عربي (arabo)",
+            "hebrew": "Ebraico",
+            "romanian": "Rumeno",
+            "ukrainian": "Ucraino",
+            "turkish": "Turco",
+            "japanese": "Giapponese",
+            "chinese": "Cinese"
+        },
+        "menu": {
+            "calendar": "Calendario",
+            "flow_board": "Bordo di flusso",
+            "inventory": "Inventario",
+            "fees": "Tariffe",
+            "patient_client": "Paziente/Cliente",
+            "procedures": "Procedure",
+            "reports": "Rapporti",
+            "miscellaneous": "Varie",
+            "popups": "Popups",
+            "qa_measures": "Misure di AQ",
+            "help": "Aiuto"
+        },
+        "pagination": {
+            "previous": "&laquo; Precedente",
+            "next": "Successivo &raquo;"
+        }
+    },
+    "jp": {
+        "auth": {
+            "failed": "認証情報と一致するレコードがありません。",
+            "throttle": "ログインの試行回数が多すぎます。{seconds} 秒後にお試しください。"
         },
         "validation": {
             "accepted": "{attribute}を承認してください。",
@@ -8554,23 +8387,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "ka": {
-        "auth": {
-            "failed": "მომხმარებელი ამ მონაცემებით არ არსებობს.",
-            "throttle": "წარუმატებელი ავტორიზაცია. გთხოვთ, სცადოთ {seconds} წამში."
-        },
-        "pagination": {
-            "previous": "&laquo; წინა",
-            "next": "შემდეგი &raquo;"
-        },
-        "passwords": {
-            "reset": "თქვენი პაროლი განახლებულია!",
-            "sent": "თქვენს ელ.ფოსტაზე მიიღებთ პაროლის განახლების ბმულს!",
-            "throttled": "Please wait before retrying.",
-            "token": "პაროლის განახლების კოდი არასწორია.",
-            "user": "მომხმარებელი ამ მონაცემებით არ არსებობს."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8682,6 +8498,68 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "forms": {
+            "username": "ユーザー名",
+            "email": "電子メール",
+            "password": "パスワード",
+            "continue": "続ける",
+            "date_of_birth": "生年月日",
+            "age": "年齢"
+        },
+        "passwords": {
+            "reset": "パスワードをリセットしました。",
+            "sent": "パスワードリマインダーを送信しました。",
+            "throttled": "時間を置いて再度お試しください。",
+            "token": "このパスワードリセットトークンは無効です。",
+            "user": "このメールアドレスに一致するユーザーを見つけることが出来ませんでした。"
+        },
+        "general": {
+            "welcome": "歓迎",
+            "print": "印刷",
+            "search": "検索",
+            "add": "追加",
+            "all_rights_reserved": "すべての権利は予約されています。",
+            "acknowledgement_licensing_and_cert": "謝辞、ライセンス、認証"
+        },
+        "languages": {
+            "english": "英語",
+            "french": "フレンチ",
+            "spanish": "スペイン語",
+            "dutch": "蘭語",
+            "russian": "ロシア語",
+            "portuguese": "ポルトガル語",
+            "italian": "イタリア語",
+            "arabic": "عربية",
+            "hebrew": "ヘブライ語",
+            "romanian": "ルーマニア語",
+            "ukrainian": "ウクライナ人",
+            "turkish": "トルコ語",
+            "japanese": "にほんご",
+            "chinese": "ちゅうごく"
+        },
+        "menu": {
+            "calendar": "カレンダー",
+            "flow_board": "フローボード",
+            "inventory": "インベントリ",
+            "fees": "料金",
+            "patient_client": "患者/クライアント",
+            "procedures": "手続き",
+            "reports": "報告書",
+            "miscellaneous": "その他",
+            "popups": "ポップアップ",
+            "qa_measures": "品質保証対策",
+            "help": "ヘルプ"
+        },
+        "pagination": {
+            "previous": "&laquo; 前",
+            "next": "次 &raquo;"
+        }
+    },
+    "ka": {
+        "auth": {
+            "failed": "მომხმარებელი ამ მონაცემებით არ არსებობს.",
+            "throttle": "წარუმატებელი ავტორიზაცია. გთხოვთ, სცადოთ {seconds} წამში."
         },
         "validation": {
             "accepted": "{attribute} უნდა იყოს მონიშნული.",
@@ -8794,23 +8672,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "kk": {
-        "auth": {
-            "failed": "Тіркелгі деректері біздің жазбаларымызға сай емес.",
-            "throttle": "Кіру әрекеті тым көп болды. {seconds} секундтан соң қайталап көріңіз."
-        },
-        "pagination": {
-            "previous": "&laquo; Алдыңғы",
-            "next": "Келесі &raquo;"
-        },
-        "passwords": {
-            "reset": "Құпия сөзіңіз қайта орнатылды!",
-            "sent": "Сізге құпия сөзді қайта орнату сілтемесін жібердік!",
-            "throttled": "Please wait before retrying.",
-            "token": "Осы құпиясөзді қайта орнату таңбалауышы жарамсыз.",
-            "user": "Бұл электрондық поштамен ешбір пайдаланушыны таба алмадық."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -8922,6 +8783,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "თქვენი პაროლი განახლებულია!",
+            "sent": "თქვენს ელ.ფოსტაზე მიიღებთ პაროლის განახლების ბმულს!",
+            "throttled": "Please wait before retrying.",
+            "token": "პაროლის განახლების კოდი არასწორია.",
+            "user": "მომხმარებელი ამ მონაცემებით არ არსებობს."
+        },
+        "pagination": {
+            "previous": "&laquo; წინა",
+            "next": "შემდეგი &raquo;"
+        }
+    },
+    "kk": {
+        "auth": {
+            "failed": "Тіркелгі деректері біздің жазбаларымызға сай емес.",
+            "throttle": "Кіру әрекеті тым көп болды. {seconds} секундтан соң қайталап көріңіз."
         },
         "validation": {
             "accepted": " {attribute} қабылдануы керек.",
@@ -9064,23 +8942,6 @@ export default {
                 "available": "Қолжетімді",
                 "size": "Көлемі"
             }
-        }
-    },
-    "km": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; មុន",
-            "next": "បន្ទាប់ &raquo;"
-        },
-        "passwords": {
-            "reset": "Password has been reset!",
-            "sent": "ពាក្យសម្ងាត់ដែលបានរំលឹកបានផ្ញើរួចរាល់!",
-            "throttled": "Please wait before retrying.",
-            "token": "ពាក្យសម្ងាត់ដែលកំណត់ឡើងវិញគឺមិនត្រឹមត្រូវទេ។",
-            "user": "យើងមិនអាចរកឃើញអ្នកប្រើដែលមានអាសយដ្ឋានអ៊ីមែលមួយនេះទេ។"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9192,6 +9053,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Құпия сөзіңіз қайта орнатылды!",
+            "sent": "Сізге құпия сөзді қайта орнату сілтемесін жібердік!",
+            "throttled": "Please wait before retrying.",
+            "token": "Осы құпиясөзді қайта орнату таңбалауышы жарамсыз.",
+            "user": "Бұл электрондық поштамен ешбір пайдаланушыны таба алмадық."
+        },
+        "pagination": {
+            "previous": "&laquo; Алдыңғы",
+            "next": "Келесі &raquo;"
+        }
+    },
+    "km": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "{attribute} ត្រូវបានទទួលយក។",
@@ -9304,23 +9182,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "kn": {
-        "auth": {
-            "failed": "ಈ ರುಜುವಾತುಗಳು ನಮ್ಮ ದಾಖಲೆಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.",
-            "throttle": "ಹಲವಾರು ಲಾಗಿನ್ ಪ್ರಯತ್ನಗಳು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ {seconds}\t ಸೆಕೆಂಡುಗಳಲ್ಲಿ"
-        },
-        "pagination": {
-            "previous": "&laquo; ಹಿಂದಿನ",
-            "next": "ಮುಂದಿನ &raquo;"
-        },
-        "passwords": {
-            "reset": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ!",
-            "sent": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ನಾವು ಇ-ಮೇಲ್ ಮಾಡಿದ್ದೇವೆ!",
-            "throttled": "Please wait before retrying.",
-            "token": "ಈ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಟೋಕನ್ ಅಮಾನ್ಯವಾಗಿದೆ.",
-            "user": "ಆ ಇ-ಮೇಲ್ ವಿಳಾಸದೊಂದಿಗೆ ನಾವು ಒಬ್ಬ ಬಳಕೆದಾರನನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9432,6 +9293,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Password has been reset!",
+            "sent": "ពាក្យសម្ងាត់ដែលបានរំលឹកបានផ្ញើរួចរាល់!",
+            "throttled": "Please wait before retrying.",
+            "token": "ពាក្យសម្ងាត់ដែលកំណត់ឡើងវិញគឺមិនត្រឹមត្រូវទេ។",
+            "user": "យើងមិនអាចរកឃើញអ្នកប្រើដែលមានអាសយដ្ឋានអ៊ីមែលមួយនេះទេ។"
+        },
+        "pagination": {
+            "previous": "&laquo; មុន",
+            "next": "បន្ទាប់ &raquo;"
+        }
+    },
+    "kn": {
+        "auth": {
+            "failed": "ಈ ರುಜುವಾತುಗಳು ನಮ್ಮ ದಾಖಲೆಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.",
+            "throttle": "ಹಲವಾರು ಲಾಗಿನ್ ಪ್ರಯತ್ನಗಳು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ {seconds}\t ಸೆಕೆಂಡುಗಳಲ್ಲಿ"
         },
         "validation": {
             "accepted": "ಈ  {attribute}  ಒಪ್ಪಿಕೊಳ್ಳಬೇಕು.",
@@ -9574,23 +9452,6 @@ export default {
                 "available": "ಲಭ್ಯವಿದೆ",
                 "size": "ಗಾತ್ರ"
             }
-        }
-    },
-    "ko": {
-        "auth": {
-            "failed": "제출된 인증 정보가 레코드와 일치하지 않습니다.",
-            "throttle": "너무 많은 로그인을 시도하였습니다. {seconds} 초 후에 다시 시도하십시요."
-        },
-        "pagination": {
-            "previous": "&laquo; 이전",
-            "next": "다음 &raquo;"
-        },
-        "passwords": {
-            "reset": "비밀번호가 변경되었습니다!",
-            "sent": "비밀번호 재설정 링크를 이메일로 전송했습니다!",
-            "throttled": "잠시 후 다시 시도해주세요.",
-            "token": "해당 비밀번호 재설정 토큰이 유효하지 않습니다.",
-            "user": "해당 이메일을 사용하는 사용자를 찾을 수 없습니다."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9702,6 +9563,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಲಾಗಿದೆ!",
+            "sent": "ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ನಾವು ಇ-ಮೇಲ್ ಮಾಡಿದ್ದೇವೆ!",
+            "throttled": "Please wait before retrying.",
+            "token": "ಈ ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸುವ ಟೋಕನ್ ಅಮಾನ್ಯವಾಗಿದೆ.",
+            "user": "ಆ ಇ-ಮೇಲ್ ವಿಳಾಸದೊಂದಿಗೆ ನಾವು ಒಬ್ಬ ಬಳಕೆದಾರನನ್ನು ಹುಡುಕಲಾಗಲಿಲ್ಲ."
+        },
+        "pagination": {
+            "previous": "&laquo; ಹಿಂದಿನ",
+            "next": "ಮುಂದಿನ &raquo;"
+        }
+    },
+    "ko": {
+        "auth": {
+            "failed": "제출된 인증 정보가 레코드와 일치하지 않습니다.",
+            "throttle": "너무 많은 로그인을 시도하였습니다. {seconds} 초 후에 다시 시도하십시요."
         },
         "validation": {
             "accepted": "{attribute}을(를) 동의해야 합니다.",
@@ -9814,23 +9692,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "lt": {
-        "auth": {
-            "failed": "Prisijungimo duomenys neatitinka.",
-            "throttle": "Per daug bandymų prisijungti. Bandykite po {seconds} sec."
-        },
-        "pagination": {
-            "previous": "&laquo; Ankstesnis",
-            "next": "Kitas &raquo;"
-        },
-        "passwords": {
-            "reset": "Nustatytas naujas slaptažodis!",
-            "sent": "Naujo slaptažodžio nustatymo nuoroda išsiųsta",
-            "throttled": "Palaukite prieš tęsdami.",
-            "token": "Šis slaptažodžio raktas yra neteisingas.",
-            "user": "Vartotojas su tokiu el. paštu nerastas."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -9942,6 +9803,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "비밀번호가 변경되었습니다!",
+            "sent": "비밀번호 재설정 링크를 이메일로 전송했습니다!",
+            "throttled": "잠시 후 다시 시도해주세요.",
+            "token": "해당 비밀번호 재설정 토큰이 유효하지 않습니다.",
+            "user": "해당 이메일을 사용하는 사용자를 찾을 수 없습니다."
+        },
+        "pagination": {
+            "previous": "&laquo; 이전",
+            "next": "다음 &raquo;"
+        }
+    },
+    "lt": {
+        "auth": {
+            "failed": "Prisijungimo duomenys neatitinka.",
+            "throttle": "Per daug bandymų prisijungti. Bandykite po {seconds} sec."
         },
         "validation": {
             "accepted": "Laukas {attribute} turi būti priimtas.",
@@ -10054,23 +9932,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "lv": {
-        "auth": {
-            "failed": "Šie dati neatbilst mūsu reģistram.",
-            "throttle": "Pārāk daudz pieteikšanās mēģinājumu. Lūdzu mēģiniet vēlreiz pēc {seconds} sekundēm."
-        },
-        "pagination": {
-            "previous": "&laquo; Iepriekšējais",
-            "next": "Nākamais &raquo;"
-        },
-        "passwords": {
-            "reset": "Jūsu parole ir atjaunināta!",
-            "sent": "Mēs nosūtījām paroles maiņas linku uz jūsu e-pastu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Šāda zīme pie paroles maiņas nav atļauta.",
-            "user": "Mēs nevaram atrast lietotāju ar tādu e-pasta adresi."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10182,6 +10043,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Nustatytas naujas slaptažodis!",
+            "sent": "Naujo slaptažodžio nustatymo nuoroda išsiųsta",
+            "throttled": "Palaukite prieš tęsdami.",
+            "token": "Šis slaptažodžio raktas yra neteisingas.",
+            "user": "Vartotojas su tokiu el. paštu nerastas."
+        },
+        "pagination": {
+            "previous": "&laquo; Ankstesnis",
+            "next": "Kitas &raquo;"
+        }
+    },
+    "lv": {
+        "auth": {
+            "failed": "Šie dati neatbilst mūsu reģistram.",
+            "throttle": "Pārāk daudz pieteikšanās mēģinājumu. Lūdzu mēģiniet vēlreiz pēc {seconds} sekundēm."
         },
         "validation": {
             "accepted": " {attribute} ir jābūt pieņemtam.",
@@ -10294,23 +10172,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "me": {
-        "auth": {
-            "failed": "Neispravan username i/ili password.",
-            "throttle": "Previše neuspješnih pokušaja. Probajte ponovo za {seconds} sekundi."
-        },
-        "pagination": {
-            "previous": "&laquo; Prethodna",
-            "next": "Sledeća &raquo;"
-        },
-        "passwords": {
-            "reset": "Vaš password je resetovan!",
-            "sent": "Poslali smo Vam link za reset Vašeg password-a!",
-            "throttled": "Please wait before retrying.",
-            "token": "Token za reset ovog passworda nije validan.",
-            "user": "Ne možemo naći korisnika sa unijetom email adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10422,6 +10283,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Jūsu parole ir atjaunināta!",
+            "sent": "Mēs nosūtījām paroles maiņas linku uz jūsu e-pastu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Šāda zīme pie paroles maiņas nav atļauta.",
+            "user": "Mēs nevaram atrast lietotāju ar tādu e-pasta adresi."
+        },
+        "pagination": {
+            "previous": "&laquo; Iepriekšējais",
+            "next": "Nākamais &raquo;"
+        }
+    },
+    "me": {
+        "auth": {
+            "failed": "Neispravan username i/ili password.",
+            "throttle": "Previše neuspješnih pokušaja. Probajte ponovo za {seconds} sekundi."
         },
         "validation": {
             "accepted": "Polje {attribute} mora biti prihvaćeno.",
@@ -10564,23 +10442,6 @@ export default {
                 "subject": "naslov",
                 "message": "poruka"
             }
-        }
-    },
-    "mk": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Напред &raquo;"
-        },
-        "passwords": {
-            "reset": "Password has been reset!",
-            "sent": "Испратен емаил со инструкции за ресетирање на лозинка!",
-            "throttled": "Please wait before retrying.",
-            "token": "Невалиден токен за ресетирање на лозинката.",
-            "user": "Не може да се пронајде корисник со таква емаил адреса."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10692,6 +10553,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Vaš password je resetovan!",
+            "sent": "Poslali smo Vam link za reset Vašeg password-a!",
+            "throttled": "Please wait before retrying.",
+            "token": "Token za reset ovog passworda nije validan.",
+            "user": "Ne možemo naći korisnika sa unijetom email adresom."
+        },
+        "pagination": {
+            "previous": "&laquo; Prethodna",
+            "next": "Sledeća &raquo;"
+        }
+    },
+    "mk": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "Полето {attribute} мора да биде прифатено.",
@@ -10804,23 +10682,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "mn": {
-        "auth": {
-            "failed": "Хэрэглэгчийн нэр эсвэл нууц үг буруу.",
-            "throttle": "Олон удаагийн буруу оролдого. {seconds} секундийн дараа дахин оролдоно уу."
-        },
-        "pagination": {
-            "previous": "&laquo; Өмнөх",
-            "next": "Дараах &raquo;"
-        },
-        "passwords": {
-            "reset": "Таний нууц үг шинэчлэгдсэн!",
-            "sent": "Нууц үг сэргээх холбоосийг таний и-мэйл хаяг уруу явуулсан!",
-            "throttled": "Please wait before retrying.",
-            "token": "Алдаатай нууц үг сэргээх холбоос.",
-            "user": "Ийм и-мэйл хаягтай хэрэглэгч олдсонгүй."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -10932,6 +10793,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Password has been reset!",
+            "sent": "Испратен емаил со инструкции за ресетирање на лозинка!",
+            "throttled": "Please wait before retrying.",
+            "token": "Невалиден токен за ресетирање на лозинката.",
+            "user": "Не може да се пронајде корисник со таква емаил адреса."
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Напред &raquo;"
+        }
+    },
+    "mn": {
+        "auth": {
+            "failed": "Хэрэглэгчийн нэр эсвэл нууц үг буруу.",
+            "throttle": "Олон удаагийн буруу оролдого. {seconds} секундийн дараа дахин оролдоно уу."
         },
         "validation": {
             "accepted": "{Attribute} баталсан байх шаардлагатай.",
@@ -11044,23 +10922,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "mr": {
-        "auth": {
-            "failed": "हे खाते वैध नाही.",
-            "throttle": "प्रवेशाचा जास्त वेळा प्रयत्न. {seconds} सेकंड नंतर पुन्हा प्रयत्न करा."
-        },
-        "pagination": {
-            "previous": "&laquo; मागचा",
-            "next": "पुढचा &raquo;"
-        },
-        "passwords": {
-            "reset": "आपला पासवर्ड पुनर्रचीत केला गेला आहे.",
-            "sent": "आपल्याला पासवर्ड पुनर्रचीत करायचा मेल केला गेला आहे.",
-            "throttled": "Please wait before retrying.",
-            "token": "आपला पासवर्ड पुनर्रचीत करायचे टोकं अवैध नाही.",
-            "user": "या ई-मेल वर कोणतेही खाते उपलब्ध नाही."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11172,6 +11033,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Таний нууц үг шинэчлэгдсэн!",
+            "sent": "Нууц үг сэргээх холбоосийг таний и-мэйл хаяг уруу явуулсан!",
+            "throttled": "Please wait before retrying.",
+            "token": "Алдаатай нууц үг сэргээх холбоос.",
+            "user": "Ийм и-мэйл хаягтай хэрэглэгч олдсонгүй."
+        },
+        "pagination": {
+            "previous": "&laquo; Өмнөх",
+            "next": "Дараах &raquo;"
+        }
+    },
+    "mr": {
+        "auth": {
+            "failed": "हे खाते वैध नाही.",
+            "throttle": "प्रवेशाचा जास्त वेळा प्रयत्न. {seconds} सेकंड नंतर पुन्हा प्रयत्न करा."
         },
         "validation": {
             "accepted": "{attribute} ला स्वीकार केला गेला पाहिजे.",
@@ -11291,23 +11169,6 @@ export default {
                 "result_text_under_image": "प्रतिमेच्या खाली त्याचे परिणाम",
                 "short_text": "संक्षिप्त सारांश"
             }
-        }
-    },
-    "ms": {
-        "auth": {
-            "failed": "Butiran ini tidak sepadan dengan rekod kami.",
-            "throttle": "Terlalu banyak percubaan log masuk. Sila cuba lagi dalam {seconds} saat."
-        },
-        "pagination": {
-            "previous": "&laquo; Sebelumnya",
-            "next": "Seterusnya &raquo;"
-        },
-        "passwords": {
-            "reset": "Kata laluan anda telah ditetapkan semula!",
-            "sent": "Kami telah e-mel pautan set semula kata laluan anda!",
-            "throttled": "Please wait before retrying.",
-            "token": "Token set semula kata laluan ini tidak sah.",
-            "user": "Kami tidak dapat mencari pengguna dengan alamat e-mel tersebut."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11419,6 +11280,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "आपला पासवर्ड पुनर्रचीत केला गेला आहे.",
+            "sent": "आपल्याला पासवर्ड पुनर्रचीत करायचा मेल केला गेला आहे.",
+            "throttled": "Please wait before retrying.",
+            "token": "आपला पासवर्ड पुनर्रचीत करायचे टोकं अवैध नाही.",
+            "user": "या ई-मेल वर कोणतेही खाते उपलब्ध नाही."
+        },
+        "pagination": {
+            "previous": "&laquo; मागचा",
+            "next": "पुढचा &raquo;"
+        }
+    },
+    "ms": {
+        "auth": {
+            "failed": "Butiran ini tidak sepadan dengan rekod kami.",
+            "throttle": "Terlalu banyak percubaan log masuk. Sila cuba lagi dalam {seconds} saat."
         },
         "validation": {
             "accepted": "{attribute} mesti diterima pakai.",
@@ -11531,23 +11409,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "nb": {
-        "auth": {
-            "failed": "Disse opplysningene samsvarer ikke med hva vi har lagret.",
-            "throttle": "For mange innloggingsforsøk. Vennligst prøv igjen om {seconds} sekunder."
-        },
-        "pagination": {
-            "previous": "&laquo; Forrige",
-            "next": "Neste &raquo;"
-        },
-        "passwords": {
-            "reset": "Passordet ditt har blitt nullstilt!",
-            "sent": "Vi har sendt din lenke for å nullstille passordet!",
-            "throttled": "Vennligst vent før du prøver på nytt.",
-            "token": "Denne koden for å nullstille passordet er ugyldig.",
-            "user": "Vi kan ikke finne en bruker med den e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -11659,6 +11520,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Kata laluan anda telah ditetapkan semula!",
+            "sent": "Kami telah e-mel pautan set semula kata laluan anda!",
+            "throttled": "Please wait before retrying.",
+            "token": "Token set semula kata laluan ini tidak sah.",
+            "user": "Kami tidak dapat mencari pengguna dengan alamat e-mel tersebut."
+        },
+        "pagination": {
+            "previous": "&laquo; Sebelumnya",
+            "next": "Seterusnya &raquo;"
+        }
+    },
+    "nb": {
+        "auth": {
+            "failed": "Disse opplysningene samsvarer ikke med hva vi har lagret.",
+            "throttle": "For mange innloggingsforsøk. Vennligst prøv igjen om {seconds} sekunder."
         },
         "validation": {
             "accepted": "{attribute} må aksepteres.",
@@ -11771,134 +11649,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Passordet ditt har blitt nullstilt!",
+            "sent": "Vi har sendt din lenke for å nullstille passordet!",
+            "throttled": "Vennligst vent før du prøver på nytt.",
+            "token": "Denne koden for å nullstille passordet er ugyldig.",
+            "user": "Vi kan ikke finne en bruker med den e-postadressen."
+        },
+        "pagination": {
+            "previous": "&laquo; Forrige",
+            "next": "Neste &raquo;"
         }
     },
     "ne": {
         "auth": {
             "failed": "यी प्रमाणहरू हाम्रो रेकर्ड संग मेल खादैनन्।",
             "throttle": "धेरै लगिन प्रयास भयो {seconds} सेकेन्ड पछि फेरि प्रयास गर्नुहोस्।"
-        },
-        "pagination": {
-            "previous": "&laquo; अघिल्लो",
-            "next": "अर्को &raquo;"
-        },
-        "passwords": {
-            "reset": "पासवर्ड रिसेट भयो!",
-            "sent": "हामीले पासवर्ड परिवर्तन गर्ने लिंक ईमेलमा पठाएका छौ!",
-            "throttled": "पुन: प्रयास गर्नु अघि कृपया प्रतीक्षा गर्नुहोस्.",
-            "token": "यो पासवर्ड रिसेट गर्ने टोकन अमान्य छ।",
-            "user": "दिइएको ईमेल प्रयोगकर्ता भेटिएन।"
-        },
-        "validation-inline": {
-            "accepted": "यो क्षेत्र स्वीकार गर्नु पर्छ।",
-            "active_url": "यो मान्य URL होईन।",
-            "after": "यो मिति पछाडि {date} हुनुपर्दछ।",
-            "after_or_equal": "यो मिति पछाडि वा बराबर {date} हुनुपर्दछ।",
-            "alpha": "यो फिल्डमा अक्षरहरू मात्र समावेश हुन सक्छ।",
-            "alpha_dash": "यस फाँटमा केवल अक्षरहरू, संख्याहरू, ड्यासहरू र अन्डरस्कोरहरू समावेश हुन सक्छ।",
-            "alpha_num": "यो फिल्डमा अक्षर र संख्याहरू मात्र समावेश हुन सक्छ।",
-            "array": "यो फिल्ड एरे हुनै पर्छ।",
-            "before": "यो मिति भन्दा अघि {date} हुनुपर्दछ।",
-            "before_or_equal": "उसको मिति भन्दा अघि वा बराबर {date} हुनुपर्दछ।",
-            "between": {
-                "numeric": "यो मान बीचमा हुनुपर्दछ {min} र {max}",
-                "file": "यो फाईल बीचमा हुनुपर्दछ {min} र {max} किलोबाइट्स।",
-                "string": "यो स्ट्रिङ्ग: बीचमा हुनुपर्दछ {min} र {max} क्यारेक्टरहरू।",
-                "array": "यस सामग्रीको बीच {min} र {max} आईटमहरू हुनुपर्दछ।"
-            },
-            "boolean": "यो क्षेत्र सहि वा गलत हुन पर्छ।",
-            "confirmed": "पुष्टिकरण मेल खाँदैन।",
-            "date": "यो मान्य मिति छैन।",
-            "date_equals": "यो मिति बराबर {date} हुनुपर्दछ।",
-            "date_format": "यो ढाँचासँग मेल खाँदैन {format}।",
-            "different": "यो मान अन्य भन्दा {other} हुनुपर्छ।",
-            "digits": "यो हुनु पर्छ {digits} अंक।",
-            "digits_between": "यो {min} र {max} को बिचमा हुनुपर्दछ।",
-            "dimensions": "यस छविसँग अवैध आयामहरू छन्।",
-            "distinct": "यस फिल्डको नक्कल मान छ।",
-            "email": "यो मान्य ईमेल ठेगाना हुनुपर्दछ।",
-            "ends_with": "यो निम्न मध्ये एक संग समाप्त हुनुपर्दछ {values}।",
-            "exists": "चयनित मान अवैध छ।",
-            "file": "सामग्री फाईल हुनुपर्दछ।",
-            "filled": "यस फिल्डको मान हुनुपर्दछ।",
-            "gt": {
-                "numeric": " मान भन्दा ठूलो {value} हुनुपर्दछ।",
-                "file": " फाईल साइज ठूलो हुनुपर्दछ {value} किलोबाइट्स।",
-                "string": " स्ट्रिङ्ग भन्दा ठूलो हुनुपर्दछ {value} क्यारेक्टरहरू।",
-                "array": " सामग्रीसँग भन्दा बढि हुनुपर्दछ {value} आईटमहरू।"
-            },
-            "gte": {
-                "numeric": "मान ठूलो वा बराबर हुनुपर्छ {value}।",
-                "file": "फाईल आकार ठूलो वा बराबर हुनुपर्छ {value} किलोबाइट।",
-                "string": "स्ट्रिङ्ग ठूलो वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
-                "array": "सामग्री हुनुपर्दछ {value} आईटमहरू वा बढि।"
-            },
-            "image": "यो छवि हुनुपर्दछ।",
-            "in": "चयनित मान अवैध छ।",
-            "in_array": "यो मान यसमा अवस्थित छैन {other}।",
-            "integer": "यो पूर्णांक हुनुपर्दछ।",
-            "ip": "यो मान्य IP ठेगाना हुनुपर्दछ।",
-            "ipv4": "यो मान्य IPv4 ठेगाना हुनुपर्दछ",
-            "ipv6": "यो मान्य IPv6 ठेगाना हुनुपर्दछ",
-            "json": "यो दिइएको मान्य JSON स्ट्रिङ्ग हुनुपर्छ।",
-            "lt": {
-                "numeric": "मान ठूलो वा बराबर हुनुपर्छ {value}।",
-                "file": "फाईल आकार ठूलो वा बराबर हुनुपर्छ {value} किलोबाइट।",
-                "string": "स्ट्रिङ्ग ठूलो वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
-                "array": "सामग्री हुनुपर्दछ {value} आईटमहरू वा बढि।"
-            },
-            "lte": {
-                "numeric": "मान सानाे वा बराबर हुनुपर्छ {value}।",
-                "file": "फाईल आकार सानाे वा बराबर हुनुपर्छ {value} किलोबाइट।",
-                "string": "स्ट्रिङ्ग सानाे वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
-                "array": "सामग्री आइटम भन्दा बढी हुनु हुँदैन {value} आईटमहरू।"
-            },
-            "max": {
-                "numeric": "मान अधिकतम हुन सक्दैन {max}।",
-                "file": "फाईल आकार भन्दा बढी नहुन सक्दछ {max} किलोबाइट्स।",
-                "string": "स्ट्रिङ्ग भन्दा बढी नहुन सक्दछ {max} क्यारेक्टरहरू।",
-                "array": "सामग्रीसँग {max} आईटमहरू हुन सक्दैनन्।"
-            },
-            "mimes": "यो प्रकारको फाइल {values} हुनुपर्दछ।",
-            "mimetypes": "यो प्रकारको फाइल {values} हुनुपर्दछ।",
-            "min": {
-                "numeric": "मान कम्तिमा हुनुपर्दछ {min}।",
-                "file": "फाईल आकार कम्तिमा हुनुपर्दछ {min} किलोबाइट्स।",
-                "string": "स्ट्रिङ्ग कम्तिमा हुनुपर्दछ {min} वर्णहरू।",
-                "array": "मान कम्तिमा पनि हुनुपर्दछ {min} आईटमहरू।"
-            },
-            "not_in": "चयनित मान अवैध छ।",
-            "not_regex": "यो ढाँचा अवैध छ।",
-            "numeric": "यो संख्या हुनुपर्दछ।",
-            "password": "पासवर्ड गलत छ।",
-            "present": "यो फिल्ड उपस्थित हुनुपर्दछ।",
-            "regex": "यो ढाँचा अवैध छ।",
-            "required": "यो फिल्ड आवाश्यक छ।",
-            "required_if": "यो फिल्ड आवश्यक हुन्छ जब: अन्य हो {value}।",
-            "required_unless": "यस फिल्ड आवाश्यक हुन्छ: अन्यमा मानहरू।",
-            "required_with": "यो फिल्ड आवाश्यक हुन्छ जब {values} अवस्थित हुन्छन्।",
-            "required_with_all": "यो फिल्ड आवश्यक छ {values} अवस्थित हुँदा।",
-            "required_without": "यो फिल्ड आवाश्यक हुन्छ जब {values} अवस्थित हुँदैन।",
-            "required_without_all": "यो फिल्ड आवश्यक छ जब कुनै पनि {values} अवस्थित हुँदैनन्।",
-            "same": "यस फिल्डको मान एक {other} सँग मिल्नु पर्छ।",
-            "size": {
-                "numeric": "मान हुनुपर्दछ {size}।",
-                "file": "फाईल साइज हुनुपर्दछ {size} किलोबाइट्स।",
-                "string": "स्ट्रिङ्ग हुनुपर्दछ {size} क्यारेक्टरहरू।",
-                "array": "सामग्री सामिल हुनुपर्दछ {size} आईटमहरू।"
-            },
-            "starts_with": "यो निम्न मध्ये एकबाट सुरू हुनुपर्दछ {values}।",
-            "string": "यो स्ट्रिङ्ग हुनै पर्छ।",
-            "timezone": "यो मान्य क्षेत्र हुनुपर्दछ।",
-            "unique": "यो पहिले नै लिइसकिएको छ।",
-            "uploaded": "यो अपलोड गर्न असफल भयो।",
-            "url": "यो ढाँचा अवैध छ।",
-            "uuid": "यो वैध UID हुनु पर्छ।",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} स्वीकार गरिएको हुनुपर्छ।",
@@ -12011,134 +11889,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "यो क्षेत्र स्वीकार गर्नु पर्छ।",
+            "active_url": "यो मान्य URL होईन।",
+            "after": "यो मिति पछाडि {date} हुनुपर्दछ।",
+            "after_or_equal": "यो मिति पछाडि वा बराबर {date} हुनुपर्दछ।",
+            "alpha": "यो फिल्डमा अक्षरहरू मात्र समावेश हुन सक्छ।",
+            "alpha_dash": "यस फाँटमा केवल अक्षरहरू, संख्याहरू, ड्यासहरू र अन्डरस्कोरहरू समावेश हुन सक्छ।",
+            "alpha_num": "यो फिल्डमा अक्षर र संख्याहरू मात्र समावेश हुन सक्छ।",
+            "array": "यो फिल्ड एरे हुनै पर्छ।",
+            "before": "यो मिति भन्दा अघि {date} हुनुपर्दछ।",
+            "before_or_equal": "उसको मिति भन्दा अघि वा बराबर {date} हुनुपर्दछ।",
+            "between": {
+                "numeric": "यो मान बीचमा हुनुपर्दछ {min} र {max}",
+                "file": "यो फाईल बीचमा हुनुपर्दछ {min} र {max} किलोबाइट्स।",
+                "string": "यो स्ट्रिङ्ग: बीचमा हुनुपर्दछ {min} र {max} क्यारेक्टरहरू।",
+                "array": "यस सामग्रीको बीच {min} र {max} आईटमहरू हुनुपर्दछ।"
+            },
+            "boolean": "यो क्षेत्र सहि वा गलत हुन पर्छ।",
+            "confirmed": "पुष्टिकरण मेल खाँदैन।",
+            "date": "यो मान्य मिति छैन।",
+            "date_equals": "यो मिति बराबर {date} हुनुपर्दछ।",
+            "date_format": "यो ढाँचासँग मेल खाँदैन {format}।",
+            "different": "यो मान अन्य भन्दा {other} हुनुपर्छ।",
+            "digits": "यो हुनु पर्छ {digits} अंक।",
+            "digits_between": "यो {min} र {max} को बिचमा हुनुपर्दछ।",
+            "dimensions": "यस छविसँग अवैध आयामहरू छन्।",
+            "distinct": "यस फिल्डको नक्कल मान छ।",
+            "email": "यो मान्य ईमेल ठेगाना हुनुपर्दछ।",
+            "ends_with": "यो निम्न मध्ये एक संग समाप्त हुनुपर्दछ {values}।",
+            "exists": "चयनित मान अवैध छ।",
+            "file": "सामग्री फाईल हुनुपर्दछ।",
+            "filled": "यस फिल्डको मान हुनुपर्दछ।",
+            "gt": {
+                "numeric": " मान भन्दा ठूलो {value} हुनुपर्दछ।",
+                "file": " फाईल साइज ठूलो हुनुपर्दछ {value} किलोबाइट्स।",
+                "string": " स्ट्रिङ्ग भन्दा ठूलो हुनुपर्दछ {value} क्यारेक्टरहरू।",
+                "array": " सामग्रीसँग भन्दा बढि हुनुपर्दछ {value} आईटमहरू।"
+            },
+            "gte": {
+                "numeric": "मान ठूलो वा बराबर हुनुपर्छ {value}।",
+                "file": "फाईल आकार ठूलो वा बराबर हुनुपर्छ {value} किलोबाइट।",
+                "string": "स्ट्रिङ्ग ठूलो वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
+                "array": "सामग्री हुनुपर्दछ {value} आईटमहरू वा बढि।"
+            },
+            "image": "यो छवि हुनुपर्दछ।",
+            "in": "चयनित मान अवैध छ।",
+            "in_array": "यो मान यसमा अवस्थित छैन {other}।",
+            "integer": "यो पूर्णांक हुनुपर्दछ।",
+            "ip": "यो मान्य IP ठेगाना हुनुपर्दछ।",
+            "ipv4": "यो मान्य IPv4 ठेगाना हुनुपर्दछ",
+            "ipv6": "यो मान्य IPv6 ठेगाना हुनुपर्दछ",
+            "json": "यो दिइएको मान्य JSON स्ट्रिङ्ग हुनुपर्छ।",
+            "lt": {
+                "numeric": "मान ठूलो वा बराबर हुनुपर्छ {value}।",
+                "file": "फाईल आकार ठूलो वा बराबर हुनुपर्छ {value} किलोबाइट।",
+                "string": "स्ट्रिङ्ग ठूलो वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
+                "array": "सामग्री हुनुपर्दछ {value} आईटमहरू वा बढि।"
+            },
+            "lte": {
+                "numeric": "मान सानाे वा बराबर हुनुपर्छ {value}।",
+                "file": "फाईल आकार सानाे वा बराबर हुनुपर्छ {value} किलोबाइट।",
+                "string": "स्ट्रिङ्ग सानाे वा बराबर हुनुपर्दछ {value} क्यारेक्टरहरू।",
+                "array": "सामग्री आइटम भन्दा बढी हुनु हुँदैन {value} आईटमहरू।"
+            },
+            "max": {
+                "numeric": "मान अधिकतम हुन सक्दैन {max}।",
+                "file": "फाईल आकार भन्दा बढी नहुन सक्दछ {max} किलोबाइट्स।",
+                "string": "स्ट्रिङ्ग भन्दा बढी नहुन सक्दछ {max} क्यारेक्टरहरू।",
+                "array": "सामग्रीसँग {max} आईटमहरू हुन सक्दैनन्।"
+            },
+            "mimes": "यो प्रकारको फाइल {values} हुनुपर्दछ।",
+            "mimetypes": "यो प्रकारको फाइल {values} हुनुपर्दछ।",
+            "min": {
+                "numeric": "मान कम्तिमा हुनुपर्दछ {min}।",
+                "file": "फाईल आकार कम्तिमा हुनुपर्दछ {min} किलोबाइट्स।",
+                "string": "स्ट्रिङ्ग कम्तिमा हुनुपर्दछ {min} वर्णहरू।",
+                "array": "मान कम्तिमा पनि हुनुपर्दछ {min} आईटमहरू।"
+            },
+            "not_in": "चयनित मान अवैध छ।",
+            "not_regex": "यो ढाँचा अवैध छ।",
+            "numeric": "यो संख्या हुनुपर्दछ।",
+            "password": "पासवर्ड गलत छ।",
+            "present": "यो फिल्ड उपस्थित हुनुपर्दछ।",
+            "regex": "यो ढाँचा अवैध छ।",
+            "required": "यो फिल्ड आवाश्यक छ।",
+            "required_if": "यो फिल्ड आवश्यक हुन्छ जब: अन्य हो {value}।",
+            "required_unless": "यस फिल्ड आवाश्यक हुन्छ: अन्यमा मानहरू।",
+            "required_with": "यो फिल्ड आवाश्यक हुन्छ जब {values} अवस्थित हुन्छन्।",
+            "required_with_all": "यो फिल्ड आवश्यक छ {values} अवस्थित हुँदा।",
+            "required_without": "यो फिल्ड आवाश्यक हुन्छ जब {values} अवस्थित हुँदैन।",
+            "required_without_all": "यो फिल्ड आवश्यक छ जब कुनै पनि {values} अवस्थित हुँदैनन्।",
+            "same": "यस फिल्डको मान एक {other} सँग मिल्नु पर्छ।",
+            "size": {
+                "numeric": "मान हुनुपर्दछ {size}।",
+                "file": "फाईल साइज हुनुपर्दछ {size} किलोबाइट्स।",
+                "string": "स्ट्रिङ्ग हुनुपर्दछ {size} क्यारेक्टरहरू।",
+                "array": "सामग्री सामिल हुनुपर्दछ {size} आईटमहरू।"
+            },
+            "starts_with": "यो निम्न मध्ये एकबाट सुरू हुनुपर्दछ {values}।",
+            "string": "यो स्ट्रिङ्ग हुनै पर्छ।",
+            "timezone": "यो मान्य क्षेत्र हुनुपर्दछ।",
+            "unique": "यो पहिले नै लिइसकिएको छ।",
+            "uploaded": "यो अपलोड गर्न असफल भयो।",
+            "url": "यो ढाँचा अवैध छ।",
+            "uuid": "यो वैध UID हुनु पर्छ।",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "पासवर्ड रिसेट भयो!",
+            "sent": "हामीले पासवर्ड परिवर्तन गर्ने लिंक ईमेलमा पठाएका छौ!",
+            "throttled": "पुन: प्रयास गर्नु अघि कृपया प्रतीक्षा गर्नुहोस्.",
+            "token": "यो पासवर्ड रिसेट गर्ने टोकन अमान्य छ।",
+            "user": "दिइएको ईमेल प्रयोगकर्ता भेटिएन।"
+        },
+        "pagination": {
+            "previous": "&laquo; अघिल्लो",
+            "next": "अर्को &raquo;"
         }
     },
     "nl": {
         "auth": {
             "failed": "Deze combinatie van e-mailadres en wachtwoord is niet geldig.",
             "throttle": "Te veel mislukte loginpogingen. Probeer het over {seconds} seconden nogmaals."
-        },
-        "pagination": {
-            "previous": "&laquo; Vorige",
-            "next": "Volgende &raquo;"
-        },
-        "passwords": {
-            "reset": "Het wachtwoord van uw account is gewijzigd.",
-            "sent": "We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.",
-            "throttled": "Gelieve even te wachten voor u het opnieuw probeert.",
-            "token": "Dit wachtwoordhersteltoken is niet geldig.",
-            "user": "Geen gebruiker bekend met het e-mailadres."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{Attribute} moet geaccepteerd zijn.",
@@ -12293,23 +12171,6 @@ export default {
                 "username": "gebruikersnaam",
                 "year": "jaar"
             }
-        }
-    },
-    "nn": {
-        "auth": {
-            "failed": "Brukarnamn og/eller passord er feil.",
-            "throttle": "For mange innloggingsforsøk. Ver venleg og prøv på nytt om {seconds} sekund."
-        },
-        "pagination": {
-            "previous": "&laquo; Førre",
-            "next": "Neste &raquo;"
-        },
-        "passwords": {
-            "reset": "Passordet vart endra!",
-            "sent": "Vi har sendt deg ei lenke du kan klikke på for å endre passordet ditt!",
-            "throttled": "Please wait before retrying.",
-            "token": "Koden for å nullstille passord er ikkje gyldig.",
-            "user": "Vi finn ingen brukarar med denne e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -12421,6 +12282,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Het wachtwoord van uw account is gewijzigd.",
+            "sent": "We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.",
+            "throttled": "Gelieve even te wachten voor u het opnieuw probeert.",
+            "token": "Dit wachtwoordhersteltoken is niet geldig.",
+            "user": "Geen gebruiker bekend met het e-mailadres."
+        },
+        "pagination": {
+            "previous": "&laquo; Vorige",
+            "next": "Volgende &raquo;"
+        }
+    },
+    "nn": {
+        "auth": {
+            "failed": "Brukarnamn og/eller passord er feil.",
+            "throttle": "For mange innloggingsforsøk. Ver venleg og prøv på nytt om {seconds} sekund."
         },
         "validation": {
             "accepted": "{attribute} må aksepterast.",
@@ -12533,134 +12411,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Passordet vart endra!",
+            "sent": "Vi har sendt deg ei lenke du kan klikke på for å endre passordet ditt!",
+            "throttled": "Please wait before retrying.",
+            "token": "Koden for å nullstille passord er ikkje gyldig.",
+            "user": "Vi finn ingen brukarar med denne e-postadressen."
+        },
+        "pagination": {
+            "previous": "&laquo; Førre",
+            "next": "Neste &raquo;"
         }
     },
     "pl": {
         "auth": {
             "failed": "Błędny login lub hasło.",
             "throttle": "Za dużo nieudanych prób logowania. Proszę spróbować za {seconds} sekund."
-        },
-        "pagination": {
-            "previous": "&laquo; Poprzednia",
-            "next": "Następna &raquo;"
-        },
-        "passwords": {
-            "reset": "Hasło zostało zresetowane!",
-            "sent": "Przypomnienie hasła zostało wysłane!",
-            "throttled": "Proszę zaczekać zanim spróbujesz ponownie.",
-            "token": "Token resetowania hasła jest nieprawidłowy.",
-            "user": "Nie znaleziono użytkownika z takim adresem e-mail."
-        },
-        "validation-inline": {
-            "accepted": "Pole musi zostać zaakceptowane.",
-            "active_url": "Pole jest nieprawidłowym adresem URL.",
-            "after": "Pole musi być datą późniejszą od {date}.",
-            "after_or_equal": "Pole musi być datą nie wcześniejszą niż {date}.",
-            "alpha": "Pole może zawierać jedynie litery.",
-            "alpha_dash": "Pole może zawierać jedynie litery, cyfry i myślniki.",
-            "alpha_num": "Pole może zawierać jedynie litery i cyfry.",
-            "array": "Pole musi być tablicą.",
-            "before": "Pole musi być datą wcześniejszą od {date}.",
-            "before_or_equal": "Pole musi być datą nie późniejszą niż {date}.",
-            "between": {
-                "numeric": "Pole musi zawierać się w granicach {min} - {max}.",
-                "file": "Pole musi zawierać się w granicach {min} - {max} kilobajtów.",
-                "string": "Pole musi zawierać się w granicach {min} - {max} znaków.",
-                "array": "Pole musi składać się z {min} - {max} elementów."
-            },
-            "boolean": "Pole musi mieć wartość logiczną prawda albo fałsz.",
-            "confirmed": "Potwierdzenie pola nie zgadza się.",
-            "date": "Pole nie jest prawidłową datą.",
-            "date_equals": "Pole musi być datą równą {date}.",
-            "date_format": "Pole nie jest w formacie {format}.",
-            "different": "Pole oraz {other} muszą się różnić.",
-            "digits": "Pole musi składać się z {digits} cyfr.",
-            "digits_between": "Pole musi mieć od {min} do {max} cyfr.",
-            "dimensions": "Pole ma niepoprawne wymiary.",
-            "distinct": "Pole ma zduplikowane wartości.",
-            "email": "Pole nie jest poprawnym adresem e-mail.",
-            "ends_with": "Pole musi kończyć się jedną z następujących wartości: {values}.",
-            "exists": "Zaznaczona wartość jest nieprawidłowa.",
-            "file": "Pole musi być plikiem.",
-            "filled": "Pole nie może być puste.",
-            "gt": {
-                "numeric": "Pole musi być większe niż {value}.",
-                "file": "Pole musi być większe niż {value} kilobajtów.",
-                "string": "Pole musi być dłuższe niż {value} znaków.",
-                "array": "Pole musi mieć więcej niż {value} elementów."
-            },
-            "gte": {
-                "numeric": "Pole musi być większe lub równe {value}.",
-                "file": "Pole musi być większe lub równe {value} kilobajtów.",
-                "string": "Pole musi być dłuższe lub równe {value} znaków.",
-                "array": "Pole musi mieć {value} lub więcej elementów."
-            },
-            "image": "Pole musi być obrazkiem.",
-            "in": "Zaznaczony element jest nieprawidłowy.",
-            "in_array": "Pole nie znajduje się w {other}.",
-            "integer": "Pole musi być liczbą całkowitą.",
-            "ip": "Pole musi być prawidłowym adresem IP.",
-            "ipv4": "Pole musi być prawidłowym adresem IPv4.",
-            "ipv6": "Pole musi być prawidłowym adresem IPv6.",
-            "json": "Pole musi być poprawnym ciągiem znaków JSON.",
-            "lt": {
-                "numeric": "Pole musi być mniejsze niż {value}.",
-                "file": "Pole musi być mniejsze niż {value} kilobajtów.",
-                "string": "Pole musi być krótsze niż {value} znaków.",
-                "array": "Pole musi mieć mniej niż {value} elementów."
-            },
-            "lte": {
-                "numeric": "Pole musi być mniejsze lub równe {value}.",
-                "file": "Pole musi być mniejsze lub równe {value} kilobajtów.",
-                "string": "Pole musi być krótsze lub równe {value} znaków.",
-                "array": "Pole musi mieć {value} lub mniej elementów."
-            },
-            "max": {
-                "numeric": "Pole nie może być większe niż {max}.",
-                "file": "Pole nie może być większe niż {max} kilobajtów.",
-                "string": "Pole nie może być dłuższe niż {max} znaków.",
-                "array": "Pole nie może mieć więcej niż {max} elementów."
-            },
-            "mimes": "Pole musi być plikiem typu {values}.",
-            "mimetypes": "Pole musi być plikiem typu {values}.",
-            "min": {
-                "numeric": "Pole musi być nie mniejsze od {min}.",
-                "file": "Pole musi mieć przynajmniej {min} kilobajtów.",
-                "string": "Pole musi mieć przynajmniej {min} znaków.",
-                "array": "Pole musi mieć przynajmniej {min} elementów."
-            },
-            "not_in": "Zaznaczona wartość jest nieprawidłowa.",
-            "not_regex": "Format pola jest nieprawidłowy.",
-            "numeric": "Pole musi być liczbą.",
-            "password": "Hasło jest nieprawidłowe.",
-            "present": "Pole musi być obecne.",
-            "regex": "Format pola jest nieprawidłowy.",
-            "required": "Pole jest wymagane.",
-            "required_if": "Pole jest wymagane gdy {other} ma wartość {value}.",
-            "required_unless": "Pole jest wymagane jeżeli {other} nie znajduje się w {values}.",
-            "required_with": "Pole jest wymagane gdy {values} jest obecny.",
-            "required_with_all": "Pole jest wymagane gdy wszystkie {values} są obecne.",
-            "required_without": "Pole jest wymagane gdy {values} nie jest obecny.",
-            "required_without_all": "Pole jest wymagane gdy żadne z {values} nie są obecne.",
-            "same": "Pole i {other} muszą być takie same.",
-            "size": {
-                "numeric": "Pole musi mieć {size}.",
-                "file": "Pole musi mieć {size} kilobajtów.",
-                "string": "Pole musi mieć {size} znaków.",
-                "array": "Pole musi zawierać {size} elementów."
-            },
-            "starts_with": "Pole musi zaczynać się jedną z następujących wartości: {values}.",
-            "string": "Pole musi być ciągiem znaków.",
-            "timezone": "Pole musi być prawidłową strefą czasową.",
-            "unique": "Taka wartość już występuje.",
-            "uploaded": "Nie udało się wgrać pliku.",
-            "url": "Format pola jest nieprawidłowy.",
-            "uuid": "Pole musi być poprawnym identyfikatorem UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Pole {attribute} musi zostać zaakceptowane.",
@@ -12773,134 +12651,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "Pole musi zostać zaakceptowane.",
+            "active_url": "Pole jest nieprawidłowym adresem URL.",
+            "after": "Pole musi być datą późniejszą od {date}.",
+            "after_or_equal": "Pole musi być datą nie wcześniejszą niż {date}.",
+            "alpha": "Pole może zawierać jedynie litery.",
+            "alpha_dash": "Pole może zawierać jedynie litery, cyfry i myślniki.",
+            "alpha_num": "Pole może zawierać jedynie litery i cyfry.",
+            "array": "Pole musi być tablicą.",
+            "before": "Pole musi być datą wcześniejszą od {date}.",
+            "before_or_equal": "Pole musi być datą nie późniejszą niż {date}.",
+            "between": {
+                "numeric": "Pole musi zawierać się w granicach {min} - {max}.",
+                "file": "Pole musi zawierać się w granicach {min} - {max} kilobajtów.",
+                "string": "Pole musi zawierać się w granicach {min} - {max} znaków.",
+                "array": "Pole musi składać się z {min} - {max} elementów."
+            },
+            "boolean": "Pole musi mieć wartość logiczną prawda albo fałsz.",
+            "confirmed": "Potwierdzenie pola nie zgadza się.",
+            "date": "Pole nie jest prawidłową datą.",
+            "date_equals": "Pole musi być datą równą {date}.",
+            "date_format": "Pole nie jest w formacie {format}.",
+            "different": "Pole oraz {other} muszą się różnić.",
+            "digits": "Pole musi składać się z {digits} cyfr.",
+            "digits_between": "Pole musi mieć od {min} do {max} cyfr.",
+            "dimensions": "Pole ma niepoprawne wymiary.",
+            "distinct": "Pole ma zduplikowane wartości.",
+            "email": "Pole nie jest poprawnym adresem e-mail.",
+            "ends_with": "Pole musi kończyć się jedną z następujących wartości: {values}.",
+            "exists": "Zaznaczona wartość jest nieprawidłowa.",
+            "file": "Pole musi być plikiem.",
+            "filled": "Pole nie może być puste.",
+            "gt": {
+                "numeric": "Pole musi być większe niż {value}.",
+                "file": "Pole musi być większe niż {value} kilobajtów.",
+                "string": "Pole musi być dłuższe niż {value} znaków.",
+                "array": "Pole musi mieć więcej niż {value} elementów."
+            },
+            "gte": {
+                "numeric": "Pole musi być większe lub równe {value}.",
+                "file": "Pole musi być większe lub równe {value} kilobajtów.",
+                "string": "Pole musi być dłuższe lub równe {value} znaków.",
+                "array": "Pole musi mieć {value} lub więcej elementów."
+            },
+            "image": "Pole musi być obrazkiem.",
+            "in": "Zaznaczony element jest nieprawidłowy.",
+            "in_array": "Pole nie znajduje się w {other}.",
+            "integer": "Pole musi być liczbą całkowitą.",
+            "ip": "Pole musi być prawidłowym adresem IP.",
+            "ipv4": "Pole musi być prawidłowym adresem IPv4.",
+            "ipv6": "Pole musi być prawidłowym adresem IPv6.",
+            "json": "Pole musi być poprawnym ciągiem znaków JSON.",
+            "lt": {
+                "numeric": "Pole musi być mniejsze niż {value}.",
+                "file": "Pole musi być mniejsze niż {value} kilobajtów.",
+                "string": "Pole musi być krótsze niż {value} znaków.",
+                "array": "Pole musi mieć mniej niż {value} elementów."
+            },
+            "lte": {
+                "numeric": "Pole musi być mniejsze lub równe {value}.",
+                "file": "Pole musi być mniejsze lub równe {value} kilobajtów.",
+                "string": "Pole musi być krótsze lub równe {value} znaków.",
+                "array": "Pole musi mieć {value} lub mniej elementów."
+            },
+            "max": {
+                "numeric": "Pole nie może być większe niż {max}.",
+                "file": "Pole nie może być większe niż {max} kilobajtów.",
+                "string": "Pole nie może być dłuższe niż {max} znaków.",
+                "array": "Pole nie może mieć więcej niż {max} elementów."
+            },
+            "mimes": "Pole musi być plikiem typu {values}.",
+            "mimetypes": "Pole musi być plikiem typu {values}.",
+            "min": {
+                "numeric": "Pole musi być nie mniejsze od {min}.",
+                "file": "Pole musi mieć przynajmniej {min} kilobajtów.",
+                "string": "Pole musi mieć przynajmniej {min} znaków.",
+                "array": "Pole musi mieć przynajmniej {min} elementów."
+            },
+            "not_in": "Zaznaczona wartość jest nieprawidłowa.",
+            "not_regex": "Format pola jest nieprawidłowy.",
+            "numeric": "Pole musi być liczbą.",
+            "password": "Hasło jest nieprawidłowe.",
+            "present": "Pole musi być obecne.",
+            "regex": "Format pola jest nieprawidłowy.",
+            "required": "Pole jest wymagane.",
+            "required_if": "Pole jest wymagane gdy {other} ma wartość {value}.",
+            "required_unless": "Pole jest wymagane jeżeli {other} nie znajduje się w {values}.",
+            "required_with": "Pole jest wymagane gdy {values} jest obecny.",
+            "required_with_all": "Pole jest wymagane gdy wszystkie {values} są obecne.",
+            "required_without": "Pole jest wymagane gdy {values} nie jest obecny.",
+            "required_without_all": "Pole jest wymagane gdy żadne z {values} nie są obecne.",
+            "same": "Pole i {other} muszą być takie same.",
+            "size": {
+                "numeric": "Pole musi mieć {size}.",
+                "file": "Pole musi mieć {size} kilobajtów.",
+                "string": "Pole musi mieć {size} znaków.",
+                "array": "Pole musi zawierać {size} elementów."
+            },
+            "starts_with": "Pole musi zaczynać się jedną z następujących wartości: {values}.",
+            "string": "Pole musi być ciągiem znaków.",
+            "timezone": "Pole musi być prawidłową strefą czasową.",
+            "unique": "Taka wartość już występuje.",
+            "uploaded": "Nie udało się wgrać pliku.",
+            "url": "Format pola jest nieprawidłowy.",
+            "uuid": "Pole musi być poprawnym identyfikatorem UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Hasło zostało zresetowane!",
+            "sent": "Przypomnienie hasła zostało wysłane!",
+            "throttled": "Proszę zaczekać zanim spróbujesz ponownie.",
+            "token": "Token resetowania hasła jest nieprawidłowy.",
+            "user": "Nie znaleziono użytkownika z takim adresem e-mail."
+        },
+        "pagination": {
+            "previous": "&laquo; Poprzednia",
+            "next": "Następna &raquo;"
         }
     },
     "ps": {
         "auth": {
             "failed": "داسې ریکارډ شتون نلري چې د اعتبار معلومات سره سمون لري.",
             "throttle": "دلته ډیر د ننوتلو هڅې شتون لري.{seconds} لطفا د دویمې برخې وروسته هڅه وکړئ."
-        },
-        "pagination": {
-            "previous": "&laquo; مخکې",
-            "next": "بل &raquo;"
-        },
-        "passwords": {
-            "reset": "ما خپل پاسورډ جوړ کړی دی",
-            "sent": "د پاسورډ یادونې لیږل شوی.",
-            "throttled": "Please wait before retrying.",
-            "token": "د دې کارن د بیاکتنې نښه ناباوره ده.",
-            "user": "د کاروونکي د برېښناليک پتې سره کارن ونه موندل شو."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "باید ومنل شی {attribute}.",
@@ -13043,134 +12921,134 @@ export default {
                 "available": "شته",
                 "size": "اندازه"
             }
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "ما خپل پاسورډ جوړ کړی دی",
+            "sent": "د پاسورډ یادونې لیږل شوی.",
+            "throttled": "Please wait before retrying.",
+            "token": "د دې کارن د بیاکتنې نښه ناباوره ده.",
+            "user": "د کاروونکي د برېښناليک پتې سره کارن ونه موندل شو."
+        },
+        "pagination": {
+            "previous": "&laquo; مخکې",
+            "next": "بل &raquo;"
         }
     },
     "pt": {
         "auth": {
             "failed": "As credenciais indicadas não coincidem com as registadas no sistema.",
             "throttle": "O número limite de tentativas de login foi atingido. Por favor tente novamente dentro de {seconds} segundos."
-        },
-        "pagination": {
-            "previous": "&laquo; Anterior",
-            "next": "Próxima &raquo;"
-        },
-        "passwords": {
-            "reset": "A palavra-passe foi redefinida!",
-            "sent": "O lembrete para a palavra-passe foi enviado!",
-            "throttled": "Por favor aguarde, antes de tentar novamente.",
-            "token": "Este código de recuperação da palavra-passe é inválido.",
-            "user": "Não existe nenhum utilizador com o e-mail indicado."
-        },
-        "validation-inline": {
-            "accepted": "Este campo deve ser aceite.",
-            "active_url": "A Url é inválida.",
-            "after": "Esta deve ser uma data após {date}.",
-            "after_or_equal": "Esta deve ser uma data posterior ou igual a {date}.",
-            "alpha": "Este campo pode conter apenas letras.",
-            "alpha_dash": "Este campo pode conter apenas letras, números, traços e o caractere de sublinhado.",
-            "alpha_num": "Este campo pode conter apenas letras e números",
-            "array": "Este campo deve ser uma matriz.",
-            "before": "Esta deve ser uma data anterior a {date}.",
-            "before_or_equal": "Esta deve ser uma data anterior ou igual a {date}.",
-            "between": {
-                "numeric": "Este valor deve estar entre {min} e {max}.",
-                "file": "Este ficheiro deve estar entre {min} e {max} kilobytes.",
-                "string": "Esta cadeia de texto deve estar entre {min} e {max} caracteres.",
-                "array": "Este conteúdo deve estar entre {min} e {max} itens."
-            },
-            "boolean": "Este campo deve ser verdadeiro ou falso.",
-            "confirmed": "A confirmação não corresponde.",
-            "date": "Esta não é uma data válida.",
-            "date_equals": "Esta deve ser uma data igual a {date}.",
-            "date_format": "Isto não corresponde ao formato {format}.",
-            "different": "Este valor deve ser diferente de {other}.",
-            "digits": "Este valor deve ter {digits} digitos.",
-            "digits_between": "Este valor deve estar entre {min} e {max} digitos.",
-            "dimensions": "Esta imagem tem dimensões inválidas.",
-            "distinct": "Este campo tem um valor duplicado.",
-            "email": "Este deve ser um endereço de e-mail válido.",
-            "ends_with": "Isso deve terminar com um dos seguintes valores {values}.",
-            "exists": "O valor selecionado é inválido.",
-            "file": "O conteúdo deve ser um ficheiro.",
-            "filled": "Este campo deve ter um valor.",
-            "gt": {
-                "numeric": "O valor deve ser maior que {value}.",
-                "file": "O tamanho do ficheiro deve ser maior que {value} kilobytes.",
-                "string": "A cadeia de texto deve ser maior que {value} caracteres.",
-                "array": "O conteúdo deve ter mais de {value} itens."
-            },
-            "gte": {
-                "numeric": "O valor deve ser maior ou igual {value}.",
-                "file": "O tamanho do ficheiro deve ser maior ou igual {value} kilobytes.",
-                "string": "A cadeia de texto deve ser maior ou igual a {value} caracteres.",
-                "array": "O conteúdo deve ter {value} itens ou mais."
-            },
-            "image": "Deve ser uma imagem.",
-            "in": "O valor selecionado é inválido.",
-            "in_array": "Este valor não existe em {other}.",
-            "integer": "Este deve ser um número inteiro.",
-            "ip": "Este deve ser um endereço IP válido.",
-            "ipv4": "Este deve ser um endereço IPv4 válido.",
-            "ipv6": "Este deve ser um endereço IPv6 válido.",
-            "json": "Essa deve ser uma cadeia de texto JSON válida.",
-            "lt": {
-                "numeric": "O valor deve ser menor que {value}.",
-                "file": "O tamanho do ficheiro deve ser menor que {value} kilobytes.",
-                "string": "A cadeia de texto deve ser menor que {value} caracteres.",
-                "array": "O conteúdo deve ter menos de {value} itens."
-            },
-            "lte": {
-                "numeric": "O valor deve ser menor ou igual {value}.",
-                "file": "O tamanho do ficheiro deve ser menor ou igual {value} kilobytes.",
-                "string": "A cadeia de texto deve ser menor ou igual {value} caracteres.",
-                "array": "O conteúdo não deve ter mais do que {value} itens."
-            },
-            "max": {
-                "numeric": "O valor não pode ser maior que {max}.",
-                "file": "O tamanho do ficheiro não pode ser maior que {max} kilobytes.",
-                "string": "A cadeia de texto não pode ser maior que {max} caracteres.",
-                "array": "O conteúdo pode não ter mais do que {max} itens."
-            },
-            "mimes": "Este deve ser um ficheiro do tipo: {values}.",
-            "mimetypes": "Este deve ser um ficheiro do tipo: {values}.",
-            "min": {
-                "numeric": "O valor deve ser pelo menos {min}.",
-                "file": "O tamanho do ficheiro deve ser pelo menos {min} kilobytes.",
-                "string": "A cadeia de texto deve ser pelo menos {min} characters.",
-                "array": "O valor deve ter pelo menos {min} itens."
-            },
-            "not_in": "O valor selecionado é inválido.",
-            "not_regex": "Este formato é inválido.",
-            "numeric": "Este deve ser um número.",
-            "password": "A palavra-passe está incorreta.",
-            "present": "Este campo deve estar presente.",
-            "regex": "Este formato é inválido.",
-            "required": "Este campo é obrigatório.",
-            "required_if": "Este campo é obrigatório quando {other} é {value}.",
-            "required_unless": "Este campo é obrigatório, a menos que {other} esteja em {values}.",
-            "required_with": "Este campo é obrigatório quando {values} estiverem presentes.",
-            "required_with_all": "Este campo é obrigatório quando {values} estão presentes.",
-            "required_without": "Este campo é obrigatório quando {values} não estão presentes.",
-            "required_without_all": "Este campo é obrigatório quando nenhum dos {values} estiver presente.",
-            "same": "O valor desse campo deve corresponder ao valor de {other}.",
-            "size": {
-                "numeric": "O valor deve ser: size.",
-                "file": "O tamanho do ficheiro deve ser {size} kilobytes.",
-                "string": "A cadeia de texto deve ser {size}  de tamanho.",
-                "array": "O conteúdo deve conter {items} de tamanho."
-            },
-            "starts_with": "Este campo deve começar com um dos seguintes valores: {values}.",
-            "string": "Este campo deve ser uma cadeia de texto.",
-            "timezone": "Esta deve ser uma zona válida.",
-            "unique": "Isso já foi utilizado.",
-            "uploaded": "Falhou ao carregar.",
-            "url": "Este formato é inválido.",
-            "uuid": "Este deve ser um UUID válido.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "O campo {attribute} deverá ser aceite.",
@@ -13283,106 +13161,89 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "pt_BR": {
-        "auth": {
-            "failed": "Credenciais informadas não correspondem com nossos registros.",
-            "throttle": "Você realizou muitas tentativas de login. Por favor, tente novamente em {seconds} segundos."
-        },
-        "pagination": {
-            "previous": "&laquo; Anterior",
-            "next": "Próxima &raquo;"
-        },
-        "passwords": {
-            "reset": "Sua senha foi redefinida!",
-            "sent": "Enviamos um link para redefinir a sua senha por e-mail.",
-            "throttled": "Por favor espere antes de tentar novamente.",
-            "token": "Esse código de redefinição de senha é inválido.",
-            "user": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail informado."
         },
         "validation-inline": {
-            "accepted": "Este campo deve ser aceito.",
-            "active_url": "A Url informada não é válida.",
+            "accepted": "Este campo deve ser aceite.",
+            "active_url": "A Url é inválida.",
             "after": "Esta deve ser uma data após {date}.",
             "after_or_equal": "Esta deve ser uma data posterior ou igual a {date}.",
             "alpha": "Este campo pode conter apenas letras.",
-            "alpha_dash": "Este campo pode conter apenas letras, números, traços e sublinhados.",
+            "alpha_dash": "Este campo pode conter apenas letras, números, traços e o caractere de sublinhado.",
             "alpha_num": "Este campo pode conter apenas letras e números",
             "array": "Este campo deve ser uma matriz.",
             "before": "Esta deve ser uma data anterior a {date}.",
             "before_or_equal": "Esta deve ser uma data anterior ou igual a {date}.",
             "between": {
                 "numeric": "Este valor deve estar entre {min} e {max}.",
-                "file": "Este arquivo deve estar entre {min} e {max} kilobytes.",
-                "string": "Essa sequência deve estar entre {min} e {max} caracteres.",
-                "array": "Este conteúdo deve ter entre {min} e {max} itens."
+                "file": "Este ficheiro deve estar entre {min} e {max} kilobytes.",
+                "string": "Esta cadeia de texto deve estar entre {min} e {max} caracteres.",
+                "array": "Este conteúdo deve estar entre {min} e {max} itens."
             },
             "boolean": "Este campo deve ser verdadeiro ou falso.",
             "confirmed": "A confirmação não corresponde.",
             "date": "Esta não é uma data válida.",
             "date_equals": "Esta deve ser uma data igual a {date}.",
-            "date_format": "Isso não corresponde ao formato {format}.",
+            "date_format": "Isto não corresponde ao formato {format}.",
             "different": "Este valor deve ser diferente de {other}.",
             "digits": "Este valor deve ter {digits} digitos.",
-            "digits_between": "Este valor deve estar entre {min} ou {max} digitos.",
+            "digits_between": "Este valor deve estar entre {min} e {max} digitos.",
             "dimensions": "Esta imagem tem dimensões inválidas.",
             "distinct": "Este campo tem um valor duplicado.",
-            "email": "Este deve ser um endereço de email válido.",
+            "email": "Este deve ser um endereço de e-mail válido.",
             "ends_with": "Isso deve terminar com um dos seguintes valores {values}.",
             "exists": "O valor selecionado é inválido.",
-            "file": "O conteúdo deve ser um arquivo.",
+            "file": "O conteúdo deve ser um ficheiro.",
             "filled": "Este campo deve ter um valor.",
             "gt": {
                 "numeric": "O valor deve ser maior que {value}.",
-                "file": "O tamanho do arquivo deve ser maior que {value} kilobytes.",
-                "string": "A sequência deve ser maior que {value} caracteres.",
+                "file": "O tamanho do ficheiro deve ser maior que {value} kilobytes.",
+                "string": "A cadeia de texto deve ser maior que {value} caracteres.",
                 "array": "O conteúdo deve ter mais de {value} itens."
             },
             "gte": {
                 "numeric": "O valor deve ser maior ou igual {value}.",
-                "file": "O tamanho do arquivo deve ser maior ou igual {value} kilobytes.",
-                "string": "A sequência deve ser maior ou igual a {value} caracteres.",
+                "file": "O tamanho do ficheiro deve ser maior ou igual {value} kilobytes.",
+                "string": "A cadeia de texto deve ser maior ou igual a {value} caracteres.",
                 "array": "O conteúdo deve ter {value} itens ou mais."
             },
-            "image": "Esta deve ser uma imagem.",
+            "image": "Deve ser uma imagem.",
             "in": "O valor selecionado é inválido.",
             "in_array": "Este valor não existe em {other}.",
             "integer": "Este deve ser um número inteiro.",
             "ip": "Este deve ser um endereço IP válido.",
             "ipv4": "Este deve ser um endereço IPv4 válido.",
             "ipv6": "Este deve ser um endereço IPv6 válido.",
-            "json": "Essa deve ser uma sequência JSON válida.",
+            "json": "Essa deve ser uma cadeia de texto JSON válida.",
             "lt": {
                 "numeric": "O valor deve ser menor que {value}.",
-                "file": "O tamanho do arquivo deve ser menor que {value} kilobytes.",
-                "string": "A sequência deve ser menor que {value} caracteres.",
+                "file": "O tamanho do ficheiro deve ser menor que {value} kilobytes.",
+                "string": "A cadeia de texto deve ser menor que {value} caracteres.",
                 "array": "O conteúdo deve ter menos de {value} itens."
             },
             "lte": {
                 "numeric": "O valor deve ser menor ou igual {value}.",
-                "file": "O tamanho do arquivo deve ser menor ou igual {value} kilobytes.",
-                "string": "A sequência deve ser menor ou igual {value} caracteres.",
+                "file": "O tamanho do ficheiro deve ser menor ou igual {value} kilobytes.",
+                "string": "A cadeia de texto deve ser menor ou igual {value} caracteres.",
                 "array": "O conteúdo não deve ter mais do que {value} itens."
             },
             "max": {
                 "numeric": "O valor não pode ser maior que {max}.",
-                "file": "O tamanho do arquivo não pode ser maior que {max} kilobytes.",
-                "string": "A sequência não pode ser maior que {max} caracteres.",
+                "file": "O tamanho do ficheiro não pode ser maior que {max} kilobytes.",
+                "string": "A cadeia de texto não pode ser maior que {max} caracteres.",
                 "array": "O conteúdo pode não ter mais do que {max} itens."
             },
-            "mimes": "Este deve ser um arquivo do tipo: {values}.",
-            "mimetypes": "Este deve ser um arquivo do tipo: {values}.",
+            "mimes": "Este deve ser um ficheiro do tipo: {values}.",
+            "mimetypes": "Este deve ser um ficheiro do tipo: {values}.",
             "min": {
                 "numeric": "O valor deve ser pelo menos {min}.",
-                "file": "O tamanho do arquivo deve ser pelo menos {min} kilobytes.",
-                "string": "A sequência deve ser pelo menos {min} characters.",
+                "file": "O tamanho do ficheiro deve ser pelo menos {min} kilobytes.",
+                "string": "A cadeia de texto deve ser pelo menos {min} characters.",
                 "array": "O valor deve ter pelo menos {min} itens."
             },
             "not_in": "O valor selecionado é inválido.",
             "not_regex": "Este formato é inválido.",
             "numeric": "Este deve ser um número.",
-            "password": "A senha está incorreta.",
+            "password": "A palavra-passe está incorreta.",
             "present": "Este campo deve estar presente.",
             "regex": "Este formato é inválido.",
             "required": "Este campo é obrigatório.",
@@ -13395,15 +13256,15 @@ export default {
             "same": "O valor desse campo deve corresponder ao valor de {other}.",
             "size": {
                 "numeric": "O valor deve ser: size.",
-                "file": "O tamanho do arquivo deve ser {size} kilobytes.",
-                "string": "A sequência deve ser {size}  de tamanho.",
+                "file": "O tamanho do ficheiro deve ser {size} kilobytes.",
+                "string": "A cadeia de texto deve ser {size}  de tamanho.",
                 "array": "O conteúdo deve conter {items} de tamanho."
             },
             "starts_with": "Este campo deve começar com um dos seguintes valores: {values}.",
-            "string": "Este campo deve ser uma sequência de palavras.",
+            "string": "Este campo deve ser uma cadeia de texto.",
             "timezone": "Esta deve ser uma zona válida.",
-            "unique": "Isso já foi escolhido.",
-            "uploaded": "Falha ao carregar.",
+            "unique": "Isso já foi utilizado.",
+            "uploaded": "Falhou ao carregar.",
             "url": "Este formato é inválido.",
             "uuid": "Este deve ser um UUID válido.",
             "custom": {
@@ -13411,6 +13272,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "A palavra-passe foi redefinida!",
+            "sent": "O lembrete para a palavra-passe foi enviado!",
+            "throttled": "Por favor aguarde, antes de tentar novamente.",
+            "token": "Este código de recuperação da palavra-passe é inválido.",
+            "user": "Não existe nenhum utilizador com o e-mail indicado."
+        },
+        "pagination": {
+            "previous": "&laquo; Anterior",
+            "next": "Próxima &raquo;"
+        }
+    },
+    "pt_BR": {
+        "auth": {
+            "failed": "Credenciais informadas não correspondem com nossos registros.",
+            "throttle": "Você realizou muitas tentativas de login. Por favor, tente novamente em {seconds} segundos."
         },
         "validation": {
             "accepted": "O campo {attribute} deve ser aceito.",
@@ -13556,134 +13434,134 @@ export default {
                 "email": "e-mail",
                 "remember": "lembrar-me"
             }
+        },
+        "validation-inline": {
+            "accepted": "Este campo deve ser aceito.",
+            "active_url": "A Url informada não é válida.",
+            "after": "Esta deve ser uma data após {date}.",
+            "after_or_equal": "Esta deve ser uma data posterior ou igual a {date}.",
+            "alpha": "Este campo pode conter apenas letras.",
+            "alpha_dash": "Este campo pode conter apenas letras, números, traços e sublinhados.",
+            "alpha_num": "Este campo pode conter apenas letras e números",
+            "array": "Este campo deve ser uma matriz.",
+            "before": "Esta deve ser uma data anterior a {date}.",
+            "before_or_equal": "Esta deve ser uma data anterior ou igual a {date}.",
+            "between": {
+                "numeric": "Este valor deve estar entre {min} e {max}.",
+                "file": "Este arquivo deve estar entre {min} e {max} kilobytes.",
+                "string": "Essa sequência deve estar entre {min} e {max} caracteres.",
+                "array": "Este conteúdo deve ter entre {min} e {max} itens."
+            },
+            "boolean": "Este campo deve ser verdadeiro ou falso.",
+            "confirmed": "A confirmação não corresponde.",
+            "date": "Esta não é uma data válida.",
+            "date_equals": "Esta deve ser uma data igual a {date}.",
+            "date_format": "Isso não corresponde ao formato {format}.",
+            "different": "Este valor deve ser diferente de {other}.",
+            "digits": "Este valor deve ter {digits} digitos.",
+            "digits_between": "Este valor deve estar entre {min} ou {max} digitos.",
+            "dimensions": "Esta imagem tem dimensões inválidas.",
+            "distinct": "Este campo tem um valor duplicado.",
+            "email": "Este deve ser um endereço de email válido.",
+            "ends_with": "Isso deve terminar com um dos seguintes valores {values}.",
+            "exists": "O valor selecionado é inválido.",
+            "file": "O conteúdo deve ser um arquivo.",
+            "filled": "Este campo deve ter um valor.",
+            "gt": {
+                "numeric": "O valor deve ser maior que {value}.",
+                "file": "O tamanho do arquivo deve ser maior que {value} kilobytes.",
+                "string": "A sequência deve ser maior que {value} caracteres.",
+                "array": "O conteúdo deve ter mais de {value} itens."
+            },
+            "gte": {
+                "numeric": "O valor deve ser maior ou igual {value}.",
+                "file": "O tamanho do arquivo deve ser maior ou igual {value} kilobytes.",
+                "string": "A sequência deve ser maior ou igual a {value} caracteres.",
+                "array": "O conteúdo deve ter {value} itens ou mais."
+            },
+            "image": "Esta deve ser uma imagem.",
+            "in": "O valor selecionado é inválido.",
+            "in_array": "Este valor não existe em {other}.",
+            "integer": "Este deve ser um número inteiro.",
+            "ip": "Este deve ser um endereço IP válido.",
+            "ipv4": "Este deve ser um endereço IPv4 válido.",
+            "ipv6": "Este deve ser um endereço IPv6 válido.",
+            "json": "Essa deve ser uma sequência JSON válida.",
+            "lt": {
+                "numeric": "O valor deve ser menor que {value}.",
+                "file": "O tamanho do arquivo deve ser menor que {value} kilobytes.",
+                "string": "A sequência deve ser menor que {value} caracteres.",
+                "array": "O conteúdo deve ter menos de {value} itens."
+            },
+            "lte": {
+                "numeric": "O valor deve ser menor ou igual {value}.",
+                "file": "O tamanho do arquivo deve ser menor ou igual {value} kilobytes.",
+                "string": "A sequência deve ser menor ou igual {value} caracteres.",
+                "array": "O conteúdo não deve ter mais do que {value} itens."
+            },
+            "max": {
+                "numeric": "O valor não pode ser maior que {max}.",
+                "file": "O tamanho do arquivo não pode ser maior que {max} kilobytes.",
+                "string": "A sequência não pode ser maior que {max} caracteres.",
+                "array": "O conteúdo pode não ter mais do que {max} itens."
+            },
+            "mimes": "Este deve ser um arquivo do tipo: {values}.",
+            "mimetypes": "Este deve ser um arquivo do tipo: {values}.",
+            "min": {
+                "numeric": "O valor deve ser pelo menos {min}.",
+                "file": "O tamanho do arquivo deve ser pelo menos {min} kilobytes.",
+                "string": "A sequência deve ser pelo menos {min} characters.",
+                "array": "O valor deve ter pelo menos {min} itens."
+            },
+            "not_in": "O valor selecionado é inválido.",
+            "not_regex": "Este formato é inválido.",
+            "numeric": "Este deve ser um número.",
+            "password": "A senha está incorreta.",
+            "present": "Este campo deve estar presente.",
+            "regex": "Este formato é inválido.",
+            "required": "Este campo é obrigatório.",
+            "required_if": "Este campo é obrigatório quando {other} é {value}.",
+            "required_unless": "Este campo é obrigatório, a menos que {other} esteja em {values}.",
+            "required_with": "Este campo é obrigatório quando {values} estiverem presentes.",
+            "required_with_all": "Este campo é obrigatório quando {values} estão presentes.",
+            "required_without": "Este campo é obrigatório quando {values} não estão presentes.",
+            "required_without_all": "Este campo é obrigatório quando nenhum dos {values} estiver presente.",
+            "same": "O valor desse campo deve corresponder ao valor de {other}.",
+            "size": {
+                "numeric": "O valor deve ser: size.",
+                "file": "O tamanho do arquivo deve ser {size} kilobytes.",
+                "string": "A sequência deve ser {size}  de tamanho.",
+                "array": "O conteúdo deve conter {items} de tamanho."
+            },
+            "starts_with": "Este campo deve começar com um dos seguintes valores: {values}.",
+            "string": "Este campo deve ser uma sequência de palavras.",
+            "timezone": "Esta deve ser uma zona válida.",
+            "unique": "Isso já foi escolhido.",
+            "uploaded": "Falha ao carregar.",
+            "url": "Este formato é inválido.",
+            "uuid": "Este deve ser um UUID válido.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Sua senha foi redefinida!",
+            "sent": "Enviamos um link para redefinir a sua senha por e-mail.",
+            "throttled": "Por favor espere antes de tentar novamente.",
+            "token": "Esse código de redefinição de senha é inválido.",
+            "user": "Não conseguimos encontrar nenhum usuário com o endereço de e-mail informado."
+        },
+        "pagination": {
+            "previous": "&laquo; Anterior",
+            "next": "Próxima &raquo;"
         }
     },
     "ro": {
         "auth": {
             "failed": "Datele de identificare nu pot fi confirmate.",
             "throttle": "Prea multe încercări de intrare în cont. Puteți încerca din nou peste {seconds} secunde."
-        },
-        "pagination": {
-            "previous": "&laquo; Înapoi",
-            "next": "Înainte &raquo;"
-        },
-        "passwords": {
-            "reset": "Parola a fost resetată!",
-            "sent": "Am trimis un e-mail cu link-ul de resetare a parolei!",
-            "throttled": "Please wait before retrying.",
-            "token": "Codul de resetare a parolei este greșit.",
-            "user": "Nu există niciun utilizator cu această adresă de e-mail."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Câmpul {attribute} trebuie să fie acceptat.",
@@ -13796,179 +13674,134 @@ export default {
                 }
             },
             "attributes": []
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Parola a fost resetată!",
+            "sent": "Am trimis un e-mail cu link-ul de resetare a parolei!",
+            "throttled": "Please wait before retrying.",
+            "token": "Codul de resetare a parolei este greșit.",
+            "user": "Nu există niciun utilizator cu această adresă de e-mail."
+        },
+        "pagination": {
+            "previous": "&laquo; Înapoi",
+            "next": "Înainte &raquo;"
         }
     },
     "ru": {
         "auth": {
             "failed": "Неверное имя пользователя или пароль.",
             "throttle": "Слишком много попыток входа. Пожалуйста, попробуйте еще раз через {seconds} секунд."
-        },
-        "forms": {
-            "username": "Имя пользователя",
-            "email": "Электронный",
-            "password": "Пароль",
-            "continue": "Войти",
-            "date_of_birth": "Дата рождения",
-            "age": "Возраст"
-        },
-        "general": {
-            "welcome": "Добро пожаловать на",
-            "print": "Печать",
-            "search": "Поиск",
-            "add": "Добавить",
-            "all_rights_reserved": "Все права защищены.",
-            "acknowledgement_licensing_and_cert": "Подтверждения, лицензирование и сертификация"
-        },
-        "languages": {
-            "english": "английский язык",
-            "french": "французский",
-            "spanish": "испанский",
-            "dutch": "голландский",
-            "russian": "русский",
-            "portuguese": "Португальский",
-            "italian": "итальянский",
-            "arabic": "عربي (на арабском языке)",
-            "hebrew": "иврит",
-            "romanian": "румынский язык",
-            "ukrainian": "украинский",
-            "turkish": "турецкий",
-            "japanese": "Японский",
-            "chinese": "китайский язык"
-        },
-        "menu": {
-            "calendar": "Календарь",
-            "flow_board": "Потоковая доска",
-            "inventory": "Инвентаризация",
-            "fees": "Тарифы",
-            "patient_client": "пациент/клиент",
-            "procedures": "Процедуры",
-            "reports": "Доклады",
-            "miscellaneous": "Разное",
-            "popups": "Всплывающие окна",
-            "qa_measures": "Меры по обеспечению качества",
-            "help": "Помощь"
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Вперёд &raquo;"
-        },
-        "passwords": {
-            "reset": "Ваш пароль был сброшен!",
-            "sent": "Ссылка на сброс пароля была отправлена!",
-            "throttled": "Пожалуйста, подождите перед повторной попыткой.",
-            "token": "Ошибочный код сброса пароля.",
-            "user": "Не удалось найти пользователя с указанным электронным адресом."
-        },
-        "validation-inline": {
-            "accepted": "Должно быть принято.",
-            "active_url": "Недействительный URL.",
-            "after": "Дата должна быть больше {date}.",
-            "after_or_equal": "Дата должна быть больше или равняться {date}.",
-            "alpha": "Здесь могут быть только буквы.",
-            "alpha_dash": "Здесь могут быть только буквы, цифры, дефис и нижнее подчеркивание.",
-            "alpha_num": "Здесь могут быть только буквы и цифры.",
-            "array": "Здесь должен быть массив.",
-            "before": "Дата здесь должна быть раньше {date}.",
-            "before_or_equal": "Дата здесь должна быть раньше или равняться {date}.",
-            "between": {
-                "numeric": "Значение должно быть между {min} и {max}.",
-                "file": "Размер файла должен быть между {min} и {max} Килобайт(а).",
-                "string": "Количество символов должно быть между {min} и {max}.",
-                "array": "Количество элементов должно быть между {min} и {max}."
-            },
-            "boolean": "Поле должно иметь значение логического типа.",
-            "confirmed": "Не совпадает с подтверждением.",
-            "date": "Не является датой.",
-            "date_equals": "Дата должна быть равной {date}.",
-            "date_format": "Не соответствует формату {format}.",
-            "different": "Значение должно отличаться от {other}",
-            "digits": "Длина должна быть {digits}.",
-            "digits_between": "Длина должна быть между {min} и {max}.",
-            "dimensions": "Изображение имеет недопустимые размеры.",
-            "distinct": "Поле содержит повторяющееся значение.",
-            "email": "Электронный адрес должен быть действительным.",
-            "ends_with": "Должно заканчиваться одним из следующих значений: {values}",
-            "exists": "Выбранное значение некорректно.",
-            "file": "Содержимое должно быть файлом.",
-            "filled": "Обязательно для заполнения.",
-            "gt": {
-                "numeric": "Значение должно быть больше {value}.",
-                "file": "Размер файла должен быть больше {value} Килобайт(а).",
-                "string": "Количество символов должно быть больше {value}.",
-                "array": "Количество элементов должно быть больше {value}."
-            },
-            "gte": {
-                "numeric": "Значение должно быть {value} или больше.",
-                "file": "Размер файла должен быть {value} Килобайт(а) или больше.",
-                "string": "Количество символов должно быть {value} или больше.",
-                "array": "Количество элементов должно быть {value} или больше."
-            },
-            "image": "Здесь должно быть изображение.",
-            "in": "Выбранное значение ошибочно.",
-            "in_array": "Значение не существует в {other}.",
-            "integer": "Должно быть целое число.",
-            "ip": "Должен быть действительный IP-адрес.",
-            "ipv4": "Должен быть действительный IPv4-адрес.",
-            "ipv6": "Должен быть действительный IPv6-адрес.",
-            "json": "Должно быть JSON строкой.",
-            "lt": {
-                "numeric": "Значение должно быть меньше {value}.",
-                "file": "Размер файла должен быть меньше {value} Килобайт(а).",
-                "string": "Количество символов должно быть меньше {value}.",
-                "array": "Количество элементов должно быть меньше {value}."
-            },
-            "lte": {
-                "numeric": "Значение должно быть {value} или меньше.",
-                "file": "Размер файла должен быть {value} Килобайт(а) или меньше.",
-                "string": "Количество символов должно быть {value} или меньше.",
-                "array": "Количество элементов должно быть {value} или меньше."
-            },
-            "max": {
-                "numeric": "Значение не может быть больше {max}.",
-                "file": "Размер файла не может быть больше {max} Килобайт(а).",
-                "string": "Количество символов не может превышать {max}.",
-                "array": "Количество элементов не может превышать {max}."
-            },
-            "mimes": "Должен быть файл одного из следующих типов: {values}.",
-            "mimetypes": "Должен быть файл одного из следующих типов: {values}.",
-            "min": {
-                "numeric": "Значение должно быть не меньше {min}.",
-                "file": "Размер файла должен быть не меньше {min} Килобайт(а).",
-                "string": "Количество символов должно быть не меньше {min}.",
-                "array": "Количество элементов должно быть не меньше {min}."
-            },
-            "not_in": "Выбранное значение ошибочно.",
-            "not_regex": "Выбранный формат ошибочный.",
-            "numeric": "Здесь должно быть число.",
-            "password": "Неверный пароль.",
-            "present": "Значение должно быть.",
-            "regex": "Ошибочный формат.",
-            "required": "Обязательно для заполнения.",
-            "required_if": "Обязательно для заполнения, когда {other} равно {value}.",
-            "required_unless": "Обязательно для заполнения, когда {other} не равно {values}.",
-            "required_with": "Обязательно для заполнения, когда {values} указано.",
-            "required_with_all": "Обязательно для заполнения, когда {values} указано.",
-            "required_without": "Обязательно для заполнения, когда {values} не указано.",
-            "required_without_all": "Обязательно для заполнения, когда ни одно из {values} не указано.",
-            "same": "Значение должно совпадать с {other}.",
-            "size": {
-                "numeric": "Значение должно быть равным {size}.",
-                "file": "Размер файла должен быть равен {size} Килобайт(а).",
-                "string": "Количество символов должно быть равным {size}.",
-                "array": "Количество элементов должно быть равным {size}."
-            },
-            "starts_with": "Значение должно начинаться из одного из следующих значений: {values}",
-            "string": "Здесь должна быть строка.",
-            "timezone": "Должен быть действительный часовой пояс.",
-            "unique": "Такое значение уже существует.",
-            "uploaded": "Загрузка не удалась.",
-            "url": "Ошибочный формат URL.",
-            "uuid": "Должен быть корректный UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Вы должны принять {attribute}.",
@@ -14111,134 +13944,179 @@ export default {
                 "available": "Доступно",
                 "size": "Размер"
             }
+        },
+        "validation-inline": {
+            "accepted": "Должно быть принято.",
+            "active_url": "Недействительный URL.",
+            "after": "Дата должна быть больше {date}.",
+            "after_or_equal": "Дата должна быть больше или равняться {date}.",
+            "alpha": "Здесь могут быть только буквы.",
+            "alpha_dash": "Здесь могут быть только буквы, цифры, дефис и нижнее подчеркивание.",
+            "alpha_num": "Здесь могут быть только буквы и цифры.",
+            "array": "Здесь должен быть массив.",
+            "before": "Дата здесь должна быть раньше {date}.",
+            "before_or_equal": "Дата здесь должна быть раньше или равняться {date}.",
+            "between": {
+                "numeric": "Значение должно быть между {min} и {max}.",
+                "file": "Размер файла должен быть между {min} и {max} Килобайт(а).",
+                "string": "Количество символов должно быть между {min} и {max}.",
+                "array": "Количество элементов должно быть между {min} и {max}."
+            },
+            "boolean": "Поле должно иметь значение логического типа.",
+            "confirmed": "Не совпадает с подтверждением.",
+            "date": "Не является датой.",
+            "date_equals": "Дата должна быть равной {date}.",
+            "date_format": "Не соответствует формату {format}.",
+            "different": "Значение должно отличаться от {other}",
+            "digits": "Длина должна быть {digits}.",
+            "digits_between": "Длина должна быть между {min} и {max}.",
+            "dimensions": "Изображение имеет недопустимые размеры.",
+            "distinct": "Поле содержит повторяющееся значение.",
+            "email": "Электронный адрес должен быть действительным.",
+            "ends_with": "Должно заканчиваться одним из следующих значений: {values}",
+            "exists": "Выбранное значение некорректно.",
+            "file": "Содержимое должно быть файлом.",
+            "filled": "Обязательно для заполнения.",
+            "gt": {
+                "numeric": "Значение должно быть больше {value}.",
+                "file": "Размер файла должен быть больше {value} Килобайт(а).",
+                "string": "Количество символов должно быть больше {value}.",
+                "array": "Количество элементов должно быть больше {value}."
+            },
+            "gte": {
+                "numeric": "Значение должно быть {value} или больше.",
+                "file": "Размер файла должен быть {value} Килобайт(а) или больше.",
+                "string": "Количество символов должно быть {value} или больше.",
+                "array": "Количество элементов должно быть {value} или больше."
+            },
+            "image": "Здесь должно быть изображение.",
+            "in": "Выбранное значение ошибочно.",
+            "in_array": "Значение не существует в {other}.",
+            "integer": "Должно быть целое число.",
+            "ip": "Должен быть действительный IP-адрес.",
+            "ipv4": "Должен быть действительный IPv4-адрес.",
+            "ipv6": "Должен быть действительный IPv6-адрес.",
+            "json": "Должно быть JSON строкой.",
+            "lt": {
+                "numeric": "Значение должно быть меньше {value}.",
+                "file": "Размер файла должен быть меньше {value} Килобайт(а).",
+                "string": "Количество символов должно быть меньше {value}.",
+                "array": "Количество элементов должно быть меньше {value}."
+            },
+            "lte": {
+                "numeric": "Значение должно быть {value} или меньше.",
+                "file": "Размер файла должен быть {value} Килобайт(а) или меньше.",
+                "string": "Количество символов должно быть {value} или меньше.",
+                "array": "Количество элементов должно быть {value} или меньше."
+            },
+            "max": {
+                "numeric": "Значение не может быть больше {max}.",
+                "file": "Размер файла не может быть больше {max} Килобайт(а).",
+                "string": "Количество символов не может превышать {max}.",
+                "array": "Количество элементов не может превышать {max}."
+            },
+            "mimes": "Должен быть файл одного из следующих типов: {values}.",
+            "mimetypes": "Должен быть файл одного из следующих типов: {values}.",
+            "min": {
+                "numeric": "Значение должно быть не меньше {min}.",
+                "file": "Размер файла должен быть не меньше {min} Килобайт(а).",
+                "string": "Количество символов должно быть не меньше {min}.",
+                "array": "Количество элементов должно быть не меньше {min}."
+            },
+            "not_in": "Выбранное значение ошибочно.",
+            "not_regex": "Выбранный формат ошибочный.",
+            "numeric": "Здесь должно быть число.",
+            "password": "Неверный пароль.",
+            "present": "Значение должно быть.",
+            "regex": "Ошибочный формат.",
+            "required": "Обязательно для заполнения.",
+            "required_if": "Обязательно для заполнения, когда {other} равно {value}.",
+            "required_unless": "Обязательно для заполнения, когда {other} не равно {values}.",
+            "required_with": "Обязательно для заполнения, когда {values} указано.",
+            "required_with_all": "Обязательно для заполнения, когда {values} указано.",
+            "required_without": "Обязательно для заполнения, когда {values} не указано.",
+            "required_without_all": "Обязательно для заполнения, когда ни одно из {values} не указано.",
+            "same": "Значение должно совпадать с {other}.",
+            "size": {
+                "numeric": "Значение должно быть равным {size}.",
+                "file": "Размер файла должен быть равен {size} Килобайт(а).",
+                "string": "Количество символов должно быть равным {size}.",
+                "array": "Количество элементов должно быть равным {size}."
+            },
+            "starts_with": "Значение должно начинаться из одного из следующих значений: {values}",
+            "string": "Здесь должна быть строка.",
+            "timezone": "Должен быть действительный часовой пояс.",
+            "unique": "Такое значение уже существует.",
+            "uploaded": "Загрузка не удалась.",
+            "url": "Ошибочный формат URL.",
+            "uuid": "Должен быть корректный UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "forms": {
+            "username": "Имя пользователя",
+            "email": "Электронный",
+            "password": "Пароль",
+            "continue": "Войти",
+            "date_of_birth": "Дата рождения",
+            "age": "Возраст"
+        },
+        "passwords": {
+            "reset": "Ваш пароль был сброшен!",
+            "sent": "Ссылка на сброс пароля была отправлена!",
+            "throttled": "Пожалуйста, подождите перед повторной попыткой.",
+            "token": "Ошибочный код сброса пароля.",
+            "user": "Не удалось найти пользователя с указанным электронным адресом."
+        },
+        "general": {
+            "welcome": "Добро пожаловать на",
+            "print": "Печать",
+            "search": "Поиск",
+            "add": "Добавить",
+            "all_rights_reserved": "Все права защищены.",
+            "acknowledgement_licensing_and_cert": "Подтверждения, лицензирование и сертификация"
+        },
+        "languages": {
+            "english": "английский язык",
+            "french": "французский",
+            "spanish": "испанский",
+            "dutch": "голландский",
+            "russian": "русский",
+            "portuguese": "Португальский",
+            "italian": "итальянский",
+            "arabic": "عربي (на арабском языке)",
+            "hebrew": "иврит",
+            "romanian": "румынский язык",
+            "ukrainian": "украинский",
+            "turkish": "турецкий",
+            "japanese": "Японский",
+            "chinese": "китайский язык"
+        },
+        "menu": {
+            "calendar": "Календарь",
+            "flow_board": "Потоковая доска",
+            "inventory": "Инвентаризация",
+            "fees": "Тарифы",
+            "patient_client": "пациент/клиент",
+            "procedures": "Процедуры",
+            "reports": "Доклады",
+            "miscellaneous": "Разное",
+            "popups": "Всплывающие окна",
+            "qa_measures": "Меры по обеспечению качества",
+            "help": "Помощь"
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Вперёд &raquo;"
         }
     },
     "sc": {
         "auth": {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; A in antis",
-            "next": "A pustis &raquo;"
-        },
-        "passwords": {
-            "reset": "Sa password est istada torrada a impostare!",
-            "sent": "Regordu de sa password imbiadu!",
-            "throttled": "Please wait before retrying.",
-            "token": "Custu token pro torrare a impostare sa password no est bàlidu.",
-            "user": "Non s'agatat un'impitadore assotziadu a custu indiritzu email."
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} depet èssere atzetadu.",
@@ -14351,23 +14229,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "si": {
-        "auth": {
-            "failed": "මෙම අක්තපත්ර අපගේ වාර්තා වලට ගැලපෙන්නේ නැත.",
-            "throttle": "බොහෝ පිවිසුම් උත්සහයන් සිදු කර ඇත. කරුණාකර නැවත උත්සාහ කරන්න: තත්පර තත්පර."
-        },
-        "pagination": {
-            "previous": "&laquo; පෙර",
-            "next": "ඊළඟ &raquo;"
-        },
-        "passwords": {
-            "reset": "ඔබගේ මුරපදය යළි සැකසිනි!",
-            "sent": "ඔබගේ රහස් පද යළි සකසන සබැඳිය අප විසින් ඊ-තැපැල් කර ඇත!",
-            "throttled": "නැවත උත්සහා කිරීමට පෙර,මදක් රැදිසිටින්න.",
-            "token": "මෙම මුරපද යළි පිහිටුවීමේ ටෝකනය වලංගු නොවේ.",
-            "user": "අපට එම විද්යුත් තැපැල් ලිපිනය සමඟ පරිශීලකයෙකු සොයා ගත නොහැක."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14479,6 +14340,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Sa password est istada torrada a impostare!",
+            "sent": "Regordu de sa password imbiadu!",
+            "throttled": "Please wait before retrying.",
+            "token": "Custu token pro torrare a impostare sa password no est bàlidu.",
+            "user": "Non s'agatat un'impitadore assotziadu a custu indiritzu email."
+        },
+        "pagination": {
+            "previous": "&laquo; A in antis",
+            "next": "A pustis &raquo;"
+        }
+    },
+    "si": {
+        "auth": {
+            "failed": "මෙම අක්තපත්ර අපගේ වාර්තා වලට ගැලපෙන්නේ නැත.",
+            "throttle": "බොහෝ පිවිසුම් උත්සහයන් සිදු කර ඇත. කරුණාකර නැවත උත්සාහ කරන්න: තත්පර තත්පර."
         },
         "validation": {
             "accepted": "මෙම {attribute} පිළිගත යුතුය.",
@@ -14624,23 +14502,6 @@ export default {
                 "available": "ලබා ගත හැකිය",
                 "size": "ප්රමාණය"
             }
-        }
-    },
-    "sk": {
-        "auth": {
-            "failed": "Prihlasovacie údaje nie sú správne.",
-            "throttle": "Prekročený limit pokusov. Skúste znovu o {seconds} sekúnd."
-        },
-        "pagination": {
-            "previous": "&laquo; Predchádzajúca",
-            "next": "Nasledujúca &raquo;"
-        },
-        "passwords": {
-            "reset": "Heslo bolo zmenené!",
-            "sent": "Pripomienka k zmene hesla bola odoslaná!",
-            "throttled": "Pred ďalším pokusom chvíľu počkajte.",
-            "token": "Klúč pre obnovu hesla je neplatný.",
-            "user": "Nepodarilo sa nájsť používateľa s touto e-mailovou adresou."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14752,6 +14613,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "ඔබගේ මුරපදය යළි සැකසිනි!",
+            "sent": "ඔබගේ රහස් පද යළි සකසන සබැඳිය අප විසින් ඊ-තැපැල් කර ඇත!",
+            "throttled": "නැවත උත්සහා කිරීමට පෙර,මදක් රැදිසිටින්න.",
+            "token": "මෙම මුරපද යළි පිහිටුවීමේ ටෝකනය වලංගු නොවේ.",
+            "user": "අපට එම විද්යුත් තැපැල් ලිපිනය සමඟ පරිශීලකයෙකු සොයා ගත නොහැක."
+        },
+        "pagination": {
+            "previous": "&laquo; පෙර",
+            "next": "ඊළඟ &raquo;"
+        }
+    },
+    "sk": {
+        "auth": {
+            "failed": "Prihlasovacie údaje nie sú správne.",
+            "throttle": "Prekročený limit pokusov. Skúste znovu o {seconds} sekúnd."
         },
         "validation": {
             "accepted": "{Attribute} musí byť akceptovaný.",
@@ -14864,23 +14742,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "sl": {
-        "auth": {
-            "failed": "Ti podatki se ne ujemajo z našimi.",
-            "throttle": "Preveč poskusov prijave. Prosimo, poskusite ponovno čez {seconds} sekund."
-        },
-        "pagination": {
-            "previous": "&laquo; Prejšnja",
-            "next": "Naslednja &raquo;"
-        },
-        "passwords": {
-            "reset": "Geslo je bilo spremenjeno!",
-            "sent": "Opomnik za geslo poslano!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ponastavitveni žeton je neveljaven.",
-            "user": "Ne moremo najti uporabnika s tem e-poštnim naslovom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -14992,6 +14853,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Heslo bolo zmenené!",
+            "sent": "Pripomienka k zmene hesla bola odoslaná!",
+            "throttled": "Pred ďalším pokusom chvíľu počkajte.",
+            "token": "Klúč pre obnovu hesla je neplatný.",
+            "user": "Nepodarilo sa nájsť používateľa s touto e-mailovou adresou."
+        },
+        "pagination": {
+            "previous": "&laquo; Predchádzajúca",
+            "next": "Nasledujúca &raquo;"
+        }
+    },
+    "sl": {
+        "auth": {
+            "failed": "Ti podatki se ne ujemajo z našimi.",
+            "throttle": "Preveč poskusov prijave. Prosimo, poskusite ponovno čez {seconds} sekund."
         },
         "validation": {
             "accepted": "{attribute} mora biti sprejet.",
@@ -15104,23 +14982,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "sq": {
-        "auth": {
-            "failed": "Këto të dhëna nuk përputhen me të dhënat tona.",
-            "throttle": "Shumë tentime për t'u kyçur. Ju lutem provoni përsëri pas {seconds} sekondave."
-        },
-        "pagination": {
-            "previous": "&laquo; Prapa",
-            "next": "Para &raquo;"
-        },
-        "passwords": {
-            "reset": "Fjalëkalimi u ndryshua!",
-            "sent": "Adresa për ndryshimin e fjalëkalimit u dërgua!",
-            "throttled": "Ju lutemi prisni para se të provoni përsëri.",
-            "token": "Ky tallon për ndryshimin e fjalëkalimit është i pasaktë.",
-            "user": "Nuk mund të gjejmë një përdorues me atë adresë email-i."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15232,6 +15093,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Geslo je bilo spremenjeno!",
+            "sent": "Opomnik za geslo poslano!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ponastavitveni žeton je neveljaven.",
+            "user": "Ne moremo najti uporabnika s tem e-poštnim naslovom."
+        },
+        "pagination": {
+            "previous": "&laquo; Prejšnja",
+            "next": "Naslednja &raquo;"
+        }
+    },
+    "sq": {
+        "auth": {
+            "failed": "Këto të dhëna nuk përputhen me të dhënat tona.",
+            "throttle": "Shumë tentime për t'u kyçur. Ju lutem provoni përsëri pas {seconds} sekondave."
         },
         "validation": {
             "accepted": "{attribute} duhet të pranohet.",
@@ -15344,23 +15222,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "sr_Cyrillic": {
-        "auth": {
-            "failed": "Подаци не одговарају ни једном налогу.",
-            "throttle": "Превише неуспелих покушаја. Покушајте поново за {seconds} секунди."
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Напред &raquo;"
-        },
-        "passwords": {
-            "reset": "Лозинка је ресетована!",
-            "sent": "Послали смо ресет линк за вашу лозинку!",
-            "throttled": "Молимо сачекајте пре него сто покушате поново.",
-            "token": "Укуцана ознака за ресетовање лозинке није важећа.",
-            "user": "Нисмо успели пронаћи корисника са емаил адресом."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15472,6 +15333,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Fjalëkalimi u ndryshua!",
+            "sent": "Adresa për ndryshimin e fjalëkalimit u dërgua!",
+            "throttled": "Ju lutemi prisni para se të provoni përsëri.",
+            "token": "Ky tallon për ndryshimin e fjalëkalimit është i pasaktë.",
+            "user": "Nuk mund të gjejmë një përdorues me atë adresë email-i."
+        },
+        "pagination": {
+            "previous": "&laquo; Prapa",
+            "next": "Para &raquo;"
+        }
+    },
+    "sr_Cyrillic": {
+        "auth": {
+            "failed": "Подаци не одговарају ни једном налогу.",
+            "throttle": "Превише неуспелих покушаја. Покушајте поново за {seconds} секунди."
         },
         "validation": {
             "accepted": "Поље {attribute} мора бити прихваћено.",
@@ -15614,23 +15492,6 @@ export default {
                 "subject": "наслов",
                 "message": "порука"
             }
-        }
-    },
-    "sr_Latin": {
-        "auth": {
-            "failed": "Podaci ne odgovaraju ni jednom nalogu.",
-            "throttle": "Previše neuspelih pokušaja. Pokušajte ponovo za {seconds} sekundi."
-        },
-        "pagination": {
-            "previous": "&laquo; Nazad",
-            "next": "Napred &raquo;"
-        },
-        "passwords": {
-            "reset": "Lozinka je resetovana!",
-            "sent": "Poslali smo reset link za vašu lozinku!",
-            "throttled": "Molimo sačekajte pre nego sto pokušate ponovo.",
-            "token": "Ukucana oznaka za resetovanje lozinke nije važeća.",
-            "user": "Nismo uspeli pronaći korisnika sa email adresom."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -15742,6 +15603,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Лозинка је ресетована!",
+            "sent": "Послали смо ресет линк за вашу лозинку!",
+            "throttled": "Молимо сачекајте пре него сто покушате поново.",
+            "token": "Укуцана ознака за ресетовање лозинке није важећа.",
+            "user": "Нисмо успели пронаћи корисника са емаил адресом."
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Напред &raquo;"
+        }
+    },
+    "sr_Latin": {
+        "auth": {
+            "failed": "Podaci ne odgovaraju ni jednom nalogu.",
+            "throttle": "Previše neuspelih pokušaja. Pokušajte ponovo za {seconds} sekundi."
         },
         "validation": {
             "accepted": "Polje {attribute} mora biti prihvaćeno.",
@@ -15884,23 +15762,6 @@ export default {
                 "subject": "naslov",
                 "message": "poruka"
             }
-        }
-    },
-    "sv": {
-        "auth": {
-            "failed": "Dessa uppgifter stämmer inte överens med vårt register.",
-            "throttle": "För många inloggningsförsök. Var vänlig försök igen om {seconds} sekunder."
-        },
-        "pagination": {
-            "previous": "&laquo; Föregående",
-            "next": "Nästa &raquo;"
-        },
-        "passwords": {
-            "reset": "Lösenordet har blivit återställt!",
-            "sent": "Lösenordspåminnelse skickad!",
-            "throttled": "Vänligen vänta innan du försöker igen.",
-            "token": "Koden för lösenordsåterställning är ogiltig.",
-            "user": "Det finns ingen användare med den e-postadressen."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16012,6 +15873,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Lozinka je resetovana!",
+            "sent": "Poslali smo reset link za vašu lozinku!",
+            "throttled": "Molimo sačekajte pre nego sto pokušate ponovo.",
+            "token": "Ukucana oznaka za resetovanje lozinke nije važeća.",
+            "user": "Nismo uspeli pronaći korisnika sa email adresom."
+        },
+        "pagination": {
+            "previous": "&laquo; Nazad",
+            "next": "Napred &raquo;"
+        }
+    },
+    "sv": {
+        "auth": {
+            "failed": "Dessa uppgifter stämmer inte överens med vårt register.",
+            "throttle": "För många inloggningsförsök. Var vänlig försök igen om {seconds} sekunder."
         },
         "validation": {
             "accepted": "{Attribute} måste accepteras.",
@@ -16124,23 +16002,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "sw": {
-        "auth": {
-            "failed": "Hii hati tambulishi hailingani na rekodi zetu.",
-            "throttle": "Majaribio mengi sana ya kuingia. Tafadhali jaribu tena katika {sekunde} sekunde."
-        },
-        "pagination": {
-            "previous": "na laquo; Awali",
-            "next": "Ifuatayo na raquo;"
-        },
-        "passwords": {
-            "reset": "Nenosiri lako limefufuliwa upya!",
-            "sent": "Tumekutumia barua pepe ya fungo la kufufua nenosiri!",
-            "throttled": "Please wait before retrying.",
-            "token": "Huu ufufuzi wa nenosiri si halali.",
-            "user": "Hatupati mtumiaji wa hiyo anuani ya barua pepe."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16252,6 +16113,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Lösenordet har blivit återställt!",
+            "sent": "Lösenordspåminnelse skickad!",
+            "throttled": "Vänligen vänta innan du försöker igen.",
+            "token": "Koden för lösenordsåterställning är ogiltig.",
+            "user": "Det finns ingen användare med den e-postadressen."
+        },
+        "pagination": {
+            "previous": "&laquo; Föregående",
+            "next": "Nästa &raquo;"
+        }
+    },
+    "sw": {
+        "auth": {
+            "failed": "Hii hati tambulishi hailingani na rekodi zetu.",
+            "throttle": "Majaribio mengi sana ya kuingia. Tafadhali jaribu tena katika {sekunde} sekunde."
         },
         "validation": {
             "accepted": "Lazima kipengele kikubalike.",
@@ -16371,23 +16249,6 @@ export default {
                 "result_text_under_image": "Maandishi ya matokeo chini ya picha",
                 "short_text": "Maandishi mafupi"
             }
-        }
-    },
-    "tg": {
-        "auth": {
-            "failed": "Номи истифодабаранда ва гузарвожа нодуруст мебошад.",
-            "throttle": "Теъдоди зиёди талош барои воридшудан ба система. Лутфан баъд аз {seconds} сония боз кӯшиш намоед."
-        },
-        "pagination": {
-            "previous": "&laquo; Қаблӣ",
-            "next": "Баъдӣ &raquo;"
-        },
-        "passwords": {
-            "reset": "Гузарвожаи шумо бозгардонӣ карда шуд!",
-            "sent": "Ба шумо пайванд барои иваз намудани гузарвожа фиристода шуд!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ин код барои иваз намудани гузарвожа нодуруст мебошад.",
-            "user": "Чунин истифодабаранда бо суроғаи электронии зерин ёфт нашуд."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16499,6 +16360,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Nenosiri lako limefufuliwa upya!",
+            "sent": "Tumekutumia barua pepe ya fungo la kufufua nenosiri!",
+            "throttled": "Please wait before retrying.",
+            "token": "Huu ufufuzi wa nenosiri si halali.",
+            "user": "Hatupati mtumiaji wa hiyo anuani ya barua pepe."
+        },
+        "pagination": {
+            "previous": "na laquo; Awali",
+            "next": "Ifuatayo na raquo;"
+        }
+    },
+    "tg": {
+        "auth": {
+            "failed": "Номи истифодабаранда ва гузарвожа нодуруст мебошад.",
+            "throttle": "Теъдоди зиёди талош барои воридшудан ба система. Лутфан баъд аз {seconds} сония боз кӯшиш намоед."
         },
         "validation": {
             "accepted": "Қиммати {attribute} бояд қабул карда шавад.",
@@ -16611,23 +16489,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "th": {
-        "auth": {
-            "failed": "ข้อมูลที่ใช้ในการยืนยันตัวตนไม่ถูกต้อง",
-            "throttle": "คุณได้พยายามเข้าระบบหลายครั้งเกินไป กรุณาลองใหม่ใน {seconds} วินาทีข้างหน้า."
-        },
-        "pagination": {
-            "previous": "&laquo; ก่อนหน้า",
-            "next": "ถัดไป &raquo;"
-        },
-        "passwords": {
-            "reset": "ทำการตั้งค่ารหัสผ่านใหม่แล้ว",
-            "sent": "ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!",
-            "throttled": "Please wait before retrying.",
-            "token": "ชุดรหัสสำหรับการเปลี่ยนรหัสผ่านไม่ถูกต้อง",
-            "user": "ไม่พบผู้ใช้งานที่ตรงกับอีเมล์นี้"
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16739,6 +16600,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Гузарвожаи шумо бозгардонӣ карда шуд!",
+            "sent": "Ба шумо пайванд барои иваз намудани гузарвожа фиристода шуд!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ин код барои иваз намудани гузарвожа нодуруст мебошад.",
+            "user": "Чунин истифодабаранда бо суроғаи электронии зерин ёфт нашуд."
+        },
+        "pagination": {
+            "previous": "&laquo; Қаблӣ",
+            "next": "Баъдӣ &raquo;"
+        }
+    },
+    "th": {
+        "auth": {
+            "failed": "ข้อมูลที่ใช้ในการยืนยันตัวตนไม่ถูกต้อง",
+            "throttle": "คุณได้พยายามเข้าระบบหลายครั้งเกินไป กรุณาลองใหม่ใน {seconds} วินาทีข้างหน้า."
         },
         "validation": {
             "accepted": "ข้อมูล {attribute} ต้องผ่านการยอมรับก่อน",
@@ -16851,23 +16729,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "tk": {
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "pagination": {
-            "previous": "&laquo; Öňki",
-            "next": "Indiki &raquo;"
-        },
-        "passwords": {
-            "reset": "Açarsöz üýtgedildi!",
-            "sent": "Açarsöz ýatlatmasy ugradyldy!",
-            "throttled": "Please wait before retrying.",
-            "token": "Açarsöz tazeleme söz birligi ýalňyş.",
-            "user": "Bu e-mail adrese degişli ulanyjy tapylmady."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -16979,6 +16840,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "ทำการตั้งค่ารหัสผ่านใหม่แล้ว",
+            "sent": "ส่งเครื่องช่วยเตือนความจำรหัสผ่านแล้ว!",
+            "throttled": "Please wait before retrying.",
+            "token": "ชุดรหัสสำหรับการเปลี่ยนรหัสผ่านไม่ถูกต้อง",
+            "user": "ไม่พบผู้ใช้งานที่ตรงกับอีเมล์นี้"
+        },
+        "pagination": {
+            "previous": "&laquo; ก่อนหน้า",
+            "next": "ถัดไป &raquo;"
+        }
+    },
+    "tk": {
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
         "validation": {
             "accepted": "{attribute} kabul edilmelidir.",
@@ -17091,23 +16969,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "tl": {
-        "auth": {
-            "failed": "Ang credentials na ito ay hindi katugma ng nasa rekord namin.",
-            "throttle": "Sobrang daming pagtatangkang mag-login. Pakisubukan ulit sa {segundo} segundo."
-        },
-        "pagination": {
-            "previous": "&laquo; Nauna",
-            "next": "Susunod &raquo;"
-        },
-        "passwords": {
-            "reset": "Na-reset na ang password mo!",
-            "sent": "Na-email na namin sa iyo ang link sa pag-reset ng password!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ang token sa pag-reset ng password na ito ay imbalido.",
-            "user": "Hindi namin mahanap ang user na may ganyang email address."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17219,6 +17080,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Açarsöz üýtgedildi!",
+            "sent": "Açarsöz ýatlatmasy ugradyldy!",
+            "throttled": "Please wait before retrying.",
+            "token": "Açarsöz tazeleme söz birligi ýalňyş.",
+            "user": "Bu e-mail adrese degişli ulanyjy tapylmady."
+        },
+        "pagination": {
+            "previous": "&laquo; Öňki",
+            "next": "Indiki &raquo;"
+        }
+    },
+    "tl": {
+        "auth": {
+            "failed": "Ang credentials na ito ay hindi katugma ng nasa rekord namin.",
+            "throttle": "Sobrang daming pagtatangkang mag-login. Pakisubukan ulit sa {segundo} segundo."
         },
         "validation": {
             "accepted": "Ang {attribute} ay dapat tanggapin.",
@@ -17338,23 +17216,6 @@ export default {
                 "result_text_under_image": "Resultang teksto sa ilalim ng imahe",
                 "short_text": "Maikling teksto"
             }
-        }
-    },
-    "tr": {
-        "auth": {
-            "failed": "Bu kimlik bilgileri kayıtlarımızla eşleşmiyor.",
-            "throttle": "Çok fazla giriş denemesi. {seconds} saniye sonra lütfen tekrar deneyin."
-        },
-        "pagination": {
-            "previous": "&laquo; Öncekiler",
-            "next": "Sonrakiler &raquo;"
-        },
-        "passwords": {
-            "reset": "Parolanız sıfırlandı!",
-            "sent": "Parola sıfırlama bağlantınız e-posta ile gönderildi!",
-            "throttled": "Tekrar denemeden önce lütfen bekleyin.",
-            "token": "Parola sıfırlama kodu geçersiz.",
-            "user": "Bu e-posta adresi ile kayıtlı bir üye bulunamadı."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17466,6 +17327,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Na-reset na ang password mo!",
+            "sent": "Na-email na namin sa iyo ang link sa pag-reset ng password!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ang token sa pag-reset ng password na ito ay imbalido.",
+            "user": "Hindi namin mahanap ang user na may ganyang email address."
+        },
+        "pagination": {
+            "previous": "&laquo; Nauna",
+            "next": "Susunod &raquo;"
+        }
+    },
+    "tr": {
+        "auth": {
+            "failed": "Bu kimlik bilgileri kayıtlarımızla eşleşmiyor.",
+            "throttle": "Çok fazla giriş denemesi. {seconds} saniye sonra lütfen tekrar deneyin."
         },
         "validation": {
             "accepted": "{attribute} mutlaka kabul edilmelidir.",
@@ -17578,23 +17456,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "ug": {
-        "auth": {
-            "failed": "قوللانچى نامى ياكى پارولدا خاتالىق بار.",
-            "throttle": "مەشغۇلات قېتىم سانى بەك كۆپ بۇلۇپ كەتتى، يەنە {seconds} سېكۇنتتىن كىيىن قايتا سىناپ بېقىڭ."
-        },
-        "pagination": {
-            "previous": "&laquo; ئالدىنقى بەت",
-            "next": "كىيىنكى بەت &raquo;"
-        },
-        "passwords": {
-            "reset": "پارولنى قايتا بېكىتىش مۇۋاپىققىيەتلىك بولدى!",
-            "sent": "پارولنى قايتا بېكىتىش تورخېتى يوللاندى!",
-            "throttled": "Please wait before retrying.",
-            "token": "پارولنى قايتا بېكىتىش ئىجازەت كودى ئىناۋەتسىز.",
-            "user": "بۇ تورخەت ئادىرىسىغا ماس كىلىدىغان قوللانچى نام تېپىلمىدى."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -17706,6 +17567,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Parolanız sıfırlandı!",
+            "sent": "Parola sıfırlama bağlantınız e-posta ile gönderildi!",
+            "throttled": "Tekrar denemeden önce lütfen bekleyin.",
+            "token": "Parola sıfırlama kodu geçersiz.",
+            "user": "Bu e-posta adresi ile kayıtlı bir üye bulunamadı."
+        },
+        "pagination": {
+            "previous": "&laquo; Öncekiler",
+            "next": "Sonrakiler &raquo;"
+        }
+    },
+    "ug": {
+        "auth": {
+            "failed": "قوللانچى نامى ياكى پارولدا خاتالىق بار.",
+            "throttle": "مەشغۇلات قېتىم سانى بەك كۆپ بۇلۇپ كەتتى، يەنە {seconds} سېكۇنتتىن كىيىن قايتا سىناپ بېقىڭ."
         },
         "validation": {
             "accepted": "{attribute} چوقۇم قوشۇلىشىڭىز كېرەك.",
@@ -17848,134 +17726,134 @@ export default {
                 "available": "ئىشلىتىلىشچان",
                 "size": "چوڭ كىچىكلىكى"
             }
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "پارولنى قايتا بېكىتىش مۇۋاپىققىيەتلىك بولدى!",
+            "sent": "پارولنى قايتا بېكىتىش تورخېتى يوللاندى!",
+            "throttled": "Please wait before retrying.",
+            "token": "پارولنى قايتا بېكىتىش ئىجازەت كودى ئىناۋەتسىز.",
+            "user": "بۇ تورخەت ئادىرىسىغا ماس كىلىدىغان قوللانچى نام تېپىلمىدى."
+        },
+        "pagination": {
+            "previous": "&laquo; ئالدىنقى بەت",
+            "next": "كىيىنكى بەت &raquo;"
         }
     },
     "uk": {
         "auth": {
             "failed": "Вказані облікові дані не збігаються з нашими записами.",
             "throttle": "Забагато спроб входу. Будь ласка, спробуйте ще раз, через {seconds} секунд."
-        },
-        "pagination": {
-            "previous": "&laquo; Назад",
-            "next": "Далі &raquo;"
-        },
-        "passwords": {
-            "reset": "Ваш пароль змінено!",
-            "sent": "Ми надіслали на Вашу електронну адресу посилання для зміни пароля!",
-            "throttled": "Зачекайте, перш ніж повторити спробу.",
-            "token": "Код для зміни пароля вказано невірно.",
-            "user": "Користувача із вказаною електронною адресою не знайдено."
-        },
-        "validation-inline": {
-            "accepted": "Поле має бути прийнято.",
-            "active_url": "Не є дійсною URL-адресою.",
-            "after": "Має бути дата після {date}.",
-            "after_or_equal": "Має бути дата після або дата, що дорівнює {date}",
-            "alpha": "Поле може містити лише літери.",
-            "alpha_dash": "Поле може містити лише літери, цифри, тире та підкреслення.",
-            "alpha_num": "Поле може містити лише букви та цифри.",
-            "array": "Поле має бути масивом.",
-            "before": "Має бути дата раніше {date}.",
-            "before_or_equal": "Має бути дата раніше або дорівнює {date}.",
-            "between": {
-                "numeric": "Значення повинно бути між {min} та {max}.",
-                "file": "Файл повинен бути від {min} до {max} кілобайт.",
-                "string": "Рядок повинен бути між {min} та {max} символами.",
-                "array": "Вміст повинен містити між {min} та {max} елементів."
-            },
-            "boolean": "Поле має бути істинним або хибним.",
-            "confirmed": "Підтвердження не збігається.",
-            "date": "Не є допустимою датою.",
-            "date_equals": "Повинна бути дата, що дорівнює {date}.",
-            "date_format": "Не відповідає формату {format}.",
-            "different": "Значення повинно відрізнятися від {other}.",
-            "digits": "Повинно бути: {digits} цифр.",
-            "digits_between": "Повинно бути між {min} та {max} цифр.",
-            "dimensions": "Зображення має недійсні розміри.",
-            "distinct": "Поле має повторюване значення.",
-            "email": "Має бути дійсною адресою електронної пошти.",
-            "ends_with": "Має закінчуватися одним із наступних: {values}.",
-            "exists": "Вибране значення недійсне.",
-            "file": "Вміст повинен бути файлом.",
-            "filled": "Обовязково для заповнення.",
-            "gt": {
-                "numeric": "Значення повинно бути більше, ніж {value}.",
-                "file": "Розмір файлу повинен бути більше {value} кілобайт.",
-                "string": "Рядок повинен бути більшим за {value} значення.",
-                "array": "Зміст повинен бути більш ніж {value} елементів."
-            },
-            "gte": {
-                "numeric": "Значення повинно бути більше або рівне {value}.",
-                "file": "Розмір файлу повинен бути більшим або рівним {value} кілобайт.",
-                "string": "Рядок повинен бути більшим або рівним {value} значення.",
-                "array": "Вміст повинен містити {value} елементів або більше."
-            },
-            "image": "Має бути зображення.",
-            "in": "Вибране значення є недійсним.",
-            "in_array": "Значення не існує в {other}.",
-            "integer": "Має бути цілим числом.",
-            "ip": "Має бути дійсним IP-адресою.",
-            "ipv4": "Має бути дійсним IPv4-адресою.",
-            "ipv6": "Має бути дійсним IPv6-адресою.",
-            "json": "Має бути дійсним JSON рядок.",
-            "lt": {
-                "numeric": "Значення повинно бути менше {value}.",
-                "file": "Розмір файлу повинен бути менше {value} кілобайт.",
-                "string": "Рядок повинен бути менше, ніж {value} символів.",
-                "array": "Вміст повинен містити менше {value} елементів."
-            },
-            "lte": {
-                "numeric": "Значення повинно бути менше або рівне {value}.",
-                "file": "Розмір файлу повинен бути меншим або рівним {value} кілобайт.",
-                "string": "Рядок повинен бути більшим або рівним {value} значення.",
-                "array": "Вміст повинен містити {value} елементів або більше."
-            },
-            "max": {
-                "numeric": "Значення повинно бути менше або рівне {value}.",
-                "file": "Розмір файлу повинен бути меншим або рівним {value} кілобайт.",
-                "string": "Рядок повинен бути більшим або рівним {value} значення.",
-                "array": "Вміст повинен містити {value} елементів або більше."
-            },
-            "mimes": "Повинен бути файл типу: {values}.",
-            "mimetypes": "Повинен бути файл типу: {values}.",
-            "min": {
-                "numeric": "Значення має бути, щонайменше {min}.",
-                "file": "Розмір файлу повинен бути не менше {min} кілобайт.",
-                "string": "У рядку має бути не менше {min} символів.",
-                "array": "Значення повинно мати не менше {min} елементів."
-            },
-            "not_in": "Вибране значення недійсне.",
-            "not_regex": "Формат недійсний.",
-            "numeric": "Повинно бути число.",
-            "password": "Неправильний пароль.",
-            "present": "Поле повинне бути присутнім.",
-            "regex": "Формат недійсний.",
-            "required": "Це поле є обовязковим.",
-            "required_if": "Це поле обовязкове коли {other} є {value}.",
-            "required_unless": "Це поле обовязковим, якщо {other} інше не вказано у {values}.",
-            "required_with": "Це поле обовязкове коли {values} є.",
-            "required_with_all": "Це поле обовязкове коли {values} присутні.",
-            "required_without": "Це поле обовязкове, коли {values} значень немає.",
-            "required_without_all": "Це поле обовязковим, коли немає жодного з {values} присутні.",
-            "same": "Значення цього поля має відповідати значенню від {other}.",
-            "size": {
-                "numeric": "Значення повинно бути {size}.",
-                "file": "Розмір файлу повинен бути {size} кілобайт.",
-                "string": "У рядку має бути {size} символів.",
-                "array": "Вміст повинен містити {size} елементів."
-            },
-            "starts_with": "Повинно починатися з одного з наступних умов: {values}.",
-            "string": "повинна бути рядком.",
-            "timezone": "Має бути дійсною зоною.",
-            "unique": "Вже було взято.",
-            "uploaded": "Не вдалося завантажити.",
-            "url": "Цей формат недійсний.",
-            "uuid": "Має бути дійсним UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "Ви повинні прийняти {attribute}.",
@@ -18118,134 +17996,134 @@ export default {
                 "available": "Доступно",
                 "size": "Розмір"
             }
+        },
+        "validation-inline": {
+            "accepted": "Поле має бути прийнято.",
+            "active_url": "Не є дійсною URL-адресою.",
+            "after": "Має бути дата після {date}.",
+            "after_or_equal": "Має бути дата після або дата, що дорівнює {date}",
+            "alpha": "Поле може містити лише літери.",
+            "alpha_dash": "Поле може містити лише літери, цифри, тире та підкреслення.",
+            "alpha_num": "Поле може містити лише букви та цифри.",
+            "array": "Поле має бути масивом.",
+            "before": "Має бути дата раніше {date}.",
+            "before_or_equal": "Має бути дата раніше або дорівнює {date}.",
+            "between": {
+                "numeric": "Значення повинно бути між {min} та {max}.",
+                "file": "Файл повинен бути від {min} до {max} кілобайт.",
+                "string": "Рядок повинен бути між {min} та {max} символами.",
+                "array": "Вміст повинен містити між {min} та {max} елементів."
+            },
+            "boolean": "Поле має бути істинним або хибним.",
+            "confirmed": "Підтвердження не збігається.",
+            "date": "Не є допустимою датою.",
+            "date_equals": "Повинна бути дата, що дорівнює {date}.",
+            "date_format": "Не відповідає формату {format}.",
+            "different": "Значення повинно відрізнятися від {other}.",
+            "digits": "Повинно бути: {digits} цифр.",
+            "digits_between": "Повинно бути між {min} та {max} цифр.",
+            "dimensions": "Зображення має недійсні розміри.",
+            "distinct": "Поле має повторюване значення.",
+            "email": "Має бути дійсною адресою електронної пошти.",
+            "ends_with": "Має закінчуватися одним із наступних: {values}.",
+            "exists": "Вибране значення недійсне.",
+            "file": "Вміст повинен бути файлом.",
+            "filled": "Обовязково для заповнення.",
+            "gt": {
+                "numeric": "Значення повинно бути більше, ніж {value}.",
+                "file": "Розмір файлу повинен бути більше {value} кілобайт.",
+                "string": "Рядок повинен бути більшим за {value} значення.",
+                "array": "Зміст повинен бути більш ніж {value} елементів."
+            },
+            "gte": {
+                "numeric": "Значення повинно бути більше або рівне {value}.",
+                "file": "Розмір файлу повинен бути більшим або рівним {value} кілобайт.",
+                "string": "Рядок повинен бути більшим або рівним {value} значення.",
+                "array": "Вміст повинен містити {value} елементів або більше."
+            },
+            "image": "Має бути зображення.",
+            "in": "Вибране значення є недійсним.",
+            "in_array": "Значення не існує в {other}.",
+            "integer": "Має бути цілим числом.",
+            "ip": "Має бути дійсним IP-адресою.",
+            "ipv4": "Має бути дійсним IPv4-адресою.",
+            "ipv6": "Має бути дійсним IPv6-адресою.",
+            "json": "Має бути дійсним JSON рядок.",
+            "lt": {
+                "numeric": "Значення повинно бути менше {value}.",
+                "file": "Розмір файлу повинен бути менше {value} кілобайт.",
+                "string": "Рядок повинен бути менше, ніж {value} символів.",
+                "array": "Вміст повинен містити менше {value} елементів."
+            },
+            "lte": {
+                "numeric": "Значення повинно бути менше або рівне {value}.",
+                "file": "Розмір файлу повинен бути меншим або рівним {value} кілобайт.",
+                "string": "Рядок повинен бути більшим або рівним {value} значення.",
+                "array": "Вміст повинен містити {value} елементів або більше."
+            },
+            "max": {
+                "numeric": "Значення повинно бути менше або рівне {value}.",
+                "file": "Розмір файлу повинен бути меншим або рівним {value} кілобайт.",
+                "string": "Рядок повинен бути більшим або рівним {value} значення.",
+                "array": "Вміст повинен містити {value} елементів або більше."
+            },
+            "mimes": "Повинен бути файл типу: {values}.",
+            "mimetypes": "Повинен бути файл типу: {values}.",
+            "min": {
+                "numeric": "Значення має бути, щонайменше {min}.",
+                "file": "Розмір файлу повинен бути не менше {min} кілобайт.",
+                "string": "У рядку має бути не менше {min} символів.",
+                "array": "Значення повинно мати не менше {min} елементів."
+            },
+            "not_in": "Вибране значення недійсне.",
+            "not_regex": "Формат недійсний.",
+            "numeric": "Повинно бути число.",
+            "password": "Неправильний пароль.",
+            "present": "Поле повинне бути присутнім.",
+            "regex": "Формат недійсний.",
+            "required": "Це поле є обовязковим.",
+            "required_if": "Це поле обовязкове коли {other} є {value}.",
+            "required_unless": "Це поле обовязковим, якщо {other} інше не вказано у {values}.",
+            "required_with": "Це поле обовязкове коли {values} є.",
+            "required_with_all": "Це поле обовязкове коли {values} присутні.",
+            "required_without": "Це поле обовязкове, коли {values} значень немає.",
+            "required_without_all": "Це поле обовязковим, коли немає жодного з {values} присутні.",
+            "same": "Значення цього поля має відповідати значенню від {other}.",
+            "size": {
+                "numeric": "Значення повинно бути {size}.",
+                "file": "Розмір файлу повинен бути {size} кілобайт.",
+                "string": "У рядку має бути {size} символів.",
+                "array": "Вміст повинен містити {size} елементів."
+            },
+            "starts_with": "Повинно починатися з одного з наступних умов: {values}.",
+            "string": "повинна бути рядком.",
+            "timezone": "Має бути дійсною зоною.",
+            "unique": "Вже було взято.",
+            "uploaded": "Не вдалося завантажити.",
+            "url": "Цей формат недійсний.",
+            "uuid": "Має бути дійсним UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Ваш пароль змінено!",
+            "sent": "Ми надіслали на Вашу електронну адресу посилання для зміни пароля!",
+            "throttled": "Зачекайте, перш ніж повторити спробу.",
+            "token": "Код для зміни пароля вказано невірно.",
+            "user": "Користувача із вказаною електронною адресою не знайдено."
+        },
+        "pagination": {
+            "previous": "&laquo; Назад",
+            "next": "Далі &raquo;"
         }
     },
     "ur": {
         "auth": {
             "failed": "یہ تفصیلات ہمارے ریکارڈ سے مطابقت نہیں رکھتیں۔",
             "throttle": "لاگ اِن کرنے کی بہت زیادہ کوششیں۔ براہِ مہربانی {seconds} سیکنڈ میں دوبارہ کوشش کریں۔"
-        },
-        "pagination": {
-            "previous": "&laquo; گزشتہ",
-            "next": "آئندہ &raquo;"
-        },
-        "passwords": {
-            "reset": "آپ کا پاس ورڈ دوبارہ مرتب کر دیا گیا ہے۔",
-            "sent": "پاس ورڈ دوبارہ مرتب کرنے کے لیے ہم نے آپ کو لنک ای میل کر دیا ہے!",
-            "throttled": "Please wait before retrying.",
-            "token": "پاس ورڈ مرتب کرنے کا یہ طریقہ نا قابلِ قبول ہے۔",
-            "user": "اس ای میل پتے کے ساتھ ہمیں کوئی صارف نہیں ملا۔"
-        },
-        "validation-inline": {
-            "accepted": "This field must be accepted.",
-            "active_url": "This is not a valid URL.",
-            "after": "This must be a date after {date}.",
-            "after_or_equal": "This must be a date after or equal to {date}.",
-            "alpha": "This field may only contain letters.",
-            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
-            "alpha_num": "This field may only contain letters and numbers.",
-            "array": "This field must be an array.",
-            "before": "This must be a date before {date}.",
-            "before_or_equal": "This must be a date before or equal to {date}.",
-            "between": {
-                "numeric": "This value must be between {min} and {max}.",
-                "file": "This file must be between {min} and {max} kilobytes.",
-                "string": "This string must be between {min} and {max} characters.",
-                "array": "This content must have between {min} and {max} items."
-            },
-            "boolean": "This field must be true or false.",
-            "confirmed": "The confirmation does not match.",
-            "date": "This is not a valid date.",
-            "date_equals": "This must be a date equal to {date}.",
-            "date_format": "This does not match the format {format}.",
-            "different": "This value must be different from {other}.",
-            "digits": "This must be {digits} digits.",
-            "digits_between": "This must be between {min} and {max} digits.",
-            "dimensions": "This image has invalid dimensions.",
-            "distinct": "This field has a duplicate value.",
-            "email": "This must be a valid email address.",
-            "ends_with": "This must end with one of the following: {values}.",
-            "exists": "The selected value is invalid.",
-            "file": "The content must be a file.",
-            "filled": "This field must have a value.",
-            "gt": {
-                "numeric": "The value must be greater than {value}.",
-                "file": "The file size must be greater than {value} kilobytes.",
-                "string": "The string must be greater than {value} characters.",
-                "array": "The content must have more than {value} items."
-            },
-            "gte": {
-                "numeric": "The value must be greater than or equal {value}.",
-                "file": "The file size must be greater than or equal {value} kilobytes.",
-                "string": "The string must be greater than or equal {value} characters.",
-                "array": "The content must have {value} items or more."
-            },
-            "image": "This must be an image.",
-            "in": "The selected value is invalid.",
-            "in_array": "This value does not exist in {other}.",
-            "integer": "This must be an integer.",
-            "ip": "This must be a valid IP address.",
-            "ipv4": "This must be a valid IPv4 address.",
-            "ipv6": "This must be a valid IPv6 address.",
-            "json": "This must be a valid JSON string.",
-            "lt": {
-                "numeric": "The value must be less than {value}.",
-                "file": "The file size must be less than {value} kilobytes.",
-                "string": "The string must be less than {value} characters.",
-                "array": "The content must have less than {value} items."
-            },
-            "lte": {
-                "numeric": "The value must be less than or equal {value}.",
-                "file": "The file size must be less than or equal {value} kilobytes.",
-                "string": "The string must be less than or equal {value} characters.",
-                "array": "The content must not have more than {value} items."
-            },
-            "max": {
-                "numeric": "The value may not be greater than {max}.",
-                "file": "The file size may not be greater than {max} kilobytes.",
-                "string": "The string may not be greater than {max} characters.",
-                "array": "The content may not have more than {max} items."
-            },
-            "mimes": "This must be a file of type: {values}.",
-            "mimetypes": "This must be a file of type: {values}.",
-            "min": {
-                "numeric": "The value must be at least {min}.",
-                "file": "The file size must be at least {min} kilobytes.",
-                "string": "The string must be at least {min} characters.",
-                "array": "The value must have at least {min} items."
-            },
-            "not_in": "The selected value is invalid.",
-            "not_regex": "This format is invalid.",
-            "numeric": "This must be a number.",
-            "password": "The password is incorrect.",
-            "present": "This field must be present.",
-            "regex": "This format is invalid.",
-            "required": "This field is required.",
-            "required_if": "This field is required when {other} is {value}.",
-            "required_unless": "This field is required unless {other} is in {values}.",
-            "required_with": "This field is required when {values} is present.",
-            "required_with_all": "This field is required when {values} are present.",
-            "required_without": "This field is required when {values} is not present.",
-            "required_without_all": "This field is required when none of {values} are present.",
-            "same": "The value of this field must match the one from {other}.",
-            "size": {
-                "numeric": "The value must be {size}.",
-                "file": "The file size must be {size} kilobytes.",
-                "string": "The string must be {size} characters.",
-                "array": "The content must contain {size} items."
-            },
-            "starts_with": "This must start with one of the following: {values}.",
-            "string": "This must be a string.",
-            "timezone": "This must be a valid zone.",
-            "unique": "This has already been taken.",
-            "uploaded": "This failed to upload.",
-            "url": "This format is invalid.",
-            "uuid": "This must be a valid UUID.",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            }
         },
         "validation": {
             "accepted": "{attribute} تسلیم کرنا لازمی ہے۔",
@@ -18365,23 +18243,6 @@ export default {
                 "result_text_under_image": "تصویر کے تحت نتیجے کا متن",
                 "short_text": "مختصر متن"
             }
-        }
-    },
-    "uz_Cyrillic": {
-        "auth": {
-            "failed": "Бундай маълумотларга эга фойдаланувчи мавжуд эмас.",
-            "throttle": "Кириш учун жуда кўп урунишлар аниқланди. Илтимос {seconds} сониядан сўнг яна уриниб кўринг."
-        },
-        "pagination": {
-            "previous": "&laquo; Олдинги",
-            "next": "Кейинги &raquo;"
-        },
-        "passwords": {
-            "reset": "Сизнинг калит сўзингиз тикланди!",
-            "sent": "Калит сўзни тиклаш ҳаволасини электрон почта орқали юбордик!",
-            "throttled": "Please wait before retrying.",
-            "token": "Ушбу калит сўзни қайта тиклаш белгиси (token) нотўғри.",
-            "user": "Ушбу электрон почта манзилли фойдаланувчи топилмади."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -18493,6 +18354,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "آپ کا پاس ورڈ دوبارہ مرتب کر دیا گیا ہے۔",
+            "sent": "پاس ورڈ دوبارہ مرتب کرنے کے لیے ہم نے آپ کو لنک ای میل کر دیا ہے!",
+            "throttled": "Please wait before retrying.",
+            "token": "پاس ورڈ مرتب کرنے کا یہ طریقہ نا قابلِ قبول ہے۔",
+            "user": "اس ای میل پتے کے ساتھ ہمیں کوئی صارف نہیں ملا۔"
+        },
+        "pagination": {
+            "previous": "&laquo; گزشتہ",
+            "next": "آئندہ &raquo;"
+        }
+    },
+    "uz_Cyrillic": {
+        "auth": {
+            "failed": "Бундай маълумотларга эга фойдаланувчи мавжуд эмас.",
+            "throttle": "Кириш учун жуда кўп урунишлар аниқланди. Илтимос {seconds} сониядан сўнг яна уриниб кўринг."
         },
         "validation": {
             "accepted": "{Attribute} майдонини қабул қилишингиз керак.",
@@ -18605,23 +18483,6 @@ export default {
                 }
             },
             "attributes": []
-        }
-    },
-    "uz_Latin": {
-        "auth": {
-            "failed": "Bunday maʼlumotlarga ega foydalanuvchi mavjud emas.",
-            "throttle": "Kirish uchun juda ko‘p urunishlar aniqlandi. Iltimos {seconds} soniyadan so‘ng yana urinib ko‘ring."
-        },
-        "pagination": {
-            "previous": "&laquo; Oldingi",
-            "next": "Keyingi &raquo;"
-        },
-        "passwords": {
-            "reset": "Sizning parolingiz tiklandi!",
-            "sent": "Parolni tiklash havolasini elektron pochta orqali yubordik!",
-            "throttled": "Iltimos birozdan so‘ng qayta urinib ko‘ring.",
-            "token": "Ushbu parolni qayta tiklash kodi noto‘g‘ri.",
-            "user": "Ushbu elektron pochta manziliga ega foydalanuvchi topilmadi."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -18733,6 +18594,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Сизнинг калит сўзингиз тикланди!",
+            "sent": "Калит сўзни тиклаш ҳаволасини электрон почта орқали юбордик!",
+            "throttled": "Please wait before retrying.",
+            "token": "Ушбу калит сўзни қайта тиклаш белгиси (token) нотўғри.",
+            "user": "Ушбу электрон почта манзилли фойдаланувчи топилмади."
+        },
+        "pagination": {
+            "previous": "&laquo; Олдинги",
+            "next": "Кейинги &raquo;"
+        }
+    },
+    "uz_Latin": {
+        "auth": {
+            "failed": "Bunday maʼlumotlarga ega foydalanuvchi mavjud emas.",
+            "throttle": "Kirish uchun juda ko‘p urunishlar aniqlandi. Iltimos {seconds} soniyadan so‘ng yana urinib ko‘ring."
         },
         "validation": {
             "accepted": "{attribute} maydonini qabul qilishingiz kerak.",
@@ -18875,23 +18753,6 @@ export default {
                 "available": "Mavjud",
                 "size": "O‘lcham"
             }
-        }
-    },
-    "vi": {
-        "auth": {
-            "failed": "Thông tin tài khoản không tìm thấy trong hệ thống.",
-            "throttle": "Vượt quá số lần đăng nhập cho phép. Vui lòng thử lại sau {seconds} giây."
-        },
-        "pagination": {
-            "previous": "&laquo; Trang sau",
-            "next": "Trang trước &raquo;"
-        },
-        "passwords": {
-            "reset": "Mật khẩu mới đã được cập nhật!",
-            "sent": "Hướng dẫn cấp lại mật khẩu đã được gửi!",
-            "throttled": "Please wait before retrying.",
-            "token": "Mã khôi phục mật khẩu không hợp lệ.",
-            "user": "Không tìm thấy người dùng với địa chỉ email này."
         },
         "validation-inline": {
             "accepted": "This field must be accepted.",
@@ -19003,6 +18864,23 @@ export default {
                     "rule-name": "custom-message"
                 }
             }
+        },
+        "passwords": {
+            "reset": "Sizning parolingiz tiklandi!",
+            "sent": "Parolni tiklash havolasini elektron pochta orqali yubordik!",
+            "throttled": "Iltimos birozdan so‘ng qayta urinib ko‘ring.",
+            "token": "Ushbu parolni qayta tiklash kodi noto‘g‘ri.",
+            "user": "Ushbu elektron pochta manziliga ega foydalanuvchi topilmadi."
+        },
+        "pagination": {
+            "previous": "&laquo; Oldingi",
+            "next": "Keyingi &raquo;"
+        }
+    },
+    "vi": {
+        "auth": {
+            "failed": "Thông tin tài khoản không tìm thấy trong hệ thống.",
+            "throttle": "Vượt quá số lần đăng nhập cho phép. Vui lòng thử lại sau {seconds} giây."
         },
         "validation": {
             "accepted": "Trường {attribute} phải được chấp nhận.",
@@ -19148,6 +19026,128 @@ export default {
                 "available": "có sẵn",
                 "size": "kích thước"
             }
+        },
+        "validation-inline": {
+            "accepted": "This field must be accepted.",
+            "active_url": "This is not a valid URL.",
+            "after": "This must be a date after {date}.",
+            "after_or_equal": "This must be a date after or equal to {date}.",
+            "alpha": "This field may only contain letters.",
+            "alpha_dash": "This field may only contain letters, numbers, dashes and underscores.",
+            "alpha_num": "This field may only contain letters and numbers.",
+            "array": "This field must be an array.",
+            "before": "This must be a date before {date}.",
+            "before_or_equal": "This must be a date before or equal to {date}.",
+            "between": {
+                "numeric": "This value must be between {min} and {max}.",
+                "file": "This file must be between {min} and {max} kilobytes.",
+                "string": "This string must be between {min} and {max} characters.",
+                "array": "This content must have between {min} and {max} items."
+            },
+            "boolean": "This field must be true or false.",
+            "confirmed": "The confirmation does not match.",
+            "date": "This is not a valid date.",
+            "date_equals": "This must be a date equal to {date}.",
+            "date_format": "This does not match the format {format}.",
+            "different": "This value must be different from {other}.",
+            "digits": "This must be {digits} digits.",
+            "digits_between": "This must be between {min} and {max} digits.",
+            "dimensions": "This image has invalid dimensions.",
+            "distinct": "This field has a duplicate value.",
+            "email": "This must be a valid email address.",
+            "ends_with": "This must end with one of the following: {values}.",
+            "exists": "The selected value is invalid.",
+            "file": "The content must be a file.",
+            "filled": "This field must have a value.",
+            "gt": {
+                "numeric": "The value must be greater than {value}.",
+                "file": "The file size must be greater than {value} kilobytes.",
+                "string": "The string must be greater than {value} characters.",
+                "array": "The content must have more than {value} items."
+            },
+            "gte": {
+                "numeric": "The value must be greater than or equal {value}.",
+                "file": "The file size must be greater than or equal {value} kilobytes.",
+                "string": "The string must be greater than or equal {value} characters.",
+                "array": "The content must have {value} items or more."
+            },
+            "image": "This must be an image.",
+            "in": "The selected value is invalid.",
+            "in_array": "This value does not exist in {other}.",
+            "integer": "This must be an integer.",
+            "ip": "This must be a valid IP address.",
+            "ipv4": "This must be a valid IPv4 address.",
+            "ipv6": "This must be a valid IPv6 address.",
+            "json": "This must be a valid JSON string.",
+            "lt": {
+                "numeric": "The value must be less than {value}.",
+                "file": "The file size must be less than {value} kilobytes.",
+                "string": "The string must be less than {value} characters.",
+                "array": "The content must have less than {value} items."
+            },
+            "lte": {
+                "numeric": "The value must be less than or equal {value}.",
+                "file": "The file size must be less than or equal {value} kilobytes.",
+                "string": "The string must be less than or equal {value} characters.",
+                "array": "The content must not have more than {value} items."
+            },
+            "max": {
+                "numeric": "The value may not be greater than {max}.",
+                "file": "The file size may not be greater than {max} kilobytes.",
+                "string": "The string may not be greater than {max} characters.",
+                "array": "The content may not have more than {max} items."
+            },
+            "mimes": "This must be a file of type: {values}.",
+            "mimetypes": "This must be a file of type: {values}.",
+            "min": {
+                "numeric": "The value must be at least {min}.",
+                "file": "The file size must be at least {min} kilobytes.",
+                "string": "The string must be at least {min} characters.",
+                "array": "The value must have at least {min} items."
+            },
+            "not_in": "The selected value is invalid.",
+            "not_regex": "This format is invalid.",
+            "numeric": "This must be a number.",
+            "password": "The password is incorrect.",
+            "present": "This field must be present.",
+            "regex": "This format is invalid.",
+            "required": "This field is required.",
+            "required_if": "This field is required when {other} is {value}.",
+            "required_unless": "This field is required unless {other} is in {values}.",
+            "required_with": "This field is required when {values} is present.",
+            "required_with_all": "This field is required when {values} are present.",
+            "required_without": "This field is required when {values} is not present.",
+            "required_without_all": "This field is required when none of {values} are present.",
+            "same": "The value of this field must match the one from {other}.",
+            "size": {
+                "numeric": "The value must be {size}.",
+                "file": "The file size must be {size} kilobytes.",
+                "string": "The string must be {size} characters.",
+                "array": "The content must contain {size} items."
+            },
+            "starts_with": "This must start with one of the following: {values}.",
+            "string": "This must be a string.",
+            "timezone": "This must be a valid zone.",
+            "unique": "This has already been taken.",
+            "uploaded": "This failed to upload.",
+            "url": "This format is invalid.",
+            "uuid": "This must be a valid UUID.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            }
+        },
+        "passwords": {
+            "reset": "Mật khẩu mới đã được cập nhật!",
+            "sent": "Hướng dẫn cấp lại mật khẩu đã được gửi!",
+            "throttled": "Please wait before retrying.",
+            "token": "Mã khôi phục mật khẩu không hợp lệ.",
+            "user": "Không tìm thấy người dùng với địa chỉ email này."
+        },
+        "pagination": {
+            "previous": "&laquo; Trang sau",
+            "next": "Trang trước &raquo;"
         }
     },
     "zh_CN": {
@@ -19155,16 +19155,147 @@ export default {
             "failed": "用户名或密码错误",
             "throttle": "您尝试的登录次数过多，请 {seconds} 秒后再试。"
         },
-        "pagination": {
-            "previous": "&laquo; 上一页",
-            "next": "下一页 &raquo;"
-        },
-        "passwords": {
-            "reset": "密码重置成功！",
-            "sent": "密码重置邮件已发送！",
-            "throttled": "请稍候再试。",
-            "token": "密码重置令牌无效。",
-            "user": "找不到该邮箱对应的用户。"
+        "validation": {
+            "accepted": "您必须接受 {attribute}。",
+            "active_url": "{attribute} 不是一个有效的网址。",
+            "after": "{attribute} 必须要晚于 {date}。",
+            "after_or_equal": "{attribute} 必须要等于 {date} 或更晚。",
+            "alpha": "{attribute} 只能由字母组成。",
+            "alpha_dash": "{attribute} 只能由字母、数字、短划线(-)和下划线(_)组成。",
+            "alpha_num": "{attribute} 只能由字母和数字组成。",
+            "array": "{attribute} 必须是一个数组。",
+            "before": "{attribute} 必须要早于 {date}。",
+            "before_or_equal": "{attribute} 必须要等于 {date} 或更早。",
+            "between": {
+                "numeric": "{attribute} 必须介于 {min} - {max} 之间。",
+                "file": "{attribute} 必须介于 {min} - {max} KB 之间。",
+                "string": "{attribute} 必须介于 {min} - {max} 个字符之间。",
+                "array": "{attribute} 必须只有 {min} - {max} 个单元。"
+            },
+            "boolean": "{attribute} 必须为布尔值。",
+            "confirmed": "{attribute} 两次输入不一致。",
+            "date": "{attribute} 不是一个有效的日期。",
+            "date_equals": "{attribute} 必须要等于 {date}。",
+            "date_format": "{attribute} 的格式必须为 {format}。",
+            "different": "{attribute} 和 {other} 必须不同。",
+            "digits": "{attribute} 必须是 {digits} 位数字。",
+            "digits_between": "{attribute} 必须是介于 {min} 和 {max} 位的数字。",
+            "dimensions": "{attribute} 图片尺寸不正确。",
+            "distinct": "{attribute} 已经存在。",
+            "email": "{attribute} 不是一个合法的邮箱。",
+            "ends_with": "{attribute} 必须以 {values} 为结尾。",
+            "exists": "{attribute} 不存在。",
+            "file": "{attribute} 必须是文件。",
+            "filled": "{attribute} 不能为空。",
+            "gt": {
+                "numeric": "{attribute} 必须大于 {value}。",
+                "file": "{attribute} 必须大于 {value} KB。",
+                "string": "{attribute} 必须多于 {value} 个字符。",
+                "array": "{attribute} 必须多于 {value} 个元素。"
+            },
+            "gte": {
+                "numeric": "{attribute} 必须大于或等于 {value}。",
+                "file": "{attribute} 必须大于或等于 {value} KB。",
+                "string": "{attribute} 必须多于或等于 {value} 个字符。",
+                "array": "{attribute} 必须多于或等于 {value} 个元素。"
+            },
+            "image": "{attribute} 必须是图片。",
+            "in": "已选的属性 {attribute} 无效。",
+            "in_array": "{attribute} 必须在 {other} 中。",
+            "integer": "{attribute} 必须是整数。",
+            "ip": "{attribute} 必须是有效的 IP 地址。",
+            "ipv4": "{attribute} 必须是有效的 IPv4 地址。",
+            "ipv6": "{attribute} 必须是有效的 IPv6 地址。",
+            "json": "{attribute} 必须是正确的 JSON 格式。",
+            "lt": {
+                "numeric": "{attribute} 必须小于 {value}。",
+                "file": "{attribute} 必须小于 {value} KB。",
+                "string": "{attribute} 必须少于 {value} 个字符。",
+                "array": "{attribute} 必须少于 {value} 个元素。"
+            },
+            "lte": {
+                "numeric": "{attribute} 必须小于或等于 {value}。",
+                "file": "{attribute} 必须小于或等于 {value} KB。",
+                "string": "{attribute} 必须少于或等于 {value} 个字符。",
+                "array": "{attribute} 必须少于或等于 {value} 个元素。"
+            },
+            "max": {
+                "numeric": "{attribute} 不能大于 {max}。",
+                "file": "{attribute} 不能大于 {max} KB。",
+                "string": "{attribute} 不能大于 {max} 个字符。",
+                "array": "{attribute} 最多只有 {max} 个单元。"
+            },
+            "mimes": "{attribute} 必须是一个 {values} 类型的文件。",
+            "mimetypes": "{attribute} 必须是一个 {values} 类型的文件。",
+            "min": {
+                "numeric": "{attribute} 必须大于等于 {min}。",
+                "file": "{attribute} 大小不能小于 {min} KB。",
+                "string": "{attribute} 至少为 {min} 个字符。",
+                "array": "{attribute} 至少有 {min} 个单元。"
+            },
+            "not_in": "已选的属性 {attribute} 非法。",
+            "not_regex": "{attribute} 的格式错误。",
+            "numeric": "{attribute} 必须是一个数字。",
+            "password": "密码错误",
+            "present": "{attribute} 必须存在。",
+            "regex": "{attribute} 格式不正确。",
+            "required": "{attribute} 不能为空。",
+            "required_if": "当 {other} 为 {value} 时 {attribute} 不能为空。",
+            "required_unless": "当 {other} 不为 {values} 时 {attribute} 不能为空。",
+            "required_with": "当 {values} 存在时 {attribute} 不能为空。",
+            "required_with_all": "当 {values} 存在时 {attribute} 不能为空。",
+            "required_without": "当 {values} 不存在时 {attribute} 不能为空。",
+            "required_without_all": "当 {values} 都不存在时 {attribute} 不能为空。",
+            "same": "{attribute} 和 {other} 必须相同。",
+            "size": {
+                "numeric": "{attribute} 大小必须为 {size}。",
+                "file": "{attribute} 大小必须为 {size} KB。",
+                "string": "{attribute} 必须是 {size} 个字符。",
+                "array": "{attribute} 必须为 {size} 个单元。"
+            },
+            "starts_with": "{attribute} 必须以 {values} 为开头。",
+            "string": "{attribute} 必须是一个字符串。",
+            "timezone": "{attribute} 必须是一个合法的时区值。",
+            "unique": "{attribute} 已经存在。",
+            "uploaded": "{attribute} 上传失败。",
+            "url": "{attribute} 格式不正确。",
+            "uuid": "{attribute} 必须是有效的 UUID。",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "名称",
+                "username": "用户名",
+                "email": "邮箱",
+                "first_name": "名",
+                "last_name": "姓",
+                "password": "密码",
+                "password_confirmation": "确认密码",
+                "city": "城市",
+                "country": "国家",
+                "address": "地址",
+                "phone": "电话",
+                "mobile": "手机",
+                "age": "年龄",
+                "sex": "性别",
+                "gender": "性别",
+                "day": "天",
+                "month": "月",
+                "year": "年",
+                "hour": "时",
+                "minute": "分",
+                "second": "秒",
+                "title": "标题",
+                "content": "内容",
+                "description": "描述",
+                "excerpt": "摘要",
+                "date": "日期",
+                "time": "时间",
+                "available": "可用的",
+                "size": "大小"
+            }
         },
         "validation-inline": {
             "accepted": "您必须接受。",
@@ -19308,147 +19439,16 @@ export default {
                 "size": "大小"
             }
         },
-        "validation": {
-            "accepted": "您必须接受 {attribute}。",
-            "active_url": "{attribute} 不是一个有效的网址。",
-            "after": "{attribute} 必须要晚于 {date}。",
-            "after_or_equal": "{attribute} 必须要等于 {date} 或更晚。",
-            "alpha": "{attribute} 只能由字母组成。",
-            "alpha_dash": "{attribute} 只能由字母、数字、短划线(-)和下划线(_)组成。",
-            "alpha_num": "{attribute} 只能由字母和数字组成。",
-            "array": "{attribute} 必须是一个数组。",
-            "before": "{attribute} 必须要早于 {date}。",
-            "before_or_equal": "{attribute} 必须要等于 {date} 或更早。",
-            "between": {
-                "numeric": "{attribute} 必须介于 {min} - {max} 之间。",
-                "file": "{attribute} 必须介于 {min} - {max} KB 之间。",
-                "string": "{attribute} 必须介于 {min} - {max} 个字符之间。",
-                "array": "{attribute} 必须只有 {min} - {max} 个单元。"
-            },
-            "boolean": "{attribute} 必须为布尔值。",
-            "confirmed": "{attribute} 两次输入不一致。",
-            "date": "{attribute} 不是一个有效的日期。",
-            "date_equals": "{attribute} 必须要等于 {date}。",
-            "date_format": "{attribute} 的格式必须为 {format}。",
-            "different": "{attribute} 和 {other} 必须不同。",
-            "digits": "{attribute} 必须是 {digits} 位数字。",
-            "digits_between": "{attribute} 必须是介于 {min} 和 {max} 位的数字。",
-            "dimensions": "{attribute} 图片尺寸不正确。",
-            "distinct": "{attribute} 已经存在。",
-            "email": "{attribute} 不是一个合法的邮箱。",
-            "ends_with": "{attribute} 必须以 {values} 为结尾。",
-            "exists": "{attribute} 不存在。",
-            "file": "{attribute} 必须是文件。",
-            "filled": "{attribute} 不能为空。",
-            "gt": {
-                "numeric": "{attribute} 必须大于 {value}。",
-                "file": "{attribute} 必须大于 {value} KB。",
-                "string": "{attribute} 必须多于 {value} 个字符。",
-                "array": "{attribute} 必须多于 {value} 个元素。"
-            },
-            "gte": {
-                "numeric": "{attribute} 必须大于或等于 {value}。",
-                "file": "{attribute} 必须大于或等于 {value} KB。",
-                "string": "{attribute} 必须多于或等于 {value} 个字符。",
-                "array": "{attribute} 必须多于或等于 {value} 个元素。"
-            },
-            "image": "{attribute} 必须是图片。",
-            "in": "已选的属性 {attribute} 无效。",
-            "in_array": "{attribute} 必须在 {other} 中。",
-            "integer": "{attribute} 必须是整数。",
-            "ip": "{attribute} 必须是有效的 IP 地址。",
-            "ipv4": "{attribute} 必须是有效的 IPv4 地址。",
-            "ipv6": "{attribute} 必须是有效的 IPv6 地址。",
-            "json": "{attribute} 必须是正确的 JSON 格式。",
-            "lt": {
-                "numeric": "{attribute} 必须小于 {value}。",
-                "file": "{attribute} 必须小于 {value} KB。",
-                "string": "{attribute} 必须少于 {value} 个字符。",
-                "array": "{attribute} 必须少于 {value} 个元素。"
-            },
-            "lte": {
-                "numeric": "{attribute} 必须小于或等于 {value}。",
-                "file": "{attribute} 必须小于或等于 {value} KB。",
-                "string": "{attribute} 必须少于或等于 {value} 个字符。",
-                "array": "{attribute} 必须少于或等于 {value} 个元素。"
-            },
-            "max": {
-                "numeric": "{attribute} 不能大于 {max}。",
-                "file": "{attribute} 不能大于 {max} KB。",
-                "string": "{attribute} 不能大于 {max} 个字符。",
-                "array": "{attribute} 最多只有 {max} 个单元。"
-            },
-            "mimes": "{attribute} 必须是一个 {values} 类型的文件。",
-            "mimetypes": "{attribute} 必须是一个 {values} 类型的文件。",
-            "min": {
-                "numeric": "{attribute} 必须大于等于 {min}。",
-                "file": "{attribute} 大小不能小于 {min} KB。",
-                "string": "{attribute} 至少为 {min} 个字符。",
-                "array": "{attribute} 至少有 {min} 个单元。"
-            },
-            "not_in": "已选的属性 {attribute} 非法。",
-            "not_regex": "{attribute} 的格式错误。",
-            "numeric": "{attribute} 必须是一个数字。",
-            "password": "密码错误",
-            "present": "{attribute} 必须存在。",
-            "regex": "{attribute} 格式不正确。",
-            "required": "{attribute} 不能为空。",
-            "required_if": "当 {other} 为 {value} 时 {attribute} 不能为空。",
-            "required_unless": "当 {other} 不为 {values} 时 {attribute} 不能为空。",
-            "required_with": "当 {values} 存在时 {attribute} 不能为空。",
-            "required_with_all": "当 {values} 存在时 {attribute} 不能为空。",
-            "required_without": "当 {values} 不存在时 {attribute} 不能为空。",
-            "required_without_all": "当 {values} 都不存在时 {attribute} 不能为空。",
-            "same": "{attribute} 和 {other} 必须相同。",
-            "size": {
-                "numeric": "{attribute} 大小必须为 {size}。",
-                "file": "{attribute} 大小必须为 {size} KB。",
-                "string": "{attribute} 必须是 {size} 个字符。",
-                "array": "{attribute} 必须为 {size} 个单元。"
-            },
-            "starts_with": "{attribute} 必须以 {values} 为开头。",
-            "string": "{attribute} 必须是一个字符串。",
-            "timezone": "{attribute} 必须是一个合法的时区值。",
-            "unique": "{attribute} 已经存在。",
-            "uploaded": "{attribute} 上传失败。",
-            "url": "{attribute} 格式不正确。",
-            "uuid": "{attribute} 必须是有效的 UUID。",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "attributes": {
-                "name": "名称",
-                "username": "用户名",
-                "email": "邮箱",
-                "first_name": "名",
-                "last_name": "姓",
-                "password": "密码",
-                "password_confirmation": "确认密码",
-                "city": "城市",
-                "country": "国家",
-                "address": "地址",
-                "phone": "电话",
-                "mobile": "手机",
-                "age": "年龄",
-                "sex": "性别",
-                "gender": "性别",
-                "day": "天",
-                "month": "月",
-                "year": "年",
-                "hour": "时",
-                "minute": "分",
-                "second": "秒",
-                "title": "标题",
-                "content": "内容",
-                "description": "描述",
-                "excerpt": "摘要",
-                "date": "日期",
-                "time": "时间",
-                "available": "可用的",
-                "size": "大小"
-            }
+        "passwords": {
+            "reset": "密码重置成功！",
+            "sent": "密码重置邮件已发送！",
+            "throttled": "请稍候再试。",
+            "token": "密码重置令牌无效。",
+            "user": "找不到该邮箱对应的用户。"
+        },
+        "pagination": {
+            "previous": "&laquo; 上一页",
+            "next": "下一页 &raquo;"
         }
     },
     "zh_HK": {
@@ -19456,16 +19456,147 @@ export default {
             "failed": "用戶名或密碼錯誤",
             "throttle": "登入次數過多，請在 {seconds} 秒後再試。"
         },
-        "pagination": {
-            "previous": "&laquo; 上一頁",
-            "next": "下一頁 &raquo;"
-        },
-        "passwords": {
-            "reset": "密碼重設已完成！",
-            "sent": "密碼重設電郵經已寄出！",
-            "throttled": "請稍候再試。",
-            "token": "密碼重設碼不正確。",
-            "user": "找不到該電郵地址所對應的用戶。"
+        "validation": {
+            "accepted": "必須接受 {attribute}。",
+            "active_url": "{attribute} 並非一個有效的網址。",
+            "after": "{attribute} 必須要晚於 {date}。",
+            "after_or_equal": "{attribute} 必須要等於 {date} 或更晚。",
+            "alpha": "{attribute} 只能以字母組成。",
+            "alpha_dash": "{attribute} 只能以字母、數字、連接線(-)及底線(_)組成。",
+            "alpha_num": "{attribute} 只能以字母及數字組成。",
+            "array": "{attribute} 必須為陣列。",
+            "before": "{attribute} 必須要早於 {date}。",
+            "before_or_equal": "{attribute} 必須要等於 {date} 或更早。",
+            "between": {
+                "numeric": "{attribute} 必須介乎 {min} 至 {max} 之間。",
+                "file": "{attribute} 必須介乎 {min} 至 {max} KB 之間。",
+                "string": "{attribute} 必須介乎 {min} 至 {max} 個字符之間。",
+                "array": "{attribute}: 必須有 {min} 至 {max} 個項目。"
+            },
+            "boolean": "{attribute} 必須是布爾值。",
+            "confirmed": "{attribute} 確認欄位的輸入並不相符。",
+            "date": "{attribute} 並非一個有效的日期。",
+            "date_equals": "{attribute} 必須等於 {date}。",
+            "date_format": "{attribute} 與 {format} 格式不相符。",
+            "different": "{attribute} 與 {other} 必須不同。",
+            "digits": "{attribute} 必須是 {digits} 位數字。",
+            "digits_between": "{attribute} 必須介乎 {min} 至 {max} 位數字。",
+            "dimensions": "{attribute} 圖片尺寸不正確。",
+            "distinct": "{attribute} 已經存在。",
+            "email": "{attribute} 必須是有效的電郵地址。",
+            "ends_with": "{attribute} 結尾必須包含下列之一：{values}。",
+            "exists": "{attribute} 不存在。",
+            "file": "{attribute} 必須是文件。",
+            "filled": "{attribute} 不能留空。",
+            "gt": {
+                "numeric": "{attribute} 必須大於 {value}。",
+                "file": "{attribute} 必須大於 {value} KB。",
+                "string": "{attribute} 必須多於 {value} 個字符。",
+                "array": "{attribute} 必須多於 {value} 個項目。"
+            },
+            "gte": {
+                "numeric": "{attribute} 必須大於或等於 {value}。",
+                "file": "{attribute} 必須大於或等於 {value} KB。",
+                "string": "{attribute} 必須多於或等於 {value} 個字符。",
+                "array": "{attribute} 必須多於或等於 {value} 個項目。"
+            },
+            "image": "{attribute} 必須是一張圖片。",
+            "in": "所揀選的 {attribute} 選項無效。",
+            "in_array": "{attribute} 沒有在 {other} 中。",
+            "integer": "{attribute} 必須是一個整數。",
+            "ip": "{attribute} 必須是一個有效的 IP 地址。",
+            "ipv4": "{attribute} 必須是一個有效的 IPv4 地址。",
+            "ipv6": "{attribute} 必須是一個有效的 IPv6 地址。",
+            "json": "{attribute} 必須是正確的 JSON 格式。",
+            "lt": {
+                "numeric": "{attribute} 必須小於 {value}。",
+                "file": "{attribute} 必須小於 {value} KB。",
+                "string": "{attribute} 必須少於 {value} 個字符。",
+                "array": "{attribute} 必須少於 {value} 個項目。"
+            },
+            "lte": {
+                "numeric": "{attribute} 必須小於或等於 {value}。",
+                "file": "{attribute} 必須小於或等於 {value} KB。",
+                "string": "{attribute} 必須少於或等於 {value} 個字符。",
+                "array": "{attribute} 必須少於或等於 {value} 個項目。"
+            },
+            "max": {
+                "numeric": "{attribute} 不能大於 {max}。",
+                "file": "{attribute} 不能大於 {max} KB。",
+                "string": "{attribute} 不能多於 {max} 個字符。",
+                "array": "{attribute} 不能多於 {max} 個項目。"
+            },
+            "mimes": "{attribute} 必須為 {values} 的檔案。",
+            "mimetypes": "{attribute} 必須為 {values} 的檔案。",
+            "min": {
+                "numeric": "{attribute} 不能小於 {min}。",
+                "file": "{attribute} 不能小於 {min} KB。",
+                "string": "{attribute} 不能小於 {min} 個字符。",
+                "array": "{attribute} 不能小於 {min} 個項目。"
+            },
+            "not_in": "所揀選的 {attribute} 選項無效。",
+            "not_regex": "{attribute} 的格式錯誤。",
+            "numeric": "{attribute} 必須為一個數字。",
+            "password": "密碼錯誤。",
+            "present": "{attribute} 必須存在。",
+            "regex": "{attribute} 的格式錯誤。",
+            "required": "{attribute} 不能留空。",
+            "required_if": "當 {other} 是 {value} 時 {attribute} 不能留空。",
+            "required_unless": "當 {other} 不是 {values} 時 {attribute} 不能留空。",
+            "required_with": "當 {values} 出現時 {attribute} 不能留空。",
+            "required_with_all": "當 {values} 出現時 {attribute} 不能留空。",
+            "required_without": "當 {values} 留空時 {attribute} field 不能留空。",
+            "required_without_all": "當 {values} 都不出現時 {attribute} 不能留空。",
+            "same": "{attribute} 與 {other} 必須相同。",
+            "size": {
+                "numeric": "{attribute} 的大小必須是 {size}。",
+                "file": "{attribute} 的大小必須是 {size} KB。",
+                "string": "{attribute} 必須是 {size} 個字符。",
+                "array": "{attribute} 必須是 {size} 個單元。"
+            },
+            "starts_with": "{attribute} 開頭必須包含下列之一：{values}。",
+            "string": "{attribute} 必須是一個字符串",
+            "timezone": "{attribute} 必須是一個正確的時區值。",
+            "unique": "{attribute} 已經存在。",
+            "uploaded": "{attribute} 上傳失敗。",
+            "url": "{attribute} 的格式錯誤。",
+            "uuid": "{attribute} 必須是有效的 UUID。",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "名稱",
+                "username": "使用者名",
+                "email": "電郵",
+                "first_name": "名",
+                "last_name": "姓",
+                "password": "密碼",
+                "password_confirmation": "確認密碼",
+                "city": "城市",
+                "country": "國家",
+                "address": "地址",
+                "phone": "電話",
+                "mobile": "手機",
+                "age": "年齡",
+                "sex": "性別",
+                "gender": "性別",
+                "day": "天",
+                "month": "月",
+                "year": "年",
+                "hour": "時",
+                "minute": "分",
+                "second": "秒",
+                "title": "標題",
+                "content": "內容",
+                "description": "描述",
+                "excerpt": "摘要",
+                "date": "日期",
+                "time": "時間",
+                "available": "可用的",
+                "size": "大小"
+            }
         },
         "validation-inline": {
             "accepted": "必須接受。",
@@ -19609,9 +19740,26 @@ export default {
                 "size": "大小"
             }
         },
+        "passwords": {
+            "reset": "密碼重設已完成！",
+            "sent": "密碼重設電郵經已寄出！",
+            "throttled": "請稍候再試。",
+            "token": "密碼重設碼不正確。",
+            "user": "找不到該電郵地址所對應的用戶。"
+        },
+        "pagination": {
+            "previous": "&laquo; 上一頁",
+            "next": "下一頁 &raquo;"
+        }
+    },
+    "zh_TW": {
+        "auth": {
+            "failed": "使用者名稱或密碼錯誤",
+            "throttle": "嘗試登入太多次，請在 {seconds} 秒後再試。"
+        },
         "validation": {
             "accepted": "必須接受 {attribute}。",
-            "active_url": "{attribute} 並非一個有效的網址。",
+            "active_url": "{attribute} 不是有效的網址。",
             "after": "{attribute} 必須要晚於 {date}。",
             "after_or_equal": "{attribute} 必須要等於 {date} 或更晚。",
             "alpha": "{attribute} 只能以字母組成。",
@@ -19621,94 +19769,94 @@ export default {
             "before": "{attribute} 必須要早於 {date}。",
             "before_or_equal": "{attribute} 必須要等於 {date} 或更早。",
             "between": {
-                "numeric": "{attribute} 必須介乎 {min} 至 {max} 之間。",
-                "file": "{attribute} 必須介乎 {min} 至 {max} KB 之間。",
-                "string": "{attribute} 必須介乎 {min} 至 {max} 個字符之間。",
-                "array": "{attribute}: 必須有 {min} 至 {max} 個項目。"
+                "numeric": "{attribute} 必須介於 {min} 至 {max} 之間。",
+                "file": "{attribute} 必須介於 {min} 至 {max} KB 之間。 ",
+                "string": "{attribute} 必須介於 {min} 至 {max} 個字元之間。",
+                "array": "{attribute}: 必須有 {min} - {max} 個元素。"
             },
-            "boolean": "{attribute} 必須是布爾值。",
-            "confirmed": "{attribute} 確認欄位的輸入並不相符。",
-            "date": "{attribute} 並非一個有效的日期。",
+            "boolean": "{attribute} 必須為布林值。",
+            "confirmed": "{attribute} 確認欄位的輸入不一致。",
+            "date": "{attribute} 不是有效的日期。",
             "date_equals": "{attribute} 必須等於 {date}。",
-            "date_format": "{attribute} 與 {format} 格式不相符。",
+            "date_format": "{attribute} 不符合 {format} 的格式。",
             "different": "{attribute} 與 {other} 必須不同。",
             "digits": "{attribute} 必須是 {digits} 位數字。",
-            "digits_between": "{attribute} 必須介乎 {min} 至 {max} 位數字。",
+            "digits_between": "{attribute} 必須介於 {min} 至 {max} 位數字。",
             "dimensions": "{attribute} 圖片尺寸不正確。",
             "distinct": "{attribute} 已經存在。",
-            "email": "{attribute} 必須是有效的電郵地址。",
+            "email": "{attribute} 必須是有效的 E-mail。",
             "ends_with": "{attribute} 結尾必須包含下列之一：{values}。",
             "exists": "{attribute} 不存在。",
-            "file": "{attribute} 必須是文件。",
+            "file": "{attribute} 必須是有效的檔案。",
             "filled": "{attribute} 不能留空。",
             "gt": {
                 "numeric": "{attribute} 必須大於 {value}。",
                 "file": "{attribute} 必須大於 {value} KB。",
-                "string": "{attribute} 必須多於 {value} 個字符。",
-                "array": "{attribute} 必須多於 {value} 個項目。"
+                "string": "{attribute} 必須多於 {value} 個字元。",
+                "array": "{attribute} 必須多於 {value} 個元素。"
             },
             "gte": {
                 "numeric": "{attribute} 必須大於或等於 {value}。",
                 "file": "{attribute} 必須大於或等於 {value} KB。",
-                "string": "{attribute} 必須多於或等於 {value} 個字符。",
-                "array": "{attribute} 必須多於或等於 {value} 個項目。"
+                "string": "{attribute} 必須多於或等於 {value} 個字元。",
+                "array": "{attribute} 必須多於或等於 {value} 個元素。"
             },
             "image": "{attribute} 必須是一張圖片。",
-            "in": "所揀選的 {attribute} 選項無效。",
+            "in": "所選擇的 {attribute} 選項無效。",
             "in_array": "{attribute} 沒有在 {other} 中。",
             "integer": "{attribute} 必須是一個整數。",
-            "ip": "{attribute} 必須是一個有效的 IP 地址。",
-            "ipv4": "{attribute} 必須是一個有效的 IPv4 地址。",
-            "ipv6": "{attribute} 必須是一個有效的 IPv6 地址。",
-            "json": "{attribute} 必須是正確的 JSON 格式。",
+            "ip": "{attribute} 必須是一個有效的 IP 位址。",
+            "ipv4": "{attribute} 必須是一個有效的 IPv4 位址。",
+            "ipv6": "{attribute} 必須是一個有效的 IPv6 位址。",
+            "json": "{attribute} 必須是正確的 JSON 字串。",
             "lt": {
                 "numeric": "{attribute} 必須小於 {value}。",
                 "file": "{attribute} 必須小於 {value} KB。",
-                "string": "{attribute} 必須少於 {value} 個字符。",
-                "array": "{attribute} 必須少於 {value} 個項目。"
+                "string": "{attribute} 必須少於 {value} 個字元。",
+                "array": "{attribute} 必須少於 {value} 個元素。"
             },
             "lte": {
                 "numeric": "{attribute} 必須小於或等於 {value}。",
                 "file": "{attribute} 必須小於或等於 {value} KB。",
-                "string": "{attribute} 必須少於或等於 {value} 個字符。",
-                "array": "{attribute} 必須少於或等於 {value} 個項目。"
+                "string": "{attribute} 必須少於或等於 {value} 個字元。",
+                "array": "{attribute} 必須少於或等於 {value} 個元素。"
             },
             "max": {
                 "numeric": "{attribute} 不能大於 {max}。",
                 "file": "{attribute} 不能大於 {max} KB。",
-                "string": "{attribute} 不能多於 {max} 個字符。",
-                "array": "{attribute} 不能多於 {max} 個項目。"
+                "string": "{attribute} 不能多於 {max} 個字元。",
+                "array": "{attribute} 最多有 {max} 個元素。"
             },
             "mimes": "{attribute} 必須為 {values} 的檔案。",
             "mimetypes": "{attribute} 必須為 {values} 的檔案。",
             "min": {
                 "numeric": "{attribute} 不能小於 {min}。",
                 "file": "{attribute} 不能小於 {min} KB。",
-                "string": "{attribute} 不能小於 {min} 個字符。",
-                "array": "{attribute} 不能小於 {min} 個項目。"
+                "string": "{attribute} 不能小於 {min} 個字元。",
+                "array": "{attribute} 至少有 {min} 個元素。"
             },
-            "not_in": "所揀選的 {attribute} 選項無效。",
+            "not_in": "所選擇的 {attribute} 選項無效。",
             "not_regex": "{attribute} 的格式錯誤。",
             "numeric": "{attribute} 必須為一個數字。",
-            "password": "密碼錯誤。",
+            "password": "密碼錯誤",
             "present": "{attribute} 必須存在。",
             "regex": "{attribute} 的格式錯誤。",
             "required": "{attribute} 不能留空。",
             "required_if": "當 {other} 是 {value} 時 {attribute} 不能留空。",
             "required_unless": "當 {other} 不是 {values} 時 {attribute} 不能留空。",
             "required_with": "當 {values} 出現時 {attribute} 不能留空。",
-            "required_with_all": "當 {values} 出現時 {attribute} 不能留空。",
+            "required_with_all": "當 {values} 出現時 {attribute} 不能為空。",
             "required_without": "當 {values} 留空時 {attribute} field 不能留空。",
             "required_without_all": "當 {values} 都不出現時 {attribute} 不能留空。",
             "same": "{attribute} 與 {other} 必須相同。",
             "size": {
                 "numeric": "{attribute} 的大小必須是 {size}。",
                 "file": "{attribute} 的大小必須是 {size} KB。",
-                "string": "{attribute} 必須是 {size} 個字符。",
-                "array": "{attribute} 必須是 {size} 個單元。"
+                "string": "{attribute} 必須是 {size} 個字元。",
+                "array": "{attribute} 必須是 {size} 個元素。"
             },
             "starts_with": "{attribute} 開頭必須包含下列之一：{values}。",
-            "string": "{attribute} 必須是一個字符串",
+            "string": "{attribute} 必須是一個字串。",
             "timezone": "{attribute} 必須是一個正確的時區值。",
             "unique": "{attribute} 已經存在。",
             "uploaded": "{attribute} 上傳失敗。",
@@ -19720,53 +19868,36 @@ export default {
                 }
             },
             "attributes": {
-                "name": "名稱",
-                "username": "使用者名",
-                "email": "電郵",
+                "address": "地址",
+                "age": "年齡",
+                "available": "可用的",
+                "city": "城市",
+                "content": "內容",
+                "country": "國家",
+                "date": "日期",
+                "day": "天",
+                "description": "描述",
+                "email": "E-mail",
+                "excerpt": "摘要",
                 "first_name": "名",
+                "gender": "性別",
+                "hour": "時",
                 "last_name": "姓",
+                "minute": "分",
+                "mobile": "手機",
+                "month": "月",
+                "name": "名稱",
                 "password": "密碼",
                 "password_confirmation": "確認密碼",
-                "city": "城市",
-                "country": "國家",
-                "address": "地址",
                 "phone": "電話",
-                "mobile": "手機",
-                "age": "年齡",
-                "sex": "性別",
-                "gender": "性別",
-                "day": "天",
-                "month": "月",
-                "year": "年",
-                "hour": "時",
-                "minute": "分",
                 "second": "秒",
-                "title": "標題",
-                "content": "內容",
-                "description": "描述",
-                "excerpt": "摘要",
-                "date": "日期",
+                "sex": "性別",
+                "size": "大小",
                 "time": "時間",
-                "available": "可用的",
-                "size": "大小"
+                "title": "標題",
+                "username": "使用者名稱",
+                "year": "年"
             }
-        }
-    },
-    "zh_TW": {
-        "auth": {
-            "failed": "使用者名稱或密碼錯誤",
-            "throttle": "嘗試登入太多次，請在 {seconds} 秒後再試。"
-        },
-        "pagination": {
-            "previous": "&laquo; 上一頁",
-            "next": "下一頁 &raquo;"
-        },
-        "passwords": {
-            "reset": "密碼已成功重設！",
-            "sent": "密碼重設郵件已發送！",
-            "throttled": "請稍候再試。",
-            "token": "密碼重設碼無效。",
-            "user": "找不到該 E-mail 對應的使用者。"
         },
         "validation-inline": {
             "accepted": "必須接受。",
@@ -19910,147 +20041,16 @@ export default {
                 "year": "年"
             }
         },
-        "validation": {
-            "accepted": "必須接受 {attribute}。",
-            "active_url": "{attribute} 不是有效的網址。",
-            "after": "{attribute} 必須要晚於 {date}。",
-            "after_or_equal": "{attribute} 必須要等於 {date} 或更晚。",
-            "alpha": "{attribute} 只能以字母組成。",
-            "alpha_dash": "{attribute} 只能以字母、數字、連接線(-)及底線(_)組成。",
-            "alpha_num": "{attribute} 只能以字母及數字組成。",
-            "array": "{attribute} 必須為陣列。",
-            "before": "{attribute} 必須要早於 {date}。",
-            "before_or_equal": "{attribute} 必須要等於 {date} 或更早。",
-            "between": {
-                "numeric": "{attribute} 必須介於 {min} 至 {max} 之間。",
-                "file": "{attribute} 必須介於 {min} 至 {max} KB 之間。 ",
-                "string": "{attribute} 必須介於 {min} 至 {max} 個字元之間。",
-                "array": "{attribute}: 必須有 {min} - {max} 個元素。"
-            },
-            "boolean": "{attribute} 必須為布林值。",
-            "confirmed": "{attribute} 確認欄位的輸入不一致。",
-            "date": "{attribute} 不是有效的日期。",
-            "date_equals": "{attribute} 必須等於 {date}。",
-            "date_format": "{attribute} 不符合 {format} 的格式。",
-            "different": "{attribute} 與 {other} 必須不同。",
-            "digits": "{attribute} 必須是 {digits} 位數字。",
-            "digits_between": "{attribute} 必須介於 {min} 至 {max} 位數字。",
-            "dimensions": "{attribute} 圖片尺寸不正確。",
-            "distinct": "{attribute} 已經存在。",
-            "email": "{attribute} 必須是有效的 E-mail。",
-            "ends_with": "{attribute} 結尾必須包含下列之一：{values}。",
-            "exists": "{attribute} 不存在。",
-            "file": "{attribute} 必須是有效的檔案。",
-            "filled": "{attribute} 不能留空。",
-            "gt": {
-                "numeric": "{attribute} 必須大於 {value}。",
-                "file": "{attribute} 必須大於 {value} KB。",
-                "string": "{attribute} 必須多於 {value} 個字元。",
-                "array": "{attribute} 必須多於 {value} 個元素。"
-            },
-            "gte": {
-                "numeric": "{attribute} 必須大於或等於 {value}。",
-                "file": "{attribute} 必須大於或等於 {value} KB。",
-                "string": "{attribute} 必須多於或等於 {value} 個字元。",
-                "array": "{attribute} 必須多於或等於 {value} 個元素。"
-            },
-            "image": "{attribute} 必須是一張圖片。",
-            "in": "所選擇的 {attribute} 選項無效。",
-            "in_array": "{attribute} 沒有在 {other} 中。",
-            "integer": "{attribute} 必須是一個整數。",
-            "ip": "{attribute} 必須是一個有效的 IP 位址。",
-            "ipv4": "{attribute} 必須是一個有效的 IPv4 位址。",
-            "ipv6": "{attribute} 必須是一個有效的 IPv6 位址。",
-            "json": "{attribute} 必須是正確的 JSON 字串。",
-            "lt": {
-                "numeric": "{attribute} 必須小於 {value}。",
-                "file": "{attribute} 必須小於 {value} KB。",
-                "string": "{attribute} 必須少於 {value} 個字元。",
-                "array": "{attribute} 必須少於 {value} 個元素。"
-            },
-            "lte": {
-                "numeric": "{attribute} 必須小於或等於 {value}。",
-                "file": "{attribute} 必須小於或等於 {value} KB。",
-                "string": "{attribute} 必須少於或等於 {value} 個字元。",
-                "array": "{attribute} 必須少於或等於 {value} 個元素。"
-            },
-            "max": {
-                "numeric": "{attribute} 不能大於 {max}。",
-                "file": "{attribute} 不能大於 {max} KB。",
-                "string": "{attribute} 不能多於 {max} 個字元。",
-                "array": "{attribute} 最多有 {max} 個元素。"
-            },
-            "mimes": "{attribute} 必須為 {values} 的檔案。",
-            "mimetypes": "{attribute} 必須為 {values} 的檔案。",
-            "min": {
-                "numeric": "{attribute} 不能小於 {min}。",
-                "file": "{attribute} 不能小於 {min} KB。",
-                "string": "{attribute} 不能小於 {min} 個字元。",
-                "array": "{attribute} 至少有 {min} 個元素。"
-            },
-            "not_in": "所選擇的 {attribute} 選項無效。",
-            "not_regex": "{attribute} 的格式錯誤。",
-            "numeric": "{attribute} 必須為一個數字。",
-            "password": "密碼錯誤",
-            "present": "{attribute} 必須存在。",
-            "regex": "{attribute} 的格式錯誤。",
-            "required": "{attribute} 不能留空。",
-            "required_if": "當 {other} 是 {value} 時 {attribute} 不能留空。",
-            "required_unless": "當 {other} 不是 {values} 時 {attribute} 不能留空。",
-            "required_with": "當 {values} 出現時 {attribute} 不能留空。",
-            "required_with_all": "當 {values} 出現時 {attribute} 不能為空。",
-            "required_without": "當 {values} 留空時 {attribute} field 不能留空。",
-            "required_without_all": "當 {values} 都不出現時 {attribute} 不能留空。",
-            "same": "{attribute} 與 {other} 必須相同。",
-            "size": {
-                "numeric": "{attribute} 的大小必須是 {size}。",
-                "file": "{attribute} 的大小必須是 {size} KB。",
-                "string": "{attribute} 必須是 {size} 個字元。",
-                "array": "{attribute} 必須是 {size} 個元素。"
-            },
-            "starts_with": "{attribute} 開頭必須包含下列之一：{values}。",
-            "string": "{attribute} 必須是一個字串。",
-            "timezone": "{attribute} 必須是一個正確的時區值。",
-            "unique": "{attribute} 已經存在。",
-            "uploaded": "{attribute} 上傳失敗。",
-            "url": "{attribute} 的格式錯誤。",
-            "uuid": "{attribute} 必須是有效的 UUID。",
-            "custom": {
-                "attribute-name": {
-                    "rule-name": "custom-message"
-                }
-            },
-            "attributes": {
-                "address": "地址",
-                "age": "年齡",
-                "available": "可用的",
-                "city": "城市",
-                "content": "內容",
-                "country": "國家",
-                "date": "日期",
-                "day": "天",
-                "description": "描述",
-                "email": "E-mail",
-                "excerpt": "摘要",
-                "first_name": "名",
-                "gender": "性別",
-                "hour": "時",
-                "last_name": "姓",
-                "minute": "分",
-                "mobile": "手機",
-                "month": "月",
-                "name": "名稱",
-                "password": "密碼",
-                "password_confirmation": "確認密碼",
-                "phone": "電話",
-                "second": "秒",
-                "sex": "性別",
-                "size": "大小",
-                "time": "時間",
-                "title": "標題",
-                "username": "使用者名稱",
-                "year": "年"
-            }
+        "passwords": {
+            "reset": "密碼已成功重設！",
+            "sent": "密碼重設郵件已發送！",
+            "throttled": "請稍候再試。",
+            "token": "密碼重設碼無效。",
+            "user": "找不到該 E-mail 對應的使用者。"
+        },
+        "pagination": {
+            "previous": "&laquo; 上一頁",
+            "next": "下一頁 &raquo;"
         }
     }
 }

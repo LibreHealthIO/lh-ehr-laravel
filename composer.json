@@ -21,7 +21,12 @@
             "role": "Maintainer"
         }
     ],
-    "repositories": [],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/muarachmann/laravel-vue-i18n-generator.git"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
@@ -55,7 +60,7 @@
         "laravel/pint": "^1.15",
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
-        "testmonitor/laravel-vue-i18n-generator": "^3.0",
+        "muarachmann/laravel-vue-i18n-generator": "dev-l12",
         "nunomaduro/collision": "^8.1",
         "phpunit/phpunit": "^11.0",
         "spatie/laravel-ignition": "^2.4",

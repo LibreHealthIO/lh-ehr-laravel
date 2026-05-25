@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f4b6f2f15adaa187569c17925454b2f",
+    "content-hash": "4c1ef21aba8f10b6af94d5702b21fe2e",
     "packages": [
         {
             "name": "brick/math",
@@ -9377,6 +9377,68 @@
             "time": "2024-05-16T03:13:13+00:00"
         },
         {
+            "name": "muarachmann/laravel-vue-i18n-generator",
+            "version": "dev-l12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/muarachmann/laravel-vue-i18n-generator.git",
+                "reference": "1873ae049b994623b559497cfdca14afc7d2d1a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/muarachmann/laravel-vue-i18n-generator/zipball/1873ae049b994623b559497cfdca14afc7d2d1a9",
+                "reference": "1873ae049b994623b559497cfdca14afc7d2d1a9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "illuminate/console": "^8.0||^9.0||^10.0||^11.0||^12.0",
+                "illuminate/support": "^8.0||^9.0||^10.0||^11.0||^12.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MartinLindhe\\VueInternationalizationGenerator\\GeneratorProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MartinLindhe\\VueInternationalizationGenerator\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Lindhe",
+                    "email": "martin@ubique.se"
+                },
+                {
+                    "name": "Mua Rachmann",
+                    "email": "muarachmann@gmail.com"
+                }
+            ],
+            "description": "Generates a vue-i18n compatible include file from your Laravel translations.",
+            "homepage": "http://github.com/muarachmann/laravel-vue-i18n-generator",
+            "keywords": [
+                "laravel",
+                "vue-i18n"
+            ],
+            "support": {
+                "source": "https://github.com/muarachmann/laravel-vue-i18n-generator/tree/l12",
+                "issues": "https://github.com/muarachmann/laravel-vue-i18n-generator/issues"
+            },
+            "time": "2026-03-06T01:44:38+00:00"
+        },
+        {
             "name": "myclabs/deep-copy",
             "version": "1.13.4",
             "source": {
@@ -11762,81 +11824,6 @@
             "time": "2026-05-20T07:20:23+00:00"
         },
         {
-            "name": "testmonitor/laravel-vue-i18n-generator",
-            "version": "v3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/testmonitor/laravel-vue-i18n-generator.git",
-                "reference": "8f41e3bf69d5a0fe383e182c37c88fb66a10be50"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/testmonitor/laravel-vue-i18n-generator/zipball/8f41e3bf69d5a0fe383e182c37c88fb66a10be50",
-                "reference": "8f41e3bf69d5a0fe383e182c37c88fb66a10be50",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^11.0|^12.0",
-                "php": "^8.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.1",
-                "orchestra/testbench": "^9.0|^10.0",
-                "phpunit/phpunit": "^11.1",
-                "squizlabs/php_codesniffer": "^3.5.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "TestMonitor\\VueI18nGenerator\\VueI18nGeneratorServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "TestMonitor\\VueI18nGenerator\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thijs Kok",
-                    "email": "tkok@testmonitor.com",
-                    "homepage": "https://www.testmonitor.com/",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Stephan Grootveld",
-                    "email": "sgrootveld@testmonitor.com",
-                    "homepage": "https://www.testmonitor.com/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Frank Keulen",
-                    "email": "fkeulen@testmonitor.com",
-                    "homepage": "https://www.testmonitor.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This package compiles your Laravel translation files into a Vue i18n compatible JSON file.",
-            "homepage": "https://github.com/testmonitor/laravel-vue-i18n-generator",
-            "keywords": [
-                "laravel",
-                "laravel-vue-i18n-generator",
-                "testmonitor",
-                "vue-i18n"
-            ],
-            "support": {
-                "issues": "https://github.com/testmonitor/laravel-vue-i18n-generator/issues",
-                "source": "https://github.com/testmonitor/laravel-vue-i18n-generator/tree/v3.0.0"
-            },
-            "time": "2025-04-09T13:35:32+00:00"
-        },
-        {
             "name": "theseer/tokenizer",
             "version": "1.3.1",
             "source": {
@@ -11889,7 +11876,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "muarachmann/laravel-vue-i18n-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
