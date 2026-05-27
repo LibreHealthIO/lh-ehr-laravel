@@ -32,13 +32,13 @@ class SecurityTestSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
 
-        DB::table('permission_role')->truncate();
-        DB::table('permission_user')->truncate();
-        DB::table('role_user')->truncate();
+        DB::table('permission_role')->delete();
+        DB::table('permission_user')->delete();
+        DB::table('role_user')->delete();
 
-        User::truncate();
-        Role::truncate();
-        Permission::truncate();
+        DB::table('users')->delete();
+        DB::table('roles')->delete();
+        DB::table('permissions')->delete();
 
         Schema::enableForeignKeyConstraints();
     }
@@ -265,7 +265,7 @@ class SecurityTestSeeder extends Seeder
             [
                 'role' => 'user',
                 'data' => [
-                    'username' => 'test_frontdesk',
+                    'username' => 'test_front_desk',
                     'email' => 'frontdesk@test.com',
                     'password' => $password,
                     'first_name' => 'Front',
@@ -287,7 +287,7 @@ class SecurityTestSeeder extends Seeder
             [
                 'role' => 'patient',
                 'data' => [
-                    'username' => 'test_patient',
+                    'username' => 'test_patient_user',
                     'email' => 'patient@test.com',
                     'password' => $password,
                     'first_name' => 'Test',
