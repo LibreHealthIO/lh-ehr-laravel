@@ -57,6 +57,7 @@ return [
     */
     'jsPath' => '/resources/app/',
     'jsFile' => '/resources/app/locales/translations.js',
+    'outputFile' => resource_path('app/locales/translations.js'),
 
     /*
     |--------------------------------------------------------------------------
