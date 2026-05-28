@@ -11,22 +11,24 @@
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
+        <testsuite name="Security">
+            <directory suffix=".php">./tests/Feature/Security</directory>
+        </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <source>
+        <include>
             <directory suffix=".php">./app</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </source>
     <php>
         <server name="APP_ENV" value="testing"/>
         <server name="BCRYPT_ROUNDS" value="4"/>
         <server name="CACHE_DRIVER" value="array"/>
-         <server name="DB_CONNECTION" value="mysql"/>
-         <server name="DB_DATABASE" value="lh_ehr_testing"/>
+        <server name="DB_CONNECTION" value="mysql"/>
+        <server name="DB_DATABASE" value="lh_ehr_testing"/>
         <server name="MAIL_MAILER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
         <server name="TELESCOPE_ENABLED" value="false"/>
     </php>
-
 </phpunit>
