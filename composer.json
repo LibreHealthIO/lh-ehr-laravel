@@ -47,7 +47,7 @@
         "propaganistas/laravel-phone": "^4.3",
         "psr/simple-cache": "^2.0",
         "pusher/pusher-php-server": "^7.2",
-        "santigarcor/laratrust": "^7.1",
+        "santigarcor/laratrust": "^8.3",
         "sentry/sentry-laravel": "^3.1",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-cookie-consent": "^3.2.2",

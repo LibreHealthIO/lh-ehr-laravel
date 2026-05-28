@@ -164,7 +164,7 @@ class SecurityTestSeeder extends Seeder
                 ->map(fn ($name) => $permissions[$name]->id)
                 ->toArray();
 
-            $roles[$roleName]->attachPermissions($permissionIds);
+            $roles[$roleName]->givePermissions($permissionIds);
         }
 
     }
@@ -311,7 +311,7 @@ class SecurityTestSeeder extends Seeder
 
             $user = User::create($entry['data']);
 
-            $user->attachRole($roles[$entry['role']]);
+            $user->addRole($roles[$entry['role']]);
         }
     }
 
