@@ -14,7 +14,6 @@ namespace Database\Factories\Patients;
 
 use App\Models\Patients\PatientContact;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
@@ -41,7 +40,6 @@ class PatientContactFactory extends Factory {
          */
 
         $contact_relationship = ['father', 'mother', 'spouse', 'siblings', 'son', 'daughter', 'friend', 'self'];
-        
 
         return [
             'provider_id'          => $this->faker->randomNumber($nbDigits = 4, $strict = false),
