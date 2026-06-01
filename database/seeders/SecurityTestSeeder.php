@@ -19,11 +19,9 @@ class SecurityTestSeeder extends Seeder
         $this->truncateTables();
 
         $roles = $this->seedRoles();
-
         $permissions = $this->seedPermissions();
-
+        
         $this->attachPermissionsToRoles($roles, $permissions);
-
         $this->seedUsers($roles);
     }
 
