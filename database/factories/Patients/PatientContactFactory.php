@@ -42,8 +42,6 @@ class PatientContactFactory extends Factory {
 
         $contact_relationship = ['father', 'mother', 'spouse', 'siblings', 'son', 'daughter', 'friend', 'self'];
         
-        $country = DB::table('world_countries')->inRandomOrder()->first();
-        $countryId = $country ? $country->id : 156;
 
         return [
             'provider_id'          => $this->faker->randomNumber($nbDigits = 4, $strict = false),
@@ -54,7 +52,7 @@ class PatientContactFactory extends Factory {
             'contact_relationship' => $contact_relationship[array_rand($contact_relationship, 1)],
             'patient_email'        => $this->faker->unique()->safeEmail,
             'county'               => Str::random(10),
-            'country_id'           => $countryId,
+            'country_id'           => 156,
         ];
     }
 }
