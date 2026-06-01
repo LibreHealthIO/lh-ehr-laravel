@@ -14,7 +14,6 @@ namespace Database\Factories;
 
 use App\Models\Address;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class AddressFactory extends Factory
@@ -33,8 +32,6 @@ class AddressFactory extends Factory
      */
     public function definition(): array
     {
-        
-
         return [
             'line1'      => $this->faker->streetName,
             'line2'      => $this->faker->streetAddress,
