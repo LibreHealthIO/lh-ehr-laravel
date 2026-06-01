@@ -34,20 +34,15 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         
-        $country = DB::table('world_countries')->inRandomOrder()->first();
-        $countryId = $country ? $country->id : 156;
-        
-        $city = DB::table('world_cities')->where('country_id', $countryId)->inRandomOrder()->first();
-        $cityId = $city ? $city->id : null;
 
         return [
             'line1'      => $this->faker->streetName,
             'line2'      => $this->faker->streetAddress,
-            'city_id'    => $cityId,
+            'city_id'    => 1,
             'state'      => $this->faker->state,
             'zip'        => $this->faker->postcode,
             'plus_four'  => Str::random(4),
-            'country_id' => $countryId,
+            'country_id' => 156,
         ];
     }
 }
