@@ -12,7 +12,7 @@ build_job:
         - apt-get install -yqq unzip libzip-dev
         - docker-php-ext-install zip
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-        - composer install --no-interaction --prefer-dist --no-progress --no-scripts
+        - composer install --no-interaction --prefer-dist --no-progress --no-scripts --ignore-platform-reqs
     artifacts:
         paths:
             - vendor/
