@@ -10,7 +10,7 @@ build_job:
     script:
         - apt-get update -yqq
         - apt-get install -yqq git unzip libzip-dev zip
-        - docker-php-ext-install zip
+        - docker-php-ext-install zip pcntl gd
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         - composer install --no-interaction --prefer-dist --no-progress --no-scripts
     artifacts:
