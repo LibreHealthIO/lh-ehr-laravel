@@ -9,8 +9,8 @@ build_job:
         - docker
     script:
         - apt-get update -yqq
-        - apt-get install -yqq git unzip libzip-dev zip
-        - docker-php-ext-install zip pcntl gd
+        - apt-get install -yqq unzip libzip-dev libpng-dev libxml2-dev
+        - docker-php-ext-install pdo_mysql zip gd bcmath soap pcntl
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         - composer install --no-interaction --prefer-dist --no-progress --no-scripts
     artifacts:
