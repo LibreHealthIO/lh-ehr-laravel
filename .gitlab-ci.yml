@@ -7,7 +7,7 @@ build_job:
     image: php:8.3
     tags:
         - docker
-    before_script:
+    script:
         - apt-get update -yqq
         - apt-get install -yqq git unzip libzip-dev zip
         - docker-php-ext-install zip
