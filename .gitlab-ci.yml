@@ -45,5 +45,6 @@ static-scanning-composer-audit:
         paths:
             - composer-audit-report.json
         expire_in: 1 week
+        when: always
     allow_failure: false
     
