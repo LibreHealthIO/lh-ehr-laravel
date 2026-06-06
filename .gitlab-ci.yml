@@ -31,4 +31,19 @@ static-scanning-lint:
             -not -path "*/node_modules/*"
             -print0 | xargs -0 -n1 -P$(nproc) php -l
     allow_failure: false
+
+static-scanning-composer-audit:
+    stage: static-scanning
+    image: composer:2
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - set -o pipefail
+        - composer audit --locked --format=json | tee composer-audit-report.json
+    artifacts:
+        paths:
+            - composer-audit-report.json
+        expire_in: 1 week
+    allow_failure: false
     
