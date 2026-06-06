@@ -14,11 +14,11 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Notification;
 use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 use Khsing\World\Models\Country;
-use Laratrust\Traits\LaratrustUserTrait;
+use Laratrust\Traits\HasRolesAndPermissions;
 
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
+    use HasRolesAndPermissions;
     use Notifiable;
     use SoftDeletes;
     use HasFactory;

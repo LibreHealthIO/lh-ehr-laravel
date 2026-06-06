@@ -47,4 +47,17 @@ static-scanning-composer-audit:
         expire_in: 1 week
         when: always
     allow_failure: false
-    
+
+static-scanning-larastan:
+    stage: static-scanning
+    image: php:8.3
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - apt-get update -yqq
+        - apt-get install -yqq unzip libzip-dev libpq-dev
+        - docker-php-ext-install zip pdo pdo_mysql
+        - cp .env.ci .env
+        - ./vendor/bin/phpstan analyse --no-progress
+    allow_failure: false
