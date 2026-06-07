@@ -12,7 +12,7 @@ build_job:
         - apt-get install -yqq unzip libzip-dev
         - docker-php-ext-install zip
         - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-        - composer install --no-interaction --prefer-dist --no-progress --no-scripts --ignore-platform-reqs
+        - composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs
     artifacts:
         paths:
             - vendor/
@@ -56,8 +56,8 @@ static-scanning-larastan:
         - docker
     script:
         - apt-get update -yqq
-        - apt-get install -yqq unzip libzip-dev libpq-dev
-        - docker-php-ext-install zip pdo pdo_mysql
+        - apt-get install -yqq libpq-dev
+        - docker-php-ext-install pdo pdo_mysql
         - cp .env.ci .env
         - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
     allow_failure: false
