@@ -1,0 +1,99 @@
+env:
+  contexts:
+    - name: "EHR-Context"
+      urls:
+        - "http://127.0.0.1:8000"
+      includePaths:
+        - "http://127.0.0.1:8000/.*"
+      excludePaths: []
+      authentication:
+        method: "form"
+        parameters:
+          loginPageUrl: "http://127.0.0.1:8000/login"
+          loginRequestUrl: "http://127.0.0.1:8000/login"
+          loginRequestBody: "account={%username%}&password={%password%}&_token={%csrf_token%}"
+        verification:
+          method: "response"
+          loggedInRegex: 'auth&quot;:\{&quot;user&quot;:\{'
+          loggedOutRegex: 'auth&quot;:\{&quot;user&quot;:null'
+      sessionManagement:
+        method: "cookie"
+        parameters: {}
+      users:
+        - name: "zap_admin"
+          credentials:
+            username: "zap-user"
+            password: "zap_password123"
+  parameters:
+    failOnError: true
+
+jobs:
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+      scanOnlyInScope: true
+
+  - type: requestor
+    parameters:
+      user: "zap_admin"
+    requests:
+      - url: "http://127.0.0.1:8000/dashboard"
+      - url: "http://127.0.0.1:8000/dashboard/calendar"
+      - url: "http://127.0.0.1:8000/dashboard/flow-board"
+      - url: "http://127.0.0.1:8000/dashboard/users"
+      - url: "http://127.0.0.1:8000/dashboard/facilities"
+      - url: "http://127.0.0.1:8000/dashboard/patients/load/data"
+      - url: "http://127.0.0.1:8000/dashboard/patients/100000"
+      - url: "http://127.0.0.1:8000/dashboard/patients/select/100000"
+      - url: "http://127.0.0.1:8000/dashboard/patients/100000/appointments"
+      - url: "http://127.0.0.1:8000/dashboard/patients/100000/history"
+      - url: "http://127.0.0.1:8000/dashboard/patients/100000/documents"
+      - url: "http://127.0.0.1:8000/secure.portal/admin"
+
+  - type: spider
+    parameters:
+      context: "EHR-Context"
+      user: "zap_admin"
+      maxDuration: 5
+
+  - type: spiderAjax
+    parameters:
+      context: "EHR-Context"
+      user: "zap_admin"
+      maxDuration: 10
+      browserId: "firefox-headless"
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 10
+
+  - type: activeScan
+    parameters:
+      context: "EHR-Context"
+      user: "zap_admin"
+      maxRuleDurationInMins: 5
+      maxScanDurationInMins: 20
+    policyDefinition:
+      defaultStrength: HIGH
+      rules:
+      - name: Cross Site Scripting (DOM Based)
+        id: 40026
+        threshold: "off"
+
+  - type: report
+    parameters:
+      template: traditional-json
+      reportDir: .
+      reportFile: zap_report.json
+      reportTitle: "OWASP ZAP Dynamic Scanning Report (JSON)"
+      reportDescription: "OWASP ZAP dynamic vulnerability scan of LibreHealth EHR"
+      displayReport: false
+
+  - type: report
+    parameters:
+      template: traditional-html
+      reportDir: .
+      reportFile: zap_report.html
+      reportTitle: "OWASP ZAP Dynamic Scanning Report (HTML)"
+      reportDescription: "OWASP ZAP dynamic vulnerability scan of LibreHealth EHR"
+      displayReport: false
