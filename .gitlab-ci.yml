@@ -1,6 +1,7 @@
 stages:
     - build
     - static-scanning
+    - dynamic-scanning
 
 build_job:
     stage: build
@@ -61,3 +62,51 @@ static-scanning-larastan:
         - cp .env.ci .env
         - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
     allow_failure: false
+
+dynamic-scanning-zap:
+    stage: dynamic-scanning
+    image: php:8.3
+    needs: [build_job]
+    tags:
+      - docker
+  
+    variables:
+      MYSQL_DATABASE: lh_ehr
+      MYSQL_ROOT_PASSWORD: passw0rd
+      DB_HOST: db
+      DB_CONNECTION: mysql
+      APP_ENV: testing
+      APP_DEBUG: "true"
+  
+    services:
+      - name: mysql:8.0
+        alias: db
+  
+    script:
+      - apt-get update -yqq
+      - apt-get install -yqq unzip libzip-dev wget openjdk-17-jre-headless
+      - docker-php-ext-install zip pdo pdo_mysql
+  
+      - cp .env.ci .env
+      - php artisan key:generate --force
+  
+      - php -r "while(!@fsockopen('db', 3306)){sleep(1);}"
+      - php artisan migrate --force
+      - php artisan db:seed --class=ZapSeeder --force
+  
+      - php artisan serve --host=127.0.0.1 --port=8000 &
+      - php -r "while(!@fsockopen('127.0.0.1', 8000)){sleep(1);}"
+  
+      - wget -q https://github.com/zaproxy/zaproxy/releases/download/v2.17.0/ZAP_2.17.0_Crossplatform.zip
+      - echo "REPLACE_WITH_REAL_SHA256  ZAP_2.17.0_Crossplatform.zip" | sha256sum -c -
+      - unzip -q ZAP_2.17.0_Crossplatform.zip
+      - ./ZAP_2.17.0/zap.sh -cmd -autorun zap-plan.yaml
+  
+    artifacts:
+      paths:
+        - zap_report.json
+        - zap_report.html
+      expire_in: 1 week
+      when: always
+  
+    allow_failure: true

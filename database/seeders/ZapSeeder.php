@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Address;
+use App\Models\Patients\Patient;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -44,5 +46,18 @@ class ZapSeeder extends Seeder
         if ($adminRole && !$user->hasRole('admin')) {
             $user->addRole($adminRole);
         }
+
+        /** 
+         * Seed a patient with a known PID for ZAP scan URLs.
+        */
+        Patient::updateOrCreate(
+            ['pid' => 100000],
+            [
+                'title' => 'Mr.',
+                'occupation' => 'Engineer',
+                'industry' => 'Engineering Firm',
+                'address_id' => Address::factory()->create()->id,
+            ]
+        );
     }
 }
