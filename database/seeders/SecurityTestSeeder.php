@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * This seeder creates a role-based test users for the MU security test suite.
@@ -169,6 +170,7 @@ class SecurityTestSeeder extends Seeder
 
     private function seedUsers($roles): void
     {
+        Model::unguard();
         $password = bcrypt('security_test_123');
 
         $users = [
@@ -311,6 +313,8 @@ class SecurityTestSeeder extends Seeder
 
             $user->addRole($roles[$entry['role']]);
         }
+           
+        Model::reguard();
     }
 
 }

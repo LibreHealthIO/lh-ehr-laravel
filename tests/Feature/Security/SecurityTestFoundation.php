@@ -3,15 +3,17 @@
 
 namespace Tests\Feature\Security;
 
+use App\Models\Permission;
+use Illuminate\Support\Facades\DB;
 use Tests\SecurityTestCase;
 
 /**
- * Smoke tests verifying the SecurityTestCase base class and SecurityTestSeeder.
+ * Tests for verifying the SecurityTestCase base class and SecurityTestSeeder.
  */
 
 class SecurityTestFoundation extends SecurityTestCase
 {
-    public function testAllSecurityTestUsersExist(): void
+    public function testSecurityTestUsersExist(): void
     {
         $expectedUsernames = [
             'test_super_admin',
@@ -27,14 +29,14 @@ class SecurityTestFoundation extends SecurityTestCase
         }
     }
 
-    public function testAllSecurityRolesExist(): void
+    public function testSecurityRolesExist(): void
     {
         foreach (['super_admin', 'admin', 'clinician', 'nurse', 'user', 'patient'] as $role) {
             $this->assertDatabaseHas('roles', ['name' => $role]);
         }
     }
 
-    public function testEachUserHasCorrectRole(): void
+    public function testUserRole(): void
     {
         $this->assertTrue($this->superAdmin->hasRole('super_admin'));
         $this->assertTrue($this->admin->hasRole('admin'));
@@ -45,34 +47,34 @@ class SecurityTestFoundation extends SecurityTestCase
     }
 
 
-    public function testSuperAdminHasManageUsersPermission(): void
+    public function testSuperAdminPermissions(): void
     {
         $this->assertTrue($this->superAdmin->isAbleTo('manage-users'));
     }
 
-    public function testClinicianHasManagePrescriptionsPermission(): void
+    public function testClinicianPermissions(): void
     {
         $this->assertTrue($this->clinician->isAbleTo('manage-prescriptions'));
     }
 
-    public function testNurseCannotManagePrescriptions(): void
+    public function testNursePermissions(): void
     {
         $this->assertFalse($this->nurse->isAbleTo('manage-prescriptions'));
     }
 
-    public function testFrontDeskCannotViewClinicalData(): void
+    public function testFrontDeskPermissions(): void
     {
         $this->assertFalse($this->frontDesk->isAbleTo('view-clinical-data'));
     }
 
-    public function testPatientHasLimitedPermissions(): void
+    public function testPatientPermissions(): void
     {
         $this->assertTrue($this->patientUser->isAbleTo('view-own-records'));
         $this->assertFalse($this->patientUser->isAbleTo('view-patients'));
         $this->assertFalse($this->patientUser->isAbleTo('manage-users'));
     }
 
-    public function testCreateTestPatientWithFaceSheet(): void
+    public function testPatientWithFaceSheet(): void
     {
         $patient = $this->createTestPatient();
 
@@ -83,7 +85,7 @@ class SecurityTestFoundation extends SecurityTestCase
         $this->assertDatabaseHas('patient_face_sheets', ['patient_id' => $patient->id]);
     }
 
-    public function testSecondTestPatientIsDistinct(): void
+    public function testSecondPatient(): void
     {
         $patient1 = $this->createTestPatient();
         $patient2 = $this->createSecondTestPatient();
@@ -94,12 +96,12 @@ class SecurityTestFoundation extends SecurityTestCase
     }
 
 
-    public function testDashboardRequiresAuthentication(): void
+    public function testDashboard(): void
     {
         $this->assertRouteRequiresAuth('GET', '/dashboard');
     }
 
-    public function testAdminPanelRequiresAuthentication(): void
+    public function testAdminPanel(): void
     {
         $this->assertRouteRequiresAuth('GET', '/secure.portal/admin');
     }
@@ -113,5 +115,26 @@ class SecurityTestFoundation extends SecurityTestCase
                 "[{$role}] password is not bcrypt hashed — plaintext credentials in DB"
             );
         }
+    }
+
+    public function testRolePermissions(): void
+    {
+        $allPermissions = Permission::pluck('id')->toArray();
+        $assignedPermissions = DB::table('permission_role')->pluck('permission_id')->unique()->toArray();
+        $orphaned = array_diff($allPermissions, $assignedPermissions);
+        $this->assertEmpty($orphaned, 'Found permissions in the database not assigned to any role.');
+    }
+
+    public function testAdminManageSettings(): void
+    {
+        $this->assertFalse($this->admin->isAbleTo('manage-settings'), 'Admin cannot manage the settings.');
+    }
+
+    public function testFrontDeskManagePatients(): void
+    {
+        $this->assertTrue(
+            $this->frontDesk->isAbleTo('manage-patients'),
+            'Front Desk must be able to manage patients'
+        );
     }
 }

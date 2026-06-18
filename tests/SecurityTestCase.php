@@ -7,13 +7,14 @@ use App\Models\Patients\PatientFaceSheet;
 use App\Models\User;
 use App\Models\Address;
 use Database\Seeders\SecurityTestSeeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\TestResponse;
 use Spatie\Activitylog\Models\Activity;
 
 /**
- * Base class for all security tests.
+ * Base class for MU-related security tests.
  */
 abstract class SecurityTestCase extends TestCase
 {
@@ -46,7 +47,6 @@ abstract class SecurityTestCase extends TestCase
 
     protected function setUp(): void
     {
-        Model::unguard();
         parent::setUp();
         $this->seed(SecurityTestSeeder::class);
         $this->loadTestUsers();
@@ -67,6 +67,12 @@ abstract class SecurityTestCase extends TestCase
     {
         $response = $this->call($method, $url, $data);
 
+        $this->assertNotEquals(
+            404,
+            $response->getStatusCode(),
+            "Route returned 404, verify the URL is correct before testing auth on [{$method} {$url}]"
+        );
+
         $this->assertTrue(
             in_array($response->getStatusCode(), [302, 401]),
             "Expected [{$method} {$url}] to require auth, got {$response->getStatusCode()}"
@@ -74,8 +80,9 @@ abstract class SecurityTestCase extends TestCase
 
         if ($response->getStatusCode() === 302) {
             $location = $response->headers->get('Location');
+            $path = parse_url($location, PHP_URL_PATH) ?? '/';
             $this->assertTrue(
-                str_contains($location, 'login') || str_contains($location, '/'),
+                str_contains($path, 'login') || $path === '/',
                 "Expected redirect to login, got: {$location}"
             );
         }
@@ -91,8 +98,9 @@ abstract class SecurityTestCase extends TestCase
     ): TestResponse {
         $response = $this->actingAs($user)->call($method, $url, $data);
 
-        $this->assertTrue(
-            in_array($response->getStatusCode(), [$expectedStatus, 302]),
+        $this->assertEquals(
+            $expectedStatus,
+            $response->getStatusCode(),
             "Expected [{$user->username}] to access [{$method} {$url}] ({$expectedStatus}), got {$response->getStatusCode()}"
         );
 
@@ -108,9 +116,10 @@ abstract class SecurityTestCase extends TestCase
     ): TestResponse {
         $response = $this->actingAs($user)->call($method, $url, $data);
 
-        $this->assertTrue(
-            in_array($response->getStatusCode(), [$expectedStatus, 302, 401]),
-            "Expected [{$user->username}] to be denied [{$method} {$url}], got {$response->getStatusCode()}"
+        $this->assertEquals(
+            $expectedStatus,
+            $response->getStatusCode(),
+            "Expected [{$user->username}] to be denied [{$method} {$url}] ({$expectedStatus}), got {$response->getStatusCode()}"
         );
 
         return $response;
@@ -169,6 +178,7 @@ abstract class SecurityTestCase extends TestCase
         ?User $user = null
     ): void {
         $actor = $user ?? $this->superAdmin;
+        $initialUserCount = DB::table('users')->count();
 
         $sqlErrorPatterns = [
             'SQLSTATE[',
@@ -196,6 +206,14 @@ abstract class SecurityTestCase extends TestCase
                     $pattern,
                     $content,
                     "DB error [{$pattern}] leaked in response for SQLi payload [{$name}] (field: {$field})"
+                );
+            }
+
+            if ($name === 'stacked_queries') {
+                $this->assertEquals(
+                    $initialUserCount,
+                    DB::table('users')->count(),
+                    "SQLi payload [{$name}] resulted in successful database mutation on [{$method} {$url}]"
                 );
             }
         }
@@ -245,7 +263,7 @@ abstract class SecurityTestCase extends TestCase
         }
     }
 
-    protected function assertIdorProtected(User $actor, string $method, string $url): void
+    protected function assertIdorProtected(User $actor, string $method, string $url, string $sensitiveData = null): void
     {
         $response = $this->actingAs($actor)->call($method, $url);
 
@@ -253,6 +271,14 @@ abstract class SecurityTestCase extends TestCase
             in_array($response->getStatusCode(), [403, 404, 302]),
             "IDOR: [{$actor->username}] reached [{$method} {$url}] — got {$response->getStatusCode()}"
         );
+
+        if ($sensitiveData) {
+            $this->assertStringNotContainsString(
+                $sensitiveData,
+                $response->getContent() ?? '',
+                "IDOR: Sensitive data leaked in response for [{$actor->username}] on [{$method} {$url}]"
+            );
+        }
     }
 
 
@@ -283,12 +309,17 @@ abstract class SecurityTestCase extends TestCase
 
     protected function createTestPatient(): Patient
     {
+       
+        static $pidCounter = 1000;
+
         $address = Address::factory()->create([
             'city_id' => null,
             'country_id' => null,
         ]);
+        
+        Model::unguard();
         $patient = Patient::create([
-            'pid'        => 'TEST-' . mt_rand(1000, 9999),
+            'pid'        => 'TEST-' . $pidCounter++,
             'title'      => 'Mr.',
             'occupation' => 'Software Engineer',
             'industry'   => 'Technology',
@@ -307,18 +338,24 @@ abstract class SecurityTestCase extends TestCase
             'email'          => 'john.test@patient.lh',
             'billing_note'   => 'Test billing note for security testing',
         ]);
+        Model::reguard();
 
         return $patient->fresh(['faceSheet']);
     }
 
     protected function createSecondTestPatient(): Patient
     {
+        
+        static $pidCounter2 = 5000;
+
         $address = Address::factory()->create([
             'city_id' => null,
             'country_id' => null,
         ]);
+        
+        Model::unguard();
         $patient = Patient::create([
-            'pid'        => 'TEST-' . mt_rand(5000, 9999),
+            'pid'        => 'TEST-' . $pidCounter2++,
             'title'      => 'Ms.',
             'occupation' => 'Teacher',
             'industry'   => 'Education',
@@ -337,6 +374,7 @@ abstract class SecurityTestCase extends TestCase
             'email'          => 'jane.other@patient.lh',
             'billing_note'   => 'Other patient billing note',
         ]);
+        Model::reguard();
 
         return $patient->fresh(['faceSheet']);
     }
