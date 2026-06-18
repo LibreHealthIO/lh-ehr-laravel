@@ -88,7 +88,7 @@ class Handler extends ExceptionHandler
      */
     private function redirectExpiredPage(): Response
     {
-        return Inertia::location(route('guest.index'));
+        return Inertia::location(route('index'));
     }
 
     private function getApiMessage(Response $response): string
