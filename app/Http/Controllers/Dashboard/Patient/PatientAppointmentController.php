@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Dashboard\Patient;
 
 use App\Http\Controllers\Controller;
-use App\Models\Facilities\Facility;
-use App\Models\Patients\Patient;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
