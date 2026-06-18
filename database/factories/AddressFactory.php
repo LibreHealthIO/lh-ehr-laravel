@@ -33,13 +33,13 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'line1' => $this->faker->streetName,
-            'line2' => $this->faker->streetAddress,
-            'city_id' => 4,
-            'state' => $this->faker->state,
-            'zip' => $this->faker->postcode,
-            'plus_four' => Str::random(4),
-            'country_id' => $this->faker->numberBetween(1, 248),
+            'line1'      => $this->faker->streetName,
+            'line2'      => $this->faker->streetAddress,
+            'city_id'    => 1,
+            'state'      => $this->faker->state,
+            'zip'        => $this->faker->postcode,
+            'plus_four'  => Str::random(4),
+            'country_id' => 156,
         ];
     }
 }
