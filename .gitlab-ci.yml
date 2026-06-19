@@ -1,6 +1,6 @@
 stages:
     - build
-    # - static-scanning
+    - static-scanning
     - dynamic-scanning
 
 cache:
@@ -108,9 +108,8 @@ dynamic-scanning-zap:
     DB_HOST: db
     DB_CONNECTION: mysql
     APP_ENV: testing
-    APP_DEBUG: "true"
+    APP_DEBUG: "false"
     APP_URL: "http://127.0.0.1:8000"
-    MAIL_MAILER: log
   cache:
     key: zap-binaries-cache
     paths:
@@ -118,13 +117,13 @@ dynamic-scanning-zap:
       - ZAP_2.17.0/
   script:
     - apt-get update -yqq
-    - apt-get install -yqq unzip libzip-dev wget default-jre-headless
+    - apt-get install -yqq unzip libzip-dev wget default-jre-headless default-mysql-client
     - docker-php-ext-install zip pdo pdo_mysql
 
     - cp .env.ci .env
     - php artisan key:generate --force
 
-    - php -r "while(!@fsockopen('db', 3306)){sleep(1);}"
+    - while ! mysqladmin ping -h"db" --silent; do sleep 1; done
     - php artisan migrate --force
     - php artisan db:seed --class=ZapSeeder --force
     - php artisan view:clear
@@ -145,7 +144,6 @@ dynamic-scanning-zap:
     paths:
       - zap_report.json
       - zap_report.html
-      - storage/logs/
     expire_in: 1 week
     when: always
   allow_failure: true

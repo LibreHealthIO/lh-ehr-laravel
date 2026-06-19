@@ -12,8 +12,11 @@ class PatientHistoryController extends Controller
 {
     public function index(Request $request, $id)
     {
-        $patient = Patient::find($id);
-        $history = $patient->history();
+        $patient = Patient::where('pid', $id)->first();
+        if (!$patient) {
+            abort(404, 'Patient not found');
+        }
+        $history = $patient->history;
         return Inertia::render('Patient/History', [
             'facilities' => Facility::all()
                 ->transform(function ($facility) {
@@ -27,4 +30,8 @@ class PatientHistoryController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        return redirect()->route('dashboard.patients.history', $id);
+    }
 }
