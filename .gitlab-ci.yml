@@ -102,10 +102,15 @@ dynamic-scanning-zap:
       - unzip -q ZAP_2.17.0_Crossplatform.zip
       - ./ZAP_2.17.0/zap.sh -cmd -silent -autorun $(pwd)/zap-plan.yaml
   
+    after_script:
+      - echo "Laravel Log:"
+      - if [ -f storage/logs/laravel.log ]; then tail -n 100 storage/logs/laravel.log; else echo "No Laravel log found."; fi
+
     artifacts:
       paths:
         - zap_report.json
         - zap_report.html
+        - storage/logs/
       expire_in: 1 week
       when: always
   
