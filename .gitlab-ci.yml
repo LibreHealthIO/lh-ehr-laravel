@@ -49,49 +49,49 @@ build_assets:
       - public/mix-manifest.json
     expire_in: 1 hour
 
-# static-scanning-lint:
-#     stage: static-scanning
-#     image: php:8.3
-#     needs: [build_job]
-#     tags:
-#         - docker
-#     script:
-#         - find app config routes database tests bootstrap
-#             -name "*.php"
-#             -not -path "*/vendor/*"
-#             -not -path "*/node_modules/*"
-#             -print0 | xargs -0 -n1 -P$(nproc) php -l
-#     allow_failure: false
+static-scanning-lint:
+    stage: static-scanning
+    image: php:8.3
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - find app config routes database tests bootstrap
+            -name "*.php"
+            -not -path "*/vendor/*"
+            -not -path "*/node_modules/*"
+            -print0 | xargs -0 -n1 -P$(nproc) php -l
+    allow_failure: false
 
-# static-scanning-composer-audit:
-#     stage: static-scanning
-#     image: composer:2
-#     needs: [build_job]
-#     tags:
-#         - docker
-#     script:
-#         - set -o pipefail
-#         - composer audit --locked --format=json | tee composer-audit-report.json
-#     artifacts:
-#         paths:
-#             - composer-audit-report.json
-#         expire_in: 1 week
-#         when: always
-#     allow_failure: false
+static-scanning-composer-audit:
+    stage: static-scanning
+    image: composer:2
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - set -o pipefail
+        - composer audit --locked --format=json | tee composer-audit-report.json
+    artifacts:
+        paths:
+            - composer-audit-report.json
+        expire_in: 1 week
+        when: always
+    allow_failure: false
 
-# static-scanning-larastan:
-#     stage: static-scanning
-#     image: php:8.3
-#     needs: [build_job]
-#     tags:
-#         - docker
-#     script:
-#         - apt-get update -yqq
-#         - apt-get install -yqq libpq-dev
-#         - docker-php-ext-install pdo pdo_mysql
-#         - cp .env.ci .env
-#         - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
-#     allow_failure: false
+static-scanning-larastan:
+    stage: static-scanning
+    image: php:8.3
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - apt-get update -yqq
+        - apt-get install -yqq libpq-dev
+        - docker-php-ext-install pdo pdo_mysql
+        - cp .env.ci .env
+        - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
+    allow_failure: false
 
 dynamic-scanning-zap:
   stage: dynamic-scanning
@@ -108,8 +108,9 @@ dynamic-scanning-zap:
     DB_HOST: db
     DB_CONNECTION: mysql
     APP_ENV: testing
-    APP_DEBUG: "false"
+    APP_DEBUG: "true"
     APP_URL: "http://127.0.0.1:8000"
+    MAIL_MAILER: "log"
   cache:
     key: zap-binaries-cache
     paths:
