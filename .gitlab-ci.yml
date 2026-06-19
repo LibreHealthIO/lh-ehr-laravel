@@ -1,7 +1,7 @@
 stages:
     - build
-    - static-scanning
-    # - dynamic-scanning
+    # - static-scanning
+    - dynamic-scanning
 
 build_job:
     stage: build
@@ -109,7 +109,7 @@ dynamic-scanning-zap:
         - storage/logs/
   
     after_script:
-      - echo "=== Laravel Errors ==="
+      - echo "Laravel Error"
       - if [ -f storage/logs/laravel.log ]; then grep -i "ERROR" storage/logs/laravel.log | tail -n 20; else echo "No Laravel log found."; fi
 
     artifacts:
