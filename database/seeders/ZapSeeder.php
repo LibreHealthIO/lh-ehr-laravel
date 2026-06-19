@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Address;
 use App\Models\Patients\Patient;
+use App\Models\Patients\PatientFaceSheet;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -40,6 +41,7 @@ class ZapSeeder extends Seeder
                 'new_crop_user_role' => 'NewCrop Admin',
                 'access_control' => 'Administrators',
                 'in_calendar' => 1,
+                'country_id' => 167,
             ]
         );
 
@@ -50,7 +52,7 @@ class ZapSeeder extends Seeder
         /** 
          * Seed a patient with a known PID for ZAP scan URLs.
         */
-        Patient::updateOrCreate(
+        $patient = Patient::updateOrCreate(
             ['pid' => 100000],
             [
                 'title' => 'Mr.',
@@ -59,5 +61,10 @@ class ZapSeeder extends Seeder
                 'address_id' => Address::factory()->create()->id,
             ]
         );
+
+        if (!$patient->faceSheet) {
+            $faceSheet = PatientFaceSheet::factory()->make();
+            $patient->faceSheet()->save($faceSheet);
+        }
     }
 }
