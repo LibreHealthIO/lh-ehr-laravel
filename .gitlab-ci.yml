@@ -94,6 +94,11 @@ dynamic-scanning-zap:
       - php artisan migrate --force
       - php artisan db:seed --class=ZapSeeder --force
   
+      - echo '{"\/css\/app.css":"\/css\/app.css","\/js\/app.js":"\/js\/app.js","\/js\/manifest.js":"\/js\/manifest.js","\/js\/vendor.js":"\/js\/vendor.js"}' > public/mix-manifest.json
+      - mkdir -p public/css public/js
+      - touch public/css/app.css public/js/app.js public/js/manifest.js public/js/vendor.js
+      - php artisan view:clear
+  
       - php artisan serve --host=127.0.0.1 --port=8000 &
       - php -r "while(!@fsockopen('127.0.0.1', 8000)){sleep(1);}"
   
