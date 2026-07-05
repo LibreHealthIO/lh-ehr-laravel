@@ -3,6 +3,9 @@ stages:
     - static-scanning
     - dynamic-scanning
 
+default:
+  image: $CI_REGISTRY_IMAGE:latest
+
 cache:
   key:
     files:
@@ -10,18 +13,22 @@ cache:
   paths:
     - vendor/
     - ~/.composer/cache
+  policy: pull
 
 build_job:
     stage: build
-    image: php:8.3
     tags:
         - docker
+    cache:
+        key:
+          files:
+            - composer.lock
+        paths:
+          - vendor/
+          - ~/.composer/cache
+        policy: pull-push
     script:
-        - apt-get update -yqq
-        - apt-get install -yqq unzip libzip-dev
-        - docker-php-ext-install zip
-        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-        - composer install --no-interaction --prefer-dist --no-progress --ignore-platform-reqs
+        - composer install --no-interaction --prefer-dist --no-progress
     artifacts:
         paths:
             - vendor/
@@ -30,6 +37,7 @@ build_job:
 build_assets:
   stage: build
   image: node:18-alpine
+  needs: []
   cache:
     key:
       files:
@@ -51,16 +59,12 @@ build_assets:
 
 static-scanning-lint:
     stage: static-scanning
-    image: php:8.3
     needs: [build_job]
     tags:
         - docker
+    cache: []
     script:
-        - find app config routes database tests bootstrap
-            -name "*.php"
-            -not -path "*/vendor/*"
-            -not -path "*/node_modules/*"
-            -print0 | xargs -0 -n1 -P$(nproc) php -l
+        - find app config routes database tests bootstrap -name "*.php" -not -path "*/vendor/*" -not -path "*/node_modules/*" -print0 | xargs -0 -n1 -P$(nproc) php -l
     allow_failure: false
 
 static-scanning-composer-audit:
@@ -69,6 +73,7 @@ static-scanning-composer-audit:
     needs: [build_job]
     tags:
         - docker
+    cache: []
     script:
         - set -o pipefail
         - composer audit --locked --format=json | tee composer-audit-report.json
@@ -81,21 +86,17 @@ static-scanning-composer-audit:
 
 static-scanning-larastan:
     stage: static-scanning
-    image: php:8.3
     needs: [build_job]
     tags:
         - docker
+    cache: []
     script:
-        - apt-get update -yqq
-        - apt-get install -yqq libpq-dev
-        - docker-php-ext-install pdo pdo_mysql
         - cp .env.ci .env
         - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
     allow_failure: false
 
 dynamic-scanning-zap:
   stage: dynamic-scanning
-  image: php:8.3
   needs: [build_job, build_assets]
   tags:
     - docker
@@ -117,10 +118,6 @@ dynamic-scanning-zap:
       - ZAP_2.17.0_Crossplatform.zip
       - ZAP_2.17.0/
   script:
-    - apt-get update -yqq
-    - apt-get install -yqq unzip libzip-dev wget default-jre-headless
-    - docker-php-ext-install zip pdo pdo_mysql
-
     - cp .env.ci .env
     - php artisan key:generate --force
 
