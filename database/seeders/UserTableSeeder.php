@@ -79,8 +79,8 @@ class UserTableSeeder extends Seeder
                 'in_calendar' => 0,
             ]);
             $user->save();
-            $user->attachRole($superAdminRole);
-            $superAdminRole->attachPermissions([$manageUsers]);
+            $user->addRole($superAdminRole);
+            $superAdminRole->givePermissions([$manageUsers]);
 
             // Admin user (default user to login with)
             $user = User::create([
@@ -102,8 +102,8 @@ class UserTableSeeder extends Seeder
                 'in_calendar' => 1,
             ]);
             $user->save();
-            $user->attachRole($adminRole);
-            $adminRole->attachPermissions([$manageUsers]);
+            $user->addRole($adminRole);
+            $adminRole->givePermissions([$manageUsers]);
 
         }
 

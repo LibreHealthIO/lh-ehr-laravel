@@ -42,15 +42,15 @@ class PatientContactFactory extends Factory {
         $contact_relationship = ['father', 'mother', 'spouse', 'siblings', 'son', 'daughter', 'friend', 'self'];
 
         return [
-            'provider_id' => $this->faker->randomNumber($nbDigits = 4, $strict = false),
-            'reference_provider_id' => $this->faker->randomNumber($nbDigits = 4, $strict = false),
-            'home_phone' => $this->faker->e164PhoneNumber,
-            'work_phone' => $this->faker->e164PhoneNumber,
-            'contact_phone' => $this->faker->e164PhoneNumber,
+            'provider_id'          => $this->faker->randomNumber($nbDigits = 4, $strict = false),
+            'reference_provider_id'=> $this->faker->randomNumber($nbDigits = 4, $strict = false),
+            'home_phone'           => $this->faker->e164PhoneNumber,
+            'work_phone'           => $this->faker->e164PhoneNumber,
+            'contact_phone'        => $this->faker->e164PhoneNumber,
             'contact_relationship' => $contact_relationship[array_rand($contact_relationship, 1)],
-            'patient_email' => $this->faker->unique()->safeEmail,
-            'county' => Str::random(10),
-            'country_id' => $this->faker->numberBetween(1, 248),
+            'patient_email'        => $this->faker->unique()->safeEmail,
+            'county'               => Str::random(10),
+            'country_id'           => 156,
         ];
     }
 }
