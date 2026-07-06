@@ -7,7 +7,6 @@ use App\Security\Findings\FindingNormalizer;
 use App\Security\Cvss\CvssScorer;
 use App\Security\Findings\Finding;
 use App\Security\Gate\SecurityGate;
-use App\Security\Reporting\GitLabReporter;
 
 class SecurityScoreCommand extends Command
 {
@@ -22,9 +21,6 @@ class SecurityScoreCommand extends Command
                             {--zap=zap_report.json : Path to the OWASP ZAP report}
                             {--output-findings=findings.json : Path to save compiled raw findings (Layer 1)}
                             {--output-scored=scored_findings.json : Path to save scored findings (Layer 3)}
-                            {--output-gitlab-sast=gl-sast-report.json : Path to save GitLab SAST report}
-                            {--output-gitlab-dast=gl-dast-report.json : Path to save GitLab DAST report}
-                            {--output-gitlab-dependency=gl-dependency-scanning-report.json : Path to save GitLab Dependency Scanning report}
                             {--fail-on-gate=true : Fail job if gate is violated (exit code 1)}';
 
     /**
@@ -46,10 +42,8 @@ class SecurityScoreCommand extends Command
         $zapPath = $this->option('zap');
         $findingsPath = $this->option('output-findings');
         $scoredPath = $this->option('output-scored');
-        $gitlabSastPath = $this->option('output-gitlab-sast');
-        $gitlabDastPath = $this->option('output-gitlab-dast');
-        $gitlabDependencyPath = $this->option('output-gitlab-dependency');
         $failOnGate = filter_var($this->option('fail-on-gate'), FILTER_VALIDATE_BOOLEAN);
+
 
         $normalizer = new FindingNormalizer(base_path());
         $scorer = new CvssScorer();
@@ -109,13 +103,6 @@ class SecurityScoreCommand extends Command
                 'findings' => []
             ];
             file_put_contents(base_path($scoredPath), json_encode($emptyScored, JSON_PRETTY_PRINT));
-            $reporter = new GitLabReporter();
-            $reporter->generateAndSave(
-                [],
-                base_path($gitlabSastPath),
-                base_path($gitlabDastPath),
-                base_path($gitlabDependencyPath)
-            );
 
             return self::SUCCESS;
         }
@@ -168,14 +155,7 @@ class SecurityScoreCommand extends Command
         file_put_contents(base_path($scoredPath), json_encode($outputData, JSON_PRETTY_PRINT));
         $this->info('Layer 3 scored findings saved to ' . $scoredPath);
 
-        $reporter = new GitLabReporter();
-        $reporter->generateAndSave(
-            $scoredFindings,
-            base_path($gitlabSastPath),
-            base_path($gitlabDastPath),
-            base_path($gitlabDependencyPath)
-        );
-        $this->info('GitLab SAST, DAST, and Dependency Scanning reports saved.');
+
 
         $gate = new SecurityGate();
         $gateResult = $gate->evaluate($scoredFindings);
