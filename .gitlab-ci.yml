@@ -2,6 +2,7 @@ stages:
     - build
     - static-scanning
     - dynamic-scanning
+    - cvss-scoring
 
 default:
   image: $CI_REGISTRY_IMAGE:latest
@@ -37,7 +38,6 @@ build_job:
 build_assets:
   stage: build
   image: node:18-alpine
-  needs: []
   cache:
     key:
       files:
@@ -62,7 +62,6 @@ static-scanning-lint:
     needs: [build_job]
     tags:
         - docker
-    cache: []
     script:
         - find app config routes database tests bootstrap -name "*.php" -not -path "*/vendor/*" -not -path "*/node_modules/*" -print0 | xargs -0 -n1 -P$(nproc) php -l
     allow_failure: false
@@ -73,7 +72,6 @@ static-scanning-composer-audit:
     needs: [build_job]
     tags:
         - docker
-    cache: []
     script:
         - set -o pipefail
         - composer audit --locked --format=json | tee composer-audit-report.json
@@ -82,18 +80,22 @@ static-scanning-composer-audit:
             - composer-audit-report.json
         expire_in: 1 week
         when: always
-    allow_failure: false
+    allow_failure: true
 
 static-scanning-larastan:
     stage: static-scanning
     needs: [build_job]
     tags:
         - docker
-    cache: []
     script:
         - cp .env.ci .env
-        - ./vendor/bin/phpstan analyse --no-progress --configuration=phpstan.neon.dist --memory-limit=512M
-    allow_failure: false
+        - ./vendor/bin/phpstan analyse --error-format=json --no-progress --configuration=phpstan.neon.dist --memory-limit=512M > phpstan-report.json
+    artifacts:
+        paths:
+            - phpstan-report.json
+        expire_in: 1 week
+        when: always
+    allow_failure: true
 
 dynamic-scanning-zap:
   stage: dynamic-scanning
@@ -145,3 +147,32 @@ dynamic-scanning-zap:
     expire_in: 1 week
     when: always
   allow_failure: true
+
+cvss-scoring-job:
+  stage: cvss-scoring
+  needs:
+    - job: build_job
+    - job: static-scanning-composer-audit
+    - job: static-scanning-larastan
+    - job: dynamic-scanning-zap
+      optional: true
+  tags:
+    - docker
+  script:
+    - cp .env.ci .env
+    - php artisan security:score --composer-audit=composer-audit-report.json --phpstan=phpstan-report.json --zap=zap_report.json --output-findings=findings.json --output-scored=scored_findings.json --output-gitlab-sast=gl-sast-report.json --output-gitlab-dast=gl-dast-report.json --output-gitlab-dependency=gl-dependency-scanning-report.json --fail-on-gate=true
+  artifacts:
+    name: "$CI_JOB_STAGE-$CI_COMMIT_REF_NAME"
+    paths:
+      - findings.json
+      - scored_findings.json
+      - gl-sast-report.json
+      - gl-dast-report.json
+      - gl-dependency-scanning-report.json
+    reports:
+      sast: gl-sast-report.json
+      dast: gl-dast-report.json
+      dependency_scanning: gl-dependency-scanning-report.json
+    expire_in: 1 week
+    when: always
+  allow_failure: false
