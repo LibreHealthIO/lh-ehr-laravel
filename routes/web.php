@@ -119,7 +119,7 @@ Route::group([
                 'edit' => 'users.edit',
                 'update' => 'users.update',
                 'destroy' => 'users.destroy',
-            ]);
+            ])->where(['user' => '[0-9]+']);
             Route::get('users/load/data', [UserController::class, 'getUserData'])
                 ->name('users.load.data');
 
@@ -132,7 +132,7 @@ Route::group([
                 'edit' => 'facilities.edit',
                 'update' => 'facilities.update',
                 'destroy' => 'facilities.destroy',
-            ]);
+            ])->where(['facility' => '[0-9]+']);
 
             // ======== Patient related routes ========
             Route::resource('patients', PatientController::class)->names([
@@ -143,7 +143,7 @@ Route::group([
                 'edit' => 'patients.edit',
                 'update' => 'patients.update',
                 'destroy' => 'patients.destroy',
-            ]);
+            ])->where(['patient' => '[0-9]+']);
             Route::get('patients/load/data', [PatientController::class, 'getPatientData'])
                 ->name('patients.load.data');
 
