@@ -4,12 +4,8 @@ namespace App\Security\Gate;
 
 class GateResult
 {
-    public bool $isViolated;
-    public array $violatingFindings;
-
-    public function __construct(bool $isViolated, array $violatingFindings)
-    {
-        $this->isViolated = $isViolated;
-        $this->violatingFindings = $violatingFindings;
-    }
+    public function __construct(
+        public readonly bool $isViolated,
+        public readonly array $violatingFindings
+    ) {}
 }
