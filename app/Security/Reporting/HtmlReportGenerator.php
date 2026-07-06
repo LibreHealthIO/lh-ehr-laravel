@@ -12,7 +12,7 @@ class HtmlReportGenerator
         $findingsJson = json_encode($findings, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
         $historyJson = json_encode($history, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
         
-        $html = $this->getHtmlTemplate($summary, $findingsJson, $historyJson);
+        $html = $this->getHtmlTemplate($summary, $findingsJson, $historyJson, $history);
         
         $dir = dirname($outputPath);
         if (!is_dir($dir)) {
@@ -22,7 +22,7 @@ class HtmlReportGenerator
         file_put_contents($outputPath, $html);
     }
 
-    private function getHtmlTemplate(array $summary, string $findingsJson, string $historyJson): string
+    private function getHtmlTemplate(array $summary, string $findingsJson, string $historyJson, array $history): string
     {
         $totalFindings = $summary['total_findings'] ?? 0;
         $maxScore = number_format($summary['max_score'] ?? 0.0, 1);
@@ -31,16 +31,22 @@ class HtmlReportGenerator
         
         $gateStatus = 'PASSED';
         $gateColor = '#10b981';
+        $gateBg = 'rgba(16, 185, 129, 0.12)';
         
         foreach (json_decode($findingsJson, true) as $f) {
             $score = $f['cvss_adjusted'] ?? 0.0;
             $phi = $f['phi_tier'] ?? 'Non-PHI';
             if ($score >= 8.5 || (($phi === 'Critical' || $phi === 'Moderate') && $score >= 7.0)) {
                 $gateStatus = 'FAILED';
-                $gateColor = '#ef4444';
+                $gateColor = '#f87171';
+                $gateBg = 'rgba(248, 113, 113, 0.12)';
                 break;
             }
         }
+
+        $currentRun = !empty($history) ? end($history) : null;
+        $branch = $currentRun['branch'] ?? 'N/A';
+        $commitSha = $currentRun['commit_sha'] ?? 'N/A';
 
         return <<<HTML
 <!DOCTYPE html>
@@ -48,14 +54,14 @@ class HtmlReportGenerator
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Report</title>
+    <title>Security Scan Report</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: #0f172a;
+            background-color: #0b0f19;
+            color: #f3f4f6;
             padding: 2rem;
             margin: 0;
             line-height: 1.5;
@@ -69,53 +75,70 @@ class HtmlReportGenerator
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 1rem;
+            border-bottom: 1px solid #1f2937;
+            padding-bottom: 1.25rem;
         }
         h1 {
             font-size: 1.5rem;
             font-weight: 700;
             margin: 0;
+            color: #ffffff;
+            letter-spacing: -0.025em;
         }
-        .date {
+        .metadata-row {
+            display: flex;
+            gap: 1.5rem;
             font-size: 0.8rem;
-            color: #64748b;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+            align-items: center;
+        }
+        .meta-item code {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            padding: 0.15rem 0.35rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.75rem;
         }
         .gate {
-            background-color: {$gateColor};
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
+            background-color: {$gateBg};
+            color: {$gateColor};
+            border: 1px solid {$gateColor};
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
             font-weight: 600;
             font-size: 0.8rem;
         }
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            gap: 1.25rem;
             margin-bottom: 2rem;
         }
         .card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
             padding: 1.25rem;
         }
         .card-label {
             font-size: 0.75rem;
-            color: #64748b;
+            color: #9ca3af;
             text-transform: uppercase;
             font-weight: 600;
+            letter-spacing: 0.05em;
         }
         .card-value {
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             font-weight: 700;
             margin-top: 0.25rem;
+            color: #ffffff;
         }
         .chart-section {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
             padding: 1.25rem;
             margin-bottom: 2rem;
         }
@@ -125,41 +148,53 @@ class HtmlReportGenerator
         }
         .filters {
             display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
             flex-wrap: wrap;
             align-items: center;
         }
         .filter-label {
             font-size: 0.8rem;
             font-weight: 600;
-            color: #64748b;
+            color: #9ca3af;
         }
         .btn {
-            background: white;
-            border: 1px solid #cbd5e1;
-            padding: 0.25rem 0.6rem;
-            border-radius: 4px;
+            background: #111827;
+            color: #d1d5db;
+            border: 1px solid #374151;
+            padding: 0.3rem 0.7rem;
+            border-radius: 5px;
             font-size: 0.75rem;
             cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .btn:hover {
+            border-color: #9ca3af;
+            color: #ffffff;
         }
         .btn.active {
-            background: #0f172a;
-            color: white;
-            border-color: #0f172a;
+            background: #f3f4f6;
+            color: #0b0f19;
+            border-color: #f3f4f6;
         }
         .search {
             margin-left: auto;
-            padding: 0.25rem 0.5rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 4px;
+            background: #111827;
+            color: #ffffff;
+            padding: 0.35rem 0.75rem;
+            border: 1px solid #374151;
+            border-radius: 5px;
             font-size: 0.75rem;
-            width: 200px;
+            width: 220px;
+        }
+        .search:focus {
+            outline: none;
+            border-color: #3b82f6;
         }
         .table-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
             overflow: hidden;
         }
         table {
@@ -168,47 +203,75 @@ class HtmlReportGenerator
             font-size: 0.85rem;
         }
         th {
-            background: #f1f5f9;
-            padding: 0.75rem;
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 0.85rem;
             text-align: left;
             font-weight: 600;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #374151;
             cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        th:hover {
+            background: #273549;
+        }
+        th::after {
+            content: '';
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 4px solid transparent;
+            opacity: 0.3;
+        }
+        th.sort-asc::after {
+            border-bottom-color: #ffffff;
+            border-top: none;
+            opacity: 0.8;
+        }
+        th.sort-desc::after {
+            border-top-color: #ffffff;
+            border-bottom: none;
+            opacity: 0.8;
         }
         td {
-            padding: 0.75rem;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 0.85rem;
+            border-bottom: 1px solid #1f2937;
+            color: #d1d5db;
         }
         tr.finding-row {
             cursor: pointer;
+            transition: background 0.15s ease;
         }
         tr.finding-row:hover {
-            background: #f8fafc;
+            background: #1f2937;
         }
         tr.details-row {
             display: none;
-            background: #f8fafc;
+            background: #161e2e;
         }
         tr.details-row.active {
             display: table-row;
         }
         .details-box {
-            padding: 1rem;
+            padding: 1.25rem;
             font-size: 0.8rem;
-            border-left: 2px solid #64748b;
+            border-left: 3px solid #3b82f6;
+            color: #9ca3af;
         }
         .badge {
             display: inline-block;
-            padding: 0.15rem 0.4rem;
-            border-radius: 3px;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
             font-size: 0.7rem;
             font-weight: 600;
         }
-        .bg-red { background: #fee2e2; color: #991b1b; }
-        .bg-orange { background: #ffedd5; color: #9a3412; }
-        .bg-yellow { background: #fef9c3; color: #854d0e; }
-        .bg-blue { background: #dbeafe; color: #1e40af; }
-        .bg-gray { background: #f1f5f9; color: #334155; }
+        .bg-red { background: rgba(239, 68, 68, 0.12); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.2); }
+        .bg-orange { background: rgba(249, 115, 22, 0.12); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.2); }
+        .bg-yellow { background: rgba(234, 179, 8, 0.12); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.2); }
+        .bg-blue { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.2); }
+        .bg-gray { background: rgba(107, 114, 128, 0.12); color: #9ca3af; border: 1px solid rgba(107, 114, 128, 0.2); }
     </style>
 </head>
 <body>
@@ -216,7 +279,11 @@ class HtmlReportGenerator
         <header>
             <div>
                 <h1>Security Assessment</h1>
-                <div class="date" id="gen-time"></div>
+                <div class="metadata-row">
+                    <span class="meta-item">Generated: <span id="gen-time"></span></span>
+                    <span class="meta-item">Branch: <code>{$branch}</code></span>
+                    <span class="meta-item">Commit: <code>{$commitSha}</code></span>
+                </div>
             </div>
             <div class="gate">GATE: {$gateStatus}</div>
         </header>
@@ -232,12 +299,12 @@ class HtmlReportGenerator
             </div>
             <div class="card">
                 <div class="card-label">PHI Exposure</div>
-                <div class="card-value">{$phiCritical} <span style="font-size:0.8rem;color:#64748b">Crit</span> / {$phiModerate} <span style="font-size:0.8rem;color:#64748b">Mod</span></div>
+                <div class="card-value">{$phiCritical} <span style="font-size:0.8rem;color:#9ca3af">Crit</span> / {$phiModerate} <span style="font-size:0.8rem;color:#9ca3af">Mod</span></div>
             </div>
         </div>
 
         <div class="chart-section" id="trend-section" style="display:none;">
-            <div class="card-label" style="margin-bottom:0.5rem">Vulnerability Trend</div>
+            <div class="card-label" style="margin-bottom:0.75rem" id="trend-title">Vulnerability Trend</div>
             <div class="chart-container">
                 <canvas id="trendChart"></canvas>
             </div>
@@ -245,31 +312,31 @@ class HtmlReportGenerator
 
         <div class="filters">
             <span class="filter-label">Severity:</span>
-            <button class="btn active" onclick="setFilter('severity', 'all', this)">All</button>
-            <button class="btn" onclick="setFilter('severity', 'critical', this)">Critical</button>
-            <button class="btn" onclick="setFilter('severity', 'high', this)">High</button>
-            <button class="btn" onclick="setFilter('severity', 'medium', this)">Medium</button>
-            <button class="btn" onclick="setFilter('severity', 'low', this)">Low</button>
+            <button class="btn active" data-filter-type="severity" data-filter-value="all">All</button>
+            <button class="btn" data-filter-type="severity" data-filter-value="critical">Critical</button>
+            <button class="btn" data-filter-type="severity" data-filter-value="high">High</button>
+            <button class="btn" data-filter-type="severity" data-filter-value="medium">Medium</button>
+            <button class="btn" data-filter-type="severity" data-filter-value="low">Low</button>
 
-            <span class="filter-label" style="margin-left:1rem">Source:</span>
-            <button class="btn active" onclick="setFilter('source', 'all', this)">All</button>
-            <button class="btn" onclick="setFilter('source', 'composer-audit', this)">Composer</button>
-            <button class="btn" onclick="setFilter('source', 'phpstan', this)">PHPStan</button>
-            <button class="btn" onclick="setFilter('source', 'zap', this)">ZAP</button>
+            <span class="filter-label" style="margin-left:1.5rem">Source:</span>
+            <button class="btn active" data-filter-type="source" data-filter-value="all">All</button>
+            <button class="btn" data-filter-type="source" data-filter-value="composer-audit">Composer</button>
+            <button class="btn" data-filter-type="source" data-filter-value="phpstan">PHPStan</button>
+            <button class="btn" data-filter-type="source" data-filter-value="zap">ZAP</button>
 
-            <input type="text" class="search" id="search" placeholder="Search..." oninput="handleSearch()">
+            <input type="text" class="search" id="search" placeholder="Search findings...">
         </div>
 
         <div class="table-card">
             <table>
                 <thead>
                     <tr>
-                        <th>Source</th>
-                        <th>Vulnerability</th>
-                        <th>CWE</th>
-                        <th>Base</th>
-                        <th>Adjusted</th>
-                        <th>PHI</th>
+                        <th data-sort="source">Source</th>
+                        <th data-sort="title">Vulnerability</th>
+                        <th data-sort="cwe">CWE</th>
+                        <th data-sort="cvss_base">Base</th>
+                        <th data-sort="cvss_adjusted">Adjusted</th>
+                        <th data-sort="phi_tier">PHI</th>
                     </tr>
                 </thead>
                 <tbody id="findingsBody"></tbody>
@@ -280,23 +347,104 @@ class HtmlReportGenerator
     <script>
         const FINDINGS = {$findingsJson};
         const HISTORY = {$historyJson};
+        
         const filters = { severity: 'all', source: 'all', query: '' };
+        let sortCol = 'cvss_adjusted';
+        let sortAsc = false;
 
-        document.getElementById('gen-time').innerText = new Date().toLocaleString();
-        renderTable(FINDINGS);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('gen-time').innerText = new Date().toLocaleString();
+        
+            const defaultTh = document.querySelector('th[data-sort="cvss_adjusted"]');
+            if (defaultTh) defaultTh.classList.add('sort-desc');
+            
+            render();
 
-        if (Array.isArray(HISTORY) && HISTORY.length > 1) {
-            document.getElementById('trend-section').style.display = 'block';
-            renderTrend();
-        }
+            document.querySelectorAll('.btn[data-filter-type]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const type = btn.getAttribute('data-filter-type');
+                    const val = btn.getAttribute('data-filter-value');
+                    
+                    btn.parentNode.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    filters[type] = val;
+                    render();
+                });
+            });
 
-        function renderTable(data) {
+            document.getElementById('search').addEventListener('input', (e) => {
+                filters.query = e.target.value.toLowerCase().trim();
+                render();
+            });
+
+            document.querySelectorAll('th[data-sort]').forEach(th => {
+                th.addEventListener('click', () => {
+                    const col = th.getAttribute('data-sort');
+                    if (sortCol === col) {
+                        sortAsc = !sortAsc;
+                    } else {
+                        sortCol = col;
+                        sortAsc = true;
+                    }
+
+                    document.querySelectorAll('th[data-sort]').forEach(header => {
+                        header.classList.remove('sort-asc', 'sort-desc');
+                    });
+                    th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+                    render();
+                });
+            });
+
+            if (Array.isArray(HISTORY) && HISTORY.length > 0) {
+                document.getElementById('trend-section').style.display = 'block';
+                if (HISTORY.length === 1) {
+                    document.getElementById('trend-title').innerText = "Vulnerability Trend (First Snapshot Loaded)";
+                }
+                renderTrend();
+            }
+        });
+
+        function render() {
             const tbody = document.getElementById('findingsBody');
             tbody.innerHTML = '';
+
+            let data = FINDINGS.filter(f => {
+                if (filters.source !== 'all' && f.source !== filters.source) return false;
+                if (filters.severity !== 'all' && getSevLabel(f.cvss_adjusted).toLowerCase() !== filters.severity) return false;
+                if (filters.query) {
+                    const haystack = `\${f.title} \${f.description} \${f.cwe || ''} \${f.file || ''}`.toLowerCase();
+                    if (!haystack.includes(filters.query)) return false;
+                }
+                return true;
+            });
+
+            data.sort((a, b) => {
+                let valA = a[sortCol];
+                let valB = b[sortCol];
+
+                if (sortCol === 'cvss_base' || sortCol === 'cvss_adjusted') {
+                    valA = valA !== null ? parseFloat(valA) : 0.0;
+                    valB = valB !== null ? parseFloat(valB) : 0.0;
+                } else {
+                    valA = (valA || '').toString().toLowerCase();
+                    valB = (valB || '').toString().toLowerCase();
+                }
+
+                if (valA < valB) return sortAsc ? -1 : 1;
+                if (valA > valB) return sortAsc ? 1 : -1;
+                return 0;
+            });
+
+            if (data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:2rem;">No findings match the current filters.</td></tr>`;
+                return;
+            }
+
             data.forEach((f, idx) => {
                 const tr = document.createElement('tr');
                 tr.className = 'finding-row';
-                tr.onclick = () => toggle(idx);
+                tr.addEventListener('click', () => toggle(idx));
 
                 const sev = getSevLabel(f.cvss_adjusted);
                 const sevBg = sev === 'Critical' ? 'bg-red' : (sev === 'High' ? 'bg-orange' : (sev === 'Medium' ? 'bg-yellow' : 'bg-blue'));
@@ -304,7 +452,7 @@ class HtmlReportGenerator
 
                 tr.innerHTML = `
                     <td><span class="badge bg-gray">\${f.source}</span></td>
-                    <td style="font-weight:500">\${escape(f.title)}</td>
+                    <td style="font-weight:500;color:#ffffff;">\${escape(f.title)}</td>
                     <td><code>\${f.cwe || 'N/A'}</code></td>
                     <td>\${f.cvss_base !== null ? parseFloat(f.cvss_base).toFixed(1) : 'N/A'}</td>
                     <td><span class="badge \${sevBg}">\${f.cvss_adjusted !== null ? parseFloat(f.cvss_adjusted).toFixed(1) : '0.0'}</span></td>
@@ -320,7 +468,7 @@ class HtmlReportGenerator
                 detailsTr.innerHTML = `
                     <td colspan="6">
                         <div class="details-box">
-                            <div style="margin-bottom:0.5rem"><strong>Description:</strong> \${escape(f.description)}</div>
+                            <div style="margin-bottom:0.5rem;color:#f3f4f6;"><strong>Description:</strong> \${escape(f.description)}</div>
                             <div style="margin-bottom:0.25rem"><strong>Location:</strong> <code>\${loc}</code></div>
                             \${f.metadata?.cvss_adjusted_vector ? `<div><strong>Vector:</strong> <code>\${f.metadata.cvss_adjusted_vector}</code></div>` : ''}
                         </div>
@@ -332,33 +480,7 @@ class HtmlReportGenerator
         }
 
         function toggle(idx) {
-            const el = document.getElementById('details-' + idx);
-            el.classList.toggle('active');
-        }
-
-        function setFilter(key, val, btn) {
-            btn.parentNode.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filters[key] = val;
-            apply();
-        }
-
-        function handleSearch() {
-            filters.query = document.getElementById('search').value.toLowerCase();
-            apply();
-        }
-
-        function apply() {
-            const filtered = FINDINGS.filter(f => {
-                if (filters.source !== 'all' && f.source !== filters.source) return false;
-                if (filters.severity !== 'all' && getSevLabel(f.cvss_adjusted).toLowerCase() !== filters.severity) return false;
-                if (filters.query) {
-                    const text = `\${f.title} \${f.description} \${f.cwe || ''} \${f.file || ''}`.toLowerCase();
-                    if (!text.includes(filters.query)) return false;
-                }
-                return true;
-            });
-            renderTable(filtered);
+            document.getElementById('details-' + idx).classList.toggle('active');
         }
 
         function getSevLabel(score) {
@@ -378,7 +500,11 @@ class HtmlReportGenerator
         function renderTrend() {
             const ctx = document.getElementById('trendChart').getContext('2d');
             const data = HISTORY.slice(-15);
-            const labels = data.map(h => new Date(h.timestamp).toLocaleDateString() + ' (' + h.commit_sha + ')');
+            const labels = data.map(h => {
+                const dateStr = new Date(h.timestamp).toLocaleDateString();
+                const sha = h.commit_sha ? h.commit_sha.substring(0, 7) : 'local';
+                return dateStr + ' (' + sha + ')';
+            });
             const counts = data.map(h => h.summary.total_findings || 0);
             const scores = data.map(h => h.summary.max_score || 0.0);
 
@@ -388,19 +514,21 @@ class HtmlReportGenerator
                     labels: labels,
                     datasets: [
                         {
-                            label: 'Findings',
+                            label: 'Findings Count',
                             data: counts,
-                            borderColor: '#475569',
-                            backgroundColor: 'rgba(71, 85, 105, 0.05)',
-                            tension: 0.1,
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.05)',
+                            borderWidth: 2,
+                            tension: 0.2,
                             yAxisID: 'y'
                         },
                         {
-                            label: 'Max CVSS',
+                            label: 'Max Risk Score',
                             data: scores,
-                            borderColor: '#ef4444',
-                            borderDash: [5, 5],
-                            tension: 0.1,
+                            borderColor: '#f87171',
+                            borderDash: [4, 4],
+                            borderWidth: 2,
+                            tension: 0.2,
                             yAxisID: 'y1'
                         }
                     ]
@@ -408,9 +536,32 @@ class HtmlReportGenerator
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: { color: '#9ca3af', boxWidth: 12, font: { family: 'Inter' } }
+                        }
+                    },
                     scales: {
-                        y: { type: 'linear', display: true, position: 'left' },
-                        y1: { type: 'linear', display: true, position: 'right', min: 0, max: 10, grid: { drawOnChartArea: false } }
+                        x: {
+                            grid: { color: '#1f2937' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter' } }
+                        },
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            grid: { color: '#1f2937' },
+                            ticks: { color: '#9ca3af', font: { family: 'Inter' }, stepSize: 5 }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            min: 0,
+                            max: 10,
+                            grid: { drawOnChartArea: false },
+                            ticks: { color: '#f87171', font: { family: 'Inter' }, stepSize: 2 }
+                        }
                     }
                 }
             });
