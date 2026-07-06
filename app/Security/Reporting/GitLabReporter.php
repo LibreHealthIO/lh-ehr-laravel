@@ -10,11 +10,8 @@ class GitLabReporter
     private const DAST_VERSION = '15.0.7';
     private const DEP_VERSION = '15.0.7';
 
-    private string $hostname;
-
-    public function __construct(?string $hostname = null)
+    public function __construct()
     {
-        $this->hostname = $hostname ?: env('APP_URL') ?: config('app.url') ?: 'http://127.0.0.1:8000';
     }
 
     /**
