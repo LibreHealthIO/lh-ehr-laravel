@@ -1,11 +1,36 @@
-FROM php:8.3-cli
-LABEL maintainer "LibreHealth Infrastructure Team <infrastructure@librehealth.io>"
+FROM php:8.3-cli AS base
+LABEL maintainer="LibreHealth Infrastructure Team <infrastructure@librehealth.io>"
 
 RUN apt-get update -yqq \
     && apt-get install -yqq --no-install-recommends \
-        unzip wget git libzip-dev libpq-dev libpng-dev default-jre-headless ca-certificates \
+        curl ca-certificates libzip-dev libpq-dev libpng-dev \
     && docker-php-ext-install -j"$(nproc)" zip pdo pdo_mysql pcntl gd \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+FROM php:8.3-cli AS runtime
+
+RUN apt-get update -yqq \
+    && apt-get install -yqq --no-install-recommends \
+        ca-certificates libzip5 libpq5 libpng16-16t64 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=base /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=base /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
+
+RUN useradd --create-home --shell /bin/bash --uid 1000 appuser \
+    && mkdir -p /app \
+    && chown -R appuser:appuser /app
+
+WORKDIR /app
+USER appuser
+
+FROM base AS ci
+
+RUN apt-get update -yqq \
+    && apt-get install -yqq --no-install-recommends \
+        unzip wget git default-jre-headless ca-certificates \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
