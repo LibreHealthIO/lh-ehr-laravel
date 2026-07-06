@@ -30,7 +30,7 @@ FROM base AS ci
 
 RUN apt-get update -yqq \
     && apt-get install -yqq --no-install-recommends \
-        unzip wget git default-jre-headless ca-certificates \
+        unzip wget git default-jre-headless \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
