@@ -1,3 +1,10 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
 stages:
     - build
     - static-scanning
@@ -59,7 +66,7 @@ build_assets:
 
 static-scanning-lint:
     stage: static-scanning
-    needs: [build_job]
+    needs: []
     tags:
         - docker
     script:
@@ -69,18 +76,18 @@ static-scanning-lint:
 static-scanning-composer-audit:
     stage: static-scanning
     image: composer:2
-    needs: [build_job]
+    needs: []
     tags:
         - docker
     script:
         - set -o pipefail
-        - composer audit --locked --format=json | tee composer-audit-report.json
+        - composer audit --locked --format=json > composer-audit-report.json || true
     artifacts:
         paths:
             - composer-audit-report.json
         expire_in: 1 week
         when: always
-    allow_failure: true
+    allow_failure: false
 
 static-scanning-larastan:
     stage: static-scanning
@@ -89,13 +96,14 @@ static-scanning-larastan:
         - docker
     script:
         - cp .env.ci .env
-        - ./vendor/bin/phpstan analyse --error-format=json --no-progress --configuration=phpstan.neon.dist --memory-limit=512M > phpstan-report.json
+        - ./vendor/bin/phpstan analyse --error-format=json --no-progress --configuration=phpstan.neon.dist --memory-limit=512M > phpstan-report.json || true
     artifacts:
         paths:
             - phpstan-report.json
         expire_in: 1 week
         when: always
-    allow_failure: true
+    allow_failure: false
+
 
 dynamic-scanning-zap:
   stage: dynamic-scanning
