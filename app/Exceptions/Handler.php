@@ -37,7 +37,7 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->reportable(function (Throwable $e) {
             //
@@ -68,7 +68,7 @@ class Handler extends ExceptionHandler
             $response = parent::render($request, $exception);
             if (!app()->environment(['local', 'testing']) &&
                 in_array($response->getStatusCode(), [500, 503, 404, 403, 401])) {
-                return Inertia::render('Errors/Index', ['status' => $response->getStatusCode()]);
+                return Inertia::render('Errors/Index', ['status' => $response->getStatusCode()])->toResponse($request);
             } else if ($response->getStatusCode() === 419) {
                 return $this->redirectExpiredPage();
             } else if ($response->getStatusCode() === 429) {
@@ -78,7 +78,7 @@ class Handler extends ExceptionHandler
             }
         }
         return !app()->environment(['production']) ? $response :
-            Inertia::render('Errors/Index', ['status' => 404]);
+            Inertia::render('Errors/Index', ['status' => 404])->toResponse($request);
     }
 
 
@@ -88,7 +88,7 @@ class Handler extends ExceptionHandler
      */
     private function redirectExpiredPage(): Response
     {
-        return Inertia::location(route('guest.index'));
+        return Inertia::location(route('index'));
     }
 
     private function getApiMessage(Response $response): string
