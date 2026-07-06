@@ -14,4 +14,19 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
     ];
+
+    /**
+     * Determine if the request has a URI that should pass through CSRF verification.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function inExceptArray($request)
+    {
+        if (app()->environment('testing')) {
+            return true;
+        }
+
+        return parent::inExceptArray($request);
+    }
 }

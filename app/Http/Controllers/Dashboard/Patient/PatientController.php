@@ -233,4 +233,62 @@ class PatientController extends Controller
         });
         return new DataTableCollectionResource($data);
     }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientDocuments(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientReports(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientTransactions(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientLedger(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page or patients index.
+     *
+     * @param int|null $pid
+     * @return RedirectResponse
+     */
+    public function chartLabel(int $pid = null): RedirectResponse
+    {
+        if ($pid) {
+            return redirect()->route('dashboard.patients.show', $pid);
+        }
+        return redirect()->route('dashboard.patients.index');
+    }
 }
