@@ -32,9 +32,9 @@ class Finding
         ?float $cvss_adjusted = null,
         array $metadata = []
     ) {
-        
         if ($cwe !== null) {
-            $cwe = str_starts_with(strtoupper($cwe), 'CWE-') ? $cwe : 'CWE-' . $cwe;
+            $cwe = strtoupper($cwe);
+            $cwe = str_starts_with($cwe, 'CWE-') ? $cwe : 'CWE-' . $cwe;
         }
 
         $this->source = $source;
@@ -50,7 +50,15 @@ class Finding
         $this->cvss_adjusted = $cvss_adjusted;
         $this->metadata = $metadata;
 
-        $this->id = md5($source . '_' . $title . '_' . ($file ?? '') . '_' . ($line ?? '') . '_' . ($url ?? ''));
+        $this->id = md5(implode('_', [
+            $source,
+            $title,
+            $file ?? '',
+            $line ?? '',
+            $url ?? '',
+            $cwe ?? '',
+            substr(md5($description), 0, 12),
+        ]));
     }
 
     public function toArray(): array
