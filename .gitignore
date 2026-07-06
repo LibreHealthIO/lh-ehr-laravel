@@ -88,4 +88,5 @@ gl-sast-report.json
 gl-dast-report.json
 gl-dependency-scanning-report.json
 security_report.html
+security-report.html
 security_trends.json

@@ -7,6 +7,7 @@ use App\Security\Findings\FindingNormalizer;
 use App\Security\Cvss\CvssScorer;
 use App\Security\Findings\Finding;
 use App\Security\Gate\SecurityGate;
+use App\Security\Reporting\HtmlReportGenerator;
 
 class SecurityScoreCommand extends Command
 {
@@ -21,6 +22,8 @@ class SecurityScoreCommand extends Command
                             {--zap=zap_report.json : Path to the OWASP ZAP report}
                             {--output-findings=findings.json : Path to save compiled raw findings (Layer 1)}
                             {--output-scored=scored_findings.json : Path to save scored findings (Layer 3)}
+                            {--output-html=security-report.html : Path to save interactive HTML report}
+                            {--history=security_trends.json : Path to the vulnerability trend history file}
                             {--fail-on-gate=true : Fail job if gate is violated (exit code 1)}';
 
     /**
@@ -28,20 +31,22 @@ class SecurityScoreCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Aggregate security reports, apply CVSS scoring and PHI classification (Layers 3 & 4)';
+    protected $description = 'Aggregate security reports, apply CVSS scoring and PHI classification (Layers 2 & 3)';
 
     /**
      * Execute the console command.
      */
     public function handle(): int
     {
-        $this->info('Starting Layer 3/4 Security Scoring, PHI Classification & Gate Assessment...');
+        $this->info('Starting Layer 2,3 Security Scoring, PHI Classification & Gate Assessment...');
 
         $composerPath = $this->option('composer-audit');
         $phpstanPath = $this->option('phpstan');
         $zapPath = $this->option('zap');
         $findingsPath = $this->option('output-findings');
         $scoredPath = $this->option('output-scored');
+        $htmlPath = $this->option('output-html');
+        $historyPath = $this->option('history');
         $failOnGate = filter_var($this->option('fail-on-gate'), FILTER_VALIDATE_BOOLEAN);
 
 
@@ -104,6 +109,10 @@ class SecurityScoreCommand extends Command
             ];
             file_put_contents(base_path($scoredPath), json_encode($emptyScored, JSON_PRETTY_PRINT));
 
+            $history = $this->updateHistory($historyPath, $emptyScored['summary']);
+            (new HtmlReportGenerator())->generate($emptyScored, $history, base_path($htmlPath));
+            $this->info('HTML security report saved to ' . $htmlPath);
+
             return self::SUCCESS;
         }
 
@@ -155,7 +164,9 @@ class SecurityScoreCommand extends Command
         file_put_contents(base_path($scoredPath), json_encode($outputData, JSON_PRETTY_PRINT));
         $this->info('Layer 3 scored findings saved to ' . $scoredPath);
 
-
+        $history = $this->updateHistory($historyPath, $outputData['summary']);
+        (new HtmlReportGenerator())->generate($outputData, $history, base_path($htmlPath));
+        $this->info('HTML security report saved to ' . $htmlPath);
 
         $gate = new SecurityGate();
         $gateResult = $gate->evaluate($scoredFindings);
@@ -203,6 +214,38 @@ class SecurityScoreCommand extends Command
         }
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Read existing history JSON file, append current metrics summary, and write it back.
+     */
+    private function updateHistory(string $historyPath, array $summary): array
+    {
+        $history = [];
+        $fullPath = base_path($historyPath);
+        
+        if (file_exists($fullPath)) {
+            $history = json_decode(file_get_contents($fullPath), true) ?: [];
+        }
+
+        $commitSha = env('CI_COMMIT_SHORT_SHA') ?: exec('git rev-parse --short HEAD 2>/dev/null');
+        $branch = env('CI_COMMIT_REF_NAME') ?: exec('git rev-parse --abbrev-ref HEAD 2>/dev/null');
+
+        $entry = [
+            'timestamp'    => date('c'),
+            'pipeline_id'  => env('CI_PIPELINE_ID', 'local'),
+            'pipeline_url' => env('CI_PIPELINE_URL', ''),
+            'commit_sha'   => $commitSha ?: 'local',
+            'branch'       => $branch ?: 'local',
+            'summary'      => $summary,
+        ];
+
+        $history[] = $entry;
+
+        file_put_contents($fullPath, json_encode($history, JSON_PRETTY_PRINT));
+        $this->info('Vulnerability trend history updated in ' . $historyPath);
+
+        return $history;
     }
 }
 

@@ -166,12 +166,13 @@ cvss-scoring-job:
     - docker
   script:
     - cp .env.ci .env
-    - php artisan security:score --composer-audit=composer-audit-report.json --phpstan=phpstan-report.json --zap=zap_report.json --output-findings=findings.json --output-scored=scored_findings.json --fail-on-gate=true
+    - php artisan security:score --composer-audit=composer-audit-report.json --phpstan=phpstan-report.json --zap=zap_report.json --output-findings=findings.json --output-scored=scored_findings.json --output-html=security-report.html --fail-on-gate=true
   artifacts:
     name: "$CI_JOB_STAGE-$CI_COMMIT_REF_NAME"
     paths:
       - findings.json
       - scored_findings.json
+      - security-report.html
     expire_in: 1 week
     when: always
   allow_failure: false
