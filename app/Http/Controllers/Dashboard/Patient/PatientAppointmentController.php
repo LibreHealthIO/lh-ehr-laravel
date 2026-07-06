@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Dashboard\Patient;
 
 use App\Http\Controllers\Controller;
-use App\Models\Facilities\Facility;
-use App\Models\Patients\Patient;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -24,11 +22,14 @@ class PatientAppointmentController extends Controller
     {
         $users = User::all();
         if ($request->ajax()) {
-            $users = $users->pluck(['id', 'username']);
-            dd($users);
-            return response()->json([$users], 200);
+            $mappedUsers = $users->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'username' => $user->username,
+                ];
+            });
+            return response()->json($mappedUsers, 200);
         }
-        dd($users);
         return Inertia::render('Patient/Appointment', [
             'users' => $users->transform(function ($user) {
                     return [

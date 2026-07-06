@@ -70,7 +70,7 @@ return [
             'port' => env('DB_PORT', '3306'),
             'database' => env('TEST_DB_DATABASE', 'lh_ehr_testing'),
             'username' => env('TEST_DB_USERNAME', 'root'),
-            'password' => env('TEST_DB_PASSWORD', ''),
+            'password' => env('TEST_DB_PASSWORD', env('DB_PASSWORD', '')),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
