@@ -80,3 +80,13 @@ fabric.properties
 
 .php-cs-fixer.php
 .php-cs-fixer.cache
+
+# Security scoring CI runtime artifacts
+findings.json
+scored_findings.json
+gl-sast-report.json
+gl-dast-report.json
+gl-dependency-scanning-report.json
+security_report.html
+security-report.html
+security_trends.json
