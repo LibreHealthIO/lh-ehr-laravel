@@ -1,0 +1,178 @@
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+
+stages:
+    - build
+    - static-scanning
+    - dynamic-scanning
+    - cvss-scoring
+
+default:
+  image: $CI_REGISTRY_IMAGE:latest
+
+cache:
+  key:
+    files:
+      - composer.lock
+  paths:
+    - vendor/
+    - ~/.composer/cache
+  policy: pull
+
+build_job:
+    stage: build
+    tags:
+        - docker
+    cache:
+        key:
+          files:
+            - composer.lock
+        paths:
+          - vendor/
+          - ~/.composer/cache
+        policy: pull-push
+    script:
+        - composer install --no-interaction --prefer-dist --no-progress
+    artifacts:
+        paths:
+            - vendor/
+        expire_in: 1 hour
+
+build_assets:
+  stage: build
+  image: node:18-alpine
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
+      - ~/.npm
+  tags:
+    - docker
+  script:
+    - npm ci
+    - npm run prod
+  artifacts:
+    paths:
+      - public/css/
+      - public/js/
+      - public/mix-manifest.json
+    expire_in: 1 hour
+
+static-scanning-lint:
+    stage: static-scanning
+    tags:
+        - docker
+    script:
+        - find app config routes database tests bootstrap -name "*.php" -not -path "*/vendor/*" -not -path "*/node_modules/*" -print0 | xargs -0 -n1 -P$(nproc) php -l
+    allow_failure: false
+
+static-scanning-composer-audit:
+    stage: static-scanning
+    image: composer:2
+    tags:
+        - docker
+    script:
+        - set -o pipefail
+        - composer audit --locked --format=json > composer-audit-report.json || true
+    artifacts:
+        paths:
+            - composer-audit-report.json
+        expire_in: 1 week
+        when: always
+    allow_failure: false
+
+static-scanning-larastan:
+    stage: static-scanning
+    needs: [build_job]
+    tags:
+        - docker
+    script:
+        - cp .env.ci .env
+        - ./vendor/bin/phpstan analyse --error-format=json --no-progress --configuration=phpstan.neon.dist --memory-limit=512M > phpstan-report.json || true
+    artifacts:
+        paths:
+            - phpstan-report.json
+        expire_in: 1 week
+        when: always
+    allow_failure: false
+
+
+dynamic-scanning-zap:
+  stage: dynamic-scanning
+  needs: [build_job, build_assets]
+  tags:
+    - docker
+  services:
+    - name: mysql:8.0
+      alias: db
+  variables:
+    MYSQL_DATABASE: lh_ehr
+    MYSQL_ROOT_PASSWORD: passw0rd
+    DB_HOST: db
+    DB_CONNECTION: mysql
+    APP_ENV: testing
+    APP_DEBUG: "true"
+    APP_URL: "http://127.0.0.1:8000"
+    MAIL_MAILER: log
+  cache:
+    key: zap-binaries-cache
+    paths:
+      - ZAP_2.17.0_Crossplatform.zip
+      - ZAP_2.17.0/
+  script:
+    - cp .env.ci .env
+    - php artisan key:generate --force
+
+    - php -r "while(!@fsockopen('db', 3306)){sleep(1);}"
+    - php artisan migrate --force
+    - php artisan db:seed --class=ZapSeeder --force
+    - php artisan view:clear
+
+    - php artisan serve --host=127.0.0.1 --port=8000 &
+    - php -r "while(!@fsockopen('127.0.0.1', 8000)){sleep(1);}"
+
+    - if [ ! -d "ZAP_2.17.0" ] || [ ! -f "ZAP_2.17.0_Crossplatform.zip" ]; then
+        wget -q https://github.com/zaproxy/zaproxy/releases/download/v2.17.0/ZAP_2.17.0_Crossplatform.zip;
+        echo "94c8f767b1c2e94f0db66b3ae56514d5e3f5a728ee1b6c798e0c8fe2d61fbff0  ZAP_2.17.0_Crossplatform.zip" | sha256sum -c -;
+        unzip -q ZAP_2.17.0_Crossplatform.zip;
+      fi
+
+    - timeout 3600 ./ZAP_2.17.0/zap.sh -cmd -silent -autorun $(pwd)/zap-plan.yaml
+    - pkill -f "php artisan serve" || true
+
+  artifacts:
+    paths:
+      - zap_report.json
+      - zap_report.html
+    expire_in: 1 week
+    when: always
+  allow_failure: true
+
+cvss-scoring-job:
+  stage: cvss-scoring
+  needs:
+    - job: build_job
+    - job: static-scanning-composer-audit
+    - job: static-scanning-larastan
+    - job: dynamic-scanning-zap
+      optional: true
+  tags:
+    - docker
+  script:
+    - cp .env.ci .env
+    - php artisan security:score --composer-audit=composer-audit-report.json --phpstan=phpstan-report.json --zap=zap_report.json --output-findings=findings.json --output-scored=scored_findings.json --output-html=security-report.html --fail-on-gate=true
+  artifacts:
+    name: "$CI_JOB_STAGE-$CI_COMMIT_REF_NAME"
+    paths:
+      - findings.json
+      - scored_findings.json
+      - security-report.html
+    expire_in: 1 week
+    when: always
+  allow_failure: false
