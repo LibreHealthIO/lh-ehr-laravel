@@ -22,38 +22,8 @@ class UserTableSeeder extends Seeder
     {
         if (!User::count()) {
             $this->command->info('Truncating User, Role and Permission tables');
-            $this->truncateLaratrustTables();
+            $this->truncateUserTables();
 
-            // ===================
-            // CREATING ROLES
-            // ===================
-            $superAdminRole = new Role();
-            $superAdminRole->name = "super_admin";
-            $superAdminRole->display_name = "Super Administrator";
-            $superAdminRole->description  = 'User is the super admin of the system';
-            $superAdminRole->save();
-
-            $adminRole = new Role();
-            $adminRole->name = "admin";
-            $adminRole->display_name = "Administrator";
-            $adminRole->description  = 'User is the admin. They own/manage, but fewer privileges than super admins.';
-            $adminRole->save();
-
-
-            $userRole = new Role();
-            $userRole->name = "user";
-            $userRole->display_name = "User";
-            $userRole->description  = 'Regular/Default User of the system can be a front desk personnel';
-            $userRole->save();
-
-            // =======================
-            // CREATING PERMISSIONS
-            // =======================
-            $manageUsers = new Permission();
-            $manageUsers->name         = 'manage-users';
-            $manageUsers->display_name = 'Manage Loans';
-            $manageUsers->description  = 'Manage all users of the system';
-            $manageUsers->save();
 
             $faker = \Faker\Factory::create();
             $faker_tax1 = $faker->unique()->bothify('#####-????');
@@ -78,9 +48,14 @@ class UserTableSeeder extends Seeder
                 'access_control' => 'Administrators',
                 'in_calendar' => 0,
             ]);
+            $role = Role::where('name', '=', 'super_admin')->first();
+            $permissions=$role->permissions;
+            $user->attachRole($role);
+            foreach ($permissions as $permission) {
+                $user->attachPermission($permission);
+            }
             $user->save();
-            $user->attachRole($superAdminRole);
-            $superAdminRole->attachPermissions([$manageUsers]);
+
 
             // Admin user (default user to login with)
             $user = User::create([
@@ -101,9 +76,13 @@ class UserTableSeeder extends Seeder
                 'access_control' => 'Administrators',
                 'in_calendar' => 1,
             ]);
+            $role = Role::where('name', '=', 'admin')->first();
+            $permissions=$role->permissions;
+            $user->attachRole($role);
+            foreach ($permissions as $permission) {
+                $user->attachPermission($permission);
+            }
             $user->save();
-            $user->attachRole($adminRole);
-            $adminRole->attachPermissions([$manageUsers]);
 
         }
 
@@ -118,15 +97,10 @@ class UserTableSeeder extends Seeder
      *
      * @return void
      */
-    public function truncateLaratrustTables()
+    public function truncateUserTables()
     {
         Schema::disableForeignKeyConstraints();
-        DB::table('permission_role')->truncate();
-        DB::table('permission_user')->truncate();
-        DB::table('role_user')->truncate();
         User::truncate();
-        Role::truncate();
-        Permission::truncate();
         Schema::enableForeignKeyConstraints();
     }
 }

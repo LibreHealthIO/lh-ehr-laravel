@@ -30,8 +30,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'first_name', 'middle_name', 'last_name', 'federal_tax_id',
-        'federal_drug_id', 'see_auth', 'npi', 'suffix', 'taxonomy', 'calendar_ui', 'info',
+        'username', 'password', 'email', 'first_name', 'middle_name', 'last_name', 'federal_tax_id',
+        'federal_drug_id', 'see_auth', 'npi', 'suffix', 'taxonomy', 'license', 'provider_type', 'warehouse', 'additional_details', 'calendar_ui', 'info', 'facility',
         'new_crop_user_role', 'access_control', 'in_calendar', 'device_id', 'last_login_at',
         'last_login_ip', 'created_at', 'updated_at', 'deleted_at'
     ];

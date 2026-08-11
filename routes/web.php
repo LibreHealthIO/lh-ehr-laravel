@@ -6,11 +6,14 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\Calendar\CalendarController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\RolesController;
 use App\Http\Controllers\Dashboard\Facility\FacilityController;
 use App\Http\Controllers\Dashboard\FlowBoardController;
 use App\Http\Controllers\Dashboard\Patient\PatientAppointmentController;
 use App\Http\Controllers\Dashboard\Patient\PatientController;
 use App\Http\Controllers\Dashboard\Patient\PatientHistoryController;
+use App\Http\Controllers\Dashboard\PermissionController;
+use App\Http\Controllers\Dashboard\User\SetupAccount;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Http\Controllers\Installer\InstallerController;
 use App\Http\Controllers\Installer\InstallerDatabaseController;
@@ -18,6 +21,7 @@ use App\Http\Controllers\Installer\InstallerFilePermissionController;
 use App\Http\Controllers\Installer\InstallerRequirementsController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\InvitationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,11 +93,11 @@ Route::group([
     /* =================================
         LH EHR PORTAL Routes
     ================================= */
+
     Route::group(
         [
             'as' => 'dashboard.',
             'prefix' => 'dashboard',
-            'middleware' => ['role:super_admin|admin|user'],
             'namespace' => '\\',
         ],
         function () {
@@ -104,24 +108,36 @@ Route::group([
             Route::get('settings', [DashboardController::class, 'settings'])->name('settings');
 
             // ======== Flow Board routes ========
-            Route::get('flow-board', [FlowBoardController::class, 'index'])->name('flow_board');
+            Route::get('flow-board',[FlowBoardController::class, 'index'])->name('flow_board')->middleware('permission:flow-board-read');
 
+            Route::get('mail', [MailSendingController::class, 'sendWelcomeEmail'])->name('mail');
 
             // ======== Calendar routes ========
-            Route::get('calendar', [CalendarController::class, 'index'])->name('calendar');
+            Route::get('calendar', [CalendarController::class, 'index'])->name('calendar')->middleware('permission:calendar-read');
 
-            // ======== Users related routes ========
-            Route::resource('users', UserController::class)->names([
-                'index' => 'users.index',
-                'create' => 'users.create',
-                'show' => 'users.show',
-                'store' => 'users.store',
-                'edit' => 'users.edit',
-                'update' => 'users.update',
-                'destroy' => 'users.destroy',
-            ]);
-            Route::get('users/load/data', [UserController::class, 'getUserData'])
-                ->name('users.load.data');
+            Route::middleware(['role:super_admin|admin'])->group(function () {
+                Route::get('/roles', [RolesController::class, 'index'])->name('roles.index');
+                Route::get('/roles/{rolesId}', [RolesController::class, 'details'])->name('roles.details');
+                Route::post('/roles', [RolesController::class, 'store'])->name('roles.store');
+                Route::get('/all-roles', [RolesController::class, 'getRoles'])->name('roles.all');
+                Route::get('/all-permissions', [PermissionController::class, 'getPermissions'])->name('permissions.all');
+
+
+                // ======== Users related routes ========
+                Route::resource('users', UserController::class)->names([
+                    'index' => 'users.index',
+                    'create' => 'users.create',
+                    'edit' => 'users.edit',
+                    'update' => 'users.update',
+                    'show' => 'users.show',
+                    'destroy' => 'users.destroy',
+                ]);
+                Route::get('/users-fetch', [UserController::class, 'getUsers'])
+                    ->name('users.fetch');
+                Route::get('/invitations-fetch', [InvitationController::class, 'getInvitations'])->name('invitations.fetch');
+                Route::get('/invitations', [InvitationController::class, 'show'])
+                    ->name('invitations.index');
+            });
 
             // ======== Facility related routes ========
             Route::resource('facilities', FacilityController::class)->names([
@@ -132,7 +148,7 @@ Route::group([
                 'edit' => 'facilities.edit',
                 'update' => 'facilities.update',
                 'destroy' => 'facilities.destroy',
-            ]);
+            ])->middleware('permission:facility-read');
 
             // ======== Patient related routes ========
             Route::resource('patients', PatientController::class)->names([
@@ -143,7 +159,7 @@ Route::group([
                 'edit' => 'patients.edit',
                 'update' => 'patients.update',
                 'destroy' => 'patients.destroy',
-            ]);
+            ])->middleware('permission:patient-read');
             Route::get('patients/load/data', [PatientController::class, 'getPatientData'])
                 ->name('patients.load.data');
 
@@ -152,8 +168,8 @@ Route::group([
                     'as' => 'patients.',
                     'prefix' => 'patients',
                     'namespace' => '\\',
-                    // TODO (add a middleware for selected patients)
-                     'middleware' => 'select.patient',
+
+                    'middleware' => ['select.patient', 'permission:patient-read']
                 ],
                 function () {
                     Route::get('select/{pid}', [PatientController::class, 'selectPatient'])
@@ -193,6 +209,13 @@ Route::group([
             );
         }
     );
+    /* =================================
+        LH EHR New User Routes
+    ================================= */
+
+    Route::get('/invitations/join/{token}', [InvitationController::class, 'index'])->name('invitation.get');
+    Route::post('/invitations/accept', [InvitationController::class, 'acceptOrRejectInvite'])->name('invitation.accept');
+
 
 
     /* =================================

@@ -3,7 +3,9 @@ html {
         @apply bg-dark-1 text-gray-100;
         body {
             @apply text-white;
-            *, ::before, ::after {
+            *,
+            ::before,
+            ::after {
                 @apply border-transparent;
             }
         }
@@ -39,8 +41,22 @@ html {
 .box {
     box-shadow: 0 3px 20px rgb(0 0 0 / 4%);
     position: relative;
-    border-radius: .375rem;
+    border-radius: 0.375rem;
     border-color: transparent;
-    background-color: rgba(255,255,255, var(--tw-bg-opacity));
+    background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
+@layer utilities {
+    @variants responsive {
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+    }
+}
