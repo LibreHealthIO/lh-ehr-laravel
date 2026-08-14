@@ -5,3 +5,45 @@ parameters:
 			identifier: booleanOr.rightAlwaysTrue
 			count: 1
 			path: app/Http/Controllers/Auth/ForgotPasswordController.php
+
+		-
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
+			count: 1
+			path: app/Http/Controllers/Dashboard/Patient/PatientController.php
+
+		-
+			message: '#^Used function Clue\\StreamFilter\\fun not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: app/Http/Controllers/Dashboard/Patient/PatientController.php
+
+		-
+			message: '#^Attribute class JetBrains\\PhpStorm\\NoReturn does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: app/Http/Controllers/LocaleController.php
+
+		-
+			message: '#^Loose comparison using \!\= between 0\|0\.0\|''''\|array\{\}\|false and null will always evaluate to false\.$#'
+			identifier: notEqual.alwaysFalse
+			count: 1
+			path: app/Http/Controllers/LocaleController.php
+
+		-
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
+			count: 2
+			path: app/Http/Controllers/LocaleController.php
+
+		-
+			message: '#^Parameter \#1 \$related of method Illuminate\\Database\\Eloquent\\Model\:\:morphMany\(\) expects class\-string\<Illuminate\\Database\\Eloquent\\Model\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Models/User.php
+
+		-
+			message: '#^Function generatePID\(\) should return string but returns int\<1000, 9000000\>\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Support/helper.php
