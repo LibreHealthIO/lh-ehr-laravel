@@ -9,6 +9,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property int $id
+ * @property int $patient_id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string|null $middle_name
+ * @property string $dob
+ * @property string $age
+ * @property string $marital_status
+ * @property string $license_id
+ * @property string $email
+ * @property string $sex
+ * @property string|null $billing_note
+ * @property \Illuminate\Support\Carbon $created_at
+ * @property \Illuminate\Support\Carbon $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Patients\Patient $patient
+ */
 class PatientFaceSheet extends Model
 {
     use HasFactory;

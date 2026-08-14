@@ -111,7 +111,7 @@ class HandleInertiaRequests extends Middleware
                         'date_of_birth' => $patient->faceSheet->dob,
                         'age' => $patient->faceSheet->age,
                         'sex' => $patient->faceSheet->sex,
-                        'created_at' => $patient->deleted_at,
+                        'created_at' => $patient->created_at,
                     ] : null,
                 ];
             },
