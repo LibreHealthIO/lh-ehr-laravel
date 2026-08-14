@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
 use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
-use function Clue\StreamFilter\fun;
 
 class PatientController extends Controller
 {
@@ -114,7 +113,7 @@ class PatientController extends Controller
             Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
             Inertia::share('ehr_patient', function () use ($patient) {
                 return [
-                    'patient' => $patient ? [
+                    'patient' => [
                         'id' => $patient->id,
                         'pid' => $patient->pid,
                         'title' => $patient->title,
@@ -124,8 +123,8 @@ class PatientController extends Controller
                         'date_of_birth' => $patient->faceSheet->dob,
                         'age' => $patient->faceSheet->age,
                         'sex' => $patient->faceSheet->sex,
-                        'created_at' => $patient->deleted_at,
-                    ] : null,
+                        'created_at' => $patient->created_at,
+                    ],
                 ];
             });
             return Inertia::render('Patient/Profile', [
@@ -147,8 +146,8 @@ class PatientController extends Controller
                     'sex' => $patient->faceSheet->sex,
                     'billing_note' => $patient->faceSheet->billing_note,
 
-                    'created_at' => $patient->deleted_at,
-                    'updated_at' => $patient->created_at,
+                    'created_at' => $patient->created_at,
+                    'updated_at' => $patient->updated_at,
                 ],
             ]);
         }

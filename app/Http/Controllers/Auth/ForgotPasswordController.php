@@ -56,7 +56,7 @@ class ForgotPasswordController extends Controller
         // todo get correct password broker
         $status = Password::sendResetLink($request->only('email'));
 
-        return $status === Password::RESET_LINK_SENT || Password::INVALID_USER
+        return $status === Password::RESET_LINK_SENT || $status === Password::INVALID_USER
             ? back()->with('success', __('auth.verification_link_sent', ['email' => $request->email]))
             : back()->withErrors(['email' => __($status)]);
     }

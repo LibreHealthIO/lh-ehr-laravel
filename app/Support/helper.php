@@ -78,6 +78,6 @@ if (!function_exists('generatePID')) {
         if (Patient::where('pid',  $lab_id)->exists()) {
             return generatePID();
         }
-        return $lab_id;
+        return (string) $lab_id;
     }
 }
