@@ -1,12 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: '#^Method App\\Exceptions\\GeneralException\:\:report\(\) should return bool\|null but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Exceptions/GeneralException.php
-
-		-
 			message: '#^Right side of \|\| is always true\.$#'
 			identifier: booleanOr.rightAlwaysTrue
 			count: 1
@@ -143,48 +137,6 @@ parameters:
 			identifier: function.notFound
 			count: 1
 			path: app/Http/Controllers/Dashboard/Patient/PatientController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:create\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:destroy\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:edit\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:index\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:show\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:store\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
-
-		-
-			message: '#^Method App\\Http\\Controllers\\Dashboard\\User\\UserController\:\:update\(\) should return Illuminate\\Http\\Response but return statement is missing\.$#'
-			identifier: return.missing
-			count: 1
-			path: app/Http/Controllers/Dashboard/User/UserController.php
 
 		-
 			message: '#^Attribute class JetBrains\\PhpStorm\\NoReturn does not exist\.$#'
