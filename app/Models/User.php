@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Notification;
 use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 use Khsing\World\Models\Country;
-use Laratrust\Traits\LaratrustUserTrait;
+use Laratrust\Traits\HasRolesAndPermissions as LaratrustUserTrait;
 
 class User extends Authenticatable
 {
