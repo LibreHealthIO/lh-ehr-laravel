@@ -16,7 +16,7 @@ class GeneralException extends Exception
      */
     public function report()
     {
-        //
+        return false;
     }
 
     /**
