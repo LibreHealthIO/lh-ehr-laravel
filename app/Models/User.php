@@ -16,6 +16,23 @@ use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 use Khsing\World\Models\Country;
 use Laratrust\Traits\HasRolesAndPermissions as LaratrustUserTrait;
 
+/**
+ * @property int $id
+ * @property string $username
+ * @property string $first_name
+ * @property string|null $middle_name
+ * @property string $last_name
+ * @property string|null $email
+ * @property string|null $profile_picture
+ * @property string|null $suffix
+ * @property string|null $info
+ * @property bool $active
+ * @property string|null $email_verified_at
+ * @property string|null $timezone
+ * @property-read \Khsing\World\Models\Country $country
+ * @property-read \App\Models\Address $address
+ * @property-read \App\Models\Currency $currency
+ */
 class User extends Authenticatable
 {
     use LaratrustUserTrait;

@@ -9,6 +9,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property string $first_name
+ * @property string $last_name
+ * @property string|null $middle_name
+ * @property string|null $dob
+ * @property string $age
+ * @property string|null $marital_status
+ * @property string|null $license_id
+ * @property string|null $email
+ * @property string|null $sex
+ * @property string|null $billing_note
+ */
 class PatientFaceSheet extends Model
 {
     use HasFactory;

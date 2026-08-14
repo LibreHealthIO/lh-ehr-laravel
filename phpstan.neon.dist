@@ -13,3 +13,6 @@ parameters:
     excludePaths:
         - bootstrap/cache/*
         - storage/*
+
+    stubFiles:
+        - stubs/khsing-world.stub

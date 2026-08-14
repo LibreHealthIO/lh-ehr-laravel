@@ -1,0 +1,16 @@
+<?php
+
+namespace Khsing\World\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property int $id
+ * @property string $code
+ * @property string $name
+ * @property string $emoji
+ * @property string $currency_code
+ */
+class Country extends Model
+{
+}

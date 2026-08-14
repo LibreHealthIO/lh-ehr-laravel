@@ -16,8 +16,8 @@ class FlowBoardController extends Controller
                 ->transform(function ($user) {
                     return [
                         'id' => $user->id,
-                        'fname' => $user->fname,
-                        'lname' => $user->lname,
+                        'fname' => $user->first_name,
+                        'lname' => $user->last_name,
                         'access_control' => $user->access_control,
                         'created_at' => $user->created_at,
                     ];

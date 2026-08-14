@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 
+/**
+ * @property int $id
+ * @property int $pid
+ * @property string|null $title
+ * @property string $created_at
+ * @property string $updated_at
+ * @property-read \App\Models\Patients\PatientFaceSheet $faceSheet
+ */
 class Patient extends Model
 {
     use HasFactory;
