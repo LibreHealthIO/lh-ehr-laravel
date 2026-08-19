@@ -11,7 +11,7 @@ use Tests\SecurityTestCase;
  * Tests for verifying the SecurityTestCase base class and SecurityTestSeeder.
  */
 
-class SecurityTestFoundation extends SecurityTestCase
+class SecurityTestFoundationTest extends SecurityTestCase
 {
     public function testSecurityTestUsersExist(): void
     {

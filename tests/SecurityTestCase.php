@@ -305,6 +305,16 @@ abstract class SecurityTestCase extends TestCase
     }
 
 
+    /**
+     * Prepare the test client to make requests as if a patient has been
+     * selected via /dashboard/patients/select/{pid}. Required for any route
+     * protected by the "select.patient" middleware.
+     */
+    protected function selectPatient(Patient $patient): static
+    {
+        return $this->withCookie('ehr_patient', encrypt($patient->pid));
+    }
+
     protected function createTestPatient(): Patient
     {
        
