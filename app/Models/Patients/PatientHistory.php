@@ -12,7 +12,7 @@ class PatientHistory extends Model
     /**
      * Return patient that has this history
      *
-     * @return BelongsTo<Patient, self>
+     * @return BelongsTo<Patient, $this>
      */
     public function patient(): BelongsTo
     {

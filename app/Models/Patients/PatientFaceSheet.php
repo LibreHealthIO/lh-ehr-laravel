@@ -41,7 +41,7 @@ class PatientFaceSheet extends Model
     /**
      * Return patient that has this face sheet
      *
-     * @return BelongsTo<Patient, self>
+     * @return BelongsTo<Patient, $this>
      */
     public function patient(): BelongsTo
     {

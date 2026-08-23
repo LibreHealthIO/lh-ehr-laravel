@@ -84,7 +84,7 @@ class User extends Authenticatable
     /**
      * Return address of the user.
      *
-     * @return HasOne<Address, self>
+     * @return HasOne<Address, $this>
      */
     public function address(): HasOne
     {
@@ -94,7 +94,7 @@ class User extends Authenticatable
     /**
      * Return user's country default is USA (id = 169)
      *
-     * @return BelongsTo<Country, self>
+     * @return BelongsTo<Country, $this>
      */
     public function country(): BelongsTo
     {
@@ -103,7 +103,7 @@ class User extends Authenticatable
 
     /**
      * Gets user's currency (default XAF)
-     * @return BelongsTo<Currency, self>
+     * @return BelongsTo<Currency, $this>
      */
     public function currency(): BelongsTo
     {
@@ -112,7 +112,7 @@ class User extends Authenticatable
 
     /**
      * Return all user's roles
-     * @return Collection<int, Role>
+     * @return \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>
      */
     public function getUserRolesAttribute(): Collection
     {
@@ -121,7 +121,7 @@ class User extends Authenticatable
 
     /**
      * Return all user's permissions
-     * @return Collection<int, Permission>
+     * @return \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>
      */
     public function getUserPermissionsAttribute(): Collection
     {
@@ -139,7 +139,7 @@ class User extends Authenticatable
     }
 
     /**
-     * @return MorphMany<DatabaseNotification, self>
+     * @return MorphMany<DatabaseNotification, $this>
      */
     public function notifications(): MorphMany
     {

@@ -9,7 +9,7 @@ class Currency extends Model
 {
     /**
      * Returns currency that belongs to users
-     * @return HasMany<User, self>
+     * @return HasMany<User, $this>
      */
     public function users(): HasMany
     {

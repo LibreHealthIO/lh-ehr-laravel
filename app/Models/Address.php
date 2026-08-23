@@ -23,7 +23,7 @@ class Address extends Model
     /**
      * Return patients' address
      *
-     * @return BelongsTo<Patient, self>
+     * @return BelongsTo<Patient, $this>
      */
     public function patient(): BelongsTo
     {
@@ -33,7 +33,7 @@ class Address extends Model
     /**
      * Returns facilities' address
      *
-     * @return BelongsTo<Facility, self>
+     * @return BelongsTo<Facility, $this>
      */
     public function facility(): BelongsTo
     {
@@ -43,7 +43,7 @@ class Address extends Model
     /**
      * Return users' address
      *
-     * @return BelongsTo<User, self>
+     * @return BelongsTo<User, $this>
      */
     public function user(): BelongsTo
     {
@@ -53,7 +53,7 @@ class Address extends Model
     /**
      * Return address' city
      *
-     * @return BelongsTo<City, self>
+     * @return BelongsTo<City, $this>
      */
     public function city(): BelongsTo
     {
@@ -63,7 +63,7 @@ class Address extends Model
     /**
      * Return address' country
      *
-     * @return BelongsTo<Country, self>
+     * @return BelongsTo<Country, $this>
      */
     public function country(): BelongsTo
     {

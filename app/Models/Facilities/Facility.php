@@ -18,7 +18,7 @@ class Facility extends Model
     /**
      * Returns facility address.
      *
-     * @return BelongsTo<Address, self>
+     * @return BelongsTo<Address, $this>
      */
     public function address(): BelongsTo
     {

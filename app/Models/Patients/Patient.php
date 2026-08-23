@@ -48,7 +48,7 @@ class Patient extends Model
     /**
      * Return address of the patient.
      *
-     * @return BelongsTo<Address, self>
+     * @return BelongsTo<Address, $this>
      */
     public function address(): BelongsTo
     {
@@ -58,7 +58,7 @@ class Patient extends Model
     /**
      * Return patient's face sheet data
      *
-     * @return HasOne<PatientFaceSheet, self>
+     * @return HasOne<PatientFaceSheet, $this>
      */
     public function faceSheet(): HasOne
     {
@@ -68,7 +68,7 @@ class Patient extends Model
     /**
      * Return patient's history data
      *
-     * @return HasOne<PatientHistory, self>
+     * @return HasOne<PatientHistory, $this>
      */
     public function history(): HasOne
     {

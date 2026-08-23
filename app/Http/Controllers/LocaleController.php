@@ -11,7 +11,7 @@ class LocaleController extends Controller
 {
     public function setLocale(Request $request, string $locale): RedirectResponse
     {
-        if (is_string($locale) && array_key_exists($locale, config('app.supported_locales'))) {
+        if (array_key_exists($locale, config('app.supported_locales'))) {
             App::setlocale($locale);
             Carbon::setlocale($locale);
             session()->put('locale', $locale);
