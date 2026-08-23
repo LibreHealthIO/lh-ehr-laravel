@@ -16,10 +16,10 @@ class RequirementsChecker
     /**
      * Check server requirements, extensions, apache etc.
      *
-     * @param array $requirements
-     * @return array
+     * @param array<string, list<string>> $requirements
+     * @return array<string, mixed>
      */
-    public function check(array $requirements): array
+    public function check(array<string, list<string>> $requirements): array<string, mixed>
     {
         $results = [];
 
@@ -61,9 +61,9 @@ class RequirementsChecker
      * Check PHP version requirement.
      *
      * @param string|null $minPhpVersion
-     * @return array
+     * @return array<string, mixed>
      */
-    public function checkPHPVersion(string $minPhpVersion = null): array
+    public function checkPHPVersion(string $minPhpVersion = null): array<string, mixed>
     {
         $minVersionPhp = $minPhpVersion;
         $currentPhpVersion = $this->getPhpVersionInfo();
@@ -89,9 +89,9 @@ class RequirementsChecker
     /**
      * Get current PHP version information.
      *
-     * @return array
+     * @return array<string, string>
      */
-    private static function getPhpVersionInfo(): array
+    private static function getPhpVersionInfo(): array<string, string>
     {
         $currentVersionFull = PHP_VERSION;
         preg_match("#^\d+(\.\d+)*#", $currentVersionFull, $filtered);
