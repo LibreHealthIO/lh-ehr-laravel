@@ -20,7 +20,7 @@ class Facility extends Model
      *
      * @return BelongsTo<Address, self>
      */
-    public function address(): BelongsTo<Address, self>
+    public function address(): BelongsTo
     {
         return $this->belongsTo(Address::class, 'address_id');
     }

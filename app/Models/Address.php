@@ -25,7 +25,7 @@ class Address extends Model
      *
      * @return BelongsTo<Patient, self>
      */
-    public function patient(): BelongsTo<Patient, self>
+    public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class, 'id');
     }
@@ -35,7 +35,7 @@ class Address extends Model
      *
      * @return BelongsTo<Facility, self>
      */
-    public function facility(): BelongsTo<Facility, self>
+    public function facility(): BelongsTo
     {
         return $this->belongsTo(Facility::class, 'id');
     }
@@ -45,7 +45,7 @@ class Address extends Model
      *
      * @return BelongsTo<User, self>
      */
-    public function user(): BelongsTo<User, self>
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id');
     }
@@ -55,7 +55,7 @@ class Address extends Model
      *
      * @return BelongsTo<City, self>
      */
-    public function city(): BelongsTo<City, self>
+    public function city(): BelongsTo
     {
         return $this->belongsTo(City::class, 'city_id');
     }
@@ -65,7 +65,7 @@ class Address extends Model
      *
      * @return BelongsTo<Country, self>
      */
-    public function country(): BelongsTo<Country, self>
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class, 'country_id');
     }

@@ -86,7 +86,7 @@ class User extends Authenticatable
      *
      * @return HasOne<Address, self>
      */
-    public function address(): HasOne<Address, self>
+    public function address(): HasOne
     {
         return $this->hasOne(Address::class);
     }
@@ -96,7 +96,7 @@ class User extends Authenticatable
      *
      * @return BelongsTo<Country, self>
      */
-    public function country(): BelongsTo<Country, self>
+    public function country(): BelongsTo
     {
         return $this->belongsTo(Country::class);
     }
@@ -105,7 +105,7 @@ class User extends Authenticatable
      * Gets user's currency (default XAF)
      * @return BelongsTo<Currency, self>
      */
-    public function currency(): BelongsTo<Currency, self>
+    public function currency(): BelongsTo
     {
         return $this->belongsTo(Currency::class);
     }
@@ -114,7 +114,7 @@ class User extends Authenticatable
      * Return all user's roles
      * @return Collection<int, Role>
      */
-    public function getUserRolesAttribute(): Collection<int, Role>
+    public function getUserRolesAttribute(): Collection
     {
         return $this->roles()->get(['id', 'name']);
     }
@@ -123,7 +123,7 @@ class User extends Authenticatable
      * Return all user's permissions
      * @return Collection<int, Permission>
      */
-    public function getUserPermissionsAttribute(): Collection<int, Permission>
+    public function getUserPermissionsAttribute(): Collection
     {
         return $this->permissions()->get(['id', 'name']);
     }
@@ -141,7 +141,7 @@ class User extends Authenticatable
     /**
      * @return MorphMany<DatabaseNotification, self>
      */
-    public function notifications(): MorphMany<DatabaseNotification, self>
+    public function notifications(): MorphMany
     {
         return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');
     }

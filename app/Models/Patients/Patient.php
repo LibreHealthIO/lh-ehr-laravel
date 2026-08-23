@@ -50,7 +50,7 @@ class Patient extends Model
      *
      * @return BelongsTo<Address, self>
      */
-    public function address(): BelongsTo<Address, self>
+    public function address(): BelongsTo
     {
         return $this->belongsTo(Address::class, 'address_id');
     }
@@ -60,7 +60,7 @@ class Patient extends Model
      *
      * @return HasOne<PatientFaceSheet, self>
      */
-    public function faceSheet(): HasOne<PatientFaceSheet, self>
+    public function faceSheet(): HasOne
     {
         return $this->hasOne(PatientFaceSheet::class, 'patient_id');
     }
@@ -70,7 +70,7 @@ class Patient extends Model
      *
      * @return HasOne<PatientHistory, self>
      */
-    public function history(): HasOne<PatientHistory, self>
+    public function history(): HasOne
     {
         return $this->hasOne(PatientHistory::class, 'patient_id');
     }

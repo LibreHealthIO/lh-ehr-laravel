@@ -11,7 +11,7 @@ class Currency extends Model
      * Returns currency that belongs to users
      * @return HasMany<User, self>
      */
-    public function users(): HasMany<User, self>
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
