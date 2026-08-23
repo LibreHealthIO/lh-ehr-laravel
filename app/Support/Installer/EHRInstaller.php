@@ -29,13 +29,13 @@ class EHRInstaller
     {
         if (!File::exists($this->installerFile)) {
             $details = [$siteDetails];
-            $contents = json_encode($details, JSON_PRETTY_PRINT, 4);
+            $contents = json_encode($details, JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR, 4);
             File::put($this->installerFile, $contents);
         } else {
             $fileContents = File::get($this->installerFile);
             $tempArray = json_decode($fileContents);
             $tempArray[] = $siteDetails;
-            $contents = json_encode($tempArray, JSON_PRETTY_PRINT, 4);
+            $contents = json_encode($tempArray, JSON_PRETTY_PRINT | JSON_THROW_ON_ERROR, 4);
             File::put($this->installerFile, $contents, true);
         }
     }

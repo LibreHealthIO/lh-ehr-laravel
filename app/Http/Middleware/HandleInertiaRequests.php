@@ -116,7 +116,9 @@ class HandleInertiaRequests extends Middleware
                 ];
             },
             'profane_words' => ['fuck', 'bitch'],
-            'user_currency' => $request->user() ? $request->user()->currency : currency()->getCurrency(),
+            'user_currency' => ($userCurrency = $request->user()?->currency) !== null
+                ? app(\Torann\Currency\Currency::class)->getCurrency($userCurrency->code)
+                : app(\Torann\Currency\Currency::class)->getCurrency(),
             'flash' => function () use ($request) {
                 return [
                     'error' => $request->session()->get('error'),

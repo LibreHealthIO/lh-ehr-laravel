@@ -95,7 +95,7 @@ class RequirementsChecker
     {
         $currentVersionFull = PHP_VERSION;
         preg_match("#^\d+(\.\d+)*#", $currentVersionFull, $filtered);
-        $currentVersion = $filtered[0];
+        $currentVersion = $filtered[0] ?? '0';
 
         return [
             'full' => $currentVersionFull,
