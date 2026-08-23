@@ -28,14 +28,14 @@
         "autoprefixer": "^10.4.2",
         "browser-sync": "^2.27.7",
         "browser-sync-webpack-plugin": "^2.3.0",
-        "lodash": "^4.17.19",
+        "lodash": "^4.17.23",
         "postcss": "^8.4.6",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.49.7",
         "sass-loader": "^12.4.0",
         "tailwindcss": "^3.0.18",
         "vue-loader": "^15.9.8",
-        "vue-template-compiler": "^2.6.14"
+        "vue-template-compiler": "^2.7.16"
     },
     "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
@@ -51,14 +51,14 @@
         "@inertiajs/progress": "^0.2.7",
         "@popperjs/core": "^2.11.2",
         "@sentry/browser": "^6.17.4",
-        "axios": "^0.25.0",
+        "axios": "^0.33.0",
         "cash-dom": "^8.1.0",
         "dayjs": "^1.10.7",
         "flowbite": "^1.6.5",
         "laravel-echo": "^1.11.3",
         "laravel-mix": "^6.0.41",
         "laravel-vue-datatable": "^0.6.0",
-        "lodash": "^4.17.21",
+        "lodash": "^4.17.23",
         "moment": "^2.29.1",
         "portal-vue": "^2.1.7",
         "postcss-import": "^14.0.0",
@@ -66,7 +66,7 @@
         "pusher-js": "^7.0.3",
         "tailwindcss-dir": "^4.0.0",
         "v-calendar": "^2.4.1",
-        "vue": "^2.6.14",
+        "vue": "^2.7.16",
         "vue-clickaway": "^2.2.2",
         "vue-i18n": "^8.22.4",
         "vue-js-modal": "^2.0.1",
@@ -81,5 +81,10 @@
         "vue2-datepicker": "^3.11.0",
         "vuelidate": "^0.7.7",
         "vuex": "^3.6.2"
+    },
+    "overrides": {
+        "axios": "$axios",
+        "lodash": "$lodash",
+        "vue": "$vue"
     }
 }
