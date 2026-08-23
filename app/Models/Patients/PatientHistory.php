@@ -12,9 +12,9 @@ class PatientHistory extends Model
     /**
      * Return patient that has this history
      *
-     * @return BelongsTo
+     * @return BelongsTo<Patient, self>
      */
-    public function patient()
+    public function patient(): BelongsTo<Patient, self>
     {
         return $this->belongsTo(Patient::class, 'patient_id');
     }
