@@ -7,7 +7,7 @@ parameters:
         - config/
         - routes/
 
-    level: 5
+    level: 7
 
     excludePaths:
         - bootstrap/cache/*
