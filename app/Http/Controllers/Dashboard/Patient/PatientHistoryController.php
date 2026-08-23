@@ -10,7 +10,7 @@ use Inertia\Inertia;
 
 class PatientHistoryController extends Controller
 {
-    public function index(Request $request, $id): \Inertia\Response
+    public function index(Request $request, int $id): \Inertia\Response
     {
         $patient = Patient::find($id);
         $history = $patient->history();

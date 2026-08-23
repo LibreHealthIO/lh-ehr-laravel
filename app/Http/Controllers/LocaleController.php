@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\App;
 
 class LocaleController extends Controller
 {
-    public function setLocale(Request $request, $locale): RedirectResponse
+    public function setLocale(Request $request, string $locale): RedirectResponse
     {
         if (is_string($locale) && array_key_exists($locale, config('app.supported_locales'))) {
             App::setlocale($locale);

@@ -90,7 +90,7 @@ class PatientController extends Controller
      * @param $pid
      * @return RedirectResponse
      */
-    public function selectPatient($pid): RedirectResponse
+    public function selectPatient(int $pid): RedirectResponse
     {
         $patient = Patient::where('pid', $pid)->firstOrFail();
         // we set the patient as cookie and redirect to patient details
@@ -160,7 +160,7 @@ class PatientController extends Controller
      * @param $pid
      * @return RedirectResponse|string|void
      */
-    public function clearPatient(Request $request, $pid)
+    public function clearPatient(Request $request, int $pid)
     {
         $patient = Patient::where('pid', $pid)->first();
         if (!$patient) {
