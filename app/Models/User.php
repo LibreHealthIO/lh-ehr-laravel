@@ -14,7 +14,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Notifications\DatabaseNotification;
 use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 use Khsing\World\Models\Country;
-use Laratrust\Traits\LaratrustUserTrait;
+use Laratrust\Traits\HasRolesAndPermissions as LaratrustUserTrait;
 
 /**
  * @property int $id
