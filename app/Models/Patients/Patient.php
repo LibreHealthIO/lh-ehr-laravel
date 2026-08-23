@@ -8,12 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
 
 class Patient extends Model
 {
     use HasFactory;
-    use LaravelVueDatatableTrait;
     use SoftDeletes;
 
     protected array $dataTableColumns = [
@@ -24,6 +22,14 @@ class Patient extends Model
         'created_at' => ['searchable' => true],
         'updated_at' => ['searchable' => true],
     ];
+
+    /**
+     * Return the datatable column configuration.
+     */
+    public function getDataTableColumns(): array
+    {
+        return $this->dataTableColumns;
+    }
 
     /**
      * Return address of the patient.

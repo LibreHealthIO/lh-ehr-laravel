@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard\Patient;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DataTableCollectionResource;
 use App\Http\Resources\PatientResource;
 use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
@@ -12,8 +13,6 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
-use JamesDordoy\LaravelVueDatatable\Http\Resources\DataTableCollectionResource;
-use function Clue\StreamFilter\fun;
 
 class PatientController extends Controller
 {
@@ -95,7 +94,17 @@ class PatientController extends Controller
     {
         $patient = Patient::where('pid', $pid)->firstOrFail();
         // we set the patient as cookie and redirect to patient details
-        Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
+        Cookie::queue(Cookie::make(
+            'ehr_patient',
+            encrypt($patient->pid),
+            60,
+            config('session.path', '/'),
+            config('session.domain'),
+            config('session.secure', false),
+            true,
+            false,
+            config('session.same_site', 'lax')
+        ));
         return Redirect::route('dashboard.patients.show', $patient->pid);
     }
 
@@ -111,7 +120,17 @@ class PatientController extends Controller
         if (!$patient) {
             return redirect()->back()->with('error', __('general.no_such_patient'));
         } else {
-            Cookie::queue(Cookie::make('ehr_patient', encrypt($patient->pid), 60));
+            Cookie::queue(Cookie::make(
+            'ehr_patient',
+            encrypt($patient->pid),
+            60,
+            config('session.path', '/'),
+            config('session.domain'),
+            config('session.secure', false),
+            true,
+            false,
+            config('session.same_site', 'lax')
+        ));
             Inertia::share('ehr_patient', function () use ($patient) {
                 return [
                     'patient' => $patient ? [
@@ -217,20 +236,139 @@ class PatientController extends Controller
      */
     public function getPatientData(Request $request): DataTableCollectionResource
     {
-        $length = $request->input('length');
-        $sortBy = $request->input('column');
-        $orderBy = $request->input('dir');
+        $length = $request->input('length', 40);
+        $sortBy = $request->input('column', 'id');
+        $orderBy = $request->input('dir', 'asc');
         $searchValue = $request->input('search');
         $sex = $request->input('sex');
-        $query = Patient::latest()->when($sex, function ($query) use ($sex) {
-            $query->whereHas('faceSheet', function ($query) use ($sex) {
-                $query->where('sex', $sex);
-            });
-        })->eloquentQuery($sortBy, $orderBy, $searchValue);
 
-        $data = $query->paginate($length)->through(function ($user) {
-            return new PatientResource($user);
+        $query = Patient::with('faceSheet')
+            ->when($sex, function ($query) use ($sex) {
+                $query->whereHas('faceSheet', function ($query) use ($sex) {
+                    $query->where('sex', $sex);
+                });
+            })
+            ->when($searchValue, function ($query) use ($searchValue) {
+                $this->applyPatientSearch($query, $searchValue);
+            });
+
+        $query = $this->applyPatientSort($query, $sortBy, $orderBy);
+
+        $data = $query->paginate($length)->through(function ($patient) {
+            return new PatientResource($patient);
         });
+
         return new DataTableCollectionResource($data);
+    }
+
+    /**
+     * Apply a global search across patient and face sheet fields.
+     */
+    private function applyPatientSearch($query, string $searchValue): void
+    {
+        $like = '%' . $searchValue . '%';
+
+        $query->where(function ($query) use ($like) {
+            $query->where('patients.pid', 'like', $like)
+                ->orWhere('patients.occupation', 'like', $like)
+                ->orWhere('patients.industry', 'like', $like)
+                ->orWhereHas('faceSheet', function ($query) use ($like) {
+                    $query->where('first_name', 'like', $like)
+                        ->orWhere('last_name', 'like', $like)
+                        ->orWhere('email', 'like', $like)
+                        ->orWhere('sex', 'like', $like);
+                });
+        });
+    }
+
+    /**
+     * Apply sorting for local patient columns and face sheet relation columns.
+     */
+    private function applyPatientSort($query, string $sortBy, string $orderBy)
+    {
+        $orderBy = strtolower($orderBy) === 'desc' ? 'desc' : 'asc';
+        $faceSheetColumns = [
+            'first_name',
+            'last_name',
+            'middle_name',
+            'date_of_birth',
+            'marital_status',
+            'license_id',
+            'email',
+            'sex',
+            'billing_note',
+        ];
+
+        if (in_array($sortBy, $faceSheetColumns, true)) {
+            // date_of_birth is stored as dob in the face sheet table
+            $column = $sortBy === 'date_of_birth' ? 'dob' : $sortBy;
+
+            return $query->leftJoin('patient_face_sheets as pfs', 'patients.id', '=', 'pfs.patient_id')
+                ->select('patients.*')
+                ->orderBy("pfs.{$column}", $orderBy);
+        }
+
+        $allowedColumns = array_keys((new Patient())->getDataTableColumns());
+        $sortBy = in_array($sortBy, $allowedColumns, true) ? $sortBy : 'id';
+
+        return $query->orderBy("patients.{$sortBy}", $orderBy);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientDocuments(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientReports(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientTransactions(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page.
+     *
+     * @param int $pid
+     * @return RedirectResponse
+     */
+    public function patientLedger(int $pid): RedirectResponse
+    {
+        return redirect()->route('dashboard.patients.show', $pid);
+    }
+
+    /**
+     * Redirect to the patient's profile page or patients index.
+     *
+     * @param int|null $pid
+     * @return RedirectResponse
+     */
+    public function chartLabel(int $pid = null): RedirectResponse
+    {
+        if ($pid) {
+            return redirect()->route('dashboard.patients.show', $pid);
+        }
+        return redirect()->route('dashboard.patients.index');
     }
 }
