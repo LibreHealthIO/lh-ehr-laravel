@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'driver' => 'database',
+    'driver' => env('CURRENCY_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------
