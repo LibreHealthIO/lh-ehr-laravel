@@ -13,7 +13,7 @@ class EHRInstaller
      * The URIs that should be excluded from Install Verifications.
      * This is necessary for Install Routes.
      *
-     * @var array
+     * @var list<string>
      */
     protected array $except = [
         'install*',

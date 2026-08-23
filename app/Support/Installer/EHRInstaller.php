@@ -21,11 +21,11 @@ class EHRInstaller
 
     /**
      * Create installation file and logs site with user
-     * @param array $siteDetails
+     * @param array<string, mixed> $siteDetails
      * @return void
      * @throws FileNotFoundException
      */
-    public function createInstallerLogFile(array $siteDetails): void
+    public function createInstallerLogFile(array<string, mixed> $siteDetails): void
     {
         if (!File::exists($this->installerFile)) {
             $details = [$siteDetails];
@@ -42,10 +42,10 @@ class EHRInstaller
 
     /**
      * Reads the installation file and retrieve data (sites)
-     * @return array
+     * @return array<string, mixed>
      * @throws FileNotFoundException
      */
-    public function readInstallerLogFile(): array
+    public function readInstallerLogFile(): array<string, mixed>
     {
         $status = true;
         $results = [];

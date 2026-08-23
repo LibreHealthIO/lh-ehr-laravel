@@ -7,7 +7,7 @@ class FilePermissionChecker
 {
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected array $results = [];
 
@@ -27,10 +27,10 @@ class FilePermissionChecker
     /**
      * Check if the folders have the right permission ehr_installer.php
      *
-     * @param array $folders
-     * @return array
+     * @param array<string, int> $folders
+     * @return array<string, mixed>
      */
-    public function check(array $folders): array
+    public function check(array<string, int> $folders): array<string, mixed>
     {
         foreach ($folders as $folder => $permission) {
             $status = true;

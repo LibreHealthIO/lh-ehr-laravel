@@ -29,6 +29,9 @@ class Patient extends Model
     use LaravelVueDatatableTrait;
     use SoftDeletes;
 
+    /**
+     * @var array<string, array<string, bool>>
+     */
     protected array $dataTableColumns = [
         'id' => ['searchable' => false],
         'pid' => ['searchable' => true],

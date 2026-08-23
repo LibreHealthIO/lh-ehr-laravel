@@ -11,9 +11,9 @@ class PatientCollection extends ResourceCollection
      * Transform the resource collection into an array.
      *
      * @param  Request  $request
-     * @return array
+     * @return array<string, mixed>
      */
-    public function toArray($request): array
+    public function toArray($request): array<string, mixed>
     {
         return [
             'data' => $this->collection,

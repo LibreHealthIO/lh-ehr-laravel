@@ -37,9 +37,9 @@ class HandleInertiaRequests extends Middleware
      *
      * @see https://inertiajs.com/shared-data
      * @param Request $request
-     * @return array
+     * @return array<string, mixed>
      */
-    public function share(Request $request): array
+    public function share(Request $request): array<string, mixed>
     {
         if (App::isDownForMaintenance()) {
             Debugbar()->disable();
@@ -53,9 +53,9 @@ class HandleInertiaRequests extends Middleware
     /**
      * Gets shared props for multi-tenant EHR app
      * @param Request $request
-     * @return array
+     * @return array<string, mixed>
      */
-    protected function getShared(Request $request): array
+    protected function getShared(Request $request): array<string, mixed>
     {
         return [
             'app_name' => app_name(),
