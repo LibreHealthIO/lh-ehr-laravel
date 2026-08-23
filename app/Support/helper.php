@@ -81,3 +81,23 @@ if (!function_exists('generatePID')) {
         return $lab_id;
     }
 }
+
+if (!function_exists('csp_nonce')) {
+    /**
+     * Generate or retrieve the Content-Security-Policy nonce for the current request.
+     *
+     * @return string
+     */
+    function csp_nonce(): string
+    {
+        $attribute = 'csp_nonce';
+        $nonce = app('request')->attributes->get($attribute);
+
+        if (empty($nonce)) {
+            $nonce = base64_encode(random_bytes(16));
+            app('request')->attributes->set($attribute, $nonce);
+        }
+
+        return $nonce;
+    }
+}

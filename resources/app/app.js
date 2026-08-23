@@ -1,5 +1,6 @@
 require("./pusher");
 
+import axios from "axios"
 import Vue from "vue"
 import VueMeta from "vue-meta"
 import PortalVue from "portal-vue"
@@ -42,6 +43,11 @@ Vue.component("inertia-link", Link)
 Pusher.logToConsole = (process.env.MIX_APP_ENV !== "production")
 Sentry.init({ dsn: process.env.MIX_SENTRY_LARAVEL_DSN });
 InertiaProgress.init({ delay: 250, color: "#f59031" });
+
+const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+if (csrfTokenMeta) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfTokenMeta.getAttribute('content');
+}
 
 createInertiaApp({
     resolve: async name => await import(`./pages/${name}`).then((res) => res.default),

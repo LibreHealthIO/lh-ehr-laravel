@@ -22,7 +22,7 @@
 </head>
 <body class="bg-gray-50 h-screen antialiased flex flex-col overflow-scroll-container">
         @inertia
-        <script type="text/javascript">
+        <script type="text/javascript" nonce="{{ csp_nonce() }}">
             window.app_name = "{{ app_name() }}";
             window.app_version = "{{ app_version() }}";
             window.default_locale = "{{ config('app.locale') }}";
