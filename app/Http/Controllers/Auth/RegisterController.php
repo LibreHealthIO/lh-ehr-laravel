@@ -71,7 +71,7 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function showRegistrationForm()
+    public function showRegistrationForm(): \Illuminate\Http\RedirectResponse
     {
         return redirect()->route('index');
     }

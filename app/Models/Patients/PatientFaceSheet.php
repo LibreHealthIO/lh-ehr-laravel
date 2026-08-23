@@ -44,7 +44,7 @@ class PatientFaceSheet extends Model
         return $this->belongsTo(Patient::class, 'patient_id');
     }
 
-    public function getAgeAttribute()
+    public function getAgeAttribute(): string
     {
         $age = 0;
         $unit = 'seconds';
