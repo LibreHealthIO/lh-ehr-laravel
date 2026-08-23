@@ -19,7 +19,7 @@ class RequirementsChecker
      * @param array<string, list<string>> $requirements
      * @return array<string, mixed>
      */
-    public function check(array<string, list<string>> $requirements): array<string, mixed>
+    public function check(array $requirements): array
     {
         $results = [];
 
@@ -63,7 +63,7 @@ class RequirementsChecker
      * @param string|null $minPhpVersion
      * @return array<string, mixed>
      */
-    public function checkPHPVersion(string $minPhpVersion = null): array<string, mixed>
+    public function checkPHPVersion(string $minPhpVersion = null): array
     {
         $minVersionPhp = $minPhpVersion;
         $currentPhpVersion = $this->getPhpVersionInfo();
@@ -91,7 +91,7 @@ class RequirementsChecker
      *
      * @return array<string, string>
      */
-    private static function getPhpVersionInfo(): array<string, string>
+    private static function getPhpVersionInfo(): array
     {
         $currentVersionFull = PHP_VERSION;
         preg_match("#^\d+(\.\d+)*#", $currentVersionFull, $filtered);

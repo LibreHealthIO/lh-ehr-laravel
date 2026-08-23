@@ -25,7 +25,7 @@ class EHRInstaller
      * @return void
      * @throws FileNotFoundException
      */
-    public function createInstallerLogFile(array<string, mixed> $siteDetails): void
+    public function createInstallerLogFile(array $siteDetails): void
     {
         if (!File::exists($this->installerFile)) {
             $details = [$siteDetails];
@@ -45,7 +45,7 @@ class EHRInstaller
      * @return array<string, mixed>
      * @throws FileNotFoundException
      */
-    public function readInstallerLogFile(): array<string, mixed>
+    public function readInstallerLogFile(): array
     {
         $status = true;
         $results = [];

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Facilities\Facility;
 use App\Models\Patients\Patient;
+use Database\Factories\AddressFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,6 +13,9 @@ use Khsing\World\Models\Country;
 
 class Address extends Model
 {
+    /**
+     * @use HasFactory<AddressFactory>
+     */
     use HasFactory;
 
     protected $with = ['city', 'country'];
@@ -19,9 +23,9 @@ class Address extends Model
     /**
      * Return patients' address
      *
-     * @return BelongsTo
+     * @return BelongsTo<Patient, self>
      */
-    public function patient()
+    public function patient(): BelongsTo<Patient, self>
     {
         return $this->belongsTo(Patient::class, 'id');
     }
@@ -29,9 +33,9 @@ class Address extends Model
     /**
      * Returns facilities' address
      *
-     * @return BelongsTo
+     * @return BelongsTo<Facility, self>
      */
-    public function facility()
+    public function facility(): BelongsTo<Facility, self>
     {
         return $this->belongsTo(Facility::class, 'id');
     }
@@ -39,9 +43,9 @@ class Address extends Model
     /**
      * Return users' address
      *
-     * @return BelongsTo
+     * @return BelongsTo<User, self>
      */
-    public function user()
+    public function user(): BelongsTo<User, self>
     {
         return $this->belongsTo(User::class, 'id');
     }
@@ -49,9 +53,9 @@ class Address extends Model
     /**
      * Return address' city
      *
-     * @return BelongsTo
+     * @return BelongsTo<City, self>
      */
-    public function city()
+    public function city(): BelongsTo<City, self>
     {
         return $this->belongsTo(City::class, 'city_id');
     }
@@ -59,9 +63,9 @@ class Address extends Model
     /**
      * Return address' country
      *
-     * @return BelongsTo
+     * @return BelongsTo<Country, self>
      */
-    public function country()
+    public function country(): BelongsTo<Country, self>
     {
         return $this->belongsTo(Country::class, 'country_id');
     }

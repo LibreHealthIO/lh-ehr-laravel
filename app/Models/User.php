@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Role;
+use App\Models\Permission;
+use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -41,6 +44,9 @@ class User extends Authenticatable
     use LaratrustUserTrait;
     use Notifiable;
     use SoftDeletes;
+    /**
+     * @use HasFactory<UserFactory>
+     */
     use HasFactory;
     use LaravelVueDatatableTrait;
 
@@ -78,9 +84,9 @@ class User extends Authenticatable
     /**
      * Return address of the user.
      *
-     * @return HasOne
+     * @return HasOne<Address, self>
      */
-    public function address(): HasOne
+    public function address(): HasOne<Address, self>
     {
         return $this->hasOne(Address::class);
     }
@@ -88,36 +94,36 @@ class User extends Authenticatable
     /**
      * Return user's country default is USA (id = 169)
      *
-     * @return BelongsTo
+     * @return BelongsTo<Country, self>
      */
-    public function country(): BelongsTo
+    public function country(): BelongsTo<Country, self>
     {
         return $this->belongsTo(Country::class);
     }
 
     /**
      * Gets user's currency (default XAF)
-     * @return BelongsTo
+     * @return BelongsTo<Currency, self>
      */
-    public function currency(): BelongsTo
+    public function currency(): BelongsTo<Currency, self>
     {
         return $this->belongsTo(Currency::class);
     }
 
     /**
      * Return all user's roles
-     * @return Collection
+     * @return Collection<int, Role>
      */
-    public function getUserRolesAttribute(): Collection
+    public function getUserRolesAttribute(): Collection<int, Role>
     {
         return $this->roles()->get(['id', 'name']);
     }
 
     /**
      * Return all user's permissions
-     * @return Collection
+     * @return Collection<int, Permission>
      */
-    public function getUserPermissionsAttribute(): Collection
+    public function getUserPermissionsAttribute(): Collection<int, Permission>
     {
         return $this->permissions()->get(['id', 'name']);
     }
@@ -132,7 +138,10 @@ class User extends Authenticatable
         return $this->device_id;
     }
 
-    public function notifications(): MorphMany
+    /**
+     * @return MorphMany<DatabaseNotification, self>
+     */
+    public function notifications(): MorphMany<DatabaseNotification, self>
     {
         return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');
     }

@@ -4,6 +4,7 @@ namespace App\Models\Patients;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Database\Factories\Patients\PatientFaceSheetFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -29,6 +30,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class PatientFaceSheet extends Model
 {
+    /**
+     * @use HasFactory<PatientFaceSheetFactory>
+     */
     use HasFactory;
     use SoftDeletes;
 
@@ -37,9 +41,9 @@ class PatientFaceSheet extends Model
     /**
      * Return patient that has this face sheet
      *
-     * @return BelongsTo
+     * @return BelongsTo<Patient, self>
      */
-    public function patient()
+    public function patient(): BelongsTo<Patient, self>
     {
         return $this->belongsTo(Patient::class, 'patient_id');
     }

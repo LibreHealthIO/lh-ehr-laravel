@@ -30,7 +30,7 @@ class FilePermissionChecker
      * @param array<string, int> $folders
      * @return array<string, mixed>
      */
-    public function check(array<string, int> $folders): array<string, mixed>
+    public function check(array $folders): array
     {
         foreach ($folders as $folder => $permission) {
             $status = true;

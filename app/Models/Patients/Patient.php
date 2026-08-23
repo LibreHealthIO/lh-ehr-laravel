@@ -3,6 +3,7 @@
 namespace App\Models\Patients;
 
 use App\Models\Address;
+use Database\Factories\Patients\PatientFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,6 +26,9 @@ use JamesDordoy\LaravelVueDatatable\Traits\LaravelVueDatatableTrait;
  */
 class Patient extends Model
 {
+    /**
+     * @use HasFactory<PatientFactory>
+     */
     use HasFactory;
     use LaravelVueDatatableTrait;
     use SoftDeletes;
@@ -44,9 +48,9 @@ class Patient extends Model
     /**
      * Return address of the patient.
      *
-     * @return BelongsTo
+     * @return BelongsTo<Address, self>
      */
-    public function address(): BelongsTo
+    public function address(): BelongsTo<Address, self>
     {
         return $this->belongsTo(Address::class, 'address_id');
     }
@@ -54,9 +58,9 @@ class Patient extends Model
     /**
      * Return patient's face sheet data
      *
-     * @return HasOne
+     * @return HasOne<PatientFaceSheet, self>
      */
-    public function faceSheet(): HasOne
+    public function faceSheet(): HasOne<PatientFaceSheet, self>
     {
         return $this->hasOne(PatientFaceSheet::class, 'patient_id');
     }
@@ -64,9 +68,9 @@ class Patient extends Model
     /**
      * Return patient's history data
      *
-     * @return HasOne
+     * @return HasOne<PatientHistory, self>
      */
-    public function history(): HasOne
+    public function history(): HasOne<PatientHistory, self>
     {
         return $this->hasOne(PatientHistory::class, 'patient_id');
     }

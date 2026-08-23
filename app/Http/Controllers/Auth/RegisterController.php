@@ -47,7 +47,7 @@ class RegisterController extends Controller
      * @param  array<string, mixed>  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array<string, mixed> $data)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -62,7 +62,7 @@ class RegisterController extends Controller
      * @param  array<string, mixed>  $data
      * @return User
      */
-    protected function create(array<string, mixed> $data)
+    protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],

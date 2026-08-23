@@ -39,7 +39,7 @@ class HandleInertiaRequests extends Middleware
      * @param Request $request
      * @return array<string, mixed>
      */
-    public function share(Request $request): array<string, mixed>
+    public function share(Request $request): array
     {
         if (App::isDownForMaintenance()) {
             Debugbar()->disable();
@@ -55,7 +55,7 @@ class HandleInertiaRequests extends Middleware
      * @param Request $request
      * @return array<string, mixed>
      */
-    protected function getShared(Request $request): array<string, mixed>
+    protected function getShared(Request $request): array
     {
         return [
             'app_name' => app_name(),

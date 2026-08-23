@@ -3,20 +3,24 @@
 namespace App\Models\Facilities;
 
 use App\Models\Address;
+use Database\Factories\Facilities\FacilityFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Facility extends Model
 {
+    /**
+     * @use HasFactory<FacilityFactory>
+     */
     use HasFactory;
 
     /**
      * Returns facility address.
      *
-     * @return BelongsTo
+     * @return BelongsTo<Address, self>
      */
-    public function address()
+    public function address(): BelongsTo<Address, self>
     {
         return $this->belongsTo(Address::class, 'address_id');
     }
